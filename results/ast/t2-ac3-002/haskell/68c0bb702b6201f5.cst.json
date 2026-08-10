@@ -1,0 +1,2800 @@
+{
+  "type": "haskell",
+  "text": "lcsLength :: String -> String -> Int\nlcsLength s1 s2 = dp !! m !! n\n  where\n    m = length s1\n    n = length s2\n    dp = [[if i == 0 || j == 0 \n           then 0 \n           else if s1 !! (i - 1) == s2 !! (j - 1) \n                then dp !! (i - 1) !! (j - 1) + 1 \n                else max (dp !! (i - 1) !! j) (dp !! i !! (j - 1))\n           | j <- [0..n]]\n          | i <- [0..m]]",
+  "start_point": [
+    0,
+    0
+  ],
+  "end_point": [
+    11,
+    24
+  ],
+  "children": [
+    {
+      "type": "signature",
+      "text": "lcsLength :: String -> String -> Int",
+      "start_point": [
+        0,
+        0
+      ],
+      "end_point": [
+        0,
+        36
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "lcsLength",
+          "start_point": [
+            0,
+            0
+          ],
+          "end_point": [
+            0,
+            9
+          ],
+          "children": []
+        },
+        {
+          "type": "::",
+          "text": "::",
+          "start_point": [
+            0,
+            10
+          ],
+          "end_point": [
+            0,
+            12
+          ],
+          "children": []
+        },
+        {
+          "type": "fun",
+          "text": "String -> String -> Int",
+          "start_point": [
+            0,
+            13
+          ],
+          "end_point": [
+            0,
+            36
+          ],
+          "children": [
+            {
+              "type": "type_name",
+              "text": "String",
+              "start_point": [
+                0,
+                13
+              ],
+              "end_point": [
+                0,
+                19
+              ],
+              "children": [
+                {
+                  "type": "type",
+                  "text": "String",
+                  "start_point": [
+                    0,
+                    13
+                  ],
+                  "end_point": [
+                    0,
+                    19
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "->",
+              "text": "->",
+              "start_point": [
+                0,
+                20
+              ],
+              "end_point": [
+                0,
+                22
+              ],
+              "children": []
+            },
+            {
+              "type": "fun",
+              "text": "String -> Int",
+              "start_point": [
+                0,
+                23
+              ],
+              "end_point": [
+                0,
+                36
+              ],
+              "children": [
+                {
+                  "type": "type_name",
+                  "text": "String",
+                  "start_point": [
+                    0,
+                    23
+                  ],
+                  "end_point": [
+                    0,
+                    29
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "String",
+                      "start_point": [
+                        0,
+                        23
+                      ],
+                      "end_point": [
+                        0,
+                        29
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "->",
+                  "text": "->",
+                  "start_point": [
+                    0,
+                    30
+                  ],
+                  "end_point": [
+                    0,
+                    32
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "type_name",
+                  "text": "Int",
+                  "start_point": [
+                    0,
+                    33
+                  ],
+                  "end_point": [
+                    0,
+                    36
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "Int",
+                      "start_point": [
+                        0,
+                        33
+                      ],
+                      "end_point": [
+                        0,
+                        36
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "lcsLength s1 s2 = dp !! m !! n\n  where\n    m = length s1\n    n = length s2\n    dp = [[if i == 0 || j == 0 \n           then 0 \n           else if s1 !! (i - 1) == s2 !! (j - 1) \n                then dp !! (i - 1) !! (j - 1) + 1 \n                else max (dp !! (i - 1) !! j) (dp !! i !! (j - 1))\n           | j <- [0..n]]\n          | i <- [0..m]]",
+      "start_point": [
+        1,
+        0
+      ],
+      "end_point": [
+        11,
+        24
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "lcsLength",
+          "start_point": [
+            1,
+            0
+          ],
+          "end_point": [
+            1,
+            9
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "s1 s2",
+          "start_point": [
+            1,
+            10
+          ],
+          "end_point": [
+            1,
+            15
+          ],
+          "children": [
+            {
+              "type": "pat_name",
+              "text": "s1",
+              "start_point": [
+                1,
+                10
+              ],
+              "end_point": [
+                1,
+                12
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "s1",
+                  "start_point": [
+                    1,
+                    10
+                  ],
+                  "end_point": [
+                    1,
+                    12
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "pat_name",
+              "text": "s2",
+              "start_point": [
+                1,
+                13
+              ],
+              "end_point": [
+                1,
+                15
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "s2",
+                  "start_point": [
+                    1,
+                    13
+                  ],
+                  "end_point": [
+                    1,
+                    15
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            1,
+            16
+          ],
+          "end_point": [
+            1,
+            17
+          ],
+          "children": []
+        },
+        {
+          "type": "exp_infix",
+          "text": "dp !! m !! n",
+          "start_point": [
+            1,
+            18
+          ],
+          "end_point": [
+            1,
+            30
+          ],
+          "children": [
+            {
+              "type": "exp_infix",
+              "text": "dp !! m",
+              "start_point": [
+                1,
+                18
+              ],
+              "end_point": [
+                1,
+                25
+              ],
+              "children": [
+                {
+                  "type": "exp_name",
+                  "text": "dp",
+                  "start_point": [
+                    1,
+                    18
+                  ],
+                  "end_point": [
+                    1,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "variable",
+                      "text": "dp",
+                      "start_point": [
+                        1,
+                        18
+                      ],
+                      "end_point": [
+                        1,
+                        20
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "operator",
+                  "text": "!!",
+                  "start_point": [
+                    1,
+                    21
+                  ],
+                  "end_point": [
+                    1,
+                    23
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "exp_name",
+                  "text": "m",
+                  "start_point": [
+                    1,
+                    24
+                  ],
+                  "end_point": [
+                    1,
+                    25
+                  ],
+                  "children": [
+                    {
+                      "type": "variable",
+                      "text": "m",
+                      "start_point": [
+                        1,
+                        24
+                      ],
+                      "end_point": [
+                        1,
+                        25
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "operator",
+              "text": "!!",
+              "start_point": [
+                1,
+                26
+              ],
+              "end_point": [
+                1,
+                28
+              ],
+              "children": []
+            },
+            {
+              "type": "exp_name",
+              "text": "n",
+              "start_point": [
+                1,
+                29
+              ],
+              "end_point": [
+                1,
+                30
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "n",
+                  "start_point": [
+                    1,
+                    29
+                  ],
+                  "end_point": [
+                    1,
+                    30
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "where",
+          "text": "where",
+          "start_point": [
+            2,
+            2
+          ],
+          "end_point": [
+            2,
+            7
+          ],
+          "children": []
+        },
+        {
+          "type": "decls",
+          "text": "m = length s1\n    n = length s2\n    dp = [[if i == 0 || j == 0 \n           then 0 \n           else if s1 !! (i - 1) == s2 !! (j - 1) \n                then dp !! (i - 1) !! (j - 1) + 1 \n                else max (dp !! (i - 1) !! j) (dp !! i !! (j - 1))\n           | j <- [0..n]]\n          | i <- [0..m]]",
+          "start_point": [
+            3,
+            4
+          ],
+          "end_point": [
+            11,
+            24
+          ],
+          "children": [
+            {
+              "type": "function",
+              "text": "m = length s1",
+              "start_point": [
+                3,
+                4
+              ],
+              "end_point": [
+                3,
+                17
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "m",
+                  "start_point": [
+                    3,
+                    4
+                  ],
+                  "end_point": [
+                    3,
+                    5
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "=",
+                  "text": "=",
+                  "start_point": [
+                    3,
+                    6
+                  ],
+                  "end_point": [
+                    3,
+                    7
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "exp_apply",
+                  "text": "length s1",
+                  "start_point": [
+                    3,
+                    8
+                  ],
+                  "end_point": [
+                    3,
+                    17
+                  ],
+                  "children": [
+                    {
+                      "type": "exp_name",
+                      "text": "length",
+                      "start_point": [
+                        3,
+                        8
+                      ],
+                      "end_point": [
+                        3,
+                        14
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "length",
+                          "start_point": [
+                            3,
+                            8
+                          ],
+                          "end_point": [
+                            3,
+                            14
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_name",
+                      "text": "s1",
+                      "start_point": [
+                        3,
+                        15
+                      ],
+                      "end_point": [
+                        3,
+                        17
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "s1",
+                          "start_point": [
+                            3,
+                            15
+                          ],
+                          "end_point": [
+                            3,
+                            17
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "function",
+              "text": "n = length s2",
+              "start_point": [
+                4,
+                4
+              ],
+              "end_point": [
+                4,
+                17
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "n",
+                  "start_point": [
+                    4,
+                    4
+                  ],
+                  "end_point": [
+                    4,
+                    5
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "=",
+                  "text": "=",
+                  "start_point": [
+                    4,
+                    6
+                  ],
+                  "end_point": [
+                    4,
+                    7
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "exp_apply",
+                  "text": "length s2",
+                  "start_point": [
+                    4,
+                    8
+                  ],
+                  "end_point": [
+                    4,
+                    17
+                  ],
+                  "children": [
+                    {
+                      "type": "exp_name",
+                      "text": "length",
+                      "start_point": [
+                        4,
+                        8
+                      ],
+                      "end_point": [
+                        4,
+                        14
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "length",
+                          "start_point": [
+                            4,
+                            8
+                          ],
+                          "end_point": [
+                            4,
+                            14
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_name",
+                      "text": "s2",
+                      "start_point": [
+                        4,
+                        15
+                      ],
+                      "end_point": [
+                        4,
+                        17
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "s2",
+                          "start_point": [
+                            4,
+                            15
+                          ],
+                          "end_point": [
+                            4,
+                            17
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "function",
+              "text": "dp = [[if i == 0 || j == 0 \n           then 0 \n           else if s1 !! (i - 1) == s2 !! (j - 1) \n                then dp !! (i - 1) !! (j - 1) + 1 \n                else max (dp !! (i - 1) !! j) (dp !! i !! (j - 1))\n           | j <- [0..n]]\n          | i <- [0..m]]",
+              "start_point": [
+                5,
+                4
+              ],
+              "end_point": [
+                11,
+                24
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "dp",
+                  "start_point": [
+                    5,
+                    4
+                  ],
+                  "end_point": [
+                    5,
+                    6
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "=",
+                  "text": "=",
+                  "start_point": [
+                    5,
+                    7
+                  ],
+                  "end_point": [
+                    5,
+                    8
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "exp_list_comprehension",
+                  "text": "[[if i == 0 || j == 0 \n           then 0 \n           else if s1 !! (i - 1) == s2 !! (j - 1) \n                then dp !! (i - 1) !! (j - 1) + 1 \n                else max (dp !! (i - 1) !! j) (dp !! i !! (j - 1))\n           | j <- [0..n]]\n          | i <- [0..m]]",
+                  "start_point": [
+                    5,
+                    9
+                  ],
+                  "end_point": [
+                    11,
+                    24
+                  ],
+                  "children": [
+                    {
+                      "type": "[",
+                      "text": "[",
+                      "start_point": [
+                        5,
+                        9
+                      ],
+                      "end_point": [
+                        5,
+                        10
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "exp_list_comprehension",
+                      "text": "[if i == 0 || j == 0 \n           then 0 \n           else if s1 !! (i - 1) == s2 !! (j - 1) \n                then dp !! (i - 1) !! (j - 1) + 1 \n                else max (dp !! (i - 1) !! j) (dp !! i !! (j - 1))\n           | j <- [0..n]]",
+                      "start_point": [
+                        5,
+                        10
+                      ],
+                      "end_point": [
+                        10,
+                        25
+                      ],
+                      "children": [
+                        {
+                          "type": "[",
+                          "text": "[",
+                          "start_point": [
+                            5,
+                            10
+                          ],
+                          "end_point": [
+                            5,
+                            11
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "exp_cond",
+                          "text": "if i == 0 || j == 0 \n           then 0 \n           else if s1 !! (i - 1) == s2 !! (j - 1) \n                then dp !! (i - 1) !! (j - 1) + 1 \n                else max (dp !! (i - 1) !! j) (dp !! i !! (j - 1))",
+                          "start_point": [
+                            5,
+                            11
+                          ],
+                          "end_point": [
+                            9,
+                            66
+                          ],
+                          "children": [
+                            {
+                              "type": "if",
+                              "text": "if",
+                              "start_point": [
+                                5,
+                                11
+                              ],
+                              "end_point": [
+                                5,
+                                13
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "exp_infix",
+                              "text": "i == 0 || j == 0",
+                              "start_point": [
+                                5,
+                                14
+                              ],
+                              "end_point": [
+                                5,
+                                30
+                              ],
+                              "children": [
+                                {
+                                  "type": "exp_infix",
+                                  "text": "i == 0 || j",
+                                  "start_point": [
+                                    5,
+                                    14
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    25
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "exp_infix",
+                                      "text": "i == 0",
+                                      "start_point": [
+                                        5,
+                                        14
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        20
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "exp_name",
+                                          "text": "i",
+                                          "start_point": [
+                                            5,
+                                            14
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            15
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "variable",
+                                              "text": "i",
+                                              "start_point": [
+                                                5,
+                                                14
+                                              ],
+                                              "end_point": [
+                                                5,
+                                                15
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "operator",
+                                          "text": "==",
+                                          "start_point": [
+                                            5,
+                                            16
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            18
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "exp_literal",
+                                          "text": "0",
+                                          "start_point": [
+                                            5,
+                                            19
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            20
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "integer",
+                                              "text": "0",
+                                              "start_point": [
+                                                5,
+                                                19
+                                              ],
+                                              "end_point": [
+                                                5,
+                                                20
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "operator",
+                                      "text": "||",
+                                      "start_point": [
+                                        5,
+                                        21
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        23
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "exp_name",
+                                      "text": "j",
+                                      "start_point": [
+                                        5,
+                                        24
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        25
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "variable",
+                                          "text": "j",
+                                          "start_point": [
+                                            5,
+                                            24
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            25
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "operator",
+                                  "text": "==",
+                                  "start_point": [
+                                    5,
+                                    26
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    28
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "exp_literal",
+                                  "text": "0",
+                                  "start_point": [
+                                    5,
+                                    29
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    30
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "integer",
+                                      "text": "0",
+                                      "start_point": [
+                                        5,
+                                        29
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        30
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "then",
+                              "text": "then",
+                              "start_point": [
+                                6,
+                                11
+                              ],
+                              "end_point": [
+                                6,
+                                15
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "exp_literal",
+                              "text": "0",
+                              "start_point": [
+                                6,
+                                16
+                              ],
+                              "end_point": [
+                                6,
+                                17
+                              ],
+                              "children": [
+                                {
+                                  "type": "integer",
+                                  "text": "0",
+                                  "start_point": [
+                                    6,
+                                    16
+                                  ],
+                                  "end_point": [
+                                    6,
+                                    17
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "else",
+                              "text": "else",
+                              "start_point": [
+                                7,
+                                11
+                              ],
+                              "end_point": [
+                                7,
+                                15
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "exp_cond",
+                              "text": "if s1 !! (i - 1) == s2 !! (j - 1) \n                then dp !! (i - 1) !! (j - 1) + 1 \n                else max (dp !! (i - 1) !! j) (dp !! i !! (j - 1))",
+                              "start_point": [
+                                7,
+                                16
+                              ],
+                              "end_point": [
+                                9,
+                                66
+                              ],
+                              "children": [
+                                {
+                                  "type": "if",
+                                  "text": "if",
+                                  "start_point": [
+                                    7,
+                                    16
+                                  ],
+                                  "end_point": [
+                                    7,
+                                    18
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "exp_infix",
+                                  "text": "s1 !! (i - 1) == s2 !! (j - 1)",
+                                  "start_point": [
+                                    7,
+                                    19
+                                  ],
+                                  "end_point": [
+                                    7,
+                                    49
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "exp_infix",
+                                      "text": "s1 !! (i - 1) == s2",
+                                      "start_point": [
+                                        7,
+                                        19
+                                      ],
+                                      "end_point": [
+                                        7,
+                                        38
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "exp_infix",
+                                          "text": "s1 !! (i - 1)",
+                                          "start_point": [
+                                            7,
+                                            19
+                                          ],
+                                          "end_point": [
+                                            7,
+                                            32
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "exp_name",
+                                              "text": "s1",
+                                              "start_point": [
+                                                7,
+                                                19
+                                              ],
+                                              "end_point": [
+                                                7,
+                                                21
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "variable",
+                                                  "text": "s1",
+                                                  "start_point": [
+                                                    7,
+                                                    19
+                                                  ],
+                                                  "end_point": [
+                                                    7,
+                                                    21
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "operator",
+                                              "text": "!!",
+                                              "start_point": [
+                                                7,
+                                                22
+                                              ],
+                                              "end_point": [
+                                                7,
+                                                24
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "exp_parens",
+                                              "text": "(i - 1)",
+                                              "start_point": [
+                                                7,
+                                                25
+                                              ],
+                                              "end_point": [
+                                                7,
+                                                32
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "(",
+                                                  "text": "(",
+                                                  "start_point": [
+                                                    7,
+                                                    25
+                                                  ],
+                                                  "end_point": [
+                                                    7,
+                                                    26
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": "exp_infix",
+                                                  "text": "i - 1",
+                                                  "start_point": [
+                                                    7,
+                                                    26
+                                                  ],
+                                                  "end_point": [
+                                                    7,
+                                                    31
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "exp_name",
+                                                      "text": "i",
+                                                      "start_point": [
+                                                        7,
+                                                        26
+                                                      ],
+                                                      "end_point": [
+                                                        7,
+                                                        27
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "variable",
+                                                          "text": "i",
+                                                          "start_point": [
+                                                            7,
+                                                            26
+                                                          ],
+                                                          "end_point": [
+                                                            7,
+                                                            27
+                                                          ],
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "type": "operator",
+                                                      "text": "-",
+                                                      "start_point": [
+                                                        7,
+                                                        28
+                                                      ],
+                                                      "end_point": [
+                                                        7,
+                                                        29
+                                                      ],
+                                                      "children": []
+                                                    },
+                                                    {
+                                                      "type": "exp_literal",
+                                                      "text": "1",
+                                                      "start_point": [
+                                                        7,
+                                                        30
+                                                      ],
+                                                      "end_point": [
+                                                        7,
+                                                        31
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "integer",
+                                                          "text": "1",
+                                                          "start_point": [
+                                                            7,
+                                                            30
+                                                          ],
+                                                          "end_point": [
+                                                            7,
+                                                            31
+                                                          ],
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "type": ")",
+                                                  "text": ")",
+                                                  "start_point": [
+                                                    7,
+                                                    31
+                                                  ],
+                                                  "end_point": [
+                                                    7,
+                                                    32
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "operator",
+                                          "text": "==",
+                                          "start_point": [
+                                            7,
+                                            33
+                                          ],
+                                          "end_point": [
+                                            7,
+                                            35
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "exp_name",
+                                          "text": "s2",
+                                          "start_point": [
+                                            7,
+                                            36
+                                          ],
+                                          "end_point": [
+                                            7,
+                                            38
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "variable",
+                                              "text": "s2",
+                                              "start_point": [
+                                                7,
+                                                36
+                                              ],
+                                              "end_point": [
+                                                7,
+                                                38
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "operator",
+                                      "text": "!!",
+                                      "start_point": [
+                                        7,
+                                        39
+                                      ],
+                                      "end_point": [
+                                        7,
+                                        41
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "exp_parens",
+                                      "text": "(j - 1)",
+                                      "start_point": [
+                                        7,
+                                        42
+                                      ],
+                                      "end_point": [
+                                        7,
+                                        49
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "(",
+                                          "text": "(",
+                                          "start_point": [
+                                            7,
+                                            42
+                                          ],
+                                          "end_point": [
+                                            7,
+                                            43
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "exp_infix",
+                                          "text": "j - 1",
+                                          "start_point": [
+                                            7,
+                                            43
+                                          ],
+                                          "end_point": [
+                                            7,
+                                            48
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "exp_name",
+                                              "text": "j",
+                                              "start_point": [
+                                                7,
+                                                43
+                                              ],
+                                              "end_point": [
+                                                7,
+                                                44
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "variable",
+                                                  "text": "j",
+                                                  "start_point": [
+                                                    7,
+                                                    43
+                                                  ],
+                                                  "end_point": [
+                                                    7,
+                                                    44
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "operator",
+                                              "text": "-",
+                                              "start_point": [
+                                                7,
+                                                45
+                                              ],
+                                              "end_point": [
+                                                7,
+                                                46
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "exp_literal",
+                                              "text": "1",
+                                              "start_point": [
+                                                7,
+                                                47
+                                              ],
+                                              "end_point": [
+                                                7,
+                                                48
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "integer",
+                                                  "text": "1",
+                                                  "start_point": [
+                                                    7,
+                                                    47
+                                                  ],
+                                                  "end_point": [
+                                                    7,
+                                                    48
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": ")",
+                                          "text": ")",
+                                          "start_point": [
+                                            7,
+                                            48
+                                          ],
+                                          "end_point": [
+                                            7,
+                                            49
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "then",
+                                  "text": "then",
+                                  "start_point": [
+                                    8,
+                                    16
+                                  ],
+                                  "end_point": [
+                                    8,
+                                    20
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "exp_infix",
+                                  "text": "dp !! (i - 1) !! (j - 1) + 1",
+                                  "start_point": [
+                                    8,
+                                    21
+                                  ],
+                                  "end_point": [
+                                    8,
+                                    49
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "exp_infix",
+                                      "text": "dp !! (i - 1) !! (j - 1)",
+                                      "start_point": [
+                                        8,
+                                        21
+                                      ],
+                                      "end_point": [
+                                        8,
+                                        45
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "exp_infix",
+                                          "text": "dp !! (i - 1)",
+                                          "start_point": [
+                                            8,
+                                            21
+                                          ],
+                                          "end_point": [
+                                            8,
+                                            34
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "exp_name",
+                                              "text": "dp",
+                                              "start_point": [
+                                                8,
+                                                21
+                                              ],
+                                              "end_point": [
+                                                8,
+                                                23
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "variable",
+                                                  "text": "dp",
+                                                  "start_point": [
+                                                    8,
+                                                    21
+                                                  ],
+                                                  "end_point": [
+                                                    8,
+                                                    23
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "operator",
+                                              "text": "!!",
+                                              "start_point": [
+                                                8,
+                                                24
+                                              ],
+                                              "end_point": [
+                                                8,
+                                                26
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "exp_parens",
+                                              "text": "(i - 1)",
+                                              "start_point": [
+                                                8,
+                                                27
+                                              ],
+                                              "end_point": [
+                                                8,
+                                                34
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "(",
+                                                  "text": "(",
+                                                  "start_point": [
+                                                    8,
+                                                    27
+                                                  ],
+                                                  "end_point": [
+                                                    8,
+                                                    28
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": "exp_infix",
+                                                  "text": "i - 1",
+                                                  "start_point": [
+                                                    8,
+                                                    28
+                                                  ],
+                                                  "end_point": [
+                                                    8,
+                                                    33
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "exp_name",
+                                                      "text": "i",
+                                                      "start_point": [
+                                                        8,
+                                                        28
+                                                      ],
+                                                      "end_point": [
+                                                        8,
+                                                        29
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "variable",
+                                                          "text": "i",
+                                                          "start_point": [
+                                                            8,
+                                                            28
+                                                          ],
+                                                          "end_point": [
+                                                            8,
+                                                            29
+                                                          ],
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "type": "operator",
+                                                      "text": "-",
+                                                      "start_point": [
+                                                        8,
+                                                        30
+                                                      ],
+                                                      "end_point": [
+                                                        8,
+                                                        31
+                                                      ],
+                                                      "children": []
+                                                    },
+                                                    {
+                                                      "type": "exp_literal",
+                                                      "text": "1",
+                                                      "start_point": [
+                                                        8,
+                                                        32
+                                                      ],
+                                                      "end_point": [
+                                                        8,
+                                                        33
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "integer",
+                                                          "text": "1",
+                                                          "start_point": [
+                                                            8,
+                                                            32
+                                                          ],
+                                                          "end_point": [
+                                                            8,
+                                                            33
+                                                          ],
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "type": ")",
+                                                  "text": ")",
+                                                  "start_point": [
+                                                    8,
+                                                    33
+                                                  ],
+                                                  "end_point": [
+                                                    8,
+                                                    34
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "operator",
+                                          "text": "!!",
+                                          "start_point": [
+                                            8,
+                                            35
+                                          ],
+                                          "end_point": [
+                                            8,
+                                            37
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "exp_parens",
+                                          "text": "(j - 1)",
+                                          "start_point": [
+                                            8,
+                                            38
+                                          ],
+                                          "end_point": [
+                                            8,
+                                            45
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "(",
+                                              "text": "(",
+                                              "start_point": [
+                                                8,
+                                                38
+                                              ],
+                                              "end_point": [
+                                                8,
+                                                39
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "exp_infix",
+                                              "text": "j - 1",
+                                              "start_point": [
+                                                8,
+                                                39
+                                              ],
+                                              "end_point": [
+                                                8,
+                                                44
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "exp_name",
+                                                  "text": "j",
+                                                  "start_point": [
+                                                    8,
+                                                    39
+                                                  ],
+                                                  "end_point": [
+                                                    8,
+                                                    40
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "variable",
+                                                      "text": "j",
+                                                      "start_point": [
+                                                        8,
+                                                        39
+                                                      ],
+                                                      "end_point": [
+                                                        8,
+                                                        40
+                                                      ],
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "type": "operator",
+                                                  "text": "-",
+                                                  "start_point": [
+                                                    8,
+                                                    41
+                                                  ],
+                                                  "end_point": [
+                                                    8,
+                                                    42
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": "exp_literal",
+                                                  "text": "1",
+                                                  "start_point": [
+                                                    8,
+                                                    43
+                                                  ],
+                                                  "end_point": [
+                                                    8,
+                                                    44
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "integer",
+                                                      "text": "1",
+                                                      "start_point": [
+                                                        8,
+                                                        43
+                                                      ],
+                                                      "end_point": [
+                                                        8,
+                                                        44
+                                                      ],
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": ")",
+                                              "text": ")",
+                                              "start_point": [
+                                                8,
+                                                44
+                                              ],
+                                              "end_point": [
+                                                8,
+                                                45
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "operator",
+                                      "text": "+",
+                                      "start_point": [
+                                        8,
+                                        46
+                                      ],
+                                      "end_point": [
+                                        8,
+                                        47
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "exp_literal",
+                                      "text": "1",
+                                      "start_point": [
+                                        8,
+                                        48
+                                      ],
+                                      "end_point": [
+                                        8,
+                                        49
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "integer",
+                                          "text": "1",
+                                          "start_point": [
+                                            8,
+                                            48
+                                          ],
+                                          "end_point": [
+                                            8,
+                                            49
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "else",
+                                  "text": "else",
+                                  "start_point": [
+                                    9,
+                                    16
+                                  ],
+                                  "end_point": [
+                                    9,
+                                    20
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "exp_apply",
+                                  "text": "max (dp !! (i - 1) !! j) (dp !! i !! (j - 1))",
+                                  "start_point": [
+                                    9,
+                                    21
+                                  ],
+                                  "end_point": [
+                                    9,
+                                    66
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "exp_name",
+                                      "text": "max",
+                                      "start_point": [
+                                        9,
+                                        21
+                                      ],
+                                      "end_point": [
+                                        9,
+                                        24
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "variable",
+                                          "text": "max",
+                                          "start_point": [
+                                            9,
+                                            21
+                                          ],
+                                          "end_point": [
+                                            9,
+                                            24
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "exp_parens",
+                                      "text": "(dp !! (i - 1) !! j)",
+                                      "start_point": [
+                                        9,
+                                        25
+                                      ],
+                                      "end_point": [
+                                        9,
+                                        45
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "(",
+                                          "text": "(",
+                                          "start_point": [
+                                            9,
+                                            25
+                                          ],
+                                          "end_point": [
+                                            9,
+                                            26
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "exp_infix",
+                                          "text": "dp !! (i - 1) !! j",
+                                          "start_point": [
+                                            9,
+                                            26
+                                          ],
+                                          "end_point": [
+                                            9,
+                                            44
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "exp_infix",
+                                              "text": "dp !! (i - 1)",
+                                              "start_point": [
+                                                9,
+                                                26
+                                              ],
+                                              "end_point": [
+                                                9,
+                                                39
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "exp_name",
+                                                  "text": "dp",
+                                                  "start_point": [
+                                                    9,
+                                                    26
+                                                  ],
+                                                  "end_point": [
+                                                    9,
+                                                    28
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "variable",
+                                                      "text": "dp",
+                                                      "start_point": [
+                                                        9,
+                                                        26
+                                                      ],
+                                                      "end_point": [
+                                                        9,
+                                                        28
+                                                      ],
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "type": "operator",
+                                                  "text": "!!",
+                                                  "start_point": [
+                                                    9,
+                                                    29
+                                                  ],
+                                                  "end_point": [
+                                                    9,
+                                                    31
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": "exp_parens",
+                                                  "text": "(i - 1)",
+                                                  "start_point": [
+                                                    9,
+                                                    32
+                                                  ],
+                                                  "end_point": [
+                                                    9,
+                                                    39
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "(",
+                                                      "text": "(",
+                                                      "start_point": [
+                                                        9,
+                                                        32
+                                                      ],
+                                                      "end_point": [
+                                                        9,
+                                                        33
+                                                      ],
+                                                      "children": []
+                                                    },
+                                                    {
+                                                      "type": "exp_infix",
+                                                      "text": "i - 1",
+                                                      "start_point": [
+                                                        9,
+                                                        33
+                                                      ],
+                                                      "end_point": [
+                                                        9,
+                                                        38
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "exp_name",
+                                                          "text": "i",
+                                                          "start_point": [
+                                                            9,
+                                                            33
+                                                          ],
+                                                          "end_point": [
+                                                            9,
+                                                            34
+                                                          ],
+                                                          "children": [
+                                                            {
+                                                              "type": "variable",
+                                                              "text": "i",
+                                                              "start_point": [
+                                                                9,
+                                                                33
+                                                              ],
+                                                              "end_point": [
+                                                                9,
+                                                                34
+                                                              ],
+                                                              "children": []
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "type": "operator",
+                                                          "text": "-",
+                                                          "start_point": [
+                                                            9,
+                                                            35
+                                                          ],
+                                                          "end_point": [
+                                                            9,
+                                                            36
+                                                          ],
+                                                          "children": []
+                                                        },
+                                                        {
+                                                          "type": "exp_literal",
+                                                          "text": "1",
+                                                          "start_point": [
+                                                            9,
+                                                            37
+                                                          ],
+                                                          "end_point": [
+                                                            9,
+                                                            38
+                                                          ],
+                                                          "children": [
+                                                            {
+                                                              "type": "integer",
+                                                              "text": "1",
+                                                              "start_point": [
+                                                                9,
+                                                                37
+                                                              ],
+                                                              "end_point": [
+                                                                9,
+                                                                38
+                                                              ],
+                                                              "children": []
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "type": ")",
+                                                      "text": ")",
+                                                      "start_point": [
+                                                        9,
+                                                        38
+                                                      ],
+                                                      "end_point": [
+                                                        9,
+                                                        39
+                                                      ],
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "operator",
+                                              "text": "!!",
+                                              "start_point": [
+                                                9,
+                                                40
+                                              ],
+                                              "end_point": [
+                                                9,
+                                                42
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "exp_name",
+                                              "text": "j",
+                                              "start_point": [
+                                                9,
+                                                43
+                                              ],
+                                              "end_point": [
+                                                9,
+                                                44
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "variable",
+                                                  "text": "j",
+                                                  "start_point": [
+                                                    9,
+                                                    43
+                                                  ],
+                                                  "end_point": [
+                                                    9,
+                                                    44
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": ")",
+                                          "text": ")",
+                                          "start_point": [
+                                            9,
+                                            44
+                                          ],
+                                          "end_point": [
+                                            9,
+                                            45
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "exp_parens",
+                                      "text": "(dp !! i !! (j - 1))",
+                                      "start_point": [
+                                        9,
+                                        46
+                                      ],
+                                      "end_point": [
+                                        9,
+                                        66
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "(",
+                                          "text": "(",
+                                          "start_point": [
+                                            9,
+                                            46
+                                          ],
+                                          "end_point": [
+                                            9,
+                                            47
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "exp_infix",
+                                          "text": "dp !! i !! (j - 1)",
+                                          "start_point": [
+                                            9,
+                                            47
+                                          ],
+                                          "end_point": [
+                                            9,
+                                            65
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "exp_infix",
+                                              "text": "dp !! i",
+                                              "start_point": [
+                                                9,
+                                                47
+                                              ],
+                                              "end_point": [
+                                                9,
+                                                54
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "exp_name",
+                                                  "text": "dp",
+                                                  "start_point": [
+                                                    9,
+                                                    47
+                                                  ],
+                                                  "end_point": [
+                                                    9,
+                                                    49
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "variable",
+                                                      "text": "dp",
+                                                      "start_point": [
+                                                        9,
+                                                        47
+                                                      ],
+                                                      "end_point": [
+                                                        9,
+                                                        49
+                                                      ],
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "type": "operator",
+                                                  "text": "!!",
+                                                  "start_point": [
+                                                    9,
+                                                    50
+                                                  ],
+                                                  "end_point": [
+                                                    9,
+                                                    52
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": "exp_name",
+                                                  "text": "i",
+                                                  "start_point": [
+                                                    9,
+                                                    53
+                                                  ],
+                                                  "end_point": [
+                                                    9,
+                                                    54
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "variable",
+                                                      "text": "i",
+                                                      "start_point": [
+                                                        9,
+                                                        53
+                                                      ],
+                                                      "end_point": [
+                                                        9,
+                                                        54
+                                                      ],
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "operator",
+                                              "text": "!!",
+                                              "start_point": [
+                                                9,
+                                                55
+                                              ],
+                                              "end_point": [
+                                                9,
+                                                57
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "exp_parens",
+                                              "text": "(j - 1)",
+                                              "start_point": [
+                                                9,
+                                                58
+                                              ],
+                                              "end_point": [
+                                                9,
+                                                65
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "(",
+                                                  "text": "(",
+                                                  "start_point": [
+                                                    9,
+                                                    58
+                                                  ],
+                                                  "end_point": [
+                                                    9,
+                                                    59
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": "exp_infix",
+                                                  "text": "j - 1",
+                                                  "start_point": [
+                                                    9,
+                                                    59
+                                                  ],
+                                                  "end_point": [
+                                                    9,
+                                                    64
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "exp_name",
+                                                      "text": "j",
+                                                      "start_point": [
+                                                        9,
+                                                        59
+                                                      ],
+                                                      "end_point": [
+                                                        9,
+                                                        60
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "variable",
+                                                          "text": "j",
+                                                          "start_point": [
+                                                            9,
+                                                            59
+                                                          ],
+                                                          "end_point": [
+                                                            9,
+                                                            60
+                                                          ],
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "type": "operator",
+                                                      "text": "-",
+                                                      "start_point": [
+                                                        9,
+                                                        61
+                                                      ],
+                                                      "end_point": [
+                                                        9,
+                                                        62
+                                                      ],
+                                                      "children": []
+                                                    },
+                                                    {
+                                                      "type": "exp_literal",
+                                                      "text": "1",
+                                                      "start_point": [
+                                                        9,
+                                                        63
+                                                      ],
+                                                      "end_point": [
+                                                        9,
+                                                        64
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "integer",
+                                                          "text": "1",
+                                                          "start_point": [
+                                                            9,
+                                                            63
+                                                          ],
+                                                          "end_point": [
+                                                            9,
+                                                            64
+                                                          ],
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "type": ")",
+                                                  "text": ")",
+                                                  "start_point": [
+                                                    9,
+                                                    64
+                                                  ],
+                                                  "end_point": [
+                                                    9,
+                                                    65
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": ")",
+                                          "text": ")",
+                                          "start_point": [
+                                            9,
+                                            65
+                                          ],
+                                          "end_point": [
+                                            9,
+                                            66
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "|",
+                          "text": "|",
+                          "start_point": [
+                            10,
+                            11
+                          ],
+                          "end_point": [
+                            10,
+                            12
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "qual",
+                          "text": "j <- [0..n]",
+                          "start_point": [
+                            10,
+                            13
+                          ],
+                          "end_point": [
+                            10,
+                            24
+                          ],
+                          "children": [
+                            {
+                              "type": "bind_pattern",
+                              "text": "j <- [0..n]",
+                              "start_point": [
+                                10,
+                                13
+                              ],
+                              "end_point": [
+                                10,
+                                24
+                              ],
+                              "children": [
+                                {
+                                  "type": "pat_name",
+                                  "text": "j",
+                                  "start_point": [
+                                    10,
+                                    13
+                                  ],
+                                  "end_point": [
+                                    10,
+                                    14
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "variable",
+                                      "text": "j",
+                                      "start_point": [
+                                        10,
+                                        13
+                                      ],
+                                      "end_point": [
+                                        10,
+                                        14
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "<-",
+                                  "text": "<-",
+                                  "start_point": [
+                                    10,
+                                    15
+                                  ],
+                                  "end_point": [
+                                    10,
+                                    17
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "exp_arithmetic_sequence",
+                                  "text": "[0..n]",
+                                  "start_point": [
+                                    10,
+                                    18
+                                  ],
+                                  "end_point": [
+                                    10,
+                                    24
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "[",
+                                      "text": "[",
+                                      "start_point": [
+                                        10,
+                                        18
+                                      ],
+                                      "end_point": [
+                                        10,
+                                        19
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "exp_literal",
+                                      "text": "0",
+                                      "start_point": [
+                                        10,
+                                        19
+                                      ],
+                                      "end_point": [
+                                        10,
+                                        20
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "integer",
+                                          "text": "0",
+                                          "start_point": [
+                                            10,
+                                            19
+                                          ],
+                                          "end_point": [
+                                            10,
+                                            20
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "exp_name",
+                                      "text": "n",
+                                      "start_point": [
+                                        10,
+                                        22
+                                      ],
+                                      "end_point": [
+                                        10,
+                                        23
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "variable",
+                                          "text": "n",
+                                          "start_point": [
+                                            10,
+                                            22
+                                          ],
+                                          "end_point": [
+                                            10,
+                                            23
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "]",
+                                      "text": "]",
+                                      "start_point": [
+                                        10,
+                                        23
+                                      ],
+                                      "end_point": [
+                                        10,
+                                        24
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "]",
+                          "text": "]",
+                          "start_point": [
+                            10,
+                            24
+                          ],
+                          "end_point": [
+                            10,
+                            25
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "|",
+                      "text": "|",
+                      "start_point": [
+                        11,
+                        10
+                      ],
+                      "end_point": [
+                        11,
+                        11
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "qual",
+                      "text": "i <- [0..m]",
+                      "start_point": [
+                        11,
+                        12
+                      ],
+                      "end_point": [
+                        11,
+                        23
+                      ],
+                      "children": [
+                        {
+                          "type": "bind_pattern",
+                          "text": "i <- [0..m]",
+                          "start_point": [
+                            11,
+                            12
+                          ],
+                          "end_point": [
+                            11,
+                            23
+                          ],
+                          "children": [
+                            {
+                              "type": "pat_name",
+                              "text": "i",
+                              "start_point": [
+                                11,
+                                12
+                              ],
+                              "end_point": [
+                                11,
+                                13
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "i",
+                                  "start_point": [
+                                    11,
+                                    12
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    13
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "<-",
+                              "text": "<-",
+                              "start_point": [
+                                11,
+                                14
+                              ],
+                              "end_point": [
+                                11,
+                                16
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "exp_arithmetic_sequence",
+                              "text": "[0..m]",
+                              "start_point": [
+                                11,
+                                17
+                              ],
+                              "end_point": [
+                                11,
+                                23
+                              ],
+                              "children": [
+                                {
+                                  "type": "[",
+                                  "text": "[",
+                                  "start_point": [
+                                    11,
+                                    17
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    18
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "exp_literal",
+                                  "text": "0",
+                                  "start_point": [
+                                    11,
+                                    18
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    19
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "integer",
+                                      "text": "0",
+                                      "start_point": [
+                                        11,
+                                        18
+                                      ],
+                                      "end_point": [
+                                        11,
+                                        19
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "exp_name",
+                                  "text": "m",
+                                  "start_point": [
+                                    11,
+                                    21
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    22
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "variable",
+                                      "text": "m",
+                                      "start_point": [
+                                        11,
+                                        21
+                                      ],
+                                      "end_point": [
+                                        11,
+                                        22
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "]",
+                                  "text": "]",
+                                  "start_point": [
+                                    11,
+                                    22
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    23
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "]",
+                      "text": "]",
+                      "start_point": [
+                        11,
+                        23
+                      ],
+                      "end_point": [
+                        11,
+                        24
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

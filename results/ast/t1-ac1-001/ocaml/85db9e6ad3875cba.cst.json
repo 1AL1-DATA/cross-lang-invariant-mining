@@ -1,0 +1,1964 @@
+{
+  "type": "ERROR",
+  "text": "let string_reverse s =\n  let len = String.length s in\n  let rec get_codepoints i acc =\n    if i >= len then List.rev acc\n    else\n      let b = Char.code s.[i] in\n      let num_bytes, initial_bits =\n        if b land 0x80 = 0 then (1, b)\n        else if b land 0xE0 = 0xC0 then (2, b land 0x1F)\n        else if b land 0xF0 = 0xE0 then (3, b land 0x0F)\n        else (4, b land 0x07",
+  "start_point": [
+    0,
+    0
+  ],
+  "end_point": [
+    10,
+    28
+  ],
+  "children": [
+    {
+      "type": "let",
+      "text": "let",
+      "start_point": [
+        0,
+        0
+      ],
+      "end_point": [
+        0,
+        3
+      ],
+      "children": []
+    },
+    {
+      "type": "value_name",
+      "text": "string_reverse",
+      "start_point": [
+        0,
+        4
+      ],
+      "end_point": [
+        0,
+        18
+      ],
+      "children": []
+    },
+    {
+      "type": "parameter",
+      "text": "s",
+      "start_point": [
+        0,
+        19
+      ],
+      "end_point": [
+        0,
+        20
+      ],
+      "children": [
+        {
+          "type": "value_pattern",
+          "text": "s",
+          "start_point": [
+            0,
+            19
+          ],
+          "end_point": [
+            0,
+            20
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "=",
+      "text": "=",
+      "start_point": [
+        0,
+        21
+      ],
+      "end_point": [
+        0,
+        22
+      ],
+      "children": []
+    },
+    {
+      "type": "value_definition",
+      "text": "let len = String.length s",
+      "start_point": [
+        1,
+        2
+      ],
+      "end_point": [
+        1,
+        27
+      ],
+      "children": [
+        {
+          "type": "let",
+          "text": "let",
+          "start_point": [
+            1,
+            2
+          ],
+          "end_point": [
+            1,
+            5
+          ],
+          "children": []
+        },
+        {
+          "type": "let_binding",
+          "text": "len = String.length s",
+          "start_point": [
+            1,
+            6
+          ],
+          "end_point": [
+            1,
+            27
+          ],
+          "children": [
+            {
+              "type": "value_name",
+              "text": "len",
+              "start_point": [
+                1,
+                6
+              ],
+              "end_point": [
+                1,
+                9
+              ],
+              "children": []
+            },
+            {
+              "type": "=",
+              "text": "=",
+              "start_point": [
+                1,
+                10
+              ],
+              "end_point": [
+                1,
+                11
+              ],
+              "children": []
+            },
+            {
+              "type": "application_expression",
+              "text": "String.length s",
+              "start_point": [
+                1,
+                12
+              ],
+              "end_point": [
+                1,
+                27
+              ],
+              "children": [
+                {
+                  "type": "value_path",
+                  "text": "String.length",
+                  "start_point": [
+                    1,
+                    12
+                  ],
+                  "end_point": [
+                    1,
+                    25
+                  ],
+                  "children": [
+                    {
+                      "type": "module_path",
+                      "text": "String",
+                      "start_point": [
+                        1,
+                        12
+                      ],
+                      "end_point": [
+                        1,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "module_name",
+                          "text": "String",
+                          "start_point": [
+                            1,
+                            12
+                          ],
+                          "end_point": [
+                            1,
+                            18
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": ".",
+                      "text": ".",
+                      "start_point": [
+                        1,
+                        18
+                      ],
+                      "end_point": [
+                        1,
+                        19
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "value_name",
+                      "text": "length",
+                      "start_point": [
+                        1,
+                        19
+                      ],
+                      "end_point": [
+                        1,
+                        25
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "value_path",
+                  "text": "s",
+                  "start_point": [
+                    1,
+                    26
+                  ],
+                  "end_point": [
+                    1,
+                    27
+                  ],
+                  "children": [
+                    {
+                      "type": "value_name",
+                      "text": "s",
+                      "start_point": [
+                        1,
+                        26
+                      ],
+                      "end_point": [
+                        1,
+                        27
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "in",
+      "text": "in",
+      "start_point": [
+        1,
+        28
+      ],
+      "end_point": [
+        1,
+        30
+      ],
+      "children": []
+    },
+    {
+      "type": "let",
+      "text": "let",
+      "start_point": [
+        2,
+        2
+      ],
+      "end_point": [
+        2,
+        5
+      ],
+      "children": []
+    },
+    {
+      "type": "rec",
+      "text": "rec",
+      "start_point": [
+        2,
+        6
+      ],
+      "end_point": [
+        2,
+        9
+      ],
+      "children": []
+    },
+    {
+      "type": "value_name",
+      "text": "get_codepoints",
+      "start_point": [
+        2,
+        10
+      ],
+      "end_point": [
+        2,
+        24
+      ],
+      "children": []
+    },
+    {
+      "type": "parameter",
+      "text": "i",
+      "start_point": [
+        2,
+        25
+      ],
+      "end_point": [
+        2,
+        26
+      ],
+      "children": [
+        {
+          "type": "value_pattern",
+          "text": "i",
+          "start_point": [
+            2,
+            25
+          ],
+          "end_point": [
+            2,
+            26
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "parameter",
+      "text": "acc",
+      "start_point": [
+        2,
+        27
+      ],
+      "end_point": [
+        2,
+        30
+      ],
+      "children": [
+        {
+          "type": "value_pattern",
+          "text": "acc",
+          "start_point": [
+            2,
+            27
+          ],
+          "end_point": [
+            2,
+            30
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "=",
+      "text": "=",
+      "start_point": [
+        2,
+        31
+      ],
+      "end_point": [
+        2,
+        32
+      ],
+      "children": []
+    },
+    {
+      "type": "if",
+      "text": "if",
+      "start_point": [
+        3,
+        4
+      ],
+      "end_point": [
+        3,
+        6
+      ],
+      "children": []
+    },
+    {
+      "type": "infix_expression",
+      "text": "i >= len",
+      "start_point": [
+        3,
+        7
+      ],
+      "end_point": [
+        3,
+        15
+      ],
+      "children": [
+        {
+          "type": "value_path",
+          "text": "i",
+          "start_point": [
+            3,
+            7
+          ],
+          "end_point": [
+            3,
+            8
+          ],
+          "children": [
+            {
+              "type": "value_name",
+              "text": "i",
+              "start_point": [
+                3,
+                7
+              ],
+              "end_point": [
+                3,
+                8
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "rel_operator",
+          "text": ">=",
+          "start_point": [
+            3,
+            9
+          ],
+          "end_point": [
+            3,
+            11
+          ],
+          "children": []
+        },
+        {
+          "type": "value_path",
+          "text": "len",
+          "start_point": [
+            3,
+            12
+          ],
+          "end_point": [
+            3,
+            15
+          ],
+          "children": [
+            {
+              "type": "value_name",
+              "text": "len",
+              "start_point": [
+                3,
+                12
+              ],
+              "end_point": [
+                3,
+                15
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "then_clause",
+      "text": "then List.rev acc",
+      "start_point": [
+        3,
+        16
+      ],
+      "end_point": [
+        3,
+        33
+      ],
+      "children": [
+        {
+          "type": "then",
+          "text": "then",
+          "start_point": [
+            3,
+            16
+          ],
+          "end_point": [
+            3,
+            20
+          ],
+          "children": []
+        },
+        {
+          "type": "application_expression",
+          "text": "List.rev acc",
+          "start_point": [
+            3,
+            21
+          ],
+          "end_point": [
+            3,
+            33
+          ],
+          "children": [
+            {
+              "type": "value_path",
+              "text": "List.rev",
+              "start_point": [
+                3,
+                21
+              ],
+              "end_point": [
+                3,
+                29
+              ],
+              "children": [
+                {
+                  "type": "module_path",
+                  "text": "List",
+                  "start_point": [
+                    3,
+                    21
+                  ],
+                  "end_point": [
+                    3,
+                    25
+                  ],
+                  "children": [
+                    {
+                      "type": "module_name",
+                      "text": "List",
+                      "start_point": [
+                        3,
+                        21
+                      ],
+                      "end_point": [
+                        3,
+                        25
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": ".",
+                  "text": ".",
+                  "start_point": [
+                    3,
+                    25
+                  ],
+                  "end_point": [
+                    3,
+                    26
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "value_name",
+                  "text": "rev",
+                  "start_point": [
+                    3,
+                    26
+                  ],
+                  "end_point": [
+                    3,
+                    29
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "value_path",
+              "text": "acc",
+              "start_point": [
+                3,
+                30
+              ],
+              "end_point": [
+                3,
+                33
+              ],
+              "children": [
+                {
+                  "type": "value_name",
+                  "text": "acc",
+                  "start_point": [
+                    3,
+                    30
+                  ],
+                  "end_point": [
+                    3,
+                    33
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "else",
+      "text": "else",
+      "start_point": [
+        4,
+        4
+      ],
+      "end_point": [
+        4,
+        8
+      ],
+      "children": []
+    },
+    {
+      "type": "value_definition",
+      "text": "let b = Char.code s.[i]",
+      "start_point": [
+        5,
+        6
+      ],
+      "end_point": [
+        5,
+        29
+      ],
+      "children": [
+        {
+          "type": "let",
+          "text": "let",
+          "start_point": [
+            5,
+            6
+          ],
+          "end_point": [
+            5,
+            9
+          ],
+          "children": []
+        },
+        {
+          "type": "let_binding",
+          "text": "b = Char.code s.[i]",
+          "start_point": [
+            5,
+            10
+          ],
+          "end_point": [
+            5,
+            29
+          ],
+          "children": [
+            {
+              "type": "value_name",
+              "text": "b",
+              "start_point": [
+                5,
+                10
+              ],
+              "end_point": [
+                5,
+                11
+              ],
+              "children": []
+            },
+            {
+              "type": "=",
+              "text": "=",
+              "start_point": [
+                5,
+                12
+              ],
+              "end_point": [
+                5,
+                13
+              ],
+              "children": []
+            },
+            {
+              "type": "application_expression",
+              "text": "Char.code s.[i]",
+              "start_point": [
+                5,
+                14
+              ],
+              "end_point": [
+                5,
+                29
+              ],
+              "children": [
+                {
+                  "type": "value_path",
+                  "text": "Char.code",
+                  "start_point": [
+                    5,
+                    14
+                  ],
+                  "end_point": [
+                    5,
+                    23
+                  ],
+                  "children": [
+                    {
+                      "type": "module_path",
+                      "text": "Char",
+                      "start_point": [
+                        5,
+                        14
+                      ],
+                      "end_point": [
+                        5,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "module_name",
+                          "text": "Char",
+                          "start_point": [
+                            5,
+                            14
+                          ],
+                          "end_point": [
+                            5,
+                            18
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": ".",
+                      "text": ".",
+                      "start_point": [
+                        5,
+                        18
+                      ],
+                      "end_point": [
+                        5,
+                        19
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "value_name",
+                      "text": "code",
+                      "start_point": [
+                        5,
+                        19
+                      ],
+                      "end_point": [
+                        5,
+                        23
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "string_get_expression",
+                  "text": "s.[i]",
+                  "start_point": [
+                    5,
+                    24
+                  ],
+                  "end_point": [
+                    5,
+                    29
+                  ],
+                  "children": [
+                    {
+                      "type": "value_path",
+                      "text": "s",
+                      "start_point": [
+                        5,
+                        24
+                      ],
+                      "end_point": [
+                        5,
+                        25
+                      ],
+                      "children": [
+                        {
+                          "type": "value_name",
+                          "text": "s",
+                          "start_point": [
+                            5,
+                            24
+                          ],
+                          "end_point": [
+                            5,
+                            25
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": ".",
+                      "text": ".",
+                      "start_point": [
+                        5,
+                        25
+                      ],
+                      "end_point": [
+                        5,
+                        26
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "[",
+                      "text": "[",
+                      "start_point": [
+                        5,
+                        26
+                      ],
+                      "end_point": [
+                        5,
+                        27
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "value_path",
+                      "text": "i",
+                      "start_point": [
+                        5,
+                        27
+                      ],
+                      "end_point": [
+                        5,
+                        28
+                      ],
+                      "children": [
+                        {
+                          "type": "value_name",
+                          "text": "i",
+                          "start_point": [
+                            5,
+                            27
+                          ],
+                          "end_point": [
+                            5,
+                            28
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "]",
+                      "text": "]",
+                      "start_point": [
+                        5,
+                        28
+                      ],
+                      "end_point": [
+                        5,
+                        29
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "in",
+      "text": "in",
+      "start_point": [
+        5,
+        30
+      ],
+      "end_point": [
+        5,
+        32
+      ],
+      "children": []
+    },
+    {
+      "type": "let",
+      "text": "let",
+      "start_point": [
+        6,
+        6
+      ],
+      "end_point": [
+        6,
+        9
+      ],
+      "children": []
+    },
+    {
+      "type": "tuple_pattern",
+      "text": "num_bytes, initial_bits",
+      "start_point": [
+        6,
+        10
+      ],
+      "end_point": [
+        6,
+        33
+      ],
+      "children": [
+        {
+          "type": "value_name",
+          "text": "num_bytes",
+          "start_point": [
+            6,
+            10
+          ],
+          "end_point": [
+            6,
+            19
+          ],
+          "children": []
+        },
+        {
+          "type": ",",
+          "text": ",",
+          "start_point": [
+            6,
+            19
+          ],
+          "end_point": [
+            6,
+            20
+          ],
+          "children": []
+        },
+        {
+          "type": "value_name",
+          "text": "initial_bits",
+          "start_point": [
+            6,
+            21
+          ],
+          "end_point": [
+            6,
+            33
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "=",
+      "text": "=",
+      "start_point": [
+        6,
+        34
+      ],
+      "end_point": [
+        6,
+        35
+      ],
+      "children": []
+    },
+    {
+      "type": "if",
+      "text": "if",
+      "start_point": [
+        7,
+        8
+      ],
+      "end_point": [
+        7,
+        10
+      ],
+      "children": []
+    },
+    {
+      "type": "infix_expression",
+      "text": "b land 0x80 = 0",
+      "start_point": [
+        7,
+        11
+      ],
+      "end_point": [
+        7,
+        26
+      ],
+      "children": [
+        {
+          "type": "infix_expression",
+          "text": "b land 0x80",
+          "start_point": [
+            7,
+            11
+          ],
+          "end_point": [
+            7,
+            22
+          ],
+          "children": [
+            {
+              "type": "value_path",
+              "text": "b",
+              "start_point": [
+                7,
+                11
+              ],
+              "end_point": [
+                7,
+                12
+              ],
+              "children": [
+                {
+                  "type": "value_name",
+                  "text": "b",
+                  "start_point": [
+                    7,
+                    11
+                  ],
+                  "end_point": [
+                    7,
+                    12
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "mult_operator",
+              "text": "land",
+              "start_point": [
+                7,
+                13
+              ],
+              "end_point": [
+                7,
+                17
+              ],
+              "children": []
+            },
+            {
+              "type": "number",
+              "text": "0x80",
+              "start_point": [
+                7,
+                18
+              ],
+              "end_point": [
+                7,
+                22
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "rel_operator",
+          "text": "=",
+          "start_point": [
+            7,
+            23
+          ],
+          "end_point": [
+            7,
+            24
+          ],
+          "children": []
+        },
+        {
+          "type": "number",
+          "text": "0",
+          "start_point": [
+            7,
+            25
+          ],
+          "end_point": [
+            7,
+            26
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "then_clause",
+      "text": "then (1, b)",
+      "start_point": [
+        7,
+        27
+      ],
+      "end_point": [
+        7,
+        38
+      ],
+      "children": [
+        {
+          "type": "then",
+          "text": "then",
+          "start_point": [
+            7,
+            27
+          ],
+          "end_point": [
+            7,
+            31
+          ],
+          "children": []
+        },
+        {
+          "type": "parenthesized_expression",
+          "text": "(1, b)",
+          "start_point": [
+            7,
+            32
+          ],
+          "end_point": [
+            7,
+            38
+          ],
+          "children": [
+            {
+              "type": "(",
+              "text": "(",
+              "start_point": [
+                7,
+                32
+              ],
+              "end_point": [
+                7,
+                33
+              ],
+              "children": []
+            },
+            {
+              "type": "product_expression",
+              "text": "1, b",
+              "start_point": [
+                7,
+                33
+              ],
+              "end_point": [
+                7,
+                37
+              ],
+              "children": [
+                {
+                  "type": "number",
+                  "text": "1",
+                  "start_point": [
+                    7,
+                    33
+                  ],
+                  "end_point": [
+                    7,
+                    34
+                  ],
+                  "children": []
+                },
+                {
+                  "type": ",",
+                  "text": ",",
+                  "start_point": [
+                    7,
+                    34
+                  ],
+                  "end_point": [
+                    7,
+                    35
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "value_path",
+                  "text": "b",
+                  "start_point": [
+                    7,
+                    36
+                  ],
+                  "end_point": [
+                    7,
+                    37
+                  ],
+                  "children": [
+                    {
+                      "type": "value_name",
+                      "text": "b",
+                      "start_point": [
+                        7,
+                        36
+                      ],
+                      "end_point": [
+                        7,
+                        37
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": ")",
+              "text": ")",
+              "start_point": [
+                7,
+                37
+              ],
+              "end_point": [
+                7,
+                38
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "else",
+      "text": "else",
+      "start_point": [
+        8,
+        8
+      ],
+      "end_point": [
+        8,
+        12
+      ],
+      "children": []
+    },
+    {
+      "type": "if",
+      "text": "if",
+      "start_point": [
+        8,
+        13
+      ],
+      "end_point": [
+        8,
+        15
+      ],
+      "children": []
+    },
+    {
+      "type": "infix_expression",
+      "text": "b land 0xE0 = 0xC0",
+      "start_point": [
+        8,
+        16
+      ],
+      "end_point": [
+        8,
+        34
+      ],
+      "children": [
+        {
+          "type": "infix_expression",
+          "text": "b land 0xE0",
+          "start_point": [
+            8,
+            16
+          ],
+          "end_point": [
+            8,
+            27
+          ],
+          "children": [
+            {
+              "type": "value_path",
+              "text": "b",
+              "start_point": [
+                8,
+                16
+              ],
+              "end_point": [
+                8,
+                17
+              ],
+              "children": [
+                {
+                  "type": "value_name",
+                  "text": "b",
+                  "start_point": [
+                    8,
+                    16
+                  ],
+                  "end_point": [
+                    8,
+                    17
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "mult_operator",
+              "text": "land",
+              "start_point": [
+                8,
+                18
+              ],
+              "end_point": [
+                8,
+                22
+              ],
+              "children": []
+            },
+            {
+              "type": "number",
+              "text": "0xE0",
+              "start_point": [
+                8,
+                23
+              ],
+              "end_point": [
+                8,
+                27
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "rel_operator",
+          "text": "=",
+          "start_point": [
+            8,
+            28
+          ],
+          "end_point": [
+            8,
+            29
+          ],
+          "children": []
+        },
+        {
+          "type": "number",
+          "text": "0xC0",
+          "start_point": [
+            8,
+            30
+          ],
+          "end_point": [
+            8,
+            34
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "then_clause",
+      "text": "then (2, b land 0x1F)",
+      "start_point": [
+        8,
+        35
+      ],
+      "end_point": [
+        8,
+        56
+      ],
+      "children": [
+        {
+          "type": "then",
+          "text": "then",
+          "start_point": [
+            8,
+            35
+          ],
+          "end_point": [
+            8,
+            39
+          ],
+          "children": []
+        },
+        {
+          "type": "parenthesized_expression",
+          "text": "(2, b land 0x1F)",
+          "start_point": [
+            8,
+            40
+          ],
+          "end_point": [
+            8,
+            56
+          ],
+          "children": [
+            {
+              "type": "(",
+              "text": "(",
+              "start_point": [
+                8,
+                40
+              ],
+              "end_point": [
+                8,
+                41
+              ],
+              "children": []
+            },
+            {
+              "type": "product_expression",
+              "text": "2, b land 0x1F",
+              "start_point": [
+                8,
+                41
+              ],
+              "end_point": [
+                8,
+                55
+              ],
+              "children": [
+                {
+                  "type": "number",
+                  "text": "2",
+                  "start_point": [
+                    8,
+                    41
+                  ],
+                  "end_point": [
+                    8,
+                    42
+                  ],
+                  "children": []
+                },
+                {
+                  "type": ",",
+                  "text": ",",
+                  "start_point": [
+                    8,
+                    42
+                  ],
+                  "end_point": [
+                    8,
+                    43
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "infix_expression",
+                  "text": "b land 0x1F",
+                  "start_point": [
+                    8,
+                    44
+                  ],
+                  "end_point": [
+                    8,
+                    55
+                  ],
+                  "children": [
+                    {
+                      "type": "value_path",
+                      "text": "b",
+                      "start_point": [
+                        8,
+                        44
+                      ],
+                      "end_point": [
+                        8,
+                        45
+                      ],
+                      "children": [
+                        {
+                          "type": "value_name",
+                          "text": "b",
+                          "start_point": [
+                            8,
+                            44
+                          ],
+                          "end_point": [
+                            8,
+                            45
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "mult_operator",
+                      "text": "land",
+                      "start_point": [
+                        8,
+                        46
+                      ],
+                      "end_point": [
+                        8,
+                        50
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "number",
+                      "text": "0x1F",
+                      "start_point": [
+                        8,
+                        51
+                      ],
+                      "end_point": [
+                        8,
+                        55
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": ")",
+              "text": ")",
+              "start_point": [
+                8,
+                55
+              ],
+              "end_point": [
+                8,
+                56
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "else",
+      "text": "else",
+      "start_point": [
+        9,
+        8
+      ],
+      "end_point": [
+        9,
+        12
+      ],
+      "children": []
+    },
+    {
+      "type": "if",
+      "text": "if",
+      "start_point": [
+        9,
+        13
+      ],
+      "end_point": [
+        9,
+        15
+      ],
+      "children": []
+    },
+    {
+      "type": "infix_expression",
+      "text": "b land 0xF0 = 0xE0",
+      "start_point": [
+        9,
+        16
+      ],
+      "end_point": [
+        9,
+        34
+      ],
+      "children": [
+        {
+          "type": "infix_expression",
+          "text": "b land 0xF0",
+          "start_point": [
+            9,
+            16
+          ],
+          "end_point": [
+            9,
+            27
+          ],
+          "children": [
+            {
+              "type": "value_path",
+              "text": "b",
+              "start_point": [
+                9,
+                16
+              ],
+              "end_point": [
+                9,
+                17
+              ],
+              "children": [
+                {
+                  "type": "value_name",
+                  "text": "b",
+                  "start_point": [
+                    9,
+                    16
+                  ],
+                  "end_point": [
+                    9,
+                    17
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "mult_operator",
+              "text": "land",
+              "start_point": [
+                9,
+                18
+              ],
+              "end_point": [
+                9,
+                22
+              ],
+              "children": []
+            },
+            {
+              "type": "number",
+              "text": "0xF0",
+              "start_point": [
+                9,
+                23
+              ],
+              "end_point": [
+                9,
+                27
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "rel_operator",
+          "text": "=",
+          "start_point": [
+            9,
+            28
+          ],
+          "end_point": [
+            9,
+            29
+          ],
+          "children": []
+        },
+        {
+          "type": "number",
+          "text": "0xE0",
+          "start_point": [
+            9,
+            30
+          ],
+          "end_point": [
+            9,
+            34
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "then_clause",
+      "text": "then (3, b land 0x0F)",
+      "start_point": [
+        9,
+        35
+      ],
+      "end_point": [
+        9,
+        56
+      ],
+      "children": [
+        {
+          "type": "then",
+          "text": "then",
+          "start_point": [
+            9,
+            35
+          ],
+          "end_point": [
+            9,
+            39
+          ],
+          "children": []
+        },
+        {
+          "type": "parenthesized_expression",
+          "text": "(3, b land 0x0F)",
+          "start_point": [
+            9,
+            40
+          ],
+          "end_point": [
+            9,
+            56
+          ],
+          "children": [
+            {
+              "type": "(",
+              "text": "(",
+              "start_point": [
+                9,
+                40
+              ],
+              "end_point": [
+                9,
+                41
+              ],
+              "children": []
+            },
+            {
+              "type": "product_expression",
+              "text": "3, b land 0x0F",
+              "start_point": [
+                9,
+                41
+              ],
+              "end_point": [
+                9,
+                55
+              ],
+              "children": [
+                {
+                  "type": "number",
+                  "text": "3",
+                  "start_point": [
+                    9,
+                    41
+                  ],
+                  "end_point": [
+                    9,
+                    42
+                  ],
+                  "children": []
+                },
+                {
+                  "type": ",",
+                  "text": ",",
+                  "start_point": [
+                    9,
+                    42
+                  ],
+                  "end_point": [
+                    9,
+                    43
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "infix_expression",
+                  "text": "b land 0x0F",
+                  "start_point": [
+                    9,
+                    44
+                  ],
+                  "end_point": [
+                    9,
+                    55
+                  ],
+                  "children": [
+                    {
+                      "type": "value_path",
+                      "text": "b",
+                      "start_point": [
+                        9,
+                        44
+                      ],
+                      "end_point": [
+                        9,
+                        45
+                      ],
+                      "children": [
+                        {
+                          "type": "value_name",
+                          "text": "b",
+                          "start_point": [
+                            9,
+                            44
+                          ],
+                          "end_point": [
+                            9,
+                            45
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "mult_operator",
+                      "text": "land",
+                      "start_point": [
+                        9,
+                        46
+                      ],
+                      "end_point": [
+                        9,
+                        50
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "number",
+                      "text": "0x0F",
+                      "start_point": [
+                        9,
+                        51
+                      ],
+                      "end_point": [
+                        9,
+                        55
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": ")",
+              "text": ")",
+              "start_point": [
+                9,
+                55
+              ],
+              "end_point": [
+                9,
+                56
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "else",
+      "text": "else",
+      "start_point": [
+        10,
+        8
+      ],
+      "end_point": [
+        10,
+        12
+      ],
+      "children": []
+    },
+    {
+      "type": "(",
+      "text": "(",
+      "start_point": [
+        10,
+        13
+      ],
+      "end_point": [
+        10,
+        14
+      ],
+      "children": []
+    },
+    {
+      "type": "product_expression",
+      "text": "4, b land 0x07",
+      "start_point": [
+        10,
+        14
+      ],
+      "end_point": [
+        10,
+        28
+      ],
+      "children": [
+        {
+          "type": "number",
+          "text": "4",
+          "start_point": [
+            10,
+            14
+          ],
+          "end_point": [
+            10,
+            15
+          ],
+          "children": []
+        },
+        {
+          "type": ",",
+          "text": ",",
+          "start_point": [
+            10,
+            15
+          ],
+          "end_point": [
+            10,
+            16
+          ],
+          "children": []
+        },
+        {
+          "type": "infix_expression",
+          "text": "b land 0x07",
+          "start_point": [
+            10,
+            17
+          ],
+          "end_point": [
+            10,
+            28
+          ],
+          "children": [
+            {
+              "type": "value_path",
+              "text": "b",
+              "start_point": [
+                10,
+                17
+              ],
+              "end_point": [
+                10,
+                18
+              ],
+              "children": [
+                {
+                  "type": "value_name",
+                  "text": "b",
+                  "start_point": [
+                    10,
+                    17
+                  ],
+                  "end_point": [
+                    10,
+                    18
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "mult_operator",
+              "text": "land",
+              "start_point": [
+                10,
+                19
+              ],
+              "end_point": [
+                10,
+                23
+              ],
+              "children": []
+            },
+            {
+              "type": "number",
+              "text": "0x07",
+              "start_point": [
+                10,
+                24
+              ],
+              "end_point": [
+                10,
+                28
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

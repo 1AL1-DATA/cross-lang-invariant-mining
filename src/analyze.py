@@ -84,26 +84,53 @@ def phase_3_parse_and_lower(data_dir: Path, output_dir: Path) -> Dict:
     ir_output = output_dir / "ir"
     ir_output.mkdir(parents=True, exist_ok=True)
 
-    stats = {"total": 0, "success": 0, "errors": []}
-
-    # Discover all implementation source files in the corpus. The corpus uses
-    # two layouts: batch-style files `{spec}_{lang}_{hash}.{ext}` under
-    # `{spec}/{lang}/batch1/` (generate.py / run_pipeline.py) and
-    # `{spec}/{lang}/impl_N/implementation.{ext}` (generate_via_zen.py). This
-    # previously globbed only `implementation.*`, silently finding nothing.
+    # ── 1. Discover implementation source files ──────────────────────────────
+    # Scan spec/lang/impl_N/implementation.{ext} — exactly one file per
+    # (spec, lang, impl_idx). Non-recursive and scoped to impl_*/ prevents
+    # any double-counting if multiple generation runs ever coexist.
     EXT_MAP = {'.py': 'python', '.rs': 'rust', '.hs': 'haskell',
                '.ml': 'ocaml', '.go': 'go', '.ts': 'typescript'}
-    source_files = []
-    for ext, lang in EXT_MAP.items():
-        for impl_file in data_dir.rglob(f"*{ext}"):
-            name = impl_file.name.lower()
-            if "reference" in name or "test" in name or "spec" in name:
-                continue
-            source_files.append(impl_file)
 
+    source_files: List[Path] = []
+    for ext, lang in EXT_MAP.items():
+        for spec_dir in data_dir.iterdir():
+            if not spec_dir.is_dir():
+                continue
+            for lang_dir in spec_dir.iterdir():
+                if not lang_dir.is_dir():
+                    continue
+                for impl_dir in lang_dir.iterdir():
+                    if not impl_dir.is_dir():
+                        continue
+                    impl_file = impl_dir / f"implementation{ext}"
+                    if impl_file.exists():
+                        source_files.append(impl_file)
+
+    # Assert we found exactly the expected number of implementations.
+    # Canonical corpus: 20 specs × 6 langs × 3 impls = 360.
+    # Langs with 0 impls for a given spec (e.g. t2-dp1-001 missing haskell)
+    # are flagged as warnings but do not raise — the assertion checks total N.
+    EXPECTED_TOTAL = 360
+    if len(source_files) != EXPECTED_TOTAL:
+        by_cell: Dict[str, int] = {}
+        for f in source_files:
+            key = f"{f.parent.parent.parent.name}/{f.parent.parent.name}"
+            by_cell[key] = by_cell.get(key, 0) + 1
+        missing = [k for k, v in by_cell.items() if v < 3]
+        if missing:
+            print(f"  ⚠ {len(missing)} cells with < 3 implementations: "
+                  f"{missing[:5]}{'...' if len(missing) > 5 else ''}")
+        raise AssertionError(
+            f"phase_3: found {len(source_files)} source files, expected {EXPECTED_TOTAL}. "
+            f"Check corpus completeness before proceeding."
+        )
+    print(f"  ✓ Corpus scan: {len(source_files)} implementations (360 expected)")
+
+    # ── 2. Parse + lower each implementation ──────────────────────────────────
+    stats: Dict = {"total": 0, "success": 0, "errors": []}
     for impl_file in source_files:
         lang = EXT_MAP.get(impl_file.suffix)
-        spec_id = impl_file.parent.parent.parent.name  # {spec}/{lang}/batch1/{file}
+        spec_id = impl_file.parent.parent.parent.name
         try:
             source = impl_file.read_text()
             parsed = ParsedImplementation.from_source(
@@ -117,10 +144,14 @@ def phase_3_parse_and_lower(data_dir: Path, output_dir: Path) -> Dict:
 
     print(f"  → {stats['success']}/{stats['total']} implementations parsed and lowered")
     if stats["errors"]:
-        print(f"  → {len(stats['errors'])} errors (see results/errors.json)")
+        err_path = output_dir / "phase3_errors.json"
+        import json as _json
+        err_path.write_text(_json.dumps(stats["errors"], indent=2))
+        print(f"  → {len(stats['errors'])} errors (see {err_path.name})")
 
     path = RESULTS_DIR / "phase3_stats.json"
-    path.write_text(json.dumps(stats, indent=2))
+    import json as _json
+    path.write_text(_json.dumps(stats, indent=2))
     return stats
 
 

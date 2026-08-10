@@ -1,0 +1,2702 @@
+{
+  "type": "compilation_unit",
+  "text": "exception Parse_error of string\n\nlet rec tokenize s i len tokens =\n  if i >= len then List.rev tokens\n  else\n    let c = s.[i] in\n    if c = ' ' then tokenize s (i + 1) len tokens\n    else if c = '+' then tokenize s (i + 1) len ((`Plus, i) :: tokens)\n    else if c = '-' then tokenize s (i + 1) len ((`Minus, i) :: tokens)\n    else if c = '*' then tokenize s (i + 1)",
+  "start_point": [
+    0,
+    0
+  ],
+  "end_point": [
+    9,
+    43
+  ],
+  "children": [
+    {
+      "type": "exception_definition",
+      "text": "exception Parse_error of string",
+      "start_point": [
+        0,
+        0
+      ],
+      "end_point": [
+        0,
+        31
+      ],
+      "children": [
+        {
+          "type": "exception",
+          "text": "exception",
+          "start_point": [
+            0,
+            0
+          ],
+          "end_point": [
+            0,
+            9
+          ],
+          "children": []
+        },
+        {
+          "type": "constructor_declaration",
+          "text": "Parse_error of string",
+          "start_point": [
+            0,
+            10
+          ],
+          "end_point": [
+            0,
+            31
+          ],
+          "children": [
+            {
+              "type": "constructor_name",
+              "text": "Parse_error",
+              "start_point": [
+                0,
+                10
+              ],
+              "end_point": [
+                0,
+                21
+              ],
+              "children": []
+            },
+            {
+              "type": "of",
+              "text": "of",
+              "start_point": [
+                0,
+                22
+              ],
+              "end_point": [
+                0,
+                24
+              ],
+              "children": []
+            },
+            {
+              "type": "type_constructor_path",
+              "text": "string",
+              "start_point": [
+                0,
+                25
+              ],
+              "end_point": [
+                0,
+                31
+              ],
+              "children": [
+                {
+                  "type": "type_constructor",
+                  "text": "string",
+                  "start_point": [
+                    0,
+                    25
+                  ],
+                  "end_point": [
+                    0,
+                    31
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "value_definition",
+      "text": "let rec tokenize s i len tokens =\n  if i >= len then List.rev tokens\n  else\n    let c = s.[i] in\n    if c = ' ' then tokenize s (i + 1) len tokens\n    else if c = '+' then tokenize s (i + 1) len ((`Plus, i) :: tokens)\n    else if c = '-' then tokenize s (i + 1) len ((`Minus, i) :: tokens)\n    else if c = '*' then tokenize s (i + 1)",
+      "start_point": [
+        2,
+        0
+      ],
+      "end_point": [
+        9,
+        43
+      ],
+      "children": [
+        {
+          "type": "let",
+          "text": "let",
+          "start_point": [
+            2,
+            0
+          ],
+          "end_point": [
+            2,
+            3
+          ],
+          "children": []
+        },
+        {
+          "type": "rec",
+          "text": "rec",
+          "start_point": [
+            2,
+            4
+          ],
+          "end_point": [
+            2,
+            7
+          ],
+          "children": []
+        },
+        {
+          "type": "let_binding",
+          "text": "tokenize s i len tokens =\n  if i >= len then List.rev tokens\n  else\n    let c = s.[i] in\n    if c = ' ' then tokenize s (i + 1) len tokens\n    else if c = '+' then tokenize s (i + 1) len ((`Plus, i) :: tokens)\n    else if c = '-' then tokenize s (i + 1) len ((`Minus, i) :: tokens)\n    else if c = '*' then tokenize s (i + 1)",
+          "start_point": [
+            2,
+            8
+          ],
+          "end_point": [
+            9,
+            43
+          ],
+          "children": [
+            {
+              "type": "value_name",
+              "text": "tokenize",
+              "start_point": [
+                2,
+                8
+              ],
+              "end_point": [
+                2,
+                16
+              ],
+              "children": []
+            },
+            {
+              "type": "parameter",
+              "text": "s",
+              "start_point": [
+                2,
+                17
+              ],
+              "end_point": [
+                2,
+                18
+              ],
+              "children": [
+                {
+                  "type": "value_pattern",
+                  "text": "s",
+                  "start_point": [
+                    2,
+                    17
+                  ],
+                  "end_point": [
+                    2,
+                    18
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "parameter",
+              "text": "i",
+              "start_point": [
+                2,
+                19
+              ],
+              "end_point": [
+                2,
+                20
+              ],
+              "children": [
+                {
+                  "type": "value_pattern",
+                  "text": "i",
+                  "start_point": [
+                    2,
+                    19
+                  ],
+                  "end_point": [
+                    2,
+                    20
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "parameter",
+              "text": "len",
+              "start_point": [
+                2,
+                21
+              ],
+              "end_point": [
+                2,
+                24
+              ],
+              "children": [
+                {
+                  "type": "value_pattern",
+                  "text": "len",
+                  "start_point": [
+                    2,
+                    21
+                  ],
+                  "end_point": [
+                    2,
+                    24
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "parameter",
+              "text": "tokens",
+              "start_point": [
+                2,
+                25
+              ],
+              "end_point": [
+                2,
+                31
+              ],
+              "children": [
+                {
+                  "type": "value_pattern",
+                  "text": "tokens",
+                  "start_point": [
+                    2,
+                    25
+                  ],
+                  "end_point": [
+                    2,
+                    31
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "=",
+              "text": "=",
+              "start_point": [
+                2,
+                32
+              ],
+              "end_point": [
+                2,
+                33
+              ],
+              "children": []
+            },
+            {
+              "type": "if_expression",
+              "text": "if i >= len then List.rev tokens\n  else\n    let c = s.[i] in\n    if c = ' ' then tokenize s (i + 1) len tokens\n    else if c = '+' then tokenize s (i + 1) len ((`Plus, i) :: tokens)\n    else if c = '-' then tokenize s (i + 1) len ((`Minus, i) :: tokens)\n    else if c = '*' then tokenize s (i + 1)",
+              "start_point": [
+                3,
+                2
+              ],
+              "end_point": [
+                9,
+                43
+              ],
+              "children": [
+                {
+                  "type": "if",
+                  "text": "if",
+                  "start_point": [
+                    3,
+                    2
+                  ],
+                  "end_point": [
+                    3,
+                    4
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "infix_expression",
+                  "text": "i >= len",
+                  "start_point": [
+                    3,
+                    5
+                  ],
+                  "end_point": [
+                    3,
+                    13
+                  ],
+                  "children": [
+                    {
+                      "type": "value_path",
+                      "text": "i",
+                      "start_point": [
+                        3,
+                        5
+                      ],
+                      "end_point": [
+                        3,
+                        6
+                      ],
+                      "children": [
+                        {
+                          "type": "value_name",
+                          "text": "i",
+                          "start_point": [
+                            3,
+                            5
+                          ],
+                          "end_point": [
+                            3,
+                            6
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "rel_operator",
+                      "text": ">=",
+                      "start_point": [
+                        3,
+                        7
+                      ],
+                      "end_point": [
+                        3,
+                        9
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "value_path",
+                      "text": "len",
+                      "start_point": [
+                        3,
+                        10
+                      ],
+                      "end_point": [
+                        3,
+                        13
+                      ],
+                      "children": [
+                        {
+                          "type": "value_name",
+                          "text": "len",
+                          "start_point": [
+                            3,
+                            10
+                          ],
+                          "end_point": [
+                            3,
+                            13
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "then_clause",
+                  "text": "then List.rev tokens",
+                  "start_point": [
+                    3,
+                    14
+                  ],
+                  "end_point": [
+                    3,
+                    34
+                  ],
+                  "children": [
+                    {
+                      "type": "then",
+                      "text": "then",
+                      "start_point": [
+                        3,
+                        14
+                      ],
+                      "end_point": [
+                        3,
+                        18
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "application_expression",
+                      "text": "List.rev tokens",
+                      "start_point": [
+                        3,
+                        19
+                      ],
+                      "end_point": [
+                        3,
+                        34
+                      ],
+                      "children": [
+                        {
+                          "type": "value_path",
+                          "text": "List.rev",
+                          "start_point": [
+                            3,
+                            19
+                          ],
+                          "end_point": [
+                            3,
+                            27
+                          ],
+                          "children": [
+                            {
+                              "type": "module_path",
+                              "text": "List",
+                              "start_point": [
+                                3,
+                                19
+                              ],
+                              "end_point": [
+                                3,
+                                23
+                              ],
+                              "children": [
+                                {
+                                  "type": "module_name",
+                                  "text": "List",
+                                  "start_point": [
+                                    3,
+                                    19
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    23
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": ".",
+                              "text": ".",
+                              "start_point": [
+                                3,
+                                23
+                              ],
+                              "end_point": [
+                                3,
+                                24
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "value_name",
+                              "text": "rev",
+                              "start_point": [
+                                3,
+                                24
+                              ],
+                              "end_point": [
+                                3,
+                                27
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "value_path",
+                          "text": "tokens",
+                          "start_point": [
+                            3,
+                            28
+                          ],
+                          "end_point": [
+                            3,
+                            34
+                          ],
+                          "children": [
+                            {
+                              "type": "value_name",
+                              "text": "tokens",
+                              "start_point": [
+                                3,
+                                28
+                              ],
+                              "end_point": [
+                                3,
+                                34
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "else_clause",
+                  "text": "else\n    let c = s.[i] in\n    if c = ' ' then tokenize s (i + 1) len tokens\n    else if c = '+' then tokenize s (i + 1) len ((`Plus, i) :: tokens)\n    else if c = '-' then tokenize s (i + 1) len ((`Minus, i) :: tokens)\n    else if c = '*' then tokenize s (i + 1)",
+                  "start_point": [
+                    4,
+                    2
+                  ],
+                  "end_point": [
+                    9,
+                    43
+                  ],
+                  "children": [
+                    {
+                      "type": "else",
+                      "text": "else",
+                      "start_point": [
+                        4,
+                        2
+                      ],
+                      "end_point": [
+                        4,
+                        6
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "let_expression",
+                      "text": "let c = s.[i] in\n    if c = ' ' then tokenize s (i + 1) len tokens\n    else if c = '+' then tokenize s (i + 1) len ((`Plus, i) :: tokens)\n    else if c = '-' then tokenize s (i + 1) len ((`Minus, i) :: tokens)\n    else if c = '*' then tokenize s (i + 1)",
+                      "start_point": [
+                        5,
+                        4
+                      ],
+                      "end_point": [
+                        9,
+                        43
+                      ],
+                      "children": [
+                        {
+                          "type": "value_definition",
+                          "text": "let c = s.[i]",
+                          "start_point": [
+                            5,
+                            4
+                          ],
+                          "end_point": [
+                            5,
+                            17
+                          ],
+                          "children": [
+                            {
+                              "type": "let",
+                              "text": "let",
+                              "start_point": [
+                                5,
+                                4
+                              ],
+                              "end_point": [
+                                5,
+                                7
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "let_binding",
+                              "text": "c = s.[i]",
+                              "start_point": [
+                                5,
+                                8
+                              ],
+                              "end_point": [
+                                5,
+                                17
+                              ],
+                              "children": [
+                                {
+                                  "type": "value_name",
+                                  "text": "c",
+                                  "start_point": [
+                                    5,
+                                    8
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    9
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "=",
+                                  "text": "=",
+                                  "start_point": [
+                                    5,
+                                    10
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    11
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "string_get_expression",
+                                  "text": "s.[i]",
+                                  "start_point": [
+                                    5,
+                                    12
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    17
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "value_path",
+                                      "text": "s",
+                                      "start_point": [
+                                        5,
+                                        12
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        13
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "value_name",
+                                          "text": "s",
+                                          "start_point": [
+                                            5,
+                                            12
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            13
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": ".",
+                                      "text": ".",
+                                      "start_point": [
+                                        5,
+                                        13
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        14
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "[",
+                                      "text": "[",
+                                      "start_point": [
+                                        5,
+                                        14
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        15
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "value_path",
+                                      "text": "i",
+                                      "start_point": [
+                                        5,
+                                        15
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        16
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "value_name",
+                                          "text": "i",
+                                          "start_point": [
+                                            5,
+                                            15
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            16
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "]",
+                                      "text": "]",
+                                      "start_point": [
+                                        5,
+                                        16
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        17
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "in",
+                          "text": "in",
+                          "start_point": [
+                            5,
+                            18
+                          ],
+                          "end_point": [
+                            5,
+                            20
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "if_expression",
+                          "text": "if c = ' ' then tokenize s (i + 1) len tokens\n    else if c = '+' then tokenize s (i + 1) len ((`Plus, i) :: tokens)\n    else if c = '-' then tokenize s (i + 1) len ((`Minus, i) :: tokens)\n    else if c = '*' then tokenize s (i + 1)",
+                          "start_point": [
+                            6,
+                            4
+                          ],
+                          "end_point": [
+                            9,
+                            43
+                          ],
+                          "children": [
+                            {
+                              "type": "if",
+                              "text": "if",
+                              "start_point": [
+                                6,
+                                4
+                              ],
+                              "end_point": [
+                                6,
+                                6
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "infix_expression",
+                              "text": "c = ' '",
+                              "start_point": [
+                                6,
+                                7
+                              ],
+                              "end_point": [
+                                6,
+                                14
+                              ],
+                              "children": [
+                                {
+                                  "type": "value_path",
+                                  "text": "c",
+                                  "start_point": [
+                                    6,
+                                    7
+                                  ],
+                                  "end_point": [
+                                    6,
+                                    8
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "value_name",
+                                      "text": "c",
+                                      "start_point": [
+                                        6,
+                                        7
+                                      ],
+                                      "end_point": [
+                                        6,
+                                        8
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "rel_operator",
+                                  "text": "=",
+                                  "start_point": [
+                                    6,
+                                    9
+                                  ],
+                                  "end_point": [
+                                    6,
+                                    10
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "character",
+                                  "text": "' '",
+                                  "start_point": [
+                                    6,
+                                    11
+                                  ],
+                                  "end_point": [
+                                    6,
+                                    14
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "'",
+                                      "text": "'",
+                                      "start_point": [
+                                        6,
+                                        11
+                                      ],
+                                      "end_point": [
+                                        6,
+                                        12
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "character_content",
+                                      "text": " ",
+                                      "start_point": [
+                                        6,
+                                        12
+                                      ],
+                                      "end_point": [
+                                        6,
+                                        13
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "'",
+                                      "text": "'",
+                                      "start_point": [
+                                        6,
+                                        13
+                                      ],
+                                      "end_point": [
+                                        6,
+                                        14
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "then_clause",
+                              "text": "then tokenize s (i + 1) len tokens",
+                              "start_point": [
+                                6,
+                                15
+                              ],
+                              "end_point": [
+                                6,
+                                49
+                              ],
+                              "children": [
+                                {
+                                  "type": "then",
+                                  "text": "then",
+                                  "start_point": [
+                                    6,
+                                    15
+                                  ],
+                                  "end_point": [
+                                    6,
+                                    19
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "application_expression",
+                                  "text": "tokenize s (i + 1) len tokens",
+                                  "start_point": [
+                                    6,
+                                    20
+                                  ],
+                                  "end_point": [
+                                    6,
+                                    49
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "value_path",
+                                      "text": "tokenize",
+                                      "start_point": [
+                                        6,
+                                        20
+                                      ],
+                                      "end_point": [
+                                        6,
+                                        28
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "value_name",
+                                          "text": "tokenize",
+                                          "start_point": [
+                                            6,
+                                            20
+                                          ],
+                                          "end_point": [
+                                            6,
+                                            28
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "value_path",
+                                      "text": "s",
+                                      "start_point": [
+                                        6,
+                                        29
+                                      ],
+                                      "end_point": [
+                                        6,
+                                        30
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "value_name",
+                                          "text": "s",
+                                          "start_point": [
+                                            6,
+                                            29
+                                          ],
+                                          "end_point": [
+                                            6,
+                                            30
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "parenthesized_expression",
+                                      "text": "(i + 1)",
+                                      "start_point": [
+                                        6,
+                                        31
+                                      ],
+                                      "end_point": [
+                                        6,
+                                        38
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "(",
+                                          "text": "(",
+                                          "start_point": [
+                                            6,
+                                            31
+                                          ],
+                                          "end_point": [
+                                            6,
+                                            32
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "infix_expression",
+                                          "text": "i + 1",
+                                          "start_point": [
+                                            6,
+                                            32
+                                          ],
+                                          "end_point": [
+                                            6,
+                                            37
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "value_path",
+                                              "text": "i",
+                                              "start_point": [
+                                                6,
+                                                32
+                                              ],
+                                              "end_point": [
+                                                6,
+                                                33
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "value_name",
+                                                  "text": "i",
+                                                  "start_point": [
+                                                    6,
+                                                    32
+                                                  ],
+                                                  "end_point": [
+                                                    6,
+                                                    33
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "add_operator",
+                                              "text": "+",
+                                              "start_point": [
+                                                6,
+                                                34
+                                              ],
+                                              "end_point": [
+                                                6,
+                                                35
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "number",
+                                              "text": "1",
+                                              "start_point": [
+                                                6,
+                                                36
+                                              ],
+                                              "end_point": [
+                                                6,
+                                                37
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": ")",
+                                          "text": ")",
+                                          "start_point": [
+                                            6,
+                                            37
+                                          ],
+                                          "end_point": [
+                                            6,
+                                            38
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "value_path",
+                                      "text": "len",
+                                      "start_point": [
+                                        6,
+                                        39
+                                      ],
+                                      "end_point": [
+                                        6,
+                                        42
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "value_name",
+                                          "text": "len",
+                                          "start_point": [
+                                            6,
+                                            39
+                                          ],
+                                          "end_point": [
+                                            6,
+                                            42
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "value_path",
+                                      "text": "tokens",
+                                      "start_point": [
+                                        6,
+                                        43
+                                      ],
+                                      "end_point": [
+                                        6,
+                                        49
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "value_name",
+                                          "text": "tokens",
+                                          "start_point": [
+                                            6,
+                                            43
+                                          ],
+                                          "end_point": [
+                                            6,
+                                            49
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "else_clause",
+                              "text": "else if c = '+' then tokenize s (i + 1) len ((`Plus, i) :: tokens)\n    else if c = '-' then tokenize s (i + 1) len ((`Minus, i) :: tokens)\n    else if c = '*' then tokenize s (i + 1)",
+                              "start_point": [
+                                7,
+                                4
+                              ],
+                              "end_point": [
+                                9,
+                                43
+                              ],
+                              "children": [
+                                {
+                                  "type": "else",
+                                  "text": "else",
+                                  "start_point": [
+                                    7,
+                                    4
+                                  ],
+                                  "end_point": [
+                                    7,
+                                    8
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "if_expression",
+                                  "text": "if c = '+' then tokenize s (i + 1) len ((`Plus, i) :: tokens)\n    else if c = '-' then tokenize s (i + 1) len ((`Minus, i) :: tokens)\n    else if c = '*' then tokenize s (i + 1)",
+                                  "start_point": [
+                                    7,
+                                    9
+                                  ],
+                                  "end_point": [
+                                    9,
+                                    43
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "if",
+                                      "text": "if",
+                                      "start_point": [
+                                        7,
+                                        9
+                                      ],
+                                      "end_point": [
+                                        7,
+                                        11
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "infix_expression",
+                                      "text": "c = '+'",
+                                      "start_point": [
+                                        7,
+                                        12
+                                      ],
+                                      "end_point": [
+                                        7,
+                                        19
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "value_path",
+                                          "text": "c",
+                                          "start_point": [
+                                            7,
+                                            12
+                                          ],
+                                          "end_point": [
+                                            7,
+                                            13
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "value_name",
+                                              "text": "c",
+                                              "start_point": [
+                                                7,
+                                                12
+                                              ],
+                                              "end_point": [
+                                                7,
+                                                13
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "rel_operator",
+                                          "text": "=",
+                                          "start_point": [
+                                            7,
+                                            14
+                                          ],
+                                          "end_point": [
+                                            7,
+                                            15
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "character",
+                                          "text": "'+'",
+                                          "start_point": [
+                                            7,
+                                            16
+                                          ],
+                                          "end_point": [
+                                            7,
+                                            19
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "'",
+                                              "text": "'",
+                                              "start_point": [
+                                                7,
+                                                16
+                                              ],
+                                              "end_point": [
+                                                7,
+                                                17
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "character_content",
+                                              "text": "+",
+                                              "start_point": [
+                                                7,
+                                                17
+                                              ],
+                                              "end_point": [
+                                                7,
+                                                18
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "'",
+                                              "text": "'",
+                                              "start_point": [
+                                                7,
+                                                18
+                                              ],
+                                              "end_point": [
+                                                7,
+                                                19
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "then_clause",
+                                      "text": "then tokenize s (i + 1) len ((`Plus, i) :: tokens)",
+                                      "start_point": [
+                                        7,
+                                        20
+                                      ],
+                                      "end_point": [
+                                        7,
+                                        70
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "then",
+                                          "text": "then",
+                                          "start_point": [
+                                            7,
+                                            20
+                                          ],
+                                          "end_point": [
+                                            7,
+                                            24
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "application_expression",
+                                          "text": "tokenize s (i + 1) len ((`Plus, i) :: tokens)",
+                                          "start_point": [
+                                            7,
+                                            25
+                                          ],
+                                          "end_point": [
+                                            7,
+                                            70
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "value_path",
+                                              "text": "tokenize",
+                                              "start_point": [
+                                                7,
+                                                25
+                                              ],
+                                              "end_point": [
+                                                7,
+                                                33
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "value_name",
+                                                  "text": "tokenize",
+                                                  "start_point": [
+                                                    7,
+                                                    25
+                                                  ],
+                                                  "end_point": [
+                                                    7,
+                                                    33
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "value_path",
+                                              "text": "s",
+                                              "start_point": [
+                                                7,
+                                                34
+                                              ],
+                                              "end_point": [
+                                                7,
+                                                35
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "value_name",
+                                                  "text": "s",
+                                                  "start_point": [
+                                                    7,
+                                                    34
+                                                  ],
+                                                  "end_point": [
+                                                    7,
+                                                    35
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "parenthesized_expression",
+                                              "text": "(i + 1)",
+                                              "start_point": [
+                                                7,
+                                                36
+                                              ],
+                                              "end_point": [
+                                                7,
+                                                43
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "(",
+                                                  "text": "(",
+                                                  "start_point": [
+                                                    7,
+                                                    36
+                                                  ],
+                                                  "end_point": [
+                                                    7,
+                                                    37
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": "infix_expression",
+                                                  "text": "i + 1",
+                                                  "start_point": [
+                                                    7,
+                                                    37
+                                                  ],
+                                                  "end_point": [
+                                                    7,
+                                                    42
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "value_path",
+                                                      "text": "i",
+                                                      "start_point": [
+                                                        7,
+                                                        37
+                                                      ],
+                                                      "end_point": [
+                                                        7,
+                                                        38
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "value_name",
+                                                          "text": "i",
+                                                          "start_point": [
+                                                            7,
+                                                            37
+                                                          ],
+                                                          "end_point": [
+                                                            7,
+                                                            38
+                                                          ],
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "type": "add_operator",
+                                                      "text": "+",
+                                                      "start_point": [
+                                                        7,
+                                                        39
+                                                      ],
+                                                      "end_point": [
+                                                        7,
+                                                        40
+                                                      ],
+                                                      "children": []
+                                                    },
+                                                    {
+                                                      "type": "number",
+                                                      "text": "1",
+                                                      "start_point": [
+                                                        7,
+                                                        41
+                                                      ],
+                                                      "end_point": [
+                                                        7,
+                                                        42
+                                                      ],
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "type": ")",
+                                                  "text": ")",
+                                                  "start_point": [
+                                                    7,
+                                                    42
+                                                  ],
+                                                  "end_point": [
+                                                    7,
+                                                    43
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "value_path",
+                                              "text": "len",
+                                              "start_point": [
+                                                7,
+                                                44
+                                              ],
+                                              "end_point": [
+                                                7,
+                                                47
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "value_name",
+                                                  "text": "len",
+                                                  "start_point": [
+                                                    7,
+                                                    44
+                                                  ],
+                                                  "end_point": [
+                                                    7,
+                                                    47
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "parenthesized_expression",
+                                              "text": "((`Plus, i) :: tokens)",
+                                              "start_point": [
+                                                7,
+                                                48
+                                              ],
+                                              "end_point": [
+                                                7,
+                                                70
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "(",
+                                                  "text": "(",
+                                                  "start_point": [
+                                                    7,
+                                                    48
+                                                  ],
+                                                  "end_point": [
+                                                    7,
+                                                    49
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": "cons_expression",
+                                                  "text": "(`Plus, i) :: tokens",
+                                                  "start_point": [
+                                                    7,
+                                                    49
+                                                  ],
+                                                  "end_point": [
+                                                    7,
+                                                    69
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "parenthesized_expression",
+                                                      "text": "(`Plus, i)",
+                                                      "start_point": [
+                                                        7,
+                                                        49
+                                                      ],
+                                                      "end_point": [
+                                                        7,
+                                                        59
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "(",
+                                                          "text": "(",
+                                                          "start_point": [
+                                                            7,
+                                                            49
+                                                          ],
+                                                          "end_point": [
+                                                            7,
+                                                            50
+                                                          ],
+                                                          "children": []
+                                                        },
+                                                        {
+                                                          "type": "product_expression",
+                                                          "text": "`Plus, i",
+                                                          "start_point": [
+                                                            7,
+                                                            50
+                                                          ],
+                                                          "end_point": [
+                                                            7,
+                                                            58
+                                                          ],
+                                                          "children": [
+                                                            {
+                                                              "type": "tag",
+                                                              "text": "`Plus",
+                                                              "start_point": [
+                                                                7,
+                                                                50
+                                                              ],
+                                                              "end_point": [
+                                                                7,
+                                                                55
+                                                              ],
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "type": ",",
+                                                              "text": ",",
+                                                              "start_point": [
+                                                                7,
+                                                                55
+                                                              ],
+                                                              "end_point": [
+                                                                7,
+                                                                56
+                                                              ],
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "type": "value_path",
+                                                              "text": "i",
+                                                              "start_point": [
+                                                                7,
+                                                                57
+                                                              ],
+                                                              "end_point": [
+                                                                7,
+                                                                58
+                                                              ],
+                                                              "children": [
+                                                                {
+                                                                  "type": "value_name",
+                                                                  "text": "i",
+                                                                  "start_point": [
+                                                                    7,
+                                                                    57
+                                                                  ],
+                                                                  "end_point": [
+                                                                    7,
+                                                                    58
+                                                                  ],
+                                                                  "children": []
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "type": ")",
+                                                          "text": ")",
+                                                          "start_point": [
+                                                            7,
+                                                            58
+                                                          ],
+                                                          "end_point": [
+                                                            7,
+                                                            59
+                                                          ],
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "type": "::",
+                                                      "text": "::",
+                                                      "start_point": [
+                                                        7,
+                                                        60
+                                                      ],
+                                                      "end_point": [
+                                                        7,
+                                                        62
+                                                      ],
+                                                      "children": []
+                                                    },
+                                                    {
+                                                      "type": "value_path",
+                                                      "text": "tokens",
+                                                      "start_point": [
+                                                        7,
+                                                        63
+                                                      ],
+                                                      "end_point": [
+                                                        7,
+                                                        69
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "value_name",
+                                                          "text": "tokens",
+                                                          "start_point": [
+                                                            7,
+                                                            63
+                                                          ],
+                                                          "end_point": [
+                                                            7,
+                                                            69
+                                                          ],
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "type": ")",
+                                                  "text": ")",
+                                                  "start_point": [
+                                                    7,
+                                                    69
+                                                  ],
+                                                  "end_point": [
+                                                    7,
+                                                    70
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "else_clause",
+                                      "text": "else if c = '-' then tokenize s (i + 1) len ((`Minus, i) :: tokens)\n    else if c = '*' then tokenize s (i + 1)",
+                                      "start_point": [
+                                        8,
+                                        4
+                                      ],
+                                      "end_point": [
+                                        9,
+                                        43
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "else",
+                                          "text": "else",
+                                          "start_point": [
+                                            8,
+                                            4
+                                          ],
+                                          "end_point": [
+                                            8,
+                                            8
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "if_expression",
+                                          "text": "if c = '-' then tokenize s (i + 1) len ((`Minus, i) :: tokens)\n    else if c = '*' then tokenize s (i + 1)",
+                                          "start_point": [
+                                            8,
+                                            9
+                                          ],
+                                          "end_point": [
+                                            9,
+                                            43
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "if",
+                                              "text": "if",
+                                              "start_point": [
+                                                8,
+                                                9
+                                              ],
+                                              "end_point": [
+                                                8,
+                                                11
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "infix_expression",
+                                              "text": "c = '-'",
+                                              "start_point": [
+                                                8,
+                                                12
+                                              ],
+                                              "end_point": [
+                                                8,
+                                                19
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "value_path",
+                                                  "text": "c",
+                                                  "start_point": [
+                                                    8,
+                                                    12
+                                                  ],
+                                                  "end_point": [
+                                                    8,
+                                                    13
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "value_name",
+                                                      "text": "c",
+                                                      "start_point": [
+                                                        8,
+                                                        12
+                                                      ],
+                                                      "end_point": [
+                                                        8,
+                                                        13
+                                                      ],
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "type": "rel_operator",
+                                                  "text": "=",
+                                                  "start_point": [
+                                                    8,
+                                                    14
+                                                  ],
+                                                  "end_point": [
+                                                    8,
+                                                    15
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": "character",
+                                                  "text": "'-'",
+                                                  "start_point": [
+                                                    8,
+                                                    16
+                                                  ],
+                                                  "end_point": [
+                                                    8,
+                                                    19
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "'",
+                                                      "text": "'",
+                                                      "start_point": [
+                                                        8,
+                                                        16
+                                                      ],
+                                                      "end_point": [
+                                                        8,
+                                                        17
+                                                      ],
+                                                      "children": []
+                                                    },
+                                                    {
+                                                      "type": "character_content",
+                                                      "text": "-",
+                                                      "start_point": [
+                                                        8,
+                                                        17
+                                                      ],
+                                                      "end_point": [
+                                                        8,
+                                                        18
+                                                      ],
+                                                      "children": []
+                                                    },
+                                                    {
+                                                      "type": "'",
+                                                      "text": "'",
+                                                      "start_point": [
+                                                        8,
+                                                        18
+                                                      ],
+                                                      "end_point": [
+                                                        8,
+                                                        19
+                                                      ],
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "then_clause",
+                                              "text": "then tokenize s (i + 1) len ((`Minus, i) :: tokens)",
+                                              "start_point": [
+                                                8,
+                                                20
+                                              ],
+                                              "end_point": [
+                                                8,
+                                                71
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "then",
+                                                  "text": "then",
+                                                  "start_point": [
+                                                    8,
+                                                    20
+                                                  ],
+                                                  "end_point": [
+                                                    8,
+                                                    24
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": "application_expression",
+                                                  "text": "tokenize s (i + 1) len ((`Minus, i) :: tokens)",
+                                                  "start_point": [
+                                                    8,
+                                                    25
+                                                  ],
+                                                  "end_point": [
+                                                    8,
+                                                    71
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "value_path",
+                                                      "text": "tokenize",
+                                                      "start_point": [
+                                                        8,
+                                                        25
+                                                      ],
+                                                      "end_point": [
+                                                        8,
+                                                        33
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "value_name",
+                                                          "text": "tokenize",
+                                                          "start_point": [
+                                                            8,
+                                                            25
+                                                          ],
+                                                          "end_point": [
+                                                            8,
+                                                            33
+                                                          ],
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "type": "value_path",
+                                                      "text": "s",
+                                                      "start_point": [
+                                                        8,
+                                                        34
+                                                      ],
+                                                      "end_point": [
+                                                        8,
+                                                        35
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "value_name",
+                                                          "text": "s",
+                                                          "start_point": [
+                                                            8,
+                                                            34
+                                                          ],
+                                                          "end_point": [
+                                                            8,
+                                                            35
+                                                          ],
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "type": "parenthesized_expression",
+                                                      "text": "(i + 1)",
+                                                      "start_point": [
+                                                        8,
+                                                        36
+                                                      ],
+                                                      "end_point": [
+                                                        8,
+                                                        43
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "(",
+                                                          "text": "(",
+                                                          "start_point": [
+                                                            8,
+                                                            36
+                                                          ],
+                                                          "end_point": [
+                                                            8,
+                                                            37
+                                                          ],
+                                                          "children": []
+                                                        },
+                                                        {
+                                                          "type": "infix_expression",
+                                                          "text": "i + 1",
+                                                          "start_point": [
+                                                            8,
+                                                            37
+                                                          ],
+                                                          "end_point": [
+                                                            8,
+                                                            42
+                                                          ],
+                                                          "children": [
+                                                            {
+                                                              "type": "value_path",
+                                                              "text": "i",
+                                                              "start_point": [
+                                                                8,
+                                                                37
+                                                              ],
+                                                              "end_point": [
+                                                                8,
+                                                                38
+                                                              ],
+                                                              "children": [
+                                                                {
+                                                                  "type": "value_name",
+                                                                  "text": "i",
+                                                                  "start_point": [
+                                                                    8,
+                                                                    37
+                                                                  ],
+                                                                  "end_point": [
+                                                                    8,
+                                                                    38
+                                                                  ],
+                                                                  "children": []
+                                                                }
+                                                              ]
+                                                            },
+                                                            {
+                                                              "type": "add_operator",
+                                                              "text": "+",
+                                                              "start_point": [
+                                                                8,
+                                                                39
+                                                              ],
+                                                              "end_point": [
+                                                                8,
+                                                                40
+                                                              ],
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "type": "number",
+                                                              "text": "1",
+                                                              "start_point": [
+                                                                8,
+                                                                41
+                                                              ],
+                                                              "end_point": [
+                                                                8,
+                                                                42
+                                                              ],
+                                                              "children": []
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "type": ")",
+                                                          "text": ")",
+                                                          "start_point": [
+                                                            8,
+                                                            42
+                                                          ],
+                                                          "end_point": [
+                                                            8,
+                                                            43
+                                                          ],
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "type": "value_path",
+                                                      "text": "len",
+                                                      "start_point": [
+                                                        8,
+                                                        44
+                                                      ],
+                                                      "end_point": [
+                                                        8,
+                                                        47
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "value_name",
+                                                          "text": "len",
+                                                          "start_point": [
+                                                            8,
+                                                            44
+                                                          ],
+                                                          "end_point": [
+                                                            8,
+                                                            47
+                                                          ],
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "type": "parenthesized_expression",
+                                                      "text": "((`Minus, i) :: tokens)",
+                                                      "start_point": [
+                                                        8,
+                                                        48
+                                                      ],
+                                                      "end_point": [
+                                                        8,
+                                                        71
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "(",
+                                                          "text": "(",
+                                                          "start_point": [
+                                                            8,
+                                                            48
+                                                          ],
+                                                          "end_point": [
+                                                            8,
+                                                            49
+                                                          ],
+                                                          "children": []
+                                                        },
+                                                        {
+                                                          "type": "cons_expression",
+                                                          "text": "(`Minus, i) :: tokens",
+                                                          "start_point": [
+                                                            8,
+                                                            49
+                                                          ],
+                                                          "end_point": [
+                                                            8,
+                                                            70
+                                                          ],
+                                                          "children": [
+                                                            {
+                                                              "type": "parenthesized_expression",
+                                                              "text": "(`Minus, i)",
+                                                              "start_point": [
+                                                                8,
+                                                                49
+                                                              ],
+                                                              "end_point": [
+                                                                8,
+                                                                60
+                                                              ],
+                                                              "children": [
+                                                                {
+                                                                  "type": "(",
+                                                                  "text": "(",
+                                                                  "start_point": [
+                                                                    8,
+                                                                    49
+                                                                  ],
+                                                                  "end_point": [
+                                                                    8,
+                                                                    50
+                                                                  ],
+                                                                  "children": []
+                                                                },
+                                                                {
+                                                                  "type": "product_expression",
+                                                                  "text": "`Minus, i",
+                                                                  "start_point": [
+                                                                    8,
+                                                                    50
+                                                                  ],
+                                                                  "end_point": [
+                                                                    8,
+                                                                    59
+                                                                  ],
+                                                                  "children": [
+                                                                    {
+                                                                      "type": "tag",
+                                                                      "text": "`Minus",
+                                                                      "start_point": [
+                                                                        8,
+                                                                        50
+                                                                      ],
+                                                                      "end_point": [
+                                                                        8,
+                                                                        56
+                                                                      ],
+                                                                      "children": []
+                                                                    },
+                                                                    {
+                                                                      "type": ",",
+                                                                      "text": ",",
+                                                                      "start_point": [
+                                                                        8,
+                                                                        56
+                                                                      ],
+                                                                      "end_point": [
+                                                                        8,
+                                                                        57
+                                                                      ],
+                                                                      "children": []
+                                                                    },
+                                                                    {
+                                                                      "type": "value_path",
+                                                                      "text": "i",
+                                                                      "start_point": [
+                                                                        8,
+                                                                        58
+                                                                      ],
+                                                                      "end_point": [
+                                                                        8,
+                                                                        59
+                                                                      ],
+                                                                      "children": [
+                                                                        {
+                                                                          "type": "value_name",
+                                                                          "text": "i",
+                                                                          "start_point": [
+                                                                            8,
+                                                                            58
+                                                                          ],
+                                                                          "end_point": [
+                                                                            8,
+                                                                            59
+                                                                          ],
+                                                                          "children": []
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  "type": ")",
+                                                                  "text": ")",
+                                                                  "start_point": [
+                                                                    8,
+                                                                    59
+                                                                  ],
+                                                                  "end_point": [
+                                                                    8,
+                                                                    60
+                                                                  ],
+                                                                  "children": []
+                                                                }
+                                                              ]
+                                                            },
+                                                            {
+                                                              "type": "::",
+                                                              "text": "::",
+                                                              "start_point": [
+                                                                8,
+                                                                61
+                                                              ],
+                                                              "end_point": [
+                                                                8,
+                                                                63
+                                                              ],
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "type": "value_path",
+                                                              "text": "tokens",
+                                                              "start_point": [
+                                                                8,
+                                                                64
+                                                              ],
+                                                              "end_point": [
+                                                                8,
+                                                                70
+                                                              ],
+                                                              "children": [
+                                                                {
+                                                                  "type": "value_name",
+                                                                  "text": "tokens",
+                                                                  "start_point": [
+                                                                    8,
+                                                                    64
+                                                                  ],
+                                                                  "end_point": [
+                                                                    8,
+                                                                    70
+                                                                  ],
+                                                                  "children": []
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "type": ")",
+                                                          "text": ")",
+                                                          "start_point": [
+                                                            8,
+                                                            70
+                                                          ],
+                                                          "end_point": [
+                                                            8,
+                                                            71
+                                                          ],
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "else_clause",
+                                              "text": "else if c = '*' then tokenize s (i + 1)",
+                                              "start_point": [
+                                                9,
+                                                4
+                                              ],
+                                              "end_point": [
+                                                9,
+                                                43
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "else",
+                                                  "text": "else",
+                                                  "start_point": [
+                                                    9,
+                                                    4
+                                                  ],
+                                                  "end_point": [
+                                                    9,
+                                                    8
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": "if_expression",
+                                                  "text": "if c = '*' then tokenize s (i + 1)",
+                                                  "start_point": [
+                                                    9,
+                                                    9
+                                                  ],
+                                                  "end_point": [
+                                                    9,
+                                                    43
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "if",
+                                                      "text": "if",
+                                                      "start_point": [
+                                                        9,
+                                                        9
+                                                      ],
+                                                      "end_point": [
+                                                        9,
+                                                        11
+                                                      ],
+                                                      "children": []
+                                                    },
+                                                    {
+                                                      "type": "infix_expression",
+                                                      "text": "c = '*'",
+                                                      "start_point": [
+                                                        9,
+                                                        12
+                                                      ],
+                                                      "end_point": [
+                                                        9,
+                                                        19
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "value_path",
+                                                          "text": "c",
+                                                          "start_point": [
+                                                            9,
+                                                            12
+                                                          ],
+                                                          "end_point": [
+                                                            9,
+                                                            13
+                                                          ],
+                                                          "children": [
+                                                            {
+                                                              "type": "value_name",
+                                                              "text": "c",
+                                                              "start_point": [
+                                                                9,
+                                                                12
+                                                              ],
+                                                              "end_point": [
+                                                                9,
+                                                                13
+                                                              ],
+                                                              "children": []
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "type": "rel_operator",
+                                                          "text": "=",
+                                                          "start_point": [
+                                                            9,
+                                                            14
+                                                          ],
+                                                          "end_point": [
+                                                            9,
+                                                            15
+                                                          ],
+                                                          "children": []
+                                                        },
+                                                        {
+                                                          "type": "character",
+                                                          "text": "'*'",
+                                                          "start_point": [
+                                                            9,
+                                                            16
+                                                          ],
+                                                          "end_point": [
+                                                            9,
+                                                            19
+                                                          ],
+                                                          "children": [
+                                                            {
+                                                              "type": "'",
+                                                              "text": "'",
+                                                              "start_point": [
+                                                                9,
+                                                                16
+                                                              ],
+                                                              "end_point": [
+                                                                9,
+                                                                17
+                                                              ],
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "type": "character_content",
+                                                              "text": "*",
+                                                              "start_point": [
+                                                                9,
+                                                                17
+                                                              ],
+                                                              "end_point": [
+                                                                9,
+                                                                18
+                                                              ],
+                                                              "children": []
+                                                            },
+                                                            {
+                                                              "type": "'",
+                                                              "text": "'",
+                                                              "start_point": [
+                                                                9,
+                                                                18
+                                                              ],
+                                                              "end_point": [
+                                                                9,
+                                                                19
+                                                              ],
+                                                              "children": []
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "type": "then_clause",
+                                                      "text": "then tokenize s (i + 1)",
+                                                      "start_point": [
+                                                        9,
+                                                        20
+                                                      ],
+                                                      "end_point": [
+                                                        9,
+                                                        43
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "type": "then",
+                                                          "text": "then",
+                                                          "start_point": [
+                                                            9,
+                                                            20
+                                                          ],
+                                                          "end_point": [
+                                                            9,
+                                                            24
+                                                          ],
+                                                          "children": []
+                                                        },
+                                                        {
+                                                          "type": "application_expression",
+                                                          "text": "tokenize s (i + 1)",
+                                                          "start_point": [
+                                                            9,
+                                                            25
+                                                          ],
+                                                          "end_point": [
+                                                            9,
+                                                            43
+                                                          ],
+                                                          "children": [
+                                                            {
+                                                              "type": "value_path",
+                                                              "text": "tokenize",
+                                                              "start_point": [
+                                                                9,
+                                                                25
+                                                              ],
+                                                              "end_point": [
+                                                                9,
+                                                                33
+                                                              ],
+                                                              "children": [
+                                                                {
+                                                                  "type": "value_name",
+                                                                  "text": "tokenize",
+                                                                  "start_point": [
+                                                                    9,
+                                                                    25
+                                                                  ],
+                                                                  "end_point": [
+                                                                    9,
+                                                                    33
+                                                                  ],
+                                                                  "children": []
+                                                                }
+                                                              ]
+                                                            },
+                                                            {
+                                                              "type": "value_path",
+                                                              "text": "s",
+                                                              "start_point": [
+                                                                9,
+                                                                34
+                                                              ],
+                                                              "end_point": [
+                                                                9,
+                                                                35
+                                                              ],
+                                                              "children": [
+                                                                {
+                                                                  "type": "value_name",
+                                                                  "text": "s",
+                                                                  "start_point": [
+                                                                    9,
+                                                                    34
+                                                                  ],
+                                                                  "end_point": [
+                                                                    9,
+                                                                    35
+                                                                  ],
+                                                                  "children": []
+                                                                }
+                                                              ]
+                                                            },
+                                                            {
+                                                              "type": "parenthesized_expression",
+                                                              "text": "(i + 1)",
+                                                              "start_point": [
+                                                                9,
+                                                                36
+                                                              ],
+                                                              "end_point": [
+                                                                9,
+                                                                43
+                                                              ],
+                                                              "children": [
+                                                                {
+                                                                  "type": "(",
+                                                                  "text": "(",
+                                                                  "start_point": [
+                                                                    9,
+                                                                    36
+                                                                  ],
+                                                                  "end_point": [
+                                                                    9,
+                                                                    37
+                                                                  ],
+                                                                  "children": []
+                                                                },
+                                                                {
+                                                                  "type": "infix_expression",
+                                                                  "text": "i + 1",
+                                                                  "start_point": [
+                                                                    9,
+                                                                    37
+                                                                  ],
+                                                                  "end_point": [
+                                                                    9,
+                                                                    42
+                                                                  ],
+                                                                  "children": [
+                                                                    {
+                                                                      "type": "value_path",
+                                                                      "text": "i",
+                                                                      "start_point": [
+                                                                        9,
+                                                                        37
+                                                                      ],
+                                                                      "end_point": [
+                                                                        9,
+                                                                        38
+                                                                      ],
+                                                                      "children": [
+                                                                        {
+                                                                          "type": "value_name",
+                                                                          "text": "i",
+                                                                          "start_point": [
+                                                                            9,
+                                                                            37
+                                                                          ],
+                                                                          "end_point": [
+                                                                            9,
+                                                                            38
+                                                                          ],
+                                                                          "children": []
+                                                                        }
+                                                                      ]
+                                                                    },
+                                                                    {
+                                                                      "type": "add_operator",
+                                                                      "text": "+",
+                                                                      "start_point": [
+                                                                        9,
+                                                                        39
+                                                                      ],
+                                                                      "end_point": [
+                                                                        9,
+                                                                        40
+                                                                      ],
+                                                                      "children": []
+                                                                    },
+                                                                    {
+                                                                      "type": "number",
+                                                                      "text": "1",
+                                                                      "start_point": [
+                                                                        9,
+                                                                        41
+                                                                      ],
+                                                                      "end_point": [
+                                                                        9,
+                                                                        42
+                                                                      ],
+                                                                      "children": []
+                                                                    }
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  "type": ")",
+                                                                  "text": ")",
+                                                                  "start_point": [
+                                                                    9,
+                                                                    42
+                                                                  ],
+                                                                  "end_point": [
+                                                                    9,
+                                                                    43
+                                                                  ],
+                                                                  "children": []
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

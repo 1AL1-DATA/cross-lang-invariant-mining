@@ -1,0 +1,2952 @@
+{
+  "type": "haskell",
+  "text": "mergeSort :: [Int] -> [Int]\nmergeSort [] = []\nmergeSort [x] = [x]\nmergeSort xs = merge (mergeSort left) (mergeSort right)\n  where\n    (left, right) = splitAt (length xs `div` 2) xs\n\nmerge :: [Int] -> [Int] -> [Int]\nmerge [] ys = ys\nmerge xs [] = xs\nmerge (x:xs) (y:ys)\n  | x <= y    = x : merge xs (y:ys)\n  | otherwise = y : merge (x:xs) ys",
+  "start_point": [
+    0,
+    0
+  ],
+  "end_point": [
+    12,
+    35
+  ],
+  "children": [
+    {
+      "type": "signature",
+      "text": "mergeSort :: [Int] -> [Int]",
+      "start_point": [
+        0,
+        0
+      ],
+      "end_point": [
+        0,
+        27
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "mergeSort",
+          "start_point": [
+            0,
+            0
+          ],
+          "end_point": [
+            0,
+            9
+          ],
+          "children": []
+        },
+        {
+          "type": "::",
+          "text": "::",
+          "start_point": [
+            0,
+            10
+          ],
+          "end_point": [
+            0,
+            12
+          ],
+          "children": []
+        },
+        {
+          "type": "fun",
+          "text": "[Int] -> [Int]",
+          "start_point": [
+            0,
+            13
+          ],
+          "end_point": [
+            0,
+            27
+          ],
+          "children": [
+            {
+              "type": "type_list",
+              "text": "[Int]",
+              "start_point": [
+                0,
+                13
+              ],
+              "end_point": [
+                0,
+                18
+              ],
+              "children": [
+                {
+                  "type": "[",
+                  "text": "[",
+                  "start_point": [
+                    0,
+                    13
+                  ],
+                  "end_point": [
+                    0,
+                    14
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "type_name",
+                  "text": "Int",
+                  "start_point": [
+                    0,
+                    14
+                  ],
+                  "end_point": [
+                    0,
+                    17
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "Int",
+                      "start_point": [
+                        0,
+                        14
+                      ],
+                      "end_point": [
+                        0,
+                        17
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "]",
+                  "text": "]",
+                  "start_point": [
+                    0,
+                    17
+                  ],
+                  "end_point": [
+                    0,
+                    18
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "->",
+              "text": "->",
+              "start_point": [
+                0,
+                19
+              ],
+              "end_point": [
+                0,
+                21
+              ],
+              "children": []
+            },
+            {
+              "type": "type_list",
+              "text": "[Int]",
+              "start_point": [
+                0,
+                22
+              ],
+              "end_point": [
+                0,
+                27
+              ],
+              "children": [
+                {
+                  "type": "[",
+                  "text": "[",
+                  "start_point": [
+                    0,
+                    22
+                  ],
+                  "end_point": [
+                    0,
+                    23
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "type_name",
+                  "text": "Int",
+                  "start_point": [
+                    0,
+                    23
+                  ],
+                  "end_point": [
+                    0,
+                    26
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "Int",
+                      "start_point": [
+                        0,
+                        23
+                      ],
+                      "end_point": [
+                        0,
+                        26
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "]",
+                  "text": "]",
+                  "start_point": [
+                    0,
+                    26
+                  ],
+                  "end_point": [
+                    0,
+                    27
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "mergeSort [] = []",
+      "start_point": [
+        1,
+        0
+      ],
+      "end_point": [
+        1,
+        17
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "mergeSort",
+          "start_point": [
+            1,
+            0
+          ],
+          "end_point": [
+            1,
+            9
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "[]",
+          "start_point": [
+            1,
+            10
+          ],
+          "end_point": [
+            1,
+            12
+          ],
+          "children": [
+            {
+              "type": "pat_literal",
+              "text": "[]",
+              "start_point": [
+                1,
+                10
+              ],
+              "end_point": [
+                1,
+                12
+              ],
+              "children": [
+                {
+                  "type": "con_list",
+                  "text": "[]",
+                  "start_point": [
+                    1,
+                    10
+                  ],
+                  "end_point": [
+                    1,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "[",
+                      "text": "[",
+                      "start_point": [
+                        1,
+                        10
+                      ],
+                      "end_point": [
+                        1,
+                        11
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "]",
+                      "text": "]",
+                      "start_point": [
+                        1,
+                        11
+                      ],
+                      "end_point": [
+                        1,
+                        12
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            1,
+            13
+          ],
+          "end_point": [
+            1,
+            14
+          ],
+          "children": []
+        },
+        {
+          "type": "exp_literal",
+          "text": "[]",
+          "start_point": [
+            1,
+            15
+          ],
+          "end_point": [
+            1,
+            17
+          ],
+          "children": [
+            {
+              "type": "con_list",
+              "text": "[]",
+              "start_point": [
+                1,
+                15
+              ],
+              "end_point": [
+                1,
+                17
+              ],
+              "children": [
+                {
+                  "type": "[",
+                  "text": "[",
+                  "start_point": [
+                    1,
+                    15
+                  ],
+                  "end_point": [
+                    1,
+                    16
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "]",
+                  "text": "]",
+                  "start_point": [
+                    1,
+                    16
+                  ],
+                  "end_point": [
+                    1,
+                    17
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "mergeSort [x] = [x]",
+      "start_point": [
+        2,
+        0
+      ],
+      "end_point": [
+        2,
+        19
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "mergeSort",
+          "start_point": [
+            2,
+            0
+          ],
+          "end_point": [
+            2,
+            9
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "[x]",
+          "start_point": [
+            2,
+            10
+          ],
+          "end_point": [
+            2,
+            13
+          ],
+          "children": [
+            {
+              "type": "pat_list",
+              "text": "[x]",
+              "start_point": [
+                2,
+                10
+              ],
+              "end_point": [
+                2,
+                13
+              ],
+              "children": [
+                {
+                  "type": "[",
+                  "text": "[",
+                  "start_point": [
+                    2,
+                    10
+                  ],
+                  "end_point": [
+                    2,
+                    11
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "pat_name",
+                  "text": "x",
+                  "start_point": [
+                    2,
+                    11
+                  ],
+                  "end_point": [
+                    2,
+                    12
+                  ],
+                  "children": [
+                    {
+                      "type": "variable",
+                      "text": "x",
+                      "start_point": [
+                        2,
+                        11
+                      ],
+                      "end_point": [
+                        2,
+                        12
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "]",
+                  "text": "]",
+                  "start_point": [
+                    2,
+                    12
+                  ],
+                  "end_point": [
+                    2,
+                    13
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            2,
+            14
+          ],
+          "end_point": [
+            2,
+            15
+          ],
+          "children": []
+        },
+        {
+          "type": "exp_list",
+          "text": "[x]",
+          "start_point": [
+            2,
+            16
+          ],
+          "end_point": [
+            2,
+            19
+          ],
+          "children": [
+            {
+              "type": "[",
+              "text": "[",
+              "start_point": [
+                2,
+                16
+              ],
+              "end_point": [
+                2,
+                17
+              ],
+              "children": []
+            },
+            {
+              "type": "exp_name",
+              "text": "x",
+              "start_point": [
+                2,
+                17
+              ],
+              "end_point": [
+                2,
+                18
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "x",
+                  "start_point": [
+                    2,
+                    17
+                  ],
+                  "end_point": [
+                    2,
+                    18
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "]",
+              "text": "]",
+              "start_point": [
+                2,
+                18
+              ],
+              "end_point": [
+                2,
+                19
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "mergeSort xs = merge (mergeSort left) (mergeSort right)\n  where\n    (left, right) = splitAt (length xs `div` 2) xs",
+      "start_point": [
+        3,
+        0
+      ],
+      "end_point": [
+        5,
+        50
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "mergeSort",
+          "start_point": [
+            3,
+            0
+          ],
+          "end_point": [
+            3,
+            9
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "xs",
+          "start_point": [
+            3,
+            10
+          ],
+          "end_point": [
+            3,
+            12
+          ],
+          "children": [
+            {
+              "type": "pat_name",
+              "text": "xs",
+              "start_point": [
+                3,
+                10
+              ],
+              "end_point": [
+                3,
+                12
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "xs",
+                  "start_point": [
+                    3,
+                    10
+                  ],
+                  "end_point": [
+                    3,
+                    12
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            3,
+            13
+          ],
+          "end_point": [
+            3,
+            14
+          ],
+          "children": []
+        },
+        {
+          "type": "exp_apply",
+          "text": "merge (mergeSort left) (mergeSort right)",
+          "start_point": [
+            3,
+            15
+          ],
+          "end_point": [
+            3,
+            55
+          ],
+          "children": [
+            {
+              "type": "exp_name",
+              "text": "merge",
+              "start_point": [
+                3,
+                15
+              ],
+              "end_point": [
+                3,
+                20
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "merge",
+                  "start_point": [
+                    3,
+                    15
+                  ],
+                  "end_point": [
+                    3,
+                    20
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "exp_parens",
+              "text": "(mergeSort left)",
+              "start_point": [
+                3,
+                21
+              ],
+              "end_point": [
+                3,
+                37
+              ],
+              "children": [
+                {
+                  "type": "(",
+                  "text": "(",
+                  "start_point": [
+                    3,
+                    21
+                  ],
+                  "end_point": [
+                    3,
+                    22
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "exp_apply",
+                  "text": "mergeSort left",
+                  "start_point": [
+                    3,
+                    22
+                  ],
+                  "end_point": [
+                    3,
+                    36
+                  ],
+                  "children": [
+                    {
+                      "type": "exp_name",
+                      "text": "mergeSort",
+                      "start_point": [
+                        3,
+                        22
+                      ],
+                      "end_point": [
+                        3,
+                        31
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "mergeSort",
+                          "start_point": [
+                            3,
+                            22
+                          ],
+                          "end_point": [
+                            3,
+                            31
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_name",
+                      "text": "left",
+                      "start_point": [
+                        3,
+                        32
+                      ],
+                      "end_point": [
+                        3,
+                        36
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "left",
+                          "start_point": [
+                            3,
+                            32
+                          ],
+                          "end_point": [
+                            3,
+                            36
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": ")",
+                  "text": ")",
+                  "start_point": [
+                    3,
+                    36
+                  ],
+                  "end_point": [
+                    3,
+                    37
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "exp_parens",
+              "text": "(mergeSort right)",
+              "start_point": [
+                3,
+                38
+              ],
+              "end_point": [
+                3,
+                55
+              ],
+              "children": [
+                {
+                  "type": "(",
+                  "text": "(",
+                  "start_point": [
+                    3,
+                    38
+                  ],
+                  "end_point": [
+                    3,
+                    39
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "exp_apply",
+                  "text": "mergeSort right",
+                  "start_point": [
+                    3,
+                    39
+                  ],
+                  "end_point": [
+                    3,
+                    54
+                  ],
+                  "children": [
+                    {
+                      "type": "exp_name",
+                      "text": "mergeSort",
+                      "start_point": [
+                        3,
+                        39
+                      ],
+                      "end_point": [
+                        3,
+                        48
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "mergeSort",
+                          "start_point": [
+                            3,
+                            39
+                          ],
+                          "end_point": [
+                            3,
+                            48
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_name",
+                      "text": "right",
+                      "start_point": [
+                        3,
+                        49
+                      ],
+                      "end_point": [
+                        3,
+                        54
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "right",
+                          "start_point": [
+                            3,
+                            49
+                          ],
+                          "end_point": [
+                            3,
+                            54
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": ")",
+                  "text": ")",
+                  "start_point": [
+                    3,
+                    54
+                  ],
+                  "end_point": [
+                    3,
+                    55
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "where",
+          "text": "where",
+          "start_point": [
+            4,
+            2
+          ],
+          "end_point": [
+            4,
+            7
+          ],
+          "children": []
+        },
+        {
+          "type": "decls",
+          "text": "(left, right) = splitAt (length xs `div` 2) xs",
+          "start_point": [
+            5,
+            4
+          ],
+          "end_point": [
+            5,
+            50
+          ],
+          "children": [
+            {
+              "type": "function",
+              "text": "(left, right) = splitAt (length xs `div` 2) xs",
+              "start_point": [
+                5,
+                4
+              ],
+              "end_point": [
+                5,
+                50
+              ],
+              "children": [
+                {
+                  "type": "pat_tuple",
+                  "text": "(left, right)",
+                  "start_point": [
+                    5,
+                    4
+                  ],
+                  "end_point": [
+                    5,
+                    17
+                  ],
+                  "children": [
+                    {
+                      "type": "(",
+                      "text": "(",
+                      "start_point": [
+                        5,
+                        4
+                      ],
+                      "end_point": [
+                        5,
+                        5
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "pat_name",
+                      "text": "left",
+                      "start_point": [
+                        5,
+                        5
+                      ],
+                      "end_point": [
+                        5,
+                        9
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "left",
+                          "start_point": [
+                            5,
+                            5
+                          ],
+                          "end_point": [
+                            5,
+                            9
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "comma",
+                      "text": ",",
+                      "start_point": [
+                        5,
+                        9
+                      ],
+                      "end_point": [
+                        5,
+                        10
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "pat_name",
+                      "text": "right",
+                      "start_point": [
+                        5,
+                        11
+                      ],
+                      "end_point": [
+                        5,
+                        16
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "right",
+                          "start_point": [
+                            5,
+                            11
+                          ],
+                          "end_point": [
+                            5,
+                            16
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": ")",
+                      "text": ")",
+                      "start_point": [
+                        5,
+                        16
+                      ],
+                      "end_point": [
+                        5,
+                        17
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "=",
+                  "text": "=",
+                  "start_point": [
+                    5,
+                    18
+                  ],
+                  "end_point": [
+                    5,
+                    19
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "exp_apply",
+                  "text": "splitAt (length xs `div` 2) xs",
+                  "start_point": [
+                    5,
+                    20
+                  ],
+                  "end_point": [
+                    5,
+                    50
+                  ],
+                  "children": [
+                    {
+                      "type": "exp_name",
+                      "text": "splitAt",
+                      "start_point": [
+                        5,
+                        20
+                      ],
+                      "end_point": [
+                        5,
+                        27
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "splitAt",
+                          "start_point": [
+                            5,
+                            20
+                          ],
+                          "end_point": [
+                            5,
+                            27
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_parens",
+                      "text": "(length xs `div` 2)",
+                      "start_point": [
+                        5,
+                        28
+                      ],
+                      "end_point": [
+                        5,
+                        47
+                      ],
+                      "children": [
+                        {
+                          "type": "(",
+                          "text": "(",
+                          "start_point": [
+                            5,
+                            28
+                          ],
+                          "end_point": [
+                            5,
+                            29
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "exp_infix",
+                          "text": "length xs `div` 2",
+                          "start_point": [
+                            5,
+                            29
+                          ],
+                          "end_point": [
+                            5,
+                            46
+                          ],
+                          "children": [
+                            {
+                              "type": "exp_apply",
+                              "text": "length xs",
+                              "start_point": [
+                                5,
+                                29
+                              ],
+                              "end_point": [
+                                5,
+                                38
+                              ],
+                              "children": [
+                                {
+                                  "type": "exp_name",
+                                  "text": "length",
+                                  "start_point": [
+                                    5,
+                                    29
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    35
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "variable",
+                                      "text": "length",
+                                      "start_point": [
+                                        5,
+                                        29
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        35
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "exp_name",
+                                  "text": "xs",
+                                  "start_point": [
+                                    5,
+                                    36
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    38
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "variable",
+                                      "text": "xs",
+                                      "start_point": [
+                                        5,
+                                        36
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        38
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "`",
+                              "text": "`",
+                              "start_point": [
+                                5,
+                                39
+                              ],
+                              "end_point": [
+                                5,
+                                40
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "variable",
+                              "text": "div",
+                              "start_point": [
+                                5,
+                                40
+                              ],
+                              "end_point": [
+                                5,
+                                43
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "`",
+                              "text": "`",
+                              "start_point": [
+                                5,
+                                43
+                              ],
+                              "end_point": [
+                                5,
+                                44
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "exp_literal",
+                              "text": "2",
+                              "start_point": [
+                                5,
+                                45
+                              ],
+                              "end_point": [
+                                5,
+                                46
+                              ],
+                              "children": [
+                                {
+                                  "type": "integer",
+                                  "text": "2",
+                                  "start_point": [
+                                    5,
+                                    45
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    46
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": ")",
+                          "text": ")",
+                          "start_point": [
+                            5,
+                            46
+                          ],
+                          "end_point": [
+                            5,
+                            47
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_name",
+                      "text": "xs",
+                      "start_point": [
+                        5,
+                        48
+                      ],
+                      "end_point": [
+                        5,
+                        50
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "xs",
+                          "start_point": [
+                            5,
+                            48
+                          ],
+                          "end_point": [
+                            5,
+                            50
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "signature",
+      "text": "merge :: [Int] -> [Int] -> [Int]",
+      "start_point": [
+        7,
+        0
+      ],
+      "end_point": [
+        7,
+        32
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "merge",
+          "start_point": [
+            7,
+            0
+          ],
+          "end_point": [
+            7,
+            5
+          ],
+          "children": []
+        },
+        {
+          "type": "::",
+          "text": "::",
+          "start_point": [
+            7,
+            6
+          ],
+          "end_point": [
+            7,
+            8
+          ],
+          "children": []
+        },
+        {
+          "type": "fun",
+          "text": "[Int] -> [Int] -> [Int]",
+          "start_point": [
+            7,
+            9
+          ],
+          "end_point": [
+            7,
+            32
+          ],
+          "children": [
+            {
+              "type": "type_list",
+              "text": "[Int]",
+              "start_point": [
+                7,
+                9
+              ],
+              "end_point": [
+                7,
+                14
+              ],
+              "children": [
+                {
+                  "type": "[",
+                  "text": "[",
+                  "start_point": [
+                    7,
+                    9
+                  ],
+                  "end_point": [
+                    7,
+                    10
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "type_name",
+                  "text": "Int",
+                  "start_point": [
+                    7,
+                    10
+                  ],
+                  "end_point": [
+                    7,
+                    13
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "Int",
+                      "start_point": [
+                        7,
+                        10
+                      ],
+                      "end_point": [
+                        7,
+                        13
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "]",
+                  "text": "]",
+                  "start_point": [
+                    7,
+                    13
+                  ],
+                  "end_point": [
+                    7,
+                    14
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "->",
+              "text": "->",
+              "start_point": [
+                7,
+                15
+              ],
+              "end_point": [
+                7,
+                17
+              ],
+              "children": []
+            },
+            {
+              "type": "fun",
+              "text": "[Int] -> [Int]",
+              "start_point": [
+                7,
+                18
+              ],
+              "end_point": [
+                7,
+                32
+              ],
+              "children": [
+                {
+                  "type": "type_list",
+                  "text": "[Int]",
+                  "start_point": [
+                    7,
+                    18
+                  ],
+                  "end_point": [
+                    7,
+                    23
+                  ],
+                  "children": [
+                    {
+                      "type": "[",
+                      "text": "[",
+                      "start_point": [
+                        7,
+                        18
+                      ],
+                      "end_point": [
+                        7,
+                        19
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "type_name",
+                      "text": "Int",
+                      "start_point": [
+                        7,
+                        19
+                      ],
+                      "end_point": [
+                        7,
+                        22
+                      ],
+                      "children": [
+                        {
+                          "type": "type",
+                          "text": "Int",
+                          "start_point": [
+                            7,
+                            19
+                          ],
+                          "end_point": [
+                            7,
+                            22
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "]",
+                      "text": "]",
+                      "start_point": [
+                        7,
+                        22
+                      ],
+                      "end_point": [
+                        7,
+                        23
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "->",
+                  "text": "->",
+                  "start_point": [
+                    7,
+                    24
+                  ],
+                  "end_point": [
+                    7,
+                    26
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "type_list",
+                  "text": "[Int]",
+                  "start_point": [
+                    7,
+                    27
+                  ],
+                  "end_point": [
+                    7,
+                    32
+                  ],
+                  "children": [
+                    {
+                      "type": "[",
+                      "text": "[",
+                      "start_point": [
+                        7,
+                        27
+                      ],
+                      "end_point": [
+                        7,
+                        28
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "type_name",
+                      "text": "Int",
+                      "start_point": [
+                        7,
+                        28
+                      ],
+                      "end_point": [
+                        7,
+                        31
+                      ],
+                      "children": [
+                        {
+                          "type": "type",
+                          "text": "Int",
+                          "start_point": [
+                            7,
+                            28
+                          ],
+                          "end_point": [
+                            7,
+                            31
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "]",
+                      "text": "]",
+                      "start_point": [
+                        7,
+                        31
+                      ],
+                      "end_point": [
+                        7,
+                        32
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "merge [] ys = ys",
+      "start_point": [
+        8,
+        0
+      ],
+      "end_point": [
+        8,
+        16
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "merge",
+          "start_point": [
+            8,
+            0
+          ],
+          "end_point": [
+            8,
+            5
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "[] ys",
+          "start_point": [
+            8,
+            6
+          ],
+          "end_point": [
+            8,
+            11
+          ],
+          "children": [
+            {
+              "type": "pat_literal",
+              "text": "[]",
+              "start_point": [
+                8,
+                6
+              ],
+              "end_point": [
+                8,
+                8
+              ],
+              "children": [
+                {
+                  "type": "con_list",
+                  "text": "[]",
+                  "start_point": [
+                    8,
+                    6
+                  ],
+                  "end_point": [
+                    8,
+                    8
+                  ],
+                  "children": [
+                    {
+                      "type": "[",
+                      "text": "[",
+                      "start_point": [
+                        8,
+                        6
+                      ],
+                      "end_point": [
+                        8,
+                        7
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "]",
+                      "text": "]",
+                      "start_point": [
+                        8,
+                        7
+                      ],
+                      "end_point": [
+                        8,
+                        8
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "pat_name",
+              "text": "ys",
+              "start_point": [
+                8,
+                9
+              ],
+              "end_point": [
+                8,
+                11
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "ys",
+                  "start_point": [
+                    8,
+                    9
+                  ],
+                  "end_point": [
+                    8,
+                    11
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            8,
+            12
+          ],
+          "end_point": [
+            8,
+            13
+          ],
+          "children": []
+        },
+        {
+          "type": "exp_name",
+          "text": "ys",
+          "start_point": [
+            8,
+            14
+          ],
+          "end_point": [
+            8,
+            16
+          ],
+          "children": [
+            {
+              "type": "variable",
+              "text": "ys",
+              "start_point": [
+                8,
+                14
+              ],
+              "end_point": [
+                8,
+                16
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "merge xs [] = xs",
+      "start_point": [
+        9,
+        0
+      ],
+      "end_point": [
+        9,
+        16
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "merge",
+          "start_point": [
+            9,
+            0
+          ],
+          "end_point": [
+            9,
+            5
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "xs []",
+          "start_point": [
+            9,
+            6
+          ],
+          "end_point": [
+            9,
+            11
+          ],
+          "children": [
+            {
+              "type": "pat_name",
+              "text": "xs",
+              "start_point": [
+                9,
+                6
+              ],
+              "end_point": [
+                9,
+                8
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "xs",
+                  "start_point": [
+                    9,
+                    6
+                  ],
+                  "end_point": [
+                    9,
+                    8
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "pat_literal",
+              "text": "[]",
+              "start_point": [
+                9,
+                9
+              ],
+              "end_point": [
+                9,
+                11
+              ],
+              "children": [
+                {
+                  "type": "con_list",
+                  "text": "[]",
+                  "start_point": [
+                    9,
+                    9
+                  ],
+                  "end_point": [
+                    9,
+                    11
+                  ],
+                  "children": [
+                    {
+                      "type": "[",
+                      "text": "[",
+                      "start_point": [
+                        9,
+                        9
+                      ],
+                      "end_point": [
+                        9,
+                        10
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "]",
+                      "text": "]",
+                      "start_point": [
+                        9,
+                        10
+                      ],
+                      "end_point": [
+                        9,
+                        11
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            9,
+            12
+          ],
+          "end_point": [
+            9,
+            13
+          ],
+          "children": []
+        },
+        {
+          "type": "exp_name",
+          "text": "xs",
+          "start_point": [
+            9,
+            14
+          ],
+          "end_point": [
+            9,
+            16
+          ],
+          "children": [
+            {
+              "type": "variable",
+              "text": "xs",
+              "start_point": [
+                9,
+                14
+              ],
+              "end_point": [
+                9,
+                16
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "merge (x:xs) (y:ys)\n  | x <= y    = x : merge xs (y:ys)\n  | otherwise = y : merge (x:xs) ys",
+      "start_point": [
+        10,
+        0
+      ],
+      "end_point": [
+        12,
+        35
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "merge",
+          "start_point": [
+            10,
+            0
+          ],
+          "end_point": [
+            10,
+            5
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "(x:xs) (y:ys)",
+          "start_point": [
+            10,
+            6
+          ],
+          "end_point": [
+            10,
+            19
+          ],
+          "children": [
+            {
+              "type": "pat_parens",
+              "text": "(x:xs)",
+              "start_point": [
+                10,
+                6
+              ],
+              "end_point": [
+                10,
+                12
+              ],
+              "children": [
+                {
+                  "type": "(",
+                  "text": "(",
+                  "start_point": [
+                    10,
+                    6
+                  ],
+                  "end_point": [
+                    10,
+                    7
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "pat_infix",
+                  "text": "x:xs",
+                  "start_point": [
+                    10,
+                    7
+                  ],
+                  "end_point": [
+                    10,
+                    11
+                  ],
+                  "children": [
+                    {
+                      "type": "pat_name",
+                      "text": "x",
+                      "start_point": [
+                        10,
+                        7
+                      ],
+                      "end_point": [
+                        10,
+                        8
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "x",
+                          "start_point": [
+                            10,
+                            7
+                          ],
+                          "end_point": [
+                            10,
+                            8
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "constructor_operator",
+                      "text": ":",
+                      "start_point": [
+                        10,
+                        8
+                      ],
+                      "end_point": [
+                        10,
+                        9
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "pat_name",
+                      "text": "xs",
+                      "start_point": [
+                        10,
+                        9
+                      ],
+                      "end_point": [
+                        10,
+                        11
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "xs",
+                          "start_point": [
+                            10,
+                            9
+                          ],
+                          "end_point": [
+                            10,
+                            11
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": ")",
+                  "text": ")",
+                  "start_point": [
+                    10,
+                    11
+                  ],
+                  "end_point": [
+                    10,
+                    12
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "pat_parens",
+              "text": "(y:ys)",
+              "start_point": [
+                10,
+                13
+              ],
+              "end_point": [
+                10,
+                19
+              ],
+              "children": [
+                {
+                  "type": "(",
+                  "text": "(",
+                  "start_point": [
+                    10,
+                    13
+                  ],
+                  "end_point": [
+                    10,
+                    14
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "pat_infix",
+                  "text": "y:ys",
+                  "start_point": [
+                    10,
+                    14
+                  ],
+                  "end_point": [
+                    10,
+                    18
+                  ],
+                  "children": [
+                    {
+                      "type": "pat_name",
+                      "text": "y",
+                      "start_point": [
+                        10,
+                        14
+                      ],
+                      "end_point": [
+                        10,
+                        15
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "y",
+                          "start_point": [
+                            10,
+                            14
+                          ],
+                          "end_point": [
+                            10,
+                            15
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "constructor_operator",
+                      "text": ":",
+                      "start_point": [
+                        10,
+                        15
+                      ],
+                      "end_point": [
+                        10,
+                        16
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "pat_name",
+                      "text": "ys",
+                      "start_point": [
+                        10,
+                        16
+                      ],
+                      "end_point": [
+                        10,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "ys",
+                          "start_point": [
+                            10,
+                            16
+                          ],
+                          "end_point": [
+                            10,
+                            18
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": ")",
+                  "text": ")",
+                  "start_point": [
+                    10,
+                    18
+                  ],
+                  "end_point": [
+                    10,
+                    19
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "guard_equation",
+          "text": "| x <= y    = x : merge xs (y:ys)",
+          "start_point": [
+            11,
+            2
+          ],
+          "end_point": [
+            11,
+            35
+          ],
+          "children": [
+            {
+              "type": "guards",
+              "text": "| x <= y",
+              "start_point": [
+                11,
+                2
+              ],
+              "end_point": [
+                11,
+                10
+              ],
+              "children": [
+                {
+                  "type": "|",
+                  "text": "|",
+                  "start_point": [
+                    11,
+                    2
+                  ],
+                  "end_point": [
+                    11,
+                    3
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "guard",
+                  "text": "x <= y",
+                  "start_point": [
+                    11,
+                    4
+                  ],
+                  "end_point": [
+                    11,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "exp_infix",
+                      "text": "x <= y",
+                      "start_point": [
+                        11,
+                        4
+                      ],
+                      "end_point": [
+                        11,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "exp_name",
+                          "text": "x",
+                          "start_point": [
+                            11,
+                            4
+                          ],
+                          "end_point": [
+                            11,
+                            5
+                          ],
+                          "children": [
+                            {
+                              "type": "variable",
+                              "text": "x",
+                              "start_point": [
+                                11,
+                                4
+                              ],
+                              "end_point": [
+                                11,
+                                5
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "operator",
+                          "text": "<=",
+                          "start_point": [
+                            11,
+                            6
+                          ],
+                          "end_point": [
+                            11,
+                            8
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "exp_name",
+                          "text": "y",
+                          "start_point": [
+                            11,
+                            9
+                          ],
+                          "end_point": [
+                            11,
+                            10
+                          ],
+                          "children": [
+                            {
+                              "type": "variable",
+                              "text": "y",
+                              "start_point": [
+                                11,
+                                9
+                              ],
+                              "end_point": [
+                                11,
+                                10
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "=",
+              "text": "=",
+              "start_point": [
+                11,
+                14
+              ],
+              "end_point": [
+                11,
+                15
+              ],
+              "children": []
+            },
+            {
+              "type": "exp_infix",
+              "text": "x : merge xs (y:ys)",
+              "start_point": [
+                11,
+                16
+              ],
+              "end_point": [
+                11,
+                35
+              ],
+              "children": [
+                {
+                  "type": "exp_name",
+                  "text": "x",
+                  "start_point": [
+                    11,
+                    16
+                  ],
+                  "end_point": [
+                    11,
+                    17
+                  ],
+                  "children": [
+                    {
+                      "type": "variable",
+                      "text": "x",
+                      "start_point": [
+                        11,
+                        16
+                      ],
+                      "end_point": [
+                        11,
+                        17
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "constructor_operator",
+                  "text": ":",
+                  "start_point": [
+                    11,
+                    18
+                  ],
+                  "end_point": [
+                    11,
+                    19
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "exp_apply",
+                  "text": "merge xs (y:ys)",
+                  "start_point": [
+                    11,
+                    20
+                  ],
+                  "end_point": [
+                    11,
+                    35
+                  ],
+                  "children": [
+                    {
+                      "type": "exp_name",
+                      "text": "merge",
+                      "start_point": [
+                        11,
+                        20
+                      ],
+                      "end_point": [
+                        11,
+                        25
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "merge",
+                          "start_point": [
+                            11,
+                            20
+                          ],
+                          "end_point": [
+                            11,
+                            25
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_name",
+                      "text": "xs",
+                      "start_point": [
+                        11,
+                        26
+                      ],
+                      "end_point": [
+                        11,
+                        28
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "xs",
+                          "start_point": [
+                            11,
+                            26
+                          ],
+                          "end_point": [
+                            11,
+                            28
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_parens",
+                      "text": "(y:ys)",
+                      "start_point": [
+                        11,
+                        29
+                      ],
+                      "end_point": [
+                        11,
+                        35
+                      ],
+                      "children": [
+                        {
+                          "type": "(",
+                          "text": "(",
+                          "start_point": [
+                            11,
+                            29
+                          ],
+                          "end_point": [
+                            11,
+                            30
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "exp_infix",
+                          "text": "y:ys",
+                          "start_point": [
+                            11,
+                            30
+                          ],
+                          "end_point": [
+                            11,
+                            34
+                          ],
+                          "children": [
+                            {
+                              "type": "exp_name",
+                              "text": "y",
+                              "start_point": [
+                                11,
+                                30
+                              ],
+                              "end_point": [
+                                11,
+                                31
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "y",
+                                  "start_point": [
+                                    11,
+                                    30
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    31
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "constructor_operator",
+                              "text": ":",
+                              "start_point": [
+                                11,
+                                31
+                              ],
+                              "end_point": [
+                                11,
+                                32
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "exp_name",
+                              "text": "ys",
+                              "start_point": [
+                                11,
+                                32
+                              ],
+                              "end_point": [
+                                11,
+                                34
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "ys",
+                                  "start_point": [
+                                    11,
+                                    32
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    34
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": ")",
+                          "text": ")",
+                          "start_point": [
+                            11,
+                            34
+                          ],
+                          "end_point": [
+                            11,
+                            35
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "guard_equation",
+          "text": "| otherwise = y : merge (x:xs) ys",
+          "start_point": [
+            12,
+            2
+          ],
+          "end_point": [
+            12,
+            35
+          ],
+          "children": [
+            {
+              "type": "guards",
+              "text": "| otherwise",
+              "start_point": [
+                12,
+                2
+              ],
+              "end_point": [
+                12,
+                13
+              ],
+              "children": [
+                {
+                  "type": "|",
+                  "text": "|",
+                  "start_point": [
+                    12,
+                    2
+                  ],
+                  "end_point": [
+                    12,
+                    3
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "guard",
+                  "text": "otherwise",
+                  "start_point": [
+                    12,
+                    4
+                  ],
+                  "end_point": [
+                    12,
+                    13
+                  ],
+                  "children": [
+                    {
+                      "type": "exp_name",
+                      "text": "otherwise",
+                      "start_point": [
+                        12,
+                        4
+                      ],
+                      "end_point": [
+                        12,
+                        13
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "otherwise",
+                          "start_point": [
+                            12,
+                            4
+                          ],
+                          "end_point": [
+                            12,
+                            13
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "=",
+              "text": "=",
+              "start_point": [
+                12,
+                14
+              ],
+              "end_point": [
+                12,
+                15
+              ],
+              "children": []
+            },
+            {
+              "type": "exp_infix",
+              "text": "y : merge (x:xs) ys",
+              "start_point": [
+                12,
+                16
+              ],
+              "end_point": [
+                12,
+                35
+              ],
+              "children": [
+                {
+                  "type": "exp_name",
+                  "text": "y",
+                  "start_point": [
+                    12,
+                    16
+                  ],
+                  "end_point": [
+                    12,
+                    17
+                  ],
+                  "children": [
+                    {
+                      "type": "variable",
+                      "text": "y",
+                      "start_point": [
+                        12,
+                        16
+                      ],
+                      "end_point": [
+                        12,
+                        17
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "constructor_operator",
+                  "text": ":",
+                  "start_point": [
+                    12,
+                    18
+                  ],
+                  "end_point": [
+                    12,
+                    19
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "exp_apply",
+                  "text": "merge (x:xs) ys",
+                  "start_point": [
+                    12,
+                    20
+                  ],
+                  "end_point": [
+                    12,
+                    35
+                  ],
+                  "children": [
+                    {
+                      "type": "exp_name",
+                      "text": "merge",
+                      "start_point": [
+                        12,
+                        20
+                      ],
+                      "end_point": [
+                        12,
+                        25
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "merge",
+                          "start_point": [
+                            12,
+                            20
+                          ],
+                          "end_point": [
+                            12,
+                            25
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_parens",
+                      "text": "(x:xs)",
+                      "start_point": [
+                        12,
+                        26
+                      ],
+                      "end_point": [
+                        12,
+                        32
+                      ],
+                      "children": [
+                        {
+                          "type": "(",
+                          "text": "(",
+                          "start_point": [
+                            12,
+                            26
+                          ],
+                          "end_point": [
+                            12,
+                            27
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "exp_infix",
+                          "text": "x:xs",
+                          "start_point": [
+                            12,
+                            27
+                          ],
+                          "end_point": [
+                            12,
+                            31
+                          ],
+                          "children": [
+                            {
+                              "type": "exp_name",
+                              "text": "x",
+                              "start_point": [
+                                12,
+                                27
+                              ],
+                              "end_point": [
+                                12,
+                                28
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "x",
+                                  "start_point": [
+                                    12,
+                                    27
+                                  ],
+                                  "end_point": [
+                                    12,
+                                    28
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "constructor_operator",
+                              "text": ":",
+                              "start_point": [
+                                12,
+                                28
+                              ],
+                              "end_point": [
+                                12,
+                                29
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "exp_name",
+                              "text": "xs",
+                              "start_point": [
+                                12,
+                                29
+                              ],
+                              "end_point": [
+                                12,
+                                31
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "xs",
+                                  "start_point": [
+                                    12,
+                                    29
+                                  ],
+                                  "end_point": [
+                                    12,
+                                    31
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": ")",
+                          "text": ")",
+                          "start_point": [
+                            12,
+                            31
+                          ],
+                          "end_point": [
+                            12,
+                            32
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_name",
+                      "text": "ys",
+                      "start_point": [
+                        12,
+                        33
+                      ],
+                      "end_point": [
+                        12,
+                        35
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "ys",
+                          "start_point": [
+                            12,
+                            33
+                          ],
+                          "end_point": [
+                            12,
+                            35
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

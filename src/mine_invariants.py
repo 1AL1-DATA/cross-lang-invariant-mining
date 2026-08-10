@@ -207,7 +207,14 @@ def mine_cross_language(
                 # languages, which could produce support > 1.0.
                 seen: Set[str] = set()
                 for sg in get_ir_subgraphs(ir, level):
-                    h = sg.ir_hash()
+                    # cfg_hash encodes control-flow topology (branch/loop nesting,
+                    # not variable names or literal values). Two implementations
+                    # of the same algorithm produce the same cfg_hash even if they
+                    # use different identifiers. Returns None for sequential-only
+                    # subgraphs (no CFG nodes) — these are excluded as universal.
+                    h = sg.cfg_hash()
+                    if h is None:
+                        continue  # sequential-only: skip, not a structural invariant
                     if h not in seen:
                         seen.add(h)
                         lang_subgraphs[lang][h] += 1
@@ -349,15 +356,19 @@ def compute_transfer_fraction(
 def negative_control(
     shuffled_implementations: Dict[str, List[Tuple[IRNode, DataFlowGraph]]],
     threshold: int,
+    levels: "list[GranularityLevel]|None" = None,
 ) -> Dict:
     """
     Run cross-language invariant mining on shuffled (unrelated) spec implementations.
     If support >= threshold is found, the method is artifact-prone.
     """
+    if levels is None:
+        levels = [GranularityLevel.L4, GranularityLevel.L3, GranularityLevel.L2]
     result = mine_cross_language(
         spec_id="__NEGATIVE_CONTROL__",
         implementations_by_lang=shuffled_implementations,
         threshold=threshold,
+        levels=levels,
     )
 
     return {

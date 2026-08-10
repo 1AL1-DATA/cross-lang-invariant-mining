@@ -1,0 +1,1641 @@
+{
+  "type": "compilation_unit",
+  "text": "module StringMap = Map.Make(String)\n\nlet group_by_key pairs =\n  let add_to_map map (key, value) =\n    let current = try StringMap.find key map with Not_found -> [] in\n    StringMap.add key (value :: current) map\n  in\n  let result = List.fold_left add_to_map StringMap.empty pairs in\n  StringMap.map List.rev result",
+  "start_point": [
+    0,
+    0
+  ],
+  "end_point": [
+    8,
+    31
+  ],
+  "children": [
+    {
+      "type": "module_definition",
+      "text": "module StringMap = Map.Make(String)",
+      "start_point": [
+        0,
+        0
+      ],
+      "end_point": [
+        0,
+        35
+      ],
+      "children": [
+        {
+          "type": "module",
+          "text": "module",
+          "start_point": [
+            0,
+            0
+          ],
+          "end_point": [
+            0,
+            6
+          ],
+          "children": []
+        },
+        {
+          "type": "module_binding",
+          "text": "StringMap = Map.Make(String)",
+          "start_point": [
+            0,
+            7
+          ],
+          "end_point": [
+            0,
+            35
+          ],
+          "children": [
+            {
+              "type": "module_name",
+              "text": "StringMap",
+              "start_point": [
+                0,
+                7
+              ],
+              "end_point": [
+                0,
+                16
+              ],
+              "children": []
+            },
+            {
+              "type": "=",
+              "text": "=",
+              "start_point": [
+                0,
+                17
+              ],
+              "end_point": [
+                0,
+                18
+              ],
+              "children": []
+            },
+            {
+              "type": "module_application",
+              "text": "Map.Make(String)",
+              "start_point": [
+                0,
+                19
+              ],
+              "end_point": [
+                0,
+                35
+              ],
+              "children": [
+                {
+                  "type": "module_path",
+                  "text": "Map.Make",
+                  "start_point": [
+                    0,
+                    19
+                  ],
+                  "end_point": [
+                    0,
+                    27
+                  ],
+                  "children": [
+                    {
+                      "type": "module_path",
+                      "text": "Map",
+                      "start_point": [
+                        0,
+                        19
+                      ],
+                      "end_point": [
+                        0,
+                        22
+                      ],
+                      "children": [
+                        {
+                          "type": "module_name",
+                          "text": "Map",
+                          "start_point": [
+                            0,
+                            19
+                          ],
+                          "end_point": [
+                            0,
+                            22
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": ".",
+                      "text": ".",
+                      "start_point": [
+                        0,
+                        22
+                      ],
+                      "end_point": [
+                        0,
+                        23
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "module_name",
+                      "text": "Make",
+                      "start_point": [
+                        0,
+                        23
+                      ],
+                      "end_point": [
+                        0,
+                        27
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "parenthesized_module_expression",
+                  "text": "(String)",
+                  "start_point": [
+                    0,
+                    27
+                  ],
+                  "end_point": [
+                    0,
+                    35
+                  ],
+                  "children": [
+                    {
+                      "type": "(",
+                      "text": "(",
+                      "start_point": [
+                        0,
+                        27
+                      ],
+                      "end_point": [
+                        0,
+                        28
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "module_path",
+                      "text": "String",
+                      "start_point": [
+                        0,
+                        28
+                      ],
+                      "end_point": [
+                        0,
+                        34
+                      ],
+                      "children": [
+                        {
+                          "type": "module_name",
+                          "text": "String",
+                          "start_point": [
+                            0,
+                            28
+                          ],
+                          "end_point": [
+                            0,
+                            34
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": ")",
+                      "text": ")",
+                      "start_point": [
+                        0,
+                        34
+                      ],
+                      "end_point": [
+                        0,
+                        35
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "value_definition",
+      "text": "let group_by_key pairs =\n  let add_to_map map (key, value) =\n    let current = try StringMap.find key map with Not_found -> [] in\n    StringMap.add key (value :: current) map\n  in\n  let result = List.fold_left add_to_map StringMap.empty pairs in\n  StringMap.map List.rev result",
+      "start_point": [
+        2,
+        0
+      ],
+      "end_point": [
+        8,
+        31
+      ],
+      "children": [
+        {
+          "type": "let",
+          "text": "let",
+          "start_point": [
+            2,
+            0
+          ],
+          "end_point": [
+            2,
+            3
+          ],
+          "children": []
+        },
+        {
+          "type": "let_binding",
+          "text": "group_by_key pairs =\n  let add_to_map map (key, value) =\n    let current = try StringMap.find key map with Not_found -> [] in\n    StringMap.add key (value :: current) map\n  in\n  let result = List.fold_left add_to_map StringMap.empty pairs in\n  StringMap.map List.rev result",
+          "start_point": [
+            2,
+            4
+          ],
+          "end_point": [
+            8,
+            31
+          ],
+          "children": [
+            {
+              "type": "value_name",
+              "text": "group_by_key",
+              "start_point": [
+                2,
+                4
+              ],
+              "end_point": [
+                2,
+                16
+              ],
+              "children": []
+            },
+            {
+              "type": "parameter",
+              "text": "pairs",
+              "start_point": [
+                2,
+                17
+              ],
+              "end_point": [
+                2,
+                22
+              ],
+              "children": [
+                {
+                  "type": "value_pattern",
+                  "text": "pairs",
+                  "start_point": [
+                    2,
+                    17
+                  ],
+                  "end_point": [
+                    2,
+                    22
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "=",
+              "text": "=",
+              "start_point": [
+                2,
+                23
+              ],
+              "end_point": [
+                2,
+                24
+              ],
+              "children": []
+            },
+            {
+              "type": "let_expression",
+              "text": "let add_to_map map (key, value) =\n    let current = try StringMap.find key map with Not_found -> [] in\n    StringMap.add key (value :: current) map\n  in\n  let result = List.fold_left add_to_map StringMap.empty pairs in\n  StringMap.map List.rev result",
+              "start_point": [
+                3,
+                2
+              ],
+              "end_point": [
+                8,
+                31
+              ],
+              "children": [
+                {
+                  "type": "value_definition",
+                  "text": "let add_to_map map (key, value) =\n    let current = try StringMap.find key map with Not_found -> [] in\n    StringMap.add key (value :: current) map",
+                  "start_point": [
+                    3,
+                    2
+                  ],
+                  "end_point": [
+                    5,
+                    44
+                  ],
+                  "children": [
+                    {
+                      "type": "let",
+                      "text": "let",
+                      "start_point": [
+                        3,
+                        2
+                      ],
+                      "end_point": [
+                        3,
+                        5
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "let_binding",
+                      "text": "add_to_map map (key, value) =\n    let current = try StringMap.find key map with Not_found -> [] in\n    StringMap.add key (value :: current) map",
+                      "start_point": [
+                        3,
+                        6
+                      ],
+                      "end_point": [
+                        5,
+                        44
+                      ],
+                      "children": [
+                        {
+                          "type": "value_name",
+                          "text": "add_to_map",
+                          "start_point": [
+                            3,
+                            6
+                          ],
+                          "end_point": [
+                            3,
+                            16
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "parameter",
+                          "text": "map",
+                          "start_point": [
+                            3,
+                            17
+                          ],
+                          "end_point": [
+                            3,
+                            20
+                          ],
+                          "children": [
+                            {
+                              "type": "value_pattern",
+                              "text": "map",
+                              "start_point": [
+                                3,
+                                17
+                              ],
+                              "end_point": [
+                                3,
+                                20
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "parameter",
+                          "text": "(key, value)",
+                          "start_point": [
+                            3,
+                            21
+                          ],
+                          "end_point": [
+                            3,
+                            33
+                          ],
+                          "children": [
+                            {
+                              "type": "parenthesized_pattern",
+                              "text": "(key, value)",
+                              "start_point": [
+                                3,
+                                21
+                              ],
+                              "end_point": [
+                                3,
+                                33
+                              ],
+                              "children": [
+                                {
+                                  "type": "(",
+                                  "text": "(",
+                                  "start_point": [
+                                    3,
+                                    21
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    22
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "tuple_pattern",
+                                  "text": "key, value",
+                                  "start_point": [
+                                    3,
+                                    22
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    32
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "value_pattern",
+                                      "text": "key",
+                                      "start_point": [
+                                        3,
+                                        22
+                                      ],
+                                      "end_point": [
+                                        3,
+                                        25
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": ",",
+                                      "text": ",",
+                                      "start_point": [
+                                        3,
+                                        25
+                                      ],
+                                      "end_point": [
+                                        3,
+                                        26
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "value_pattern",
+                                      "text": "value",
+                                      "start_point": [
+                                        3,
+                                        27
+                                      ],
+                                      "end_point": [
+                                        3,
+                                        32
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": ")",
+                                  "text": ")",
+                                  "start_point": [
+                                    3,
+                                    32
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    33
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "=",
+                          "text": "=",
+                          "start_point": [
+                            3,
+                            34
+                          ],
+                          "end_point": [
+                            3,
+                            35
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "let_expression",
+                          "text": "let current = try StringMap.find key map with Not_found -> [] in\n    StringMap.add key (value :: current) map",
+                          "start_point": [
+                            4,
+                            4
+                          ],
+                          "end_point": [
+                            5,
+                            44
+                          ],
+                          "children": [
+                            {
+                              "type": "value_definition",
+                              "text": "let current = try StringMap.find key map with Not_found -> []",
+                              "start_point": [
+                                4,
+                                4
+                              ],
+                              "end_point": [
+                                4,
+                                65
+                              ],
+                              "children": [
+                                {
+                                  "type": "let",
+                                  "text": "let",
+                                  "start_point": [
+                                    4,
+                                    4
+                                  ],
+                                  "end_point": [
+                                    4,
+                                    7
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "let_binding",
+                                  "text": "current = try StringMap.find key map with Not_found -> []",
+                                  "start_point": [
+                                    4,
+                                    8
+                                  ],
+                                  "end_point": [
+                                    4,
+                                    65
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "value_name",
+                                      "text": "current",
+                                      "start_point": [
+                                        4,
+                                        8
+                                      ],
+                                      "end_point": [
+                                        4,
+                                        15
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "=",
+                                      "text": "=",
+                                      "start_point": [
+                                        4,
+                                        16
+                                      ],
+                                      "end_point": [
+                                        4,
+                                        17
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "try_expression",
+                                      "text": "try StringMap.find key map with Not_found -> []",
+                                      "start_point": [
+                                        4,
+                                        18
+                                      ],
+                                      "end_point": [
+                                        4,
+                                        65
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "try",
+                                          "text": "try",
+                                          "start_point": [
+                                            4,
+                                            18
+                                          ],
+                                          "end_point": [
+                                            4,
+                                            21
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "application_expression",
+                                          "text": "StringMap.find key map",
+                                          "start_point": [
+                                            4,
+                                            22
+                                          ],
+                                          "end_point": [
+                                            4,
+                                            44
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "value_path",
+                                              "text": "StringMap.find",
+                                              "start_point": [
+                                                4,
+                                                22
+                                              ],
+                                              "end_point": [
+                                                4,
+                                                36
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "module_path",
+                                                  "text": "StringMap",
+                                                  "start_point": [
+                                                    4,
+                                                    22
+                                                  ],
+                                                  "end_point": [
+                                                    4,
+                                                    31
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "module_name",
+                                                      "text": "StringMap",
+                                                      "start_point": [
+                                                        4,
+                                                        22
+                                                      ],
+                                                      "end_point": [
+                                                        4,
+                                                        31
+                                                      ],
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "type": ".",
+                                                  "text": ".",
+                                                  "start_point": [
+                                                    4,
+                                                    31
+                                                  ],
+                                                  "end_point": [
+                                                    4,
+                                                    32
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": "value_name",
+                                                  "text": "find",
+                                                  "start_point": [
+                                                    4,
+                                                    32
+                                                  ],
+                                                  "end_point": [
+                                                    4,
+                                                    36
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "value_path",
+                                              "text": "key",
+                                              "start_point": [
+                                                4,
+                                                37
+                                              ],
+                                              "end_point": [
+                                                4,
+                                                40
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "value_name",
+                                                  "text": "key",
+                                                  "start_point": [
+                                                    4,
+                                                    37
+                                                  ],
+                                                  "end_point": [
+                                                    4,
+                                                    40
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "value_path",
+                                              "text": "map",
+                                              "start_point": [
+                                                4,
+                                                41
+                                              ],
+                                              "end_point": [
+                                                4,
+                                                44
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "value_name",
+                                                  "text": "map",
+                                                  "start_point": [
+                                                    4,
+                                                    41
+                                                  ],
+                                                  "end_point": [
+                                                    4,
+                                                    44
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "with",
+                                          "text": "with",
+                                          "start_point": [
+                                            4,
+                                            45
+                                          ],
+                                          "end_point": [
+                                            4,
+                                            49
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "match_case",
+                                          "text": "Not_found -> []",
+                                          "start_point": [
+                                            4,
+                                            50
+                                          ],
+                                          "end_point": [
+                                            4,
+                                            65
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "constructor_path",
+                                              "text": "Not_found",
+                                              "start_point": [
+                                                4,
+                                                50
+                                              ],
+                                              "end_point": [
+                                                4,
+                                                59
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "constructor_name",
+                                                  "text": "Not_found",
+                                                  "start_point": [
+                                                    4,
+                                                    50
+                                                  ],
+                                                  "end_point": [
+                                                    4,
+                                                    59
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "->",
+                                              "text": "->",
+                                              "start_point": [
+                                                4,
+                                                60
+                                              ],
+                                              "end_point": [
+                                                4,
+                                                62
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "list_expression",
+                                              "text": "[]",
+                                              "start_point": [
+                                                4,
+                                                63
+                                              ],
+                                              "end_point": [
+                                                4,
+                                                65
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "[",
+                                                  "text": "[",
+                                                  "start_point": [
+                                                    4,
+                                                    63
+                                                  ],
+                                                  "end_point": [
+                                                    4,
+                                                    64
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": "]",
+                                                  "text": "]",
+                                                  "start_point": [
+                                                    4,
+                                                    64
+                                                  ],
+                                                  "end_point": [
+                                                    4,
+                                                    65
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "in",
+                              "text": "in",
+                              "start_point": [
+                                4,
+                                66
+                              ],
+                              "end_point": [
+                                4,
+                                68
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "application_expression",
+                              "text": "StringMap.add key (value :: current) map",
+                              "start_point": [
+                                5,
+                                4
+                              ],
+                              "end_point": [
+                                5,
+                                44
+                              ],
+                              "children": [
+                                {
+                                  "type": "value_path",
+                                  "text": "StringMap.add",
+                                  "start_point": [
+                                    5,
+                                    4
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    17
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "module_path",
+                                      "text": "StringMap",
+                                      "start_point": [
+                                        5,
+                                        4
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        13
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "module_name",
+                                          "text": "StringMap",
+                                          "start_point": [
+                                            5,
+                                            4
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            13
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": ".",
+                                      "text": ".",
+                                      "start_point": [
+                                        5,
+                                        13
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        14
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "value_name",
+                                      "text": "add",
+                                      "start_point": [
+                                        5,
+                                        14
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        17
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "value_path",
+                                  "text": "key",
+                                  "start_point": [
+                                    5,
+                                    18
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    21
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "value_name",
+                                      "text": "key",
+                                      "start_point": [
+                                        5,
+                                        18
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        21
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "parenthesized_expression",
+                                  "text": "(value :: current)",
+                                  "start_point": [
+                                    5,
+                                    22
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    40
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "(",
+                                      "text": "(",
+                                      "start_point": [
+                                        5,
+                                        22
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        23
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "cons_expression",
+                                      "text": "value :: current",
+                                      "start_point": [
+                                        5,
+                                        23
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        39
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "value_path",
+                                          "text": "value",
+                                          "start_point": [
+                                            5,
+                                            23
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            28
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "value_name",
+                                              "text": "value",
+                                              "start_point": [
+                                                5,
+                                                23
+                                              ],
+                                              "end_point": [
+                                                5,
+                                                28
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "::",
+                                          "text": "::",
+                                          "start_point": [
+                                            5,
+                                            29
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            31
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "value_path",
+                                          "text": "current",
+                                          "start_point": [
+                                            5,
+                                            32
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            39
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "value_name",
+                                              "text": "current",
+                                              "start_point": [
+                                                5,
+                                                32
+                                              ],
+                                              "end_point": [
+                                                5,
+                                                39
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": ")",
+                                      "text": ")",
+                                      "start_point": [
+                                        5,
+                                        39
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        40
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "value_path",
+                                  "text": "map",
+                                  "start_point": [
+                                    5,
+                                    41
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    44
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "value_name",
+                                      "text": "map",
+                                      "start_point": [
+                                        5,
+                                        41
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        44
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "in",
+                  "text": "in",
+                  "start_point": [
+                    6,
+                    2
+                  ],
+                  "end_point": [
+                    6,
+                    4
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "let_expression",
+                  "text": "let result = List.fold_left add_to_map StringMap.empty pairs in\n  StringMap.map List.rev result",
+                  "start_point": [
+                    7,
+                    2
+                  ],
+                  "end_point": [
+                    8,
+                    31
+                  ],
+                  "children": [
+                    {
+                      "type": "value_definition",
+                      "text": "let result = List.fold_left add_to_map StringMap.empty pairs",
+                      "start_point": [
+                        7,
+                        2
+                      ],
+                      "end_point": [
+                        7,
+                        62
+                      ],
+                      "children": [
+                        {
+                          "type": "let",
+                          "text": "let",
+                          "start_point": [
+                            7,
+                            2
+                          ],
+                          "end_point": [
+                            7,
+                            5
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "let_binding",
+                          "text": "result = List.fold_left add_to_map StringMap.empty pairs",
+                          "start_point": [
+                            7,
+                            6
+                          ],
+                          "end_point": [
+                            7,
+                            62
+                          ],
+                          "children": [
+                            {
+                              "type": "value_name",
+                              "text": "result",
+                              "start_point": [
+                                7,
+                                6
+                              ],
+                              "end_point": [
+                                7,
+                                12
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "=",
+                              "text": "=",
+                              "start_point": [
+                                7,
+                                13
+                              ],
+                              "end_point": [
+                                7,
+                                14
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "application_expression",
+                              "text": "List.fold_left add_to_map StringMap.empty pairs",
+                              "start_point": [
+                                7,
+                                15
+                              ],
+                              "end_point": [
+                                7,
+                                62
+                              ],
+                              "children": [
+                                {
+                                  "type": "value_path",
+                                  "text": "List.fold_left",
+                                  "start_point": [
+                                    7,
+                                    15
+                                  ],
+                                  "end_point": [
+                                    7,
+                                    29
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "module_path",
+                                      "text": "List",
+                                      "start_point": [
+                                        7,
+                                        15
+                                      ],
+                                      "end_point": [
+                                        7,
+                                        19
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "module_name",
+                                          "text": "List",
+                                          "start_point": [
+                                            7,
+                                            15
+                                          ],
+                                          "end_point": [
+                                            7,
+                                            19
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": ".",
+                                      "text": ".",
+                                      "start_point": [
+                                        7,
+                                        19
+                                      ],
+                                      "end_point": [
+                                        7,
+                                        20
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "value_name",
+                                      "text": "fold_left",
+                                      "start_point": [
+                                        7,
+                                        20
+                                      ],
+                                      "end_point": [
+                                        7,
+                                        29
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "value_path",
+                                  "text": "add_to_map",
+                                  "start_point": [
+                                    7,
+                                    30
+                                  ],
+                                  "end_point": [
+                                    7,
+                                    40
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "value_name",
+                                      "text": "add_to_map",
+                                      "start_point": [
+                                        7,
+                                        30
+                                      ],
+                                      "end_point": [
+                                        7,
+                                        40
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "value_path",
+                                  "text": "StringMap.empty",
+                                  "start_point": [
+                                    7,
+                                    41
+                                  ],
+                                  "end_point": [
+                                    7,
+                                    56
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "module_path",
+                                      "text": "StringMap",
+                                      "start_point": [
+                                        7,
+                                        41
+                                      ],
+                                      "end_point": [
+                                        7,
+                                        50
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "module_name",
+                                          "text": "StringMap",
+                                          "start_point": [
+                                            7,
+                                            41
+                                          ],
+                                          "end_point": [
+                                            7,
+                                            50
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": ".",
+                                      "text": ".",
+                                      "start_point": [
+                                        7,
+                                        50
+                                      ],
+                                      "end_point": [
+                                        7,
+                                        51
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "value_name",
+                                      "text": "empty",
+                                      "start_point": [
+                                        7,
+                                        51
+                                      ],
+                                      "end_point": [
+                                        7,
+                                        56
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "value_path",
+                                  "text": "pairs",
+                                  "start_point": [
+                                    7,
+                                    57
+                                  ],
+                                  "end_point": [
+                                    7,
+                                    62
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "value_name",
+                                      "text": "pairs",
+                                      "start_point": [
+                                        7,
+                                        57
+                                      ],
+                                      "end_point": [
+                                        7,
+                                        62
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "in",
+                      "text": "in",
+                      "start_point": [
+                        7,
+                        63
+                      ],
+                      "end_point": [
+                        7,
+                        65
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "application_expression",
+                      "text": "StringMap.map List.rev result",
+                      "start_point": [
+                        8,
+                        2
+                      ],
+                      "end_point": [
+                        8,
+                        31
+                      ],
+                      "children": [
+                        {
+                          "type": "value_path",
+                          "text": "StringMap.map",
+                          "start_point": [
+                            8,
+                            2
+                          ],
+                          "end_point": [
+                            8,
+                            15
+                          ],
+                          "children": [
+                            {
+                              "type": "module_path",
+                              "text": "StringMap",
+                              "start_point": [
+                                8,
+                                2
+                              ],
+                              "end_point": [
+                                8,
+                                11
+                              ],
+                              "children": [
+                                {
+                                  "type": "module_name",
+                                  "text": "StringMap",
+                                  "start_point": [
+                                    8,
+                                    2
+                                  ],
+                                  "end_point": [
+                                    8,
+                                    11
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": ".",
+                              "text": ".",
+                              "start_point": [
+                                8,
+                                11
+                              ],
+                              "end_point": [
+                                8,
+                                12
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "value_name",
+                              "text": "map",
+                              "start_point": [
+                                8,
+                                12
+                              ],
+                              "end_point": [
+                                8,
+                                15
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "value_path",
+                          "text": "List.rev",
+                          "start_point": [
+                            8,
+                            16
+                          ],
+                          "end_point": [
+                            8,
+                            24
+                          ],
+                          "children": [
+                            {
+                              "type": "module_path",
+                              "text": "List",
+                              "start_point": [
+                                8,
+                                16
+                              ],
+                              "end_point": [
+                                8,
+                                20
+                              ],
+                              "children": [
+                                {
+                                  "type": "module_name",
+                                  "text": "List",
+                                  "start_point": [
+                                    8,
+                                    16
+                                  ],
+                                  "end_point": [
+                                    8,
+                                    20
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": ".",
+                              "text": ".",
+                              "start_point": [
+                                8,
+                                20
+                              ],
+                              "end_point": [
+                                8,
+                                21
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "value_name",
+                              "text": "rev",
+                              "start_point": [
+                                8,
+                                21
+                              ],
+                              "end_point": [
+                                8,
+                                24
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "value_path",
+                          "text": "result",
+                          "start_point": [
+                            8,
+                            25
+                          ],
+                          "end_point": [
+                            8,
+                            31
+                          ],
+                          "children": [
+                            {
+                              "type": "value_name",
+                              "text": "result",
+                              "start_point": [
+                                8,
+                                25
+                              ],
+                              "end_point": [
+                                8,
+                                31
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

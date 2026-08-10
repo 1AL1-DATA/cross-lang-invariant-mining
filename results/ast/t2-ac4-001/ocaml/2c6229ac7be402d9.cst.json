@@ -1,0 +1,1506 @@
+{
+  "type": "compilation_unit",
+  "text": "module StringMap = Map.Make(String)\n\nlet group_by_key pairs =\n  List.fold_left (fun acc (key, value) ->\n    match StringMap.find_opt key acc with\n    | None -> StringMap.add key [value] acc\n    | Some values -> StringMap.add key (value :: values) acc\n  ) StringMap.empty pairs",
+  "start_point": [
+    0,
+    0
+  ],
+  "end_point": [
+    7,
+    25
+  ],
+  "children": [
+    {
+      "type": "module_definition",
+      "text": "module StringMap = Map.Make(String)",
+      "start_point": [
+        0,
+        0
+      ],
+      "end_point": [
+        0,
+        35
+      ],
+      "children": [
+        {
+          "type": "module",
+          "text": "module",
+          "start_point": [
+            0,
+            0
+          ],
+          "end_point": [
+            0,
+            6
+          ],
+          "children": []
+        },
+        {
+          "type": "module_binding",
+          "text": "StringMap = Map.Make(String)",
+          "start_point": [
+            0,
+            7
+          ],
+          "end_point": [
+            0,
+            35
+          ],
+          "children": [
+            {
+              "type": "module_name",
+              "text": "StringMap",
+              "start_point": [
+                0,
+                7
+              ],
+              "end_point": [
+                0,
+                16
+              ],
+              "children": []
+            },
+            {
+              "type": "=",
+              "text": "=",
+              "start_point": [
+                0,
+                17
+              ],
+              "end_point": [
+                0,
+                18
+              ],
+              "children": []
+            },
+            {
+              "type": "module_application",
+              "text": "Map.Make(String)",
+              "start_point": [
+                0,
+                19
+              ],
+              "end_point": [
+                0,
+                35
+              ],
+              "children": [
+                {
+                  "type": "module_path",
+                  "text": "Map.Make",
+                  "start_point": [
+                    0,
+                    19
+                  ],
+                  "end_point": [
+                    0,
+                    27
+                  ],
+                  "children": [
+                    {
+                      "type": "module_path",
+                      "text": "Map",
+                      "start_point": [
+                        0,
+                        19
+                      ],
+                      "end_point": [
+                        0,
+                        22
+                      ],
+                      "children": [
+                        {
+                          "type": "module_name",
+                          "text": "Map",
+                          "start_point": [
+                            0,
+                            19
+                          ],
+                          "end_point": [
+                            0,
+                            22
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": ".",
+                      "text": ".",
+                      "start_point": [
+                        0,
+                        22
+                      ],
+                      "end_point": [
+                        0,
+                        23
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "module_name",
+                      "text": "Make",
+                      "start_point": [
+                        0,
+                        23
+                      ],
+                      "end_point": [
+                        0,
+                        27
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "parenthesized_module_expression",
+                  "text": "(String)",
+                  "start_point": [
+                    0,
+                    27
+                  ],
+                  "end_point": [
+                    0,
+                    35
+                  ],
+                  "children": [
+                    {
+                      "type": "(",
+                      "text": "(",
+                      "start_point": [
+                        0,
+                        27
+                      ],
+                      "end_point": [
+                        0,
+                        28
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "module_path",
+                      "text": "String",
+                      "start_point": [
+                        0,
+                        28
+                      ],
+                      "end_point": [
+                        0,
+                        34
+                      ],
+                      "children": [
+                        {
+                          "type": "module_name",
+                          "text": "String",
+                          "start_point": [
+                            0,
+                            28
+                          ],
+                          "end_point": [
+                            0,
+                            34
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": ")",
+                      "text": ")",
+                      "start_point": [
+                        0,
+                        34
+                      ],
+                      "end_point": [
+                        0,
+                        35
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "value_definition",
+      "text": "let group_by_key pairs =\n  List.fold_left (fun acc (key, value) ->\n    match StringMap.find_opt key acc with\n    | None -> StringMap.add key [value] acc\n    | Some values -> StringMap.add key (value :: values) acc\n  ) StringMap.empty pairs",
+      "start_point": [
+        2,
+        0
+      ],
+      "end_point": [
+        7,
+        25
+      ],
+      "children": [
+        {
+          "type": "let",
+          "text": "let",
+          "start_point": [
+            2,
+            0
+          ],
+          "end_point": [
+            2,
+            3
+          ],
+          "children": []
+        },
+        {
+          "type": "let_binding",
+          "text": "group_by_key pairs =\n  List.fold_left (fun acc (key, value) ->\n    match StringMap.find_opt key acc with\n    | None -> StringMap.add key [value] acc\n    | Some values -> StringMap.add key (value :: values) acc\n  ) StringMap.empty pairs",
+          "start_point": [
+            2,
+            4
+          ],
+          "end_point": [
+            7,
+            25
+          ],
+          "children": [
+            {
+              "type": "value_name",
+              "text": "group_by_key",
+              "start_point": [
+                2,
+                4
+              ],
+              "end_point": [
+                2,
+                16
+              ],
+              "children": []
+            },
+            {
+              "type": "parameter",
+              "text": "pairs",
+              "start_point": [
+                2,
+                17
+              ],
+              "end_point": [
+                2,
+                22
+              ],
+              "children": [
+                {
+                  "type": "value_pattern",
+                  "text": "pairs",
+                  "start_point": [
+                    2,
+                    17
+                  ],
+                  "end_point": [
+                    2,
+                    22
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "=",
+              "text": "=",
+              "start_point": [
+                2,
+                23
+              ],
+              "end_point": [
+                2,
+                24
+              ],
+              "children": []
+            },
+            {
+              "type": "application_expression",
+              "text": "List.fold_left (fun acc (key, value) ->\n    match StringMap.find_opt key acc with\n    | None -> StringMap.add key [value] acc\n    | Some values -> StringMap.add key (value :: values) acc\n  ) StringMap.empty pairs",
+              "start_point": [
+                3,
+                2
+              ],
+              "end_point": [
+                7,
+                25
+              ],
+              "children": [
+                {
+                  "type": "value_path",
+                  "text": "List.fold_left",
+                  "start_point": [
+                    3,
+                    2
+                  ],
+                  "end_point": [
+                    3,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "module_path",
+                      "text": "List",
+                      "start_point": [
+                        3,
+                        2
+                      ],
+                      "end_point": [
+                        3,
+                        6
+                      ],
+                      "children": [
+                        {
+                          "type": "module_name",
+                          "text": "List",
+                          "start_point": [
+                            3,
+                            2
+                          ],
+                          "end_point": [
+                            3,
+                            6
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": ".",
+                      "text": ".",
+                      "start_point": [
+                        3,
+                        6
+                      ],
+                      "end_point": [
+                        3,
+                        7
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "value_name",
+                      "text": "fold_left",
+                      "start_point": [
+                        3,
+                        7
+                      ],
+                      "end_point": [
+                        3,
+                        16
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "parenthesized_expression",
+                  "text": "(fun acc (key, value) ->\n    match StringMap.find_opt key acc with\n    | None -> StringMap.add key [value] acc\n    | Some values -> StringMap.add key (value :: values) acc\n  )",
+                  "start_point": [
+                    3,
+                    17
+                  ],
+                  "end_point": [
+                    7,
+                    3
+                  ],
+                  "children": [
+                    {
+                      "type": "(",
+                      "text": "(",
+                      "start_point": [
+                        3,
+                        17
+                      ],
+                      "end_point": [
+                        3,
+                        18
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "fun_expression",
+                      "text": "fun acc (key, value) ->\n    match StringMap.find_opt key acc with\n    | None -> StringMap.add key [value] acc\n    | Some values -> StringMap.add key (value :: values) acc",
+                      "start_point": [
+                        3,
+                        18
+                      ],
+                      "end_point": [
+                        6,
+                        60
+                      ],
+                      "children": [
+                        {
+                          "type": "fun",
+                          "text": "fun",
+                          "start_point": [
+                            3,
+                            18
+                          ],
+                          "end_point": [
+                            3,
+                            21
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "parameter",
+                          "text": "acc",
+                          "start_point": [
+                            3,
+                            22
+                          ],
+                          "end_point": [
+                            3,
+                            25
+                          ],
+                          "children": [
+                            {
+                              "type": "value_pattern",
+                              "text": "acc",
+                              "start_point": [
+                                3,
+                                22
+                              ],
+                              "end_point": [
+                                3,
+                                25
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "parameter",
+                          "text": "(key, value)",
+                          "start_point": [
+                            3,
+                            26
+                          ],
+                          "end_point": [
+                            3,
+                            38
+                          ],
+                          "children": [
+                            {
+                              "type": "parenthesized_pattern",
+                              "text": "(key, value)",
+                              "start_point": [
+                                3,
+                                26
+                              ],
+                              "end_point": [
+                                3,
+                                38
+                              ],
+                              "children": [
+                                {
+                                  "type": "(",
+                                  "text": "(",
+                                  "start_point": [
+                                    3,
+                                    26
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    27
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "tuple_pattern",
+                                  "text": "key, value",
+                                  "start_point": [
+                                    3,
+                                    27
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    37
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "value_pattern",
+                                      "text": "key",
+                                      "start_point": [
+                                        3,
+                                        27
+                                      ],
+                                      "end_point": [
+                                        3,
+                                        30
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": ",",
+                                      "text": ",",
+                                      "start_point": [
+                                        3,
+                                        30
+                                      ],
+                                      "end_point": [
+                                        3,
+                                        31
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "value_pattern",
+                                      "text": "value",
+                                      "start_point": [
+                                        3,
+                                        32
+                                      ],
+                                      "end_point": [
+                                        3,
+                                        37
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": ")",
+                                  "text": ")",
+                                  "start_point": [
+                                    3,
+                                    37
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    38
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "->",
+                          "text": "->",
+                          "start_point": [
+                            3,
+                            39
+                          ],
+                          "end_point": [
+                            3,
+                            41
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "match_expression",
+                          "text": "match StringMap.find_opt key acc with\n    | None -> StringMap.add key [value] acc\n    | Some values -> StringMap.add key (value :: values) acc",
+                          "start_point": [
+                            4,
+                            4
+                          ],
+                          "end_point": [
+                            6,
+                            60
+                          ],
+                          "children": [
+                            {
+                              "type": "match",
+                              "text": "match",
+                              "start_point": [
+                                4,
+                                4
+                              ],
+                              "end_point": [
+                                4,
+                                9
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "application_expression",
+                              "text": "StringMap.find_opt key acc",
+                              "start_point": [
+                                4,
+                                10
+                              ],
+                              "end_point": [
+                                4,
+                                36
+                              ],
+                              "children": [
+                                {
+                                  "type": "value_path",
+                                  "text": "StringMap.find_opt",
+                                  "start_point": [
+                                    4,
+                                    10
+                                  ],
+                                  "end_point": [
+                                    4,
+                                    28
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "module_path",
+                                      "text": "StringMap",
+                                      "start_point": [
+                                        4,
+                                        10
+                                      ],
+                                      "end_point": [
+                                        4,
+                                        19
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "module_name",
+                                          "text": "StringMap",
+                                          "start_point": [
+                                            4,
+                                            10
+                                          ],
+                                          "end_point": [
+                                            4,
+                                            19
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": ".",
+                                      "text": ".",
+                                      "start_point": [
+                                        4,
+                                        19
+                                      ],
+                                      "end_point": [
+                                        4,
+                                        20
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "value_name",
+                                      "text": "find_opt",
+                                      "start_point": [
+                                        4,
+                                        20
+                                      ],
+                                      "end_point": [
+                                        4,
+                                        28
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "value_path",
+                                  "text": "key",
+                                  "start_point": [
+                                    4,
+                                    29
+                                  ],
+                                  "end_point": [
+                                    4,
+                                    32
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "value_name",
+                                      "text": "key",
+                                      "start_point": [
+                                        4,
+                                        29
+                                      ],
+                                      "end_point": [
+                                        4,
+                                        32
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "value_path",
+                                  "text": "acc",
+                                  "start_point": [
+                                    4,
+                                    33
+                                  ],
+                                  "end_point": [
+                                    4,
+                                    36
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "value_name",
+                                      "text": "acc",
+                                      "start_point": [
+                                        4,
+                                        33
+                                      ],
+                                      "end_point": [
+                                        4,
+                                        36
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "with",
+                              "text": "with",
+                              "start_point": [
+                                4,
+                                37
+                              ],
+                              "end_point": [
+                                4,
+                                41
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "|",
+                              "text": "|",
+                              "start_point": [
+                                5,
+                                4
+                              ],
+                              "end_point": [
+                                5,
+                                5
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "match_case",
+                              "text": "None -> StringMap.add key [value] acc",
+                              "start_point": [
+                                5,
+                                6
+                              ],
+                              "end_point": [
+                                5,
+                                43
+                              ],
+                              "children": [
+                                {
+                                  "type": "constructor_path",
+                                  "text": "None",
+                                  "start_point": [
+                                    5,
+                                    6
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    10
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "constructor_name",
+                                      "text": "None",
+                                      "start_point": [
+                                        5,
+                                        6
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        10
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "->",
+                                  "text": "->",
+                                  "start_point": [
+                                    5,
+                                    11
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    13
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "application_expression",
+                                  "text": "StringMap.add key [value] acc",
+                                  "start_point": [
+                                    5,
+                                    14
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    43
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "value_path",
+                                      "text": "StringMap.add",
+                                      "start_point": [
+                                        5,
+                                        14
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        27
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "module_path",
+                                          "text": "StringMap",
+                                          "start_point": [
+                                            5,
+                                            14
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            23
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "module_name",
+                                              "text": "StringMap",
+                                              "start_point": [
+                                                5,
+                                                14
+                                              ],
+                                              "end_point": [
+                                                5,
+                                                23
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": ".",
+                                          "text": ".",
+                                          "start_point": [
+                                            5,
+                                            23
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            24
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "value_name",
+                                          "text": "add",
+                                          "start_point": [
+                                            5,
+                                            24
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            27
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "value_path",
+                                      "text": "key",
+                                      "start_point": [
+                                        5,
+                                        28
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        31
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "value_name",
+                                          "text": "key",
+                                          "start_point": [
+                                            5,
+                                            28
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            31
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "list_expression",
+                                      "text": "[value]",
+                                      "start_point": [
+                                        5,
+                                        32
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        39
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "[",
+                                          "text": "[",
+                                          "start_point": [
+                                            5,
+                                            32
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            33
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "value_path",
+                                          "text": "value",
+                                          "start_point": [
+                                            5,
+                                            33
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            38
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "value_name",
+                                              "text": "value",
+                                              "start_point": [
+                                                5,
+                                                33
+                                              ],
+                                              "end_point": [
+                                                5,
+                                                38
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "]",
+                                          "text": "]",
+                                          "start_point": [
+                                            5,
+                                            38
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            39
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "value_path",
+                                      "text": "acc",
+                                      "start_point": [
+                                        5,
+                                        40
+                                      ],
+                                      "end_point": [
+                                        5,
+                                        43
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "value_name",
+                                          "text": "acc",
+                                          "start_point": [
+                                            5,
+                                            40
+                                          ],
+                                          "end_point": [
+                                            5,
+                                            43
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "|",
+                              "text": "|",
+                              "start_point": [
+                                6,
+                                4
+                              ],
+                              "end_point": [
+                                6,
+                                5
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "match_case",
+                              "text": "Some values -> StringMap.add key (value :: values) acc",
+                              "start_point": [
+                                6,
+                                6
+                              ],
+                              "end_point": [
+                                6,
+                                60
+                              ],
+                              "children": [
+                                {
+                                  "type": "constructor_pattern",
+                                  "text": "Some values",
+                                  "start_point": [
+                                    6,
+                                    6
+                                  ],
+                                  "end_point": [
+                                    6,
+                                    17
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "constructor_path",
+                                      "text": "Some",
+                                      "start_point": [
+                                        6,
+                                        6
+                                      ],
+                                      "end_point": [
+                                        6,
+                                        10
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "constructor_name",
+                                          "text": "Some",
+                                          "start_point": [
+                                            6,
+                                            6
+                                          ],
+                                          "end_point": [
+                                            6,
+                                            10
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "value_pattern",
+                                      "text": "values",
+                                      "start_point": [
+                                        6,
+                                        11
+                                      ],
+                                      "end_point": [
+                                        6,
+                                        17
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "->",
+                                  "text": "->",
+                                  "start_point": [
+                                    6,
+                                    18
+                                  ],
+                                  "end_point": [
+                                    6,
+                                    20
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "application_expression",
+                                  "text": "StringMap.add key (value :: values) acc",
+                                  "start_point": [
+                                    6,
+                                    21
+                                  ],
+                                  "end_point": [
+                                    6,
+                                    60
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "value_path",
+                                      "text": "StringMap.add",
+                                      "start_point": [
+                                        6,
+                                        21
+                                      ],
+                                      "end_point": [
+                                        6,
+                                        34
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "module_path",
+                                          "text": "StringMap",
+                                          "start_point": [
+                                            6,
+                                            21
+                                          ],
+                                          "end_point": [
+                                            6,
+                                            30
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "module_name",
+                                              "text": "StringMap",
+                                              "start_point": [
+                                                6,
+                                                21
+                                              ],
+                                              "end_point": [
+                                                6,
+                                                30
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": ".",
+                                          "text": ".",
+                                          "start_point": [
+                                            6,
+                                            30
+                                          ],
+                                          "end_point": [
+                                            6,
+                                            31
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "value_name",
+                                          "text": "add",
+                                          "start_point": [
+                                            6,
+                                            31
+                                          ],
+                                          "end_point": [
+                                            6,
+                                            34
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "value_path",
+                                      "text": "key",
+                                      "start_point": [
+                                        6,
+                                        35
+                                      ],
+                                      "end_point": [
+                                        6,
+                                        38
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "value_name",
+                                          "text": "key",
+                                          "start_point": [
+                                            6,
+                                            35
+                                          ],
+                                          "end_point": [
+                                            6,
+                                            38
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "parenthesized_expression",
+                                      "text": "(value :: values)",
+                                      "start_point": [
+                                        6,
+                                        39
+                                      ],
+                                      "end_point": [
+                                        6,
+                                        56
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "(",
+                                          "text": "(",
+                                          "start_point": [
+                                            6,
+                                            39
+                                          ],
+                                          "end_point": [
+                                            6,
+                                            40
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "cons_expression",
+                                          "text": "value :: values",
+                                          "start_point": [
+                                            6,
+                                            40
+                                          ],
+                                          "end_point": [
+                                            6,
+                                            55
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "value_path",
+                                              "text": "value",
+                                              "start_point": [
+                                                6,
+                                                40
+                                              ],
+                                              "end_point": [
+                                                6,
+                                                45
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "value_name",
+                                                  "text": "value",
+                                                  "start_point": [
+                                                    6,
+                                                    40
+                                                  ],
+                                                  "end_point": [
+                                                    6,
+                                                    45
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "::",
+                                              "text": "::",
+                                              "start_point": [
+                                                6,
+                                                46
+                                              ],
+                                              "end_point": [
+                                                6,
+                                                48
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "value_path",
+                                              "text": "values",
+                                              "start_point": [
+                                                6,
+                                                49
+                                              ],
+                                              "end_point": [
+                                                6,
+                                                55
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "value_name",
+                                                  "text": "values",
+                                                  "start_point": [
+                                                    6,
+                                                    49
+                                                  ],
+                                                  "end_point": [
+                                                    6,
+                                                    55
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": ")",
+                                          "text": ")",
+                                          "start_point": [
+                                            6,
+                                            55
+                                          ],
+                                          "end_point": [
+                                            6,
+                                            56
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "value_path",
+                                      "text": "acc",
+                                      "start_point": [
+                                        6,
+                                        57
+                                      ],
+                                      "end_point": [
+                                        6,
+                                        60
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "value_name",
+                                          "text": "acc",
+                                          "start_point": [
+                                            6,
+                                            57
+                                          ],
+                                          "end_point": [
+                                            6,
+                                            60
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": ")",
+                      "text": ")",
+                      "start_point": [
+                        7,
+                        2
+                      ],
+                      "end_point": [
+                        7,
+                        3
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "value_path",
+                  "text": "StringMap.empty",
+                  "start_point": [
+                    7,
+                    4
+                  ],
+                  "end_point": [
+                    7,
+                    19
+                  ],
+                  "children": [
+                    {
+                      "type": "module_path",
+                      "text": "StringMap",
+                      "start_point": [
+                        7,
+                        4
+                      ],
+                      "end_point": [
+                        7,
+                        13
+                      ],
+                      "children": [
+                        {
+                          "type": "module_name",
+                          "text": "StringMap",
+                          "start_point": [
+                            7,
+                            4
+                          ],
+                          "end_point": [
+                            7,
+                            13
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": ".",
+                      "text": ".",
+                      "start_point": [
+                        7,
+                        13
+                      ],
+                      "end_point": [
+                        7,
+                        14
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "value_name",
+                      "text": "empty",
+                      "start_point": [
+                        7,
+                        14
+                      ],
+                      "end_point": [
+                        7,
+                        19
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "value_path",
+                  "text": "pairs",
+                  "start_point": [
+                    7,
+                    20
+                  ],
+                  "end_point": [
+                    7,
+                    25
+                  ],
+                  "children": [
+                    {
+                      "type": "value_name",
+                      "text": "pairs",
+                      "start_point": [
+                        7,
+                        20
+                      ],
+                      "end_point": [
+                        7,
+                        25
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

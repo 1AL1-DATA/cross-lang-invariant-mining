@@ -1,0 +1,2775 @@
+{
+  "type": "haskell",
+  "text": "import Data.Map.Strict (Map)\nimport qualified Data.Map.Strict as Map\nimport Data.Set (Set)\nimport qualified Data.Set as Set\n\ndfsIterative :: Map Int [Int] -> Int -> [Int]\ndfsIterative graph start = reverse (go [start] Set.empty [])\n  where\n    go [] _ result = result\n    go (x:xs) visited result\n      | Set.member x visited = go xs visited result\n      | otherwise = go (neighbors ++ xs) (Set.insert x visited) (x:result)\n      where\n        neighbors = Map.findWithDefault [] x graph",
+  "start_point": [
+    0,
+    0
+  ],
+  "end_point": [
+    13,
+    50
+  ],
+  "children": [
+    {
+      "type": "import",
+      "text": "import Data.Map.Strict (Map)",
+      "start_point": [
+        0,
+        0
+      ],
+      "end_point": [
+        0,
+        28
+      ],
+      "children": [
+        {
+          "type": "import",
+          "text": "import",
+          "start_point": [
+            0,
+            0
+          ],
+          "end_point": [
+            0,
+            6
+          ],
+          "children": []
+        },
+        {
+          "type": "qualified_module",
+          "text": "Data.Map.Strict",
+          "start_point": [
+            0,
+            7
+          ],
+          "end_point": [
+            0,
+            22
+          ],
+          "children": [
+            {
+              "type": "module",
+              "text": "Data",
+              "start_point": [
+                0,
+                7
+              ],
+              "end_point": [
+                0,
+                11
+              ],
+              "children": []
+            },
+            {
+              "type": "module",
+              "text": "Map",
+              "start_point": [
+                0,
+                12
+              ],
+              "end_point": [
+                0,
+                15
+              ],
+              "children": []
+            },
+            {
+              "type": "module",
+              "text": "Strict",
+              "start_point": [
+                0,
+                16
+              ],
+              "end_point": [
+                0,
+                22
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "import_list",
+          "text": "(Map)",
+          "start_point": [
+            0,
+            23
+          ],
+          "end_point": [
+            0,
+            28
+          ],
+          "children": [
+            {
+              "type": "(",
+              "text": "(",
+              "start_point": [
+                0,
+                23
+              ],
+              "end_point": [
+                0,
+                24
+              ],
+              "children": []
+            },
+            {
+              "type": "import_item",
+              "text": "Map",
+              "start_point": [
+                0,
+                24
+              ],
+              "end_point": [
+                0,
+                27
+              ],
+              "children": [
+                {
+                  "type": "type",
+                  "text": "Map",
+                  "start_point": [
+                    0,
+                    24
+                  ],
+                  "end_point": [
+                    0,
+                    27
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": ")",
+              "text": ")",
+              "start_point": [
+                0,
+                27
+              ],
+              "end_point": [
+                0,
+                28
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "import",
+      "text": "import qualified Data.Map.Strict as Map",
+      "start_point": [
+        1,
+        0
+      ],
+      "end_point": [
+        1,
+        39
+      ],
+      "children": [
+        {
+          "type": "import",
+          "text": "import",
+          "start_point": [
+            1,
+            0
+          ],
+          "end_point": [
+            1,
+            6
+          ],
+          "children": []
+        },
+        {
+          "type": "qualified",
+          "text": "qualified",
+          "start_point": [
+            1,
+            7
+          ],
+          "end_point": [
+            1,
+            16
+          ],
+          "children": []
+        },
+        {
+          "type": "qualified_module",
+          "text": "Data.Map.Strict",
+          "start_point": [
+            1,
+            17
+          ],
+          "end_point": [
+            1,
+            32
+          ],
+          "children": [
+            {
+              "type": "module",
+              "text": "Data",
+              "start_point": [
+                1,
+                17
+              ],
+              "end_point": [
+                1,
+                21
+              ],
+              "children": []
+            },
+            {
+              "type": "module",
+              "text": "Map",
+              "start_point": [
+                1,
+                22
+              ],
+              "end_point": [
+                1,
+                25
+              ],
+              "children": []
+            },
+            {
+              "type": "module",
+              "text": "Strict",
+              "start_point": [
+                1,
+                26
+              ],
+              "end_point": [
+                1,
+                32
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "as",
+          "text": "as",
+          "start_point": [
+            1,
+            33
+          ],
+          "end_point": [
+            1,
+            35
+          ],
+          "children": []
+        },
+        {
+          "type": "module",
+          "text": "Map",
+          "start_point": [
+            1,
+            36
+          ],
+          "end_point": [
+            1,
+            39
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "import",
+      "text": "import Data.Set (Set)",
+      "start_point": [
+        2,
+        0
+      ],
+      "end_point": [
+        2,
+        21
+      ],
+      "children": [
+        {
+          "type": "import",
+          "text": "import",
+          "start_point": [
+            2,
+            0
+          ],
+          "end_point": [
+            2,
+            6
+          ],
+          "children": []
+        },
+        {
+          "type": "qualified_module",
+          "text": "Data.Set",
+          "start_point": [
+            2,
+            7
+          ],
+          "end_point": [
+            2,
+            15
+          ],
+          "children": [
+            {
+              "type": "module",
+              "text": "Data",
+              "start_point": [
+                2,
+                7
+              ],
+              "end_point": [
+                2,
+                11
+              ],
+              "children": []
+            },
+            {
+              "type": "module",
+              "text": "Set",
+              "start_point": [
+                2,
+                12
+              ],
+              "end_point": [
+                2,
+                15
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "import_list",
+          "text": "(Set)",
+          "start_point": [
+            2,
+            16
+          ],
+          "end_point": [
+            2,
+            21
+          ],
+          "children": [
+            {
+              "type": "(",
+              "text": "(",
+              "start_point": [
+                2,
+                16
+              ],
+              "end_point": [
+                2,
+                17
+              ],
+              "children": []
+            },
+            {
+              "type": "import_item",
+              "text": "Set",
+              "start_point": [
+                2,
+                17
+              ],
+              "end_point": [
+                2,
+                20
+              ],
+              "children": [
+                {
+                  "type": "type",
+                  "text": "Set",
+                  "start_point": [
+                    2,
+                    17
+                  ],
+                  "end_point": [
+                    2,
+                    20
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": ")",
+              "text": ")",
+              "start_point": [
+                2,
+                20
+              ],
+              "end_point": [
+                2,
+                21
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "import",
+      "text": "import qualified Data.Set as Set",
+      "start_point": [
+        3,
+        0
+      ],
+      "end_point": [
+        3,
+        32
+      ],
+      "children": [
+        {
+          "type": "import",
+          "text": "import",
+          "start_point": [
+            3,
+            0
+          ],
+          "end_point": [
+            3,
+            6
+          ],
+          "children": []
+        },
+        {
+          "type": "qualified",
+          "text": "qualified",
+          "start_point": [
+            3,
+            7
+          ],
+          "end_point": [
+            3,
+            16
+          ],
+          "children": []
+        },
+        {
+          "type": "qualified_module",
+          "text": "Data.Set",
+          "start_point": [
+            3,
+            17
+          ],
+          "end_point": [
+            3,
+            25
+          ],
+          "children": [
+            {
+              "type": "module",
+              "text": "Data",
+              "start_point": [
+                3,
+                17
+              ],
+              "end_point": [
+                3,
+                21
+              ],
+              "children": []
+            },
+            {
+              "type": "module",
+              "text": "Set",
+              "start_point": [
+                3,
+                22
+              ],
+              "end_point": [
+                3,
+                25
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "as",
+          "text": "as",
+          "start_point": [
+            3,
+            26
+          ],
+          "end_point": [
+            3,
+            28
+          ],
+          "children": []
+        },
+        {
+          "type": "module",
+          "text": "Set",
+          "start_point": [
+            3,
+            29
+          ],
+          "end_point": [
+            3,
+            32
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "signature",
+      "text": "dfsIterative :: Map Int [Int] -> Int -> [Int]",
+      "start_point": [
+        5,
+        0
+      ],
+      "end_point": [
+        5,
+        45
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "dfsIterative",
+          "start_point": [
+            5,
+            0
+          ],
+          "end_point": [
+            5,
+            12
+          ],
+          "children": []
+        },
+        {
+          "type": "::",
+          "text": "::",
+          "start_point": [
+            5,
+            13
+          ],
+          "end_point": [
+            5,
+            15
+          ],
+          "children": []
+        },
+        {
+          "type": "fun",
+          "text": "Map Int [Int] -> Int -> [Int]",
+          "start_point": [
+            5,
+            16
+          ],
+          "end_point": [
+            5,
+            45
+          ],
+          "children": [
+            {
+              "type": "type_apply",
+              "text": "Map Int [Int]",
+              "start_point": [
+                5,
+                16
+              ],
+              "end_point": [
+                5,
+                29
+              ],
+              "children": [
+                {
+                  "type": "type_name",
+                  "text": "Map",
+                  "start_point": [
+                    5,
+                    16
+                  ],
+                  "end_point": [
+                    5,
+                    19
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "Map",
+                      "start_point": [
+                        5,
+                        16
+                      ],
+                      "end_point": [
+                        5,
+                        19
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "type_name",
+                  "text": "Int",
+                  "start_point": [
+                    5,
+                    20
+                  ],
+                  "end_point": [
+                    5,
+                    23
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "Int",
+                      "start_point": [
+                        5,
+                        20
+                      ],
+                      "end_point": [
+                        5,
+                        23
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "type_list",
+                  "text": "[Int]",
+                  "start_point": [
+                    5,
+                    24
+                  ],
+                  "end_point": [
+                    5,
+                    29
+                  ],
+                  "children": [
+                    {
+                      "type": "[",
+                      "text": "[",
+                      "start_point": [
+                        5,
+                        24
+                      ],
+                      "end_point": [
+                        5,
+                        25
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "type_name",
+                      "text": "Int",
+                      "start_point": [
+                        5,
+                        25
+                      ],
+                      "end_point": [
+                        5,
+                        28
+                      ],
+                      "children": [
+                        {
+                          "type": "type",
+                          "text": "Int",
+                          "start_point": [
+                            5,
+                            25
+                          ],
+                          "end_point": [
+                            5,
+                            28
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "]",
+                      "text": "]",
+                      "start_point": [
+                        5,
+                        28
+                      ],
+                      "end_point": [
+                        5,
+                        29
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "->",
+              "text": "->",
+              "start_point": [
+                5,
+                30
+              ],
+              "end_point": [
+                5,
+                32
+              ],
+              "children": []
+            },
+            {
+              "type": "fun",
+              "text": "Int -> [Int]",
+              "start_point": [
+                5,
+                33
+              ],
+              "end_point": [
+                5,
+                45
+              ],
+              "children": [
+                {
+                  "type": "type_name",
+                  "text": "Int",
+                  "start_point": [
+                    5,
+                    33
+                  ],
+                  "end_point": [
+                    5,
+                    36
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "Int",
+                      "start_point": [
+                        5,
+                        33
+                      ],
+                      "end_point": [
+                        5,
+                        36
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "->",
+                  "text": "->",
+                  "start_point": [
+                    5,
+                    37
+                  ],
+                  "end_point": [
+                    5,
+                    39
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "type_list",
+                  "text": "[Int]",
+                  "start_point": [
+                    5,
+                    40
+                  ],
+                  "end_point": [
+                    5,
+                    45
+                  ],
+                  "children": [
+                    {
+                      "type": "[",
+                      "text": "[",
+                      "start_point": [
+                        5,
+                        40
+                      ],
+                      "end_point": [
+                        5,
+                        41
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "type_name",
+                      "text": "Int",
+                      "start_point": [
+                        5,
+                        41
+                      ],
+                      "end_point": [
+                        5,
+                        44
+                      ],
+                      "children": [
+                        {
+                          "type": "type",
+                          "text": "Int",
+                          "start_point": [
+                            5,
+                            41
+                          ],
+                          "end_point": [
+                            5,
+                            44
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "]",
+                      "text": "]",
+                      "start_point": [
+                        5,
+                        44
+                      ],
+                      "end_point": [
+                        5,
+                        45
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "dfsIterative graph start = reverse (go [start] Set.empty [])\n  where\n    go [] _ result = result\n    go (x:xs) visited result\n      | Set.member x visited = go xs visited result\n      | otherwise = go (neighbors ++ xs) (Set.insert x visited) (x:result)\n      where\n        neighbors = Map.findWithDefault [] x graph",
+      "start_point": [
+        6,
+        0
+      ],
+      "end_point": [
+        13,
+        50
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "dfsIterative",
+          "start_point": [
+            6,
+            0
+          ],
+          "end_point": [
+            6,
+            12
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "graph start",
+          "start_point": [
+            6,
+            13
+          ],
+          "end_point": [
+            6,
+            24
+          ],
+          "children": [
+            {
+              "type": "pat_name",
+              "text": "graph",
+              "start_point": [
+                6,
+                13
+              ],
+              "end_point": [
+                6,
+                18
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "graph",
+                  "start_point": [
+                    6,
+                    13
+                  ],
+                  "end_point": [
+                    6,
+                    18
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "pat_name",
+              "text": "start",
+              "start_point": [
+                6,
+                19
+              ],
+              "end_point": [
+                6,
+                24
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "start",
+                  "start_point": [
+                    6,
+                    19
+                  ],
+                  "end_point": [
+                    6,
+                    24
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            6,
+            25
+          ],
+          "end_point": [
+            6,
+            26
+          ],
+          "children": []
+        },
+        {
+          "type": "exp_apply",
+          "text": "reverse (go [start] Set.empty [])",
+          "start_point": [
+            6,
+            27
+          ],
+          "end_point": [
+            6,
+            60
+          ],
+          "children": [
+            {
+              "type": "exp_name",
+              "text": "reverse",
+              "start_point": [
+                6,
+                27
+              ],
+              "end_point": [
+                6,
+                34
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "reverse",
+                  "start_point": [
+                    6,
+                    27
+                  ],
+                  "end_point": [
+                    6,
+                    34
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "exp_parens",
+              "text": "(go [start] Set.empty [])",
+              "start_point": [
+                6,
+                35
+              ],
+              "end_point": [
+                6,
+                60
+              ],
+              "children": [
+                {
+                  "type": "(",
+                  "text": "(",
+                  "start_point": [
+                    6,
+                    35
+                  ],
+                  "end_point": [
+                    6,
+                    36
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "exp_apply",
+                  "text": "go [start] Set.empty []",
+                  "start_point": [
+                    6,
+                    36
+                  ],
+                  "end_point": [
+                    6,
+                    59
+                  ],
+                  "children": [
+                    {
+                      "type": "exp_name",
+                      "text": "go",
+                      "start_point": [
+                        6,
+                        36
+                      ],
+                      "end_point": [
+                        6,
+                        38
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "go",
+                          "start_point": [
+                            6,
+                            36
+                          ],
+                          "end_point": [
+                            6,
+                            38
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_list",
+                      "text": "[start]",
+                      "start_point": [
+                        6,
+                        39
+                      ],
+                      "end_point": [
+                        6,
+                        46
+                      ],
+                      "children": [
+                        {
+                          "type": "[",
+                          "text": "[",
+                          "start_point": [
+                            6,
+                            39
+                          ],
+                          "end_point": [
+                            6,
+                            40
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "exp_name",
+                          "text": "start",
+                          "start_point": [
+                            6,
+                            40
+                          ],
+                          "end_point": [
+                            6,
+                            45
+                          ],
+                          "children": [
+                            {
+                              "type": "variable",
+                              "text": "start",
+                              "start_point": [
+                                6,
+                                40
+                              ],
+                              "end_point": [
+                                6,
+                                45
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "]",
+                          "text": "]",
+                          "start_point": [
+                            6,
+                            45
+                          ],
+                          "end_point": [
+                            6,
+                            46
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_name",
+                      "text": "Set.empty",
+                      "start_point": [
+                        6,
+                        47
+                      ],
+                      "end_point": [
+                        6,
+                        56
+                      ],
+                      "children": [
+                        {
+                          "type": "qualified_variable",
+                          "text": "Set.empty",
+                          "start_point": [
+                            6,
+                            47
+                          ],
+                          "end_point": [
+                            6,
+                            56
+                          ],
+                          "children": [
+                            {
+                              "type": "module",
+                              "text": "Set",
+                              "start_point": [
+                                6,
+                                47
+                              ],
+                              "end_point": [
+                                6,
+                                50
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "variable",
+                              "text": "empty",
+                              "start_point": [
+                                6,
+                                51
+                              ],
+                              "end_point": [
+                                6,
+                                56
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_literal",
+                      "text": "[]",
+                      "start_point": [
+                        6,
+                        57
+                      ],
+                      "end_point": [
+                        6,
+                        59
+                      ],
+                      "children": [
+                        {
+                          "type": "con_list",
+                          "text": "[]",
+                          "start_point": [
+                            6,
+                            57
+                          ],
+                          "end_point": [
+                            6,
+                            59
+                          ],
+                          "children": [
+                            {
+                              "type": "[",
+                              "text": "[",
+                              "start_point": [
+                                6,
+                                57
+                              ],
+                              "end_point": [
+                                6,
+                                58
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "]",
+                              "text": "]",
+                              "start_point": [
+                                6,
+                                58
+                              ],
+                              "end_point": [
+                                6,
+                                59
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": ")",
+                  "text": ")",
+                  "start_point": [
+                    6,
+                    59
+                  ],
+                  "end_point": [
+                    6,
+                    60
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "where",
+          "text": "where",
+          "start_point": [
+            7,
+            2
+          ],
+          "end_point": [
+            7,
+            7
+          ],
+          "children": []
+        },
+        {
+          "type": "decls",
+          "text": "go [] _ result = result\n    go (x:xs) visited result\n      | Set.member x visited = go xs visited result\n      | otherwise = go (neighbors ++ xs) (Set.insert x visited) (x:result)\n      where\n        neighbors = Map.findWithDefault [] x graph",
+          "start_point": [
+            8,
+            4
+          ],
+          "end_point": [
+            13,
+            50
+          ],
+          "children": [
+            {
+              "type": "function",
+              "text": "go [] _ result = result",
+              "start_point": [
+                8,
+                4
+              ],
+              "end_point": [
+                8,
+                27
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "go",
+                  "start_point": [
+                    8,
+                    4
+                  ],
+                  "end_point": [
+                    8,
+                    6
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "patterns",
+                  "text": "[] _ result",
+                  "start_point": [
+                    8,
+                    7
+                  ],
+                  "end_point": [
+                    8,
+                    18
+                  ],
+                  "children": [
+                    {
+                      "type": "pat_literal",
+                      "text": "[]",
+                      "start_point": [
+                        8,
+                        7
+                      ],
+                      "end_point": [
+                        8,
+                        9
+                      ],
+                      "children": [
+                        {
+                          "type": "con_list",
+                          "text": "[]",
+                          "start_point": [
+                            8,
+                            7
+                          ],
+                          "end_point": [
+                            8,
+                            9
+                          ],
+                          "children": [
+                            {
+                              "type": "[",
+                              "text": "[",
+                              "start_point": [
+                                8,
+                                7
+                              ],
+                              "end_point": [
+                                8,
+                                8
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "]",
+                              "text": "]",
+                              "start_point": [
+                                8,
+                                8
+                              ],
+                              "end_point": [
+                                8,
+                                9
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "pat_wildcard",
+                      "text": "_",
+                      "start_point": [
+                        8,
+                        10
+                      ],
+                      "end_point": [
+                        8,
+                        11
+                      ],
+                      "children": [
+                        {
+                          "type": "_",
+                          "text": "_",
+                          "start_point": [
+                            8,
+                            10
+                          ],
+                          "end_point": [
+                            8,
+                            11
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "pat_name",
+                      "text": "result",
+                      "start_point": [
+                        8,
+                        12
+                      ],
+                      "end_point": [
+                        8,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "result",
+                          "start_point": [
+                            8,
+                            12
+                          ],
+                          "end_point": [
+                            8,
+                            18
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "=",
+                  "text": "=",
+                  "start_point": [
+                    8,
+                    19
+                  ],
+                  "end_point": [
+                    8,
+                    20
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "exp_name",
+                  "text": "result",
+                  "start_point": [
+                    8,
+                    21
+                  ],
+                  "end_point": [
+                    8,
+                    27
+                  ],
+                  "children": [
+                    {
+                      "type": "variable",
+                      "text": "result",
+                      "start_point": [
+                        8,
+                        21
+                      ],
+                      "end_point": [
+                        8,
+                        27
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "function",
+              "text": "go (x:xs) visited result\n      | Set.member x visited = go xs visited result\n      | otherwise = go (neighbors ++ xs) (Set.insert x visited) (x:result)\n      where\n        neighbors = Map.findWithDefault [] x graph",
+              "start_point": [
+                9,
+                4
+              ],
+              "end_point": [
+                13,
+                50
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "go",
+                  "start_point": [
+                    9,
+                    4
+                  ],
+                  "end_point": [
+                    9,
+                    6
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "patterns",
+                  "text": "(x:xs) visited result",
+                  "start_point": [
+                    9,
+                    7
+                  ],
+                  "end_point": [
+                    9,
+                    28
+                  ],
+                  "children": [
+                    {
+                      "type": "pat_parens",
+                      "text": "(x:xs)",
+                      "start_point": [
+                        9,
+                        7
+                      ],
+                      "end_point": [
+                        9,
+                        13
+                      ],
+                      "children": [
+                        {
+                          "type": "(",
+                          "text": "(",
+                          "start_point": [
+                            9,
+                            7
+                          ],
+                          "end_point": [
+                            9,
+                            8
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "pat_infix",
+                          "text": "x:xs",
+                          "start_point": [
+                            9,
+                            8
+                          ],
+                          "end_point": [
+                            9,
+                            12
+                          ],
+                          "children": [
+                            {
+                              "type": "pat_name",
+                              "text": "x",
+                              "start_point": [
+                                9,
+                                8
+                              ],
+                              "end_point": [
+                                9,
+                                9
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "x",
+                                  "start_point": [
+                                    9,
+                                    8
+                                  ],
+                                  "end_point": [
+                                    9,
+                                    9
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "constructor_operator",
+                              "text": ":",
+                              "start_point": [
+                                9,
+                                9
+                              ],
+                              "end_point": [
+                                9,
+                                10
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "pat_name",
+                              "text": "xs",
+                              "start_point": [
+                                9,
+                                10
+                              ],
+                              "end_point": [
+                                9,
+                                12
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "xs",
+                                  "start_point": [
+                                    9,
+                                    10
+                                  ],
+                                  "end_point": [
+                                    9,
+                                    12
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": ")",
+                          "text": ")",
+                          "start_point": [
+                            9,
+                            12
+                          ],
+                          "end_point": [
+                            9,
+                            13
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "pat_name",
+                      "text": "visited",
+                      "start_point": [
+                        9,
+                        14
+                      ],
+                      "end_point": [
+                        9,
+                        21
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "visited",
+                          "start_point": [
+                            9,
+                            14
+                          ],
+                          "end_point": [
+                            9,
+                            21
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "pat_name",
+                      "text": "result",
+                      "start_point": [
+                        9,
+                        22
+                      ],
+                      "end_point": [
+                        9,
+                        28
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "result",
+                          "start_point": [
+                            9,
+                            22
+                          ],
+                          "end_point": [
+                            9,
+                            28
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "guard_equation",
+                  "text": "| Set.member x visited = go xs visited result",
+                  "start_point": [
+                    10,
+                    6
+                  ],
+                  "end_point": [
+                    10,
+                    51
+                  ],
+                  "children": [
+                    {
+                      "type": "guards",
+                      "text": "| Set.member x visited",
+                      "start_point": [
+                        10,
+                        6
+                      ],
+                      "end_point": [
+                        10,
+                        28
+                      ],
+                      "children": [
+                        {
+                          "type": "|",
+                          "text": "|",
+                          "start_point": [
+                            10,
+                            6
+                          ],
+                          "end_point": [
+                            10,
+                            7
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "guard",
+                          "text": "Set.member x visited",
+                          "start_point": [
+                            10,
+                            8
+                          ],
+                          "end_point": [
+                            10,
+                            28
+                          ],
+                          "children": [
+                            {
+                              "type": "exp_apply",
+                              "text": "Set.member x visited",
+                              "start_point": [
+                                10,
+                                8
+                              ],
+                              "end_point": [
+                                10,
+                                28
+                              ],
+                              "children": [
+                                {
+                                  "type": "exp_name",
+                                  "text": "Set.member",
+                                  "start_point": [
+                                    10,
+                                    8
+                                  ],
+                                  "end_point": [
+                                    10,
+                                    18
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "qualified_variable",
+                                      "text": "Set.member",
+                                      "start_point": [
+                                        10,
+                                        8
+                                      ],
+                                      "end_point": [
+                                        10,
+                                        18
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "module",
+                                          "text": "Set",
+                                          "start_point": [
+                                            10,
+                                            8
+                                          ],
+                                          "end_point": [
+                                            10,
+                                            11
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "variable",
+                                          "text": "member",
+                                          "start_point": [
+                                            10,
+                                            12
+                                          ],
+                                          "end_point": [
+                                            10,
+                                            18
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "exp_name",
+                                  "text": "x",
+                                  "start_point": [
+                                    10,
+                                    19
+                                  ],
+                                  "end_point": [
+                                    10,
+                                    20
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "variable",
+                                      "text": "x",
+                                      "start_point": [
+                                        10,
+                                        19
+                                      ],
+                                      "end_point": [
+                                        10,
+                                        20
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "exp_name",
+                                  "text": "visited",
+                                  "start_point": [
+                                    10,
+                                    21
+                                  ],
+                                  "end_point": [
+                                    10,
+                                    28
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "variable",
+                                      "text": "visited",
+                                      "start_point": [
+                                        10,
+                                        21
+                                      ],
+                                      "end_point": [
+                                        10,
+                                        28
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "=",
+                      "text": "=",
+                      "start_point": [
+                        10,
+                        29
+                      ],
+                      "end_point": [
+                        10,
+                        30
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "exp_apply",
+                      "text": "go xs visited result",
+                      "start_point": [
+                        10,
+                        31
+                      ],
+                      "end_point": [
+                        10,
+                        51
+                      ],
+                      "children": [
+                        {
+                          "type": "exp_name",
+                          "text": "go",
+                          "start_point": [
+                            10,
+                            31
+                          ],
+                          "end_point": [
+                            10,
+                            33
+                          ],
+                          "children": [
+                            {
+                              "type": "variable",
+                              "text": "go",
+                              "start_point": [
+                                10,
+                                31
+                              ],
+                              "end_point": [
+                                10,
+                                33
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "exp_name",
+                          "text": "xs",
+                          "start_point": [
+                            10,
+                            34
+                          ],
+                          "end_point": [
+                            10,
+                            36
+                          ],
+                          "children": [
+                            {
+                              "type": "variable",
+                              "text": "xs",
+                              "start_point": [
+                                10,
+                                34
+                              ],
+                              "end_point": [
+                                10,
+                                36
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "exp_name",
+                          "text": "visited",
+                          "start_point": [
+                            10,
+                            37
+                          ],
+                          "end_point": [
+                            10,
+                            44
+                          ],
+                          "children": [
+                            {
+                              "type": "variable",
+                              "text": "visited",
+                              "start_point": [
+                                10,
+                                37
+                              ],
+                              "end_point": [
+                                10,
+                                44
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "exp_name",
+                          "text": "result",
+                          "start_point": [
+                            10,
+                            45
+                          ],
+                          "end_point": [
+                            10,
+                            51
+                          ],
+                          "children": [
+                            {
+                              "type": "variable",
+                              "text": "result",
+                              "start_point": [
+                                10,
+                                45
+                              ],
+                              "end_point": [
+                                10,
+                                51
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "guard_equation",
+                  "text": "| otherwise = go (neighbors ++ xs) (Set.insert x visited) (x:result)",
+                  "start_point": [
+                    11,
+                    6
+                  ],
+                  "end_point": [
+                    11,
+                    74
+                  ],
+                  "children": [
+                    {
+                      "type": "guards",
+                      "text": "| otherwise",
+                      "start_point": [
+                        11,
+                        6
+                      ],
+                      "end_point": [
+                        11,
+                        17
+                      ],
+                      "children": [
+                        {
+                          "type": "|",
+                          "text": "|",
+                          "start_point": [
+                            11,
+                            6
+                          ],
+                          "end_point": [
+                            11,
+                            7
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "guard",
+                          "text": "otherwise",
+                          "start_point": [
+                            11,
+                            8
+                          ],
+                          "end_point": [
+                            11,
+                            17
+                          ],
+                          "children": [
+                            {
+                              "type": "exp_name",
+                              "text": "otherwise",
+                              "start_point": [
+                                11,
+                                8
+                              ],
+                              "end_point": [
+                                11,
+                                17
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "otherwise",
+                                  "start_point": [
+                                    11,
+                                    8
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    17
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "=",
+                      "text": "=",
+                      "start_point": [
+                        11,
+                        18
+                      ],
+                      "end_point": [
+                        11,
+                        19
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "exp_apply",
+                      "text": "go (neighbors ++ xs) (Set.insert x visited) (x:result)",
+                      "start_point": [
+                        11,
+                        20
+                      ],
+                      "end_point": [
+                        11,
+                        74
+                      ],
+                      "children": [
+                        {
+                          "type": "exp_name",
+                          "text": "go",
+                          "start_point": [
+                            11,
+                            20
+                          ],
+                          "end_point": [
+                            11,
+                            22
+                          ],
+                          "children": [
+                            {
+                              "type": "variable",
+                              "text": "go",
+                              "start_point": [
+                                11,
+                                20
+                              ],
+                              "end_point": [
+                                11,
+                                22
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "exp_parens",
+                          "text": "(neighbors ++ xs)",
+                          "start_point": [
+                            11,
+                            23
+                          ],
+                          "end_point": [
+                            11,
+                            40
+                          ],
+                          "children": [
+                            {
+                              "type": "(",
+                              "text": "(",
+                              "start_point": [
+                                11,
+                                23
+                              ],
+                              "end_point": [
+                                11,
+                                24
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "exp_infix",
+                              "text": "neighbors ++ xs",
+                              "start_point": [
+                                11,
+                                24
+                              ],
+                              "end_point": [
+                                11,
+                                39
+                              ],
+                              "children": [
+                                {
+                                  "type": "exp_name",
+                                  "text": "neighbors",
+                                  "start_point": [
+                                    11,
+                                    24
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    33
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "variable",
+                                      "text": "neighbors",
+                                      "start_point": [
+                                        11,
+                                        24
+                                      ],
+                                      "end_point": [
+                                        11,
+                                        33
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "operator",
+                                  "text": "++",
+                                  "start_point": [
+                                    11,
+                                    34
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    36
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "exp_name",
+                                  "text": "xs",
+                                  "start_point": [
+                                    11,
+                                    37
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    39
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "variable",
+                                      "text": "xs",
+                                      "start_point": [
+                                        11,
+                                        37
+                                      ],
+                                      "end_point": [
+                                        11,
+                                        39
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": ")",
+                              "text": ")",
+                              "start_point": [
+                                11,
+                                39
+                              ],
+                              "end_point": [
+                                11,
+                                40
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "exp_parens",
+                          "text": "(Set.insert x visited)",
+                          "start_point": [
+                            11,
+                            41
+                          ],
+                          "end_point": [
+                            11,
+                            63
+                          ],
+                          "children": [
+                            {
+                              "type": "(",
+                              "text": "(",
+                              "start_point": [
+                                11,
+                                41
+                              ],
+                              "end_point": [
+                                11,
+                                42
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "exp_apply",
+                              "text": "Set.insert x visited",
+                              "start_point": [
+                                11,
+                                42
+                              ],
+                              "end_point": [
+                                11,
+                                62
+                              ],
+                              "children": [
+                                {
+                                  "type": "exp_name",
+                                  "text": "Set.insert",
+                                  "start_point": [
+                                    11,
+                                    42
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    52
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "qualified_variable",
+                                      "text": "Set.insert",
+                                      "start_point": [
+                                        11,
+                                        42
+                                      ],
+                                      "end_point": [
+                                        11,
+                                        52
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "module",
+                                          "text": "Set",
+                                          "start_point": [
+                                            11,
+                                            42
+                                          ],
+                                          "end_point": [
+                                            11,
+                                            45
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "variable",
+                                          "text": "insert",
+                                          "start_point": [
+                                            11,
+                                            46
+                                          ],
+                                          "end_point": [
+                                            11,
+                                            52
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "exp_name",
+                                  "text": "x",
+                                  "start_point": [
+                                    11,
+                                    53
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    54
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "variable",
+                                      "text": "x",
+                                      "start_point": [
+                                        11,
+                                        53
+                                      ],
+                                      "end_point": [
+                                        11,
+                                        54
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "exp_name",
+                                  "text": "visited",
+                                  "start_point": [
+                                    11,
+                                    55
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    62
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "variable",
+                                      "text": "visited",
+                                      "start_point": [
+                                        11,
+                                        55
+                                      ],
+                                      "end_point": [
+                                        11,
+                                        62
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": ")",
+                              "text": ")",
+                              "start_point": [
+                                11,
+                                62
+                              ],
+                              "end_point": [
+                                11,
+                                63
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "exp_parens",
+                          "text": "(x:result)",
+                          "start_point": [
+                            11,
+                            64
+                          ],
+                          "end_point": [
+                            11,
+                            74
+                          ],
+                          "children": [
+                            {
+                              "type": "(",
+                              "text": "(",
+                              "start_point": [
+                                11,
+                                64
+                              ],
+                              "end_point": [
+                                11,
+                                65
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "exp_infix",
+                              "text": "x:result",
+                              "start_point": [
+                                11,
+                                65
+                              ],
+                              "end_point": [
+                                11,
+                                73
+                              ],
+                              "children": [
+                                {
+                                  "type": "exp_name",
+                                  "text": "x",
+                                  "start_point": [
+                                    11,
+                                    65
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    66
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "variable",
+                                      "text": "x",
+                                      "start_point": [
+                                        11,
+                                        65
+                                      ],
+                                      "end_point": [
+                                        11,
+                                        66
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "constructor_operator",
+                                  "text": ":",
+                                  "start_point": [
+                                    11,
+                                    66
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    67
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "exp_name",
+                                  "text": "result",
+                                  "start_point": [
+                                    11,
+                                    67
+                                  ],
+                                  "end_point": [
+                                    11,
+                                    73
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "variable",
+                                      "text": "result",
+                                      "start_point": [
+                                        11,
+                                        67
+                                      ],
+                                      "end_point": [
+                                        11,
+                                        73
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": ")",
+                              "text": ")",
+                              "start_point": [
+                                11,
+                                73
+                              ],
+                              "end_point": [
+                                11,
+                                74
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "where",
+                  "text": "where",
+                  "start_point": [
+                    12,
+                    6
+                  ],
+                  "end_point": [
+                    12,
+                    11
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "decls",
+                  "text": "neighbors = Map.findWithDefault [] x graph",
+                  "start_point": [
+                    13,
+                    8
+                  ],
+                  "end_point": [
+                    13,
+                    50
+                  ],
+                  "children": [
+                    {
+                      "type": "function",
+                      "text": "neighbors = Map.findWithDefault [] x graph",
+                      "start_point": [
+                        13,
+                        8
+                      ],
+                      "end_point": [
+                        13,
+                        50
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "neighbors",
+                          "start_point": [
+                            13,
+                            8
+                          ],
+                          "end_point": [
+                            13,
+                            17
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "=",
+                          "text": "=",
+                          "start_point": [
+                            13,
+                            18
+                          ],
+                          "end_point": [
+                            13,
+                            19
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "exp_apply",
+                          "text": "Map.findWithDefault [] x graph",
+                          "start_point": [
+                            13,
+                            20
+                          ],
+                          "end_point": [
+                            13,
+                            50
+                          ],
+                          "children": [
+                            {
+                              "type": "exp_name",
+                              "text": "Map.findWithDefault",
+                              "start_point": [
+                                13,
+                                20
+                              ],
+                              "end_point": [
+                                13,
+                                39
+                              ],
+                              "children": [
+                                {
+                                  "type": "qualified_variable",
+                                  "text": "Map.findWithDefault",
+                                  "start_point": [
+                                    13,
+                                    20
+                                  ],
+                                  "end_point": [
+                                    13,
+                                    39
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "module",
+                                      "text": "Map",
+                                      "start_point": [
+                                        13,
+                                        20
+                                      ],
+                                      "end_point": [
+                                        13,
+                                        23
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "variable",
+                                      "text": "findWithDefault",
+                                      "start_point": [
+                                        13,
+                                        24
+                                      ],
+                                      "end_point": [
+                                        13,
+                                        39
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "exp_literal",
+                              "text": "[]",
+                              "start_point": [
+                                13,
+                                40
+                              ],
+                              "end_point": [
+                                13,
+                                42
+                              ],
+                              "children": [
+                                {
+                                  "type": "con_list",
+                                  "text": "[]",
+                                  "start_point": [
+                                    13,
+                                    40
+                                  ],
+                                  "end_point": [
+                                    13,
+                                    42
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "[",
+                                      "text": "[",
+                                      "start_point": [
+                                        13,
+                                        40
+                                      ],
+                                      "end_point": [
+                                        13,
+                                        41
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "]",
+                                      "text": "]",
+                                      "start_point": [
+                                        13,
+                                        41
+                                      ],
+                                      "end_point": [
+                                        13,
+                                        42
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "exp_name",
+                              "text": "x",
+                              "start_point": [
+                                13,
+                                43
+                              ],
+                              "end_point": [
+                                13,
+                                44
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "x",
+                                  "start_point": [
+                                    13,
+                                    43
+                                  ],
+                                  "end_point": [
+                                    13,
+                                    44
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "exp_name",
+                              "text": "graph",
+                              "start_point": [
+                                13,
+                                45
+                              ],
+                              "end_point": [
+                                13,
+                                50
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "graph",
+                                  "start_point": [
+                                    13,
+                                    45
+                                  ],
+                                  "end_point": [
+                                    13,
+                                    50
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

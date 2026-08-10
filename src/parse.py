@@ -248,7 +248,11 @@ def _cst_to_ast(language: str, cst: Dict, source: str) -> ASTNode:
 def _lower_node(language: str, node: Dict) -> ASTNode:
     """Recursive CST → simplified AST lowering."""
     cst_type = node["type"]
-    children = [_lower_node(language, c) for c in node.get("children", []) if c.get("text", "").strip()]
+    # Keep every child node.  Do NOT filter by text content — tree-sitter uses
+    # empty-text nodes as structural containers (statement_block, else_clause,
+    # parenthesized_expression, etc.).  Dropping them would discard all their
+    # children, which destroys the tree for languages that use block delimiters.
+    children = [_lower_node(language, c) for c in node.get("children", [])]
 
     # Map language-specific CST types to shared ASTNodeTypes
     mapping = _get_cst_to_ast_mapping(language)

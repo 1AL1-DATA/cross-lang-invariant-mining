@@ -1,0 +1,2728 @@
+{
+  "type": "source_file",
+  "text": "use std::collections::HashMap;\n\npub fn is_anagram(s1: &str, s2: &str) -> bool {\n    if s1.len() != s2.len() {\n        return false;\n    }\n    \n    let mut count = HashMap::new();\n    \n    for c in s1.chars() {\n        *count.entry(c).or_insert(0) += 1;\n    }\n    \n    for c in s2.chars() {\n        match count.get_mut(&c) {\n            Some(v) => *v -= 1,\n            None => return false,\n        }\n    }\n    \n    count.values().all(|&v| v == 0)\n}",
+  "start_point": [
+    0,
+    0
+  ],
+  "end_point": [
+    21,
+    1
+  ],
+  "children": [
+    {
+      "type": "use_declaration",
+      "text": "use std::collections::HashMap;",
+      "start_point": [
+        0,
+        0
+      ],
+      "end_point": [
+        0,
+        30
+      ],
+      "children": [
+        {
+          "type": "use",
+          "text": "use",
+          "start_point": [
+            0,
+            0
+          ],
+          "end_point": [
+            0,
+            3
+          ],
+          "children": []
+        },
+        {
+          "type": "scoped_identifier",
+          "text": "std::collections::HashMap",
+          "start_point": [
+            0,
+            4
+          ],
+          "end_point": [
+            0,
+            29
+          ],
+          "children": [
+            {
+              "type": "scoped_identifier",
+              "text": "std::collections",
+              "start_point": [
+                0,
+                4
+              ],
+              "end_point": [
+                0,
+                20
+              ],
+              "children": [
+                {
+                  "type": "identifier",
+                  "text": "std",
+                  "start_point": [
+                    0,
+                    4
+                  ],
+                  "end_point": [
+                    0,
+                    7
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "::",
+                  "text": "::",
+                  "start_point": [
+                    0,
+                    7
+                  ],
+                  "end_point": [
+                    0,
+                    9
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "identifier",
+                  "text": "collections",
+                  "start_point": [
+                    0,
+                    9
+                  ],
+                  "end_point": [
+                    0,
+                    20
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "::",
+              "text": "::",
+              "start_point": [
+                0,
+                20
+              ],
+              "end_point": [
+                0,
+                22
+              ],
+              "children": []
+            },
+            {
+              "type": "identifier",
+              "text": "HashMap",
+              "start_point": [
+                0,
+                22
+              ],
+              "end_point": [
+                0,
+                29
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": ";",
+          "text": ";",
+          "start_point": [
+            0,
+            29
+          ],
+          "end_point": [
+            0,
+            30
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "function_item",
+      "text": "pub fn is_anagram(s1: &str, s2: &str) -> bool {\n    if s1.len() != s2.len() {\n        return false;\n    }\n    \n    let mut count = HashMap::new();\n    \n    for c in s1.chars() {\n        *count.entry(c).or_insert(0) += 1;\n    }\n    \n    for c in s2.chars() {\n        match count.get_mut(&c) {\n            Some(v) => *v -= 1,\n            None => return false,\n        }\n    }\n    \n    count.values().all(|&v| v == 0)\n}",
+      "start_point": [
+        2,
+        0
+      ],
+      "end_point": [
+        21,
+        1
+      ],
+      "children": [
+        {
+          "type": "visibility_modifier",
+          "text": "pub",
+          "start_point": [
+            2,
+            0
+          ],
+          "end_point": [
+            2,
+            3
+          ],
+          "children": [
+            {
+              "type": "pub",
+              "text": "pub",
+              "start_point": [
+                2,
+                0
+              ],
+              "end_point": [
+                2,
+                3
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "fn",
+          "text": "fn",
+          "start_point": [
+            2,
+            4
+          ],
+          "end_point": [
+            2,
+            6
+          ],
+          "children": []
+        },
+        {
+          "type": "identifier",
+          "text": "is_anagram",
+          "start_point": [
+            2,
+            7
+          ],
+          "end_point": [
+            2,
+            17
+          ],
+          "children": []
+        },
+        {
+          "type": "parameters",
+          "text": "(s1: &str, s2: &str)",
+          "start_point": [
+            2,
+            17
+          ],
+          "end_point": [
+            2,
+            37
+          ],
+          "children": [
+            {
+              "type": "(",
+              "text": "(",
+              "start_point": [
+                2,
+                17
+              ],
+              "end_point": [
+                2,
+                18
+              ],
+              "children": []
+            },
+            {
+              "type": "parameter",
+              "text": "s1: &str",
+              "start_point": [
+                2,
+                18
+              ],
+              "end_point": [
+                2,
+                26
+              ],
+              "children": [
+                {
+                  "type": "identifier",
+                  "text": "s1",
+                  "start_point": [
+                    2,
+                    18
+                  ],
+                  "end_point": [
+                    2,
+                    20
+                  ],
+                  "children": []
+                },
+                {
+                  "type": ":",
+                  "text": ":",
+                  "start_point": [
+                    2,
+                    20
+                  ],
+                  "end_point": [
+                    2,
+                    21
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "reference_type",
+                  "text": "&str",
+                  "start_point": [
+                    2,
+                    22
+                  ],
+                  "end_point": [
+                    2,
+                    26
+                  ],
+                  "children": [
+                    {
+                      "type": "&",
+                      "text": "&",
+                      "start_point": [
+                        2,
+                        22
+                      ],
+                      "end_point": [
+                        2,
+                        23
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "primitive_type",
+                      "text": "str",
+                      "start_point": [
+                        2,
+                        23
+                      ],
+                      "end_point": [
+                        2,
+                        26
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": ",",
+              "text": ",",
+              "start_point": [
+                2,
+                26
+              ],
+              "end_point": [
+                2,
+                27
+              ],
+              "children": []
+            },
+            {
+              "type": "parameter",
+              "text": "s2: &str",
+              "start_point": [
+                2,
+                28
+              ],
+              "end_point": [
+                2,
+                36
+              ],
+              "children": [
+                {
+                  "type": "identifier",
+                  "text": "s2",
+                  "start_point": [
+                    2,
+                    28
+                  ],
+                  "end_point": [
+                    2,
+                    30
+                  ],
+                  "children": []
+                },
+                {
+                  "type": ":",
+                  "text": ":",
+                  "start_point": [
+                    2,
+                    30
+                  ],
+                  "end_point": [
+                    2,
+                    31
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "reference_type",
+                  "text": "&str",
+                  "start_point": [
+                    2,
+                    32
+                  ],
+                  "end_point": [
+                    2,
+                    36
+                  ],
+                  "children": [
+                    {
+                      "type": "&",
+                      "text": "&",
+                      "start_point": [
+                        2,
+                        32
+                      ],
+                      "end_point": [
+                        2,
+                        33
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "primitive_type",
+                      "text": "str",
+                      "start_point": [
+                        2,
+                        33
+                      ],
+                      "end_point": [
+                        2,
+                        36
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": ")",
+              "text": ")",
+              "start_point": [
+                2,
+                36
+              ],
+              "end_point": [
+                2,
+                37
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "->",
+          "text": "->",
+          "start_point": [
+            2,
+            38
+          ],
+          "end_point": [
+            2,
+            40
+          ],
+          "children": []
+        },
+        {
+          "type": "primitive_type",
+          "text": "bool",
+          "start_point": [
+            2,
+            41
+          ],
+          "end_point": [
+            2,
+            45
+          ],
+          "children": []
+        },
+        {
+          "type": "block",
+          "text": "{\n    if s1.len() != s2.len() {\n        return false;\n    }\n    \n    let mut count = HashMap::new();\n    \n    for c in s1.chars() {\n        *count.entry(c).or_insert(0) += 1;\n    }\n    \n    for c in s2.chars() {\n        match count.get_mut(&c) {\n            Some(v) => *v -= 1,\n            None => return false,\n        }\n    }\n    \n    count.values().all(|&v| v == 0)\n}",
+          "start_point": [
+            2,
+            46
+          ],
+          "end_point": [
+            21,
+            1
+          ],
+          "children": [
+            {
+              "type": "{",
+              "text": "{",
+              "start_point": [
+                2,
+                46
+              ],
+              "end_point": [
+                2,
+                47
+              ],
+              "children": []
+            },
+            {
+              "type": "expression_statement",
+              "text": "if s1.len() != s2.len() {\n        return false;\n    }",
+              "start_point": [
+                3,
+                4
+              ],
+              "end_point": [
+                5,
+                5
+              ],
+              "children": [
+                {
+                  "type": "if_expression",
+                  "text": "if s1.len() != s2.len() {\n        return false;\n    }",
+                  "start_point": [
+                    3,
+                    4
+                  ],
+                  "end_point": [
+                    5,
+                    5
+                  ],
+                  "children": [
+                    {
+                      "type": "if",
+                      "text": "if",
+                      "start_point": [
+                        3,
+                        4
+                      ],
+                      "end_point": [
+                        3,
+                        6
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "binary_expression",
+                      "text": "s1.len() != s2.len()",
+                      "start_point": [
+                        3,
+                        7
+                      ],
+                      "end_point": [
+                        3,
+                        27
+                      ],
+                      "children": [
+                        {
+                          "type": "call_expression",
+                          "text": "s1.len()",
+                          "start_point": [
+                            3,
+                            7
+                          ],
+                          "end_point": [
+                            3,
+                            15
+                          ],
+                          "children": [
+                            {
+                              "type": "field_expression",
+                              "text": "s1.len",
+                              "start_point": [
+                                3,
+                                7
+                              ],
+                              "end_point": [
+                                3,
+                                13
+                              ],
+                              "children": [
+                                {
+                                  "type": "identifier",
+                                  "text": "s1",
+                                  "start_point": [
+                                    3,
+                                    7
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    9
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": ".",
+                                  "text": ".",
+                                  "start_point": [
+                                    3,
+                                    9
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    10
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "field_identifier",
+                                  "text": "len",
+                                  "start_point": [
+                                    3,
+                                    10
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    13
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "arguments",
+                              "text": "()",
+                              "start_point": [
+                                3,
+                                13
+                              ],
+                              "end_point": [
+                                3,
+                                15
+                              ],
+                              "children": [
+                                {
+                                  "type": "(",
+                                  "text": "(",
+                                  "start_point": [
+                                    3,
+                                    13
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    14
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": ")",
+                                  "text": ")",
+                                  "start_point": [
+                                    3,
+                                    14
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    15
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "!=",
+                          "text": "!=",
+                          "start_point": [
+                            3,
+                            16
+                          ],
+                          "end_point": [
+                            3,
+                            18
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "call_expression",
+                          "text": "s2.len()",
+                          "start_point": [
+                            3,
+                            19
+                          ],
+                          "end_point": [
+                            3,
+                            27
+                          ],
+                          "children": [
+                            {
+                              "type": "field_expression",
+                              "text": "s2.len",
+                              "start_point": [
+                                3,
+                                19
+                              ],
+                              "end_point": [
+                                3,
+                                25
+                              ],
+                              "children": [
+                                {
+                                  "type": "identifier",
+                                  "text": "s2",
+                                  "start_point": [
+                                    3,
+                                    19
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    21
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": ".",
+                                  "text": ".",
+                                  "start_point": [
+                                    3,
+                                    21
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    22
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "field_identifier",
+                                  "text": "len",
+                                  "start_point": [
+                                    3,
+                                    22
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    25
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "arguments",
+                              "text": "()",
+                              "start_point": [
+                                3,
+                                25
+                              ],
+                              "end_point": [
+                                3,
+                                27
+                              ],
+                              "children": [
+                                {
+                                  "type": "(",
+                                  "text": "(",
+                                  "start_point": [
+                                    3,
+                                    25
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    26
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": ")",
+                                  "text": ")",
+                                  "start_point": [
+                                    3,
+                                    26
+                                  ],
+                                  "end_point": [
+                                    3,
+                                    27
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "block",
+                      "text": "{\n        return false;\n    }",
+                      "start_point": [
+                        3,
+                        28
+                      ],
+                      "end_point": [
+                        5,
+                        5
+                      ],
+                      "children": [
+                        {
+                          "type": "{",
+                          "text": "{",
+                          "start_point": [
+                            3,
+                            28
+                          ],
+                          "end_point": [
+                            3,
+                            29
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "expression_statement",
+                          "text": "return false;",
+                          "start_point": [
+                            4,
+                            8
+                          ],
+                          "end_point": [
+                            4,
+                            21
+                          ],
+                          "children": [
+                            {
+                              "type": "return_expression",
+                              "text": "return false",
+                              "start_point": [
+                                4,
+                                8
+                              ],
+                              "end_point": [
+                                4,
+                                20
+                              ],
+                              "children": [
+                                {
+                                  "type": "return",
+                                  "text": "return",
+                                  "start_point": [
+                                    4,
+                                    8
+                                  ],
+                                  "end_point": [
+                                    4,
+                                    14
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "boolean_literal",
+                                  "text": "false",
+                                  "start_point": [
+                                    4,
+                                    15
+                                  ],
+                                  "end_point": [
+                                    4,
+                                    20
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "false",
+                                      "text": "false",
+                                      "start_point": [
+                                        4,
+                                        15
+                                      ],
+                                      "end_point": [
+                                        4,
+                                        20
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": ";",
+                              "text": ";",
+                              "start_point": [
+                                4,
+                                20
+                              ],
+                              "end_point": [
+                                4,
+                                21
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "}",
+                          "text": "}",
+                          "start_point": [
+                            5,
+                            4
+                          ],
+                          "end_point": [
+                            5,
+                            5
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "let_declaration",
+              "text": "let mut count = HashMap::new();",
+              "start_point": [
+                7,
+                4
+              ],
+              "end_point": [
+                7,
+                35
+              ],
+              "children": [
+                {
+                  "type": "let",
+                  "text": "let",
+                  "start_point": [
+                    7,
+                    4
+                  ],
+                  "end_point": [
+                    7,
+                    7
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "mutable_specifier",
+                  "text": "mut",
+                  "start_point": [
+                    7,
+                    8
+                  ],
+                  "end_point": [
+                    7,
+                    11
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "identifier",
+                  "text": "count",
+                  "start_point": [
+                    7,
+                    12
+                  ],
+                  "end_point": [
+                    7,
+                    17
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "=",
+                  "text": "=",
+                  "start_point": [
+                    7,
+                    18
+                  ],
+                  "end_point": [
+                    7,
+                    19
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "call_expression",
+                  "text": "HashMap::new()",
+                  "start_point": [
+                    7,
+                    20
+                  ],
+                  "end_point": [
+                    7,
+                    34
+                  ],
+                  "children": [
+                    {
+                      "type": "scoped_identifier",
+                      "text": "HashMap::new",
+                      "start_point": [
+                        7,
+                        20
+                      ],
+                      "end_point": [
+                        7,
+                        32
+                      ],
+                      "children": [
+                        {
+                          "type": "identifier",
+                          "text": "HashMap",
+                          "start_point": [
+                            7,
+                            20
+                          ],
+                          "end_point": [
+                            7,
+                            27
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "::",
+                          "text": "::",
+                          "start_point": [
+                            7,
+                            27
+                          ],
+                          "end_point": [
+                            7,
+                            29
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "identifier",
+                          "text": "new",
+                          "start_point": [
+                            7,
+                            29
+                          ],
+                          "end_point": [
+                            7,
+                            32
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "arguments",
+                      "text": "()",
+                      "start_point": [
+                        7,
+                        32
+                      ],
+                      "end_point": [
+                        7,
+                        34
+                      ],
+                      "children": [
+                        {
+                          "type": "(",
+                          "text": "(",
+                          "start_point": [
+                            7,
+                            32
+                          ],
+                          "end_point": [
+                            7,
+                            33
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": ")",
+                          "text": ")",
+                          "start_point": [
+                            7,
+                            33
+                          ],
+                          "end_point": [
+                            7,
+                            34
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": ";",
+                  "text": ";",
+                  "start_point": [
+                    7,
+                    34
+                  ],
+                  "end_point": [
+                    7,
+                    35
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "expression_statement",
+              "text": "for c in s1.chars() {\n        *count.entry(c).or_insert(0) += 1;\n    }",
+              "start_point": [
+                9,
+                4
+              ],
+              "end_point": [
+                11,
+                5
+              ],
+              "children": [
+                {
+                  "type": "for_expression",
+                  "text": "for c in s1.chars() {\n        *count.entry(c).or_insert(0) += 1;\n    }",
+                  "start_point": [
+                    9,
+                    4
+                  ],
+                  "end_point": [
+                    11,
+                    5
+                  ],
+                  "children": [
+                    {
+                      "type": "for",
+                      "text": "for",
+                      "start_point": [
+                        9,
+                        4
+                      ],
+                      "end_point": [
+                        9,
+                        7
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "identifier",
+                      "text": "c",
+                      "start_point": [
+                        9,
+                        8
+                      ],
+                      "end_point": [
+                        9,
+                        9
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "in",
+                      "text": "in",
+                      "start_point": [
+                        9,
+                        10
+                      ],
+                      "end_point": [
+                        9,
+                        12
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "call_expression",
+                      "text": "s1.chars()",
+                      "start_point": [
+                        9,
+                        13
+                      ],
+                      "end_point": [
+                        9,
+                        23
+                      ],
+                      "children": [
+                        {
+                          "type": "field_expression",
+                          "text": "s1.chars",
+                          "start_point": [
+                            9,
+                            13
+                          ],
+                          "end_point": [
+                            9,
+                            21
+                          ],
+                          "children": [
+                            {
+                              "type": "identifier",
+                              "text": "s1",
+                              "start_point": [
+                                9,
+                                13
+                              ],
+                              "end_point": [
+                                9,
+                                15
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": ".",
+                              "text": ".",
+                              "start_point": [
+                                9,
+                                15
+                              ],
+                              "end_point": [
+                                9,
+                                16
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "field_identifier",
+                              "text": "chars",
+                              "start_point": [
+                                9,
+                                16
+                              ],
+                              "end_point": [
+                                9,
+                                21
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "arguments",
+                          "text": "()",
+                          "start_point": [
+                            9,
+                            21
+                          ],
+                          "end_point": [
+                            9,
+                            23
+                          ],
+                          "children": [
+                            {
+                              "type": "(",
+                              "text": "(",
+                              "start_point": [
+                                9,
+                                21
+                              ],
+                              "end_point": [
+                                9,
+                                22
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": ")",
+                              "text": ")",
+                              "start_point": [
+                                9,
+                                22
+                              ],
+                              "end_point": [
+                                9,
+                                23
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "block",
+                      "text": "{\n        *count.entry(c).or_insert(0) += 1;\n    }",
+                      "start_point": [
+                        9,
+                        24
+                      ],
+                      "end_point": [
+                        11,
+                        5
+                      ],
+                      "children": [
+                        {
+                          "type": "{",
+                          "text": "{",
+                          "start_point": [
+                            9,
+                            24
+                          ],
+                          "end_point": [
+                            9,
+                            25
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "expression_statement",
+                          "text": "*count.entry(c).or_insert(0) += 1;",
+                          "start_point": [
+                            10,
+                            8
+                          ],
+                          "end_point": [
+                            10,
+                            42
+                          ],
+                          "children": [
+                            {
+                              "type": "compound_assignment_expr",
+                              "text": "*count.entry(c).or_insert(0) += 1",
+                              "start_point": [
+                                10,
+                                8
+                              ],
+                              "end_point": [
+                                10,
+                                41
+                              ],
+                              "children": [
+                                {
+                                  "type": "unary_expression",
+                                  "text": "*count.entry(c).or_insert(0)",
+                                  "start_point": [
+                                    10,
+                                    8
+                                  ],
+                                  "end_point": [
+                                    10,
+                                    36
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "*",
+                                      "text": "*",
+                                      "start_point": [
+                                        10,
+                                        8
+                                      ],
+                                      "end_point": [
+                                        10,
+                                        9
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "call_expression",
+                                      "text": "count.entry(c).or_insert(0)",
+                                      "start_point": [
+                                        10,
+                                        9
+                                      ],
+                                      "end_point": [
+                                        10,
+                                        36
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "field_expression",
+                                          "text": "count.entry(c).or_insert",
+                                          "start_point": [
+                                            10,
+                                            9
+                                          ],
+                                          "end_point": [
+                                            10,
+                                            33
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "call_expression",
+                                              "text": "count.entry(c)",
+                                              "start_point": [
+                                                10,
+                                                9
+                                              ],
+                                              "end_point": [
+                                                10,
+                                                23
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "field_expression",
+                                                  "text": "count.entry",
+                                                  "start_point": [
+                                                    10,
+                                                    9
+                                                  ],
+                                                  "end_point": [
+                                                    10,
+                                                    20
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "identifier",
+                                                      "text": "count",
+                                                      "start_point": [
+                                                        10,
+                                                        9
+                                                      ],
+                                                      "end_point": [
+                                                        10,
+                                                        14
+                                                      ],
+                                                      "children": []
+                                                    },
+                                                    {
+                                                      "type": ".",
+                                                      "text": ".",
+                                                      "start_point": [
+                                                        10,
+                                                        14
+                                                      ],
+                                                      "end_point": [
+                                                        10,
+                                                        15
+                                                      ],
+                                                      "children": []
+                                                    },
+                                                    {
+                                                      "type": "field_identifier",
+                                                      "text": "entry",
+                                                      "start_point": [
+                                                        10,
+                                                        15
+                                                      ],
+                                                      "end_point": [
+                                                        10,
+                                                        20
+                                                      ],
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "type": "arguments",
+                                                  "text": "(c)",
+                                                  "start_point": [
+                                                    10,
+                                                    20
+                                                  ],
+                                                  "end_point": [
+                                                    10,
+                                                    23
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "type": "(",
+                                                      "text": "(",
+                                                      "start_point": [
+                                                        10,
+                                                        20
+                                                      ],
+                                                      "end_point": [
+                                                        10,
+                                                        21
+                                                      ],
+                                                      "children": []
+                                                    },
+                                                    {
+                                                      "type": "identifier",
+                                                      "text": "c",
+                                                      "start_point": [
+                                                        10,
+                                                        21
+                                                      ],
+                                                      "end_point": [
+                                                        10,
+                                                        22
+                                                      ],
+                                                      "children": []
+                                                    },
+                                                    {
+                                                      "type": ")",
+                                                      "text": ")",
+                                                      "start_point": [
+                                                        10,
+                                                        22
+                                                      ],
+                                                      "end_point": [
+                                                        10,
+                                                        23
+                                                      ],
+                                                      "children": []
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": ".",
+                                              "text": ".",
+                                              "start_point": [
+                                                10,
+                                                23
+                                              ],
+                                              "end_point": [
+                                                10,
+                                                24
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "field_identifier",
+                                              "text": "or_insert",
+                                              "start_point": [
+                                                10,
+                                                24
+                                              ],
+                                              "end_point": [
+                                                10,
+                                                33
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "arguments",
+                                          "text": "(0)",
+                                          "start_point": [
+                                            10,
+                                            33
+                                          ],
+                                          "end_point": [
+                                            10,
+                                            36
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "(",
+                                              "text": "(",
+                                              "start_point": [
+                                                10,
+                                                33
+                                              ],
+                                              "end_point": [
+                                                10,
+                                                34
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "integer_literal",
+                                              "text": "0",
+                                              "start_point": [
+                                                10,
+                                                34
+                                              ],
+                                              "end_point": [
+                                                10,
+                                                35
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": ")",
+                                              "text": ")",
+                                              "start_point": [
+                                                10,
+                                                35
+                                              ],
+                                              "end_point": [
+                                                10,
+                                                36
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "+=",
+                                  "text": "+=",
+                                  "start_point": [
+                                    10,
+                                    37
+                                  ],
+                                  "end_point": [
+                                    10,
+                                    39
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "integer_literal",
+                                  "text": "1",
+                                  "start_point": [
+                                    10,
+                                    40
+                                  ],
+                                  "end_point": [
+                                    10,
+                                    41
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": ";",
+                              "text": ";",
+                              "start_point": [
+                                10,
+                                41
+                              ],
+                              "end_point": [
+                                10,
+                                42
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "}",
+                          "text": "}",
+                          "start_point": [
+                            11,
+                            4
+                          ],
+                          "end_point": [
+                            11,
+                            5
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "expression_statement",
+              "text": "for c in s2.chars() {\n        match count.get_mut(&c) {\n            Some(v) => *v -= 1,\n            None => return false,\n        }\n    }",
+              "start_point": [
+                13,
+                4
+              ],
+              "end_point": [
+                18,
+                5
+              ],
+              "children": [
+                {
+                  "type": "for_expression",
+                  "text": "for c in s2.chars() {\n        match count.get_mut(&c) {\n            Some(v) => *v -= 1,\n            None => return false,\n        }\n    }",
+                  "start_point": [
+                    13,
+                    4
+                  ],
+                  "end_point": [
+                    18,
+                    5
+                  ],
+                  "children": [
+                    {
+                      "type": "for",
+                      "text": "for",
+                      "start_point": [
+                        13,
+                        4
+                      ],
+                      "end_point": [
+                        13,
+                        7
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "identifier",
+                      "text": "c",
+                      "start_point": [
+                        13,
+                        8
+                      ],
+                      "end_point": [
+                        13,
+                        9
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "in",
+                      "text": "in",
+                      "start_point": [
+                        13,
+                        10
+                      ],
+                      "end_point": [
+                        13,
+                        12
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "call_expression",
+                      "text": "s2.chars()",
+                      "start_point": [
+                        13,
+                        13
+                      ],
+                      "end_point": [
+                        13,
+                        23
+                      ],
+                      "children": [
+                        {
+                          "type": "field_expression",
+                          "text": "s2.chars",
+                          "start_point": [
+                            13,
+                            13
+                          ],
+                          "end_point": [
+                            13,
+                            21
+                          ],
+                          "children": [
+                            {
+                              "type": "identifier",
+                              "text": "s2",
+                              "start_point": [
+                                13,
+                                13
+                              ],
+                              "end_point": [
+                                13,
+                                15
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": ".",
+                              "text": ".",
+                              "start_point": [
+                                13,
+                                15
+                              ],
+                              "end_point": [
+                                13,
+                                16
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "field_identifier",
+                              "text": "chars",
+                              "start_point": [
+                                13,
+                                16
+                              ],
+                              "end_point": [
+                                13,
+                                21
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "arguments",
+                          "text": "()",
+                          "start_point": [
+                            13,
+                            21
+                          ],
+                          "end_point": [
+                            13,
+                            23
+                          ],
+                          "children": [
+                            {
+                              "type": "(",
+                              "text": "(",
+                              "start_point": [
+                                13,
+                                21
+                              ],
+                              "end_point": [
+                                13,
+                                22
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": ")",
+                              "text": ")",
+                              "start_point": [
+                                13,
+                                22
+                              ],
+                              "end_point": [
+                                13,
+                                23
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "block",
+                      "text": "{\n        match count.get_mut(&c) {\n            Some(v) => *v -= 1,\n            None => return false,\n        }\n    }",
+                      "start_point": [
+                        13,
+                        24
+                      ],
+                      "end_point": [
+                        18,
+                        5
+                      ],
+                      "children": [
+                        {
+                          "type": "{",
+                          "text": "{",
+                          "start_point": [
+                            13,
+                            24
+                          ],
+                          "end_point": [
+                            13,
+                            25
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "expression_statement",
+                          "text": "match count.get_mut(&c) {\n            Some(v) => *v -= 1,\n            None => return false,\n        }",
+                          "start_point": [
+                            14,
+                            8
+                          ],
+                          "end_point": [
+                            17,
+                            9
+                          ],
+                          "children": [
+                            {
+                              "type": "match_expression",
+                              "text": "match count.get_mut(&c) {\n            Some(v) => *v -= 1,\n            None => return false,\n        }",
+                              "start_point": [
+                                14,
+                                8
+                              ],
+                              "end_point": [
+                                17,
+                                9
+                              ],
+                              "children": [
+                                {
+                                  "type": "match",
+                                  "text": "match",
+                                  "start_point": [
+                                    14,
+                                    8
+                                  ],
+                                  "end_point": [
+                                    14,
+                                    13
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "call_expression",
+                                  "text": "count.get_mut(&c)",
+                                  "start_point": [
+                                    14,
+                                    14
+                                  ],
+                                  "end_point": [
+                                    14,
+                                    31
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "field_expression",
+                                      "text": "count.get_mut",
+                                      "start_point": [
+                                        14,
+                                        14
+                                      ],
+                                      "end_point": [
+                                        14,
+                                        27
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "identifier",
+                                          "text": "count",
+                                          "start_point": [
+                                            14,
+                                            14
+                                          ],
+                                          "end_point": [
+                                            14,
+                                            19
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": ".",
+                                          "text": ".",
+                                          "start_point": [
+                                            14,
+                                            19
+                                          ],
+                                          "end_point": [
+                                            14,
+                                            20
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "field_identifier",
+                                          "text": "get_mut",
+                                          "start_point": [
+                                            14,
+                                            20
+                                          ],
+                                          "end_point": [
+                                            14,
+                                            27
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "arguments",
+                                      "text": "(&c)",
+                                      "start_point": [
+                                        14,
+                                        27
+                                      ],
+                                      "end_point": [
+                                        14,
+                                        31
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "(",
+                                          "text": "(",
+                                          "start_point": [
+                                            14,
+                                            27
+                                          ],
+                                          "end_point": [
+                                            14,
+                                            28
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "reference_expression",
+                                          "text": "&c",
+                                          "start_point": [
+                                            14,
+                                            28
+                                          ],
+                                          "end_point": [
+                                            14,
+                                            30
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "&",
+                                              "text": "&",
+                                              "start_point": [
+                                                14,
+                                                28
+                                              ],
+                                              "end_point": [
+                                                14,
+                                                29
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "identifier",
+                                              "text": "c",
+                                              "start_point": [
+                                                14,
+                                                29
+                                              ],
+                                              "end_point": [
+                                                14,
+                                                30
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": ")",
+                                          "text": ")",
+                                          "start_point": [
+                                            14,
+                                            30
+                                          ],
+                                          "end_point": [
+                                            14,
+                                            31
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "match_block",
+                                  "text": "{\n            Some(v) => *v -= 1,\n            None => return false,\n        }",
+                                  "start_point": [
+                                    14,
+                                    32
+                                  ],
+                                  "end_point": [
+                                    17,
+                                    9
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "{",
+                                      "text": "{",
+                                      "start_point": [
+                                        14,
+                                        32
+                                      ],
+                                      "end_point": [
+                                        14,
+                                        33
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "match_arm",
+                                      "text": "Some(v) => *v -= 1,",
+                                      "start_point": [
+                                        15,
+                                        12
+                                      ],
+                                      "end_point": [
+                                        15,
+                                        31
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "match_pattern",
+                                          "text": "Some(v)",
+                                          "start_point": [
+                                            15,
+                                            12
+                                          ],
+                                          "end_point": [
+                                            15,
+                                            19
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "tuple_struct_pattern",
+                                              "text": "Some(v)",
+                                              "start_point": [
+                                                15,
+                                                12
+                                              ],
+                                              "end_point": [
+                                                15,
+                                                19
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "identifier",
+                                                  "text": "Some",
+                                                  "start_point": [
+                                                    15,
+                                                    12
+                                                  ],
+                                                  "end_point": [
+                                                    15,
+                                                    16
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": "(",
+                                                  "text": "(",
+                                                  "start_point": [
+                                                    15,
+                                                    16
+                                                  ],
+                                                  "end_point": [
+                                                    15,
+                                                    17
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": "identifier",
+                                                  "text": "v",
+                                                  "start_point": [
+                                                    15,
+                                                    17
+                                                  ],
+                                                  "end_point": [
+                                                    15,
+                                                    18
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": ")",
+                                                  "text": ")",
+                                                  "start_point": [
+                                                    15,
+                                                    18
+                                                  ],
+                                                  "end_point": [
+                                                    15,
+                                                    19
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "=>",
+                                          "text": "=>",
+                                          "start_point": [
+                                            15,
+                                            20
+                                          ],
+                                          "end_point": [
+                                            15,
+                                            22
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "compound_assignment_expr",
+                                          "text": "*v -= 1",
+                                          "start_point": [
+                                            15,
+                                            23
+                                          ],
+                                          "end_point": [
+                                            15,
+                                            30
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "unary_expression",
+                                              "text": "*v",
+                                              "start_point": [
+                                                15,
+                                                23
+                                              ],
+                                              "end_point": [
+                                                15,
+                                                25
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "*",
+                                                  "text": "*",
+                                                  "start_point": [
+                                                    15,
+                                                    23
+                                                  ],
+                                                  "end_point": [
+                                                    15,
+                                                    24
+                                                  ],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "type": "identifier",
+                                                  "text": "v",
+                                                  "start_point": [
+                                                    15,
+                                                    24
+                                                  ],
+                                                  "end_point": [
+                                                    15,
+                                                    25
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "type": "-=",
+                                              "text": "-=",
+                                              "start_point": [
+                                                15,
+                                                26
+                                              ],
+                                              "end_point": [
+                                                15,
+                                                28
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "integer_literal",
+                                              "text": "1",
+                                              "start_point": [
+                                                15,
+                                                29
+                                              ],
+                                              "end_point": [
+                                                15,
+                                                30
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": ",",
+                                          "text": ",",
+                                          "start_point": [
+                                            15,
+                                            30
+                                          ],
+                                          "end_point": [
+                                            15,
+                                            31
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "match_arm",
+                                      "text": "None => return false,",
+                                      "start_point": [
+                                        16,
+                                        12
+                                      ],
+                                      "end_point": [
+                                        16,
+                                        33
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "match_pattern",
+                                          "text": "None",
+                                          "start_point": [
+                                            16,
+                                            12
+                                          ],
+                                          "end_point": [
+                                            16,
+                                            16
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "identifier",
+                                              "text": "None",
+                                              "start_point": [
+                                                16,
+                                                12
+                                              ],
+                                              "end_point": [
+                                                16,
+                                                16
+                                              ],
+                                              "children": []
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": "=>",
+                                          "text": "=>",
+                                          "start_point": [
+                                            16,
+                                            17
+                                          ],
+                                          "end_point": [
+                                            16,
+                                            19
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "return_expression",
+                                          "text": "return false",
+                                          "start_point": [
+                                            16,
+                                            20
+                                          ],
+                                          "end_point": [
+                                            16,
+                                            32
+                                          ],
+                                          "children": [
+                                            {
+                                              "type": "return",
+                                              "text": "return",
+                                              "start_point": [
+                                                16,
+                                                20
+                                              ],
+                                              "end_point": [
+                                                16,
+                                                26
+                                              ],
+                                              "children": []
+                                            },
+                                            {
+                                              "type": "boolean_literal",
+                                              "text": "false",
+                                              "start_point": [
+                                                16,
+                                                27
+                                              ],
+                                              "end_point": [
+                                                16,
+                                                32
+                                              ],
+                                              "children": [
+                                                {
+                                                  "type": "false",
+                                                  "text": "false",
+                                                  "start_point": [
+                                                    16,
+                                                    27
+                                                  ],
+                                                  "end_point": [
+                                                    16,
+                                                    32
+                                                  ],
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "type": ",",
+                                          "text": ",",
+                                          "start_point": [
+                                            16,
+                                            32
+                                          ],
+                                          "end_point": [
+                                            16,
+                                            33
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "}",
+                                      "text": "}",
+                                      "start_point": [
+                                        17,
+                                        8
+                                      ],
+                                      "end_point": [
+                                        17,
+                                        9
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "}",
+                          "text": "}",
+                          "start_point": [
+                            18,
+                            4
+                          ],
+                          "end_point": [
+                            18,
+                            5
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "call_expression",
+              "text": "count.values().all(|&v| v == 0)",
+              "start_point": [
+                20,
+                4
+              ],
+              "end_point": [
+                20,
+                35
+              ],
+              "children": [
+                {
+                  "type": "field_expression",
+                  "text": "count.values().all",
+                  "start_point": [
+                    20,
+                    4
+                  ],
+                  "end_point": [
+                    20,
+                    22
+                  ],
+                  "children": [
+                    {
+                      "type": "call_expression",
+                      "text": "count.values()",
+                      "start_point": [
+                        20,
+                        4
+                      ],
+                      "end_point": [
+                        20,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "field_expression",
+                          "text": "count.values",
+                          "start_point": [
+                            20,
+                            4
+                          ],
+                          "end_point": [
+                            20,
+                            16
+                          ],
+                          "children": [
+                            {
+                              "type": "identifier",
+                              "text": "count",
+                              "start_point": [
+                                20,
+                                4
+                              ],
+                              "end_point": [
+                                20,
+                                9
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": ".",
+                              "text": ".",
+                              "start_point": [
+                                20,
+                                9
+                              ],
+                              "end_point": [
+                                20,
+                                10
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "field_identifier",
+                              "text": "values",
+                              "start_point": [
+                                20,
+                                10
+                              ],
+                              "end_point": [
+                                20,
+                                16
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "arguments",
+                          "text": "()",
+                          "start_point": [
+                            20,
+                            16
+                          ],
+                          "end_point": [
+                            20,
+                            18
+                          ],
+                          "children": [
+                            {
+                              "type": "(",
+                              "text": "(",
+                              "start_point": [
+                                20,
+                                16
+                              ],
+                              "end_point": [
+                                20,
+                                17
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": ")",
+                              "text": ")",
+                              "start_point": [
+                                20,
+                                17
+                              ],
+                              "end_point": [
+                                20,
+                                18
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": ".",
+                      "text": ".",
+                      "start_point": [
+                        20,
+                        18
+                      ],
+                      "end_point": [
+                        20,
+                        19
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "field_identifier",
+                      "text": "all",
+                      "start_point": [
+                        20,
+                        19
+                      ],
+                      "end_point": [
+                        20,
+                        22
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "arguments",
+                  "text": "(|&v| v == 0)",
+                  "start_point": [
+                    20,
+                    22
+                  ],
+                  "end_point": [
+                    20,
+                    35
+                  ],
+                  "children": [
+                    {
+                      "type": "(",
+                      "text": "(",
+                      "start_point": [
+                        20,
+                        22
+                      ],
+                      "end_point": [
+                        20,
+                        23
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "closure_expression",
+                      "text": "|&v| v == 0",
+                      "start_point": [
+                        20,
+                        23
+                      ],
+                      "end_point": [
+                        20,
+                        34
+                      ],
+                      "children": [
+                        {
+                          "type": "closure_parameters",
+                          "text": "|&v|",
+                          "start_point": [
+                            20,
+                            23
+                          ],
+                          "end_point": [
+                            20,
+                            27
+                          ],
+                          "children": [
+                            {
+                              "type": "|",
+                              "text": "|",
+                              "start_point": [
+                                20,
+                                23
+                              ],
+                              "end_point": [
+                                20,
+                                24
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "reference_pattern",
+                              "text": "&v",
+                              "start_point": [
+                                20,
+                                24
+                              ],
+                              "end_point": [
+                                20,
+                                26
+                              ],
+                              "children": [
+                                {
+                                  "type": "&",
+                                  "text": "&",
+                                  "start_point": [
+                                    20,
+                                    24
+                                  ],
+                                  "end_point": [
+                                    20,
+                                    25
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "identifier",
+                                  "text": "v",
+                                  "start_point": [
+                                    20,
+                                    25
+                                  ],
+                                  "end_point": [
+                                    20,
+                                    26
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "|",
+                              "text": "|",
+                              "start_point": [
+                                20,
+                                26
+                              ],
+                              "end_point": [
+                                20,
+                                27
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "binary_expression",
+                          "text": "v == 0",
+                          "start_point": [
+                            20,
+                            28
+                          ],
+                          "end_point": [
+                            20,
+                            34
+                          ],
+                          "children": [
+                            {
+                              "type": "identifier",
+                              "text": "v",
+                              "start_point": [
+                                20,
+                                28
+                              ],
+                              "end_point": [
+                                20,
+                                29
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "==",
+                              "text": "==",
+                              "start_point": [
+                                20,
+                                30
+                              ],
+                              "end_point": [
+                                20,
+                                32
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "integer_literal",
+                              "text": "0",
+                              "start_point": [
+                                20,
+                                33
+                              ],
+                              "end_point": [
+                                20,
+                                34
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": ")",
+                      "text": ")",
+                      "start_point": [
+                        20,
+                        34
+                      ],
+                      "end_point": [
+                        20,
+                        35
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "}",
+              "text": "}",
+              "start_point": [
+                21,
+                0
+              ],
+              "end_point": [
+                21,
+                1
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

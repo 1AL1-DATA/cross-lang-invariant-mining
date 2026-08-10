@@ -94,10 +94,61 @@ class IRNode:
         )
 
     def ir_hash(self) -> str:
-        """Canonical hash for IR isomorphism checking."""
+        """Canonical hash for IR isomorphism checking — includes all node content."""
         return hashlib.sha256(
             json.dumps(self.to_dict(), sort_keys=True).encode()
         ).hexdigest()[:16]
+
+    def cfg_hash(self) -> str:
+        """
+        CFG-topology-aware hash.
+
+        Encodes only control-flow nodes (BRANCH/LOOP/MATCH) and the path taken
+        through them, ignoring SEQUENCE nodes and all variable names/literals.
+        Two implementations of the same algorithm produce the same hash even if
+        they use different identifiers; implementations of different algorithms
+        produce different hashes because their control-flow topology differs.
+
+        Encoding: a list of (direction, node_type) tuples walked depth-first
+        through the CFG, where direction encodes how we arrived at each node.
+        """
+        parts: list = []
+
+        def walk(node: "IRNode", direction: str = "entry") -> None:
+            # Encode this node
+            if node.ir_type == IRNodeType.BRANCH:
+                has_then = node.then_branch is not None
+                has_else = node.else_branch is not None
+                parts.append((direction, "BRANCH", has_then, has_else))
+                if node.then_branch:
+                    walk(node.then_branch, "then")
+                if node.else_branch:
+                    walk(node.else_branch, "else")
+            elif node.ir_type == IRNodeType.LOOP:
+                parts.append((direction, "LOOP"))
+                if node.loop_body:
+                    walk(node.loop_body, "loop")
+            elif node.arms:  # match expression
+                parts.append((direction, "MATCH", len(node.arms)))
+                for _, arm_body in node.arms:
+                    walk(arm_body, "match")
+            else:
+                # Sequential or leaf: traverse children but keep direction
+                for child in node.body:
+                    walk(child, direction)
+
+        for item in self.body:
+            walk(item, "entry")
+
+        # If the function has no control-flow nodes at all, return None.
+        # Sequential-only code is universal across all implementations and languages
+        # (every function has some body statements). Mining it as an invariant
+        # produces false positives in the negative control.
+        if not parts:
+            return None
+
+        encoded = json.dumps(parts, sort_keys=True)
+        return hashlib.sha256(encoded.encode()).hexdigest()[:16]
 
     def node_count(self) -> int:
         return 1 + sum(
@@ -150,11 +201,17 @@ def _lower_ast_node(node: ASTNode, language: str) -> IRNode:
 
     if node.node_type == ASTNodeType.FUNCTION:
         ir.label = node.value or "anon"
+        body_items = []
         for c in node.children:
             if c.node_type == ASTNodeType.PARAM:
                 ir.params.append(_lower_ast_node(c, language))
             elif c.node_type == ASTNodeType.BLOCK:
-                ir.body = [_lower_ast_node(b, language) for b in c.children]
+                body_items.extend(c.children)
+            else:
+                # TypeScript, Haskell, OCaml, Go, Rust put body items directly
+                # under FUNCTION without wrapping them in a BLOCK node.
+                body_items.append(c)
+        ir.body = [_lower_ast_node(b, language) for b in body_items]
 
     elif node.node_type == ASTNodeType.IF:
         # Find condition, then_branch, else_branch from children

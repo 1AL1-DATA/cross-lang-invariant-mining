@@ -1,0 +1,2553 @@
+{
+  "type": "haskell",
+  "text": "import Data.Map (Map)\nimport qualified Data.Map as Map\nimport Data.Char (toLower)\n\nwordCount :: [String] -> Map String Int\nwordCount lines = Map.fromListWith (+) $ mapReduceStep lines\n  where\n    mapStep :: String -> [(String, Int)]\n    mapStep line = map (\\word -> (map toLower word, 1)) (words line)\n    \n    mapReduceStep :: [String] -> [(String, Int)]\n    mapReduceStep = concatMap mapStep\n    \n    reduceStep :: [(String, Int)] -> Map String Int\n    reduceStep = Map.fromListWith (+)",
+  "start_point": [
+    0,
+    0
+  ],
+  "end_point": [
+    14,
+    37
+  ],
+  "children": [
+    {
+      "type": "import",
+      "text": "import Data.Map (Map)",
+      "start_point": [
+        0,
+        0
+      ],
+      "end_point": [
+        0,
+        21
+      ],
+      "children": [
+        {
+          "type": "import",
+          "text": "import",
+          "start_point": [
+            0,
+            0
+          ],
+          "end_point": [
+            0,
+            6
+          ],
+          "children": []
+        },
+        {
+          "type": "qualified_module",
+          "text": "Data.Map",
+          "start_point": [
+            0,
+            7
+          ],
+          "end_point": [
+            0,
+            15
+          ],
+          "children": [
+            {
+              "type": "module",
+              "text": "Data",
+              "start_point": [
+                0,
+                7
+              ],
+              "end_point": [
+                0,
+                11
+              ],
+              "children": []
+            },
+            {
+              "type": "module",
+              "text": "Map",
+              "start_point": [
+                0,
+                12
+              ],
+              "end_point": [
+                0,
+                15
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "import_list",
+          "text": "(Map)",
+          "start_point": [
+            0,
+            16
+          ],
+          "end_point": [
+            0,
+            21
+          ],
+          "children": [
+            {
+              "type": "(",
+              "text": "(",
+              "start_point": [
+                0,
+                16
+              ],
+              "end_point": [
+                0,
+                17
+              ],
+              "children": []
+            },
+            {
+              "type": "import_item",
+              "text": "Map",
+              "start_point": [
+                0,
+                17
+              ],
+              "end_point": [
+                0,
+                20
+              ],
+              "children": [
+                {
+                  "type": "type",
+                  "text": "Map",
+                  "start_point": [
+                    0,
+                    17
+                  ],
+                  "end_point": [
+                    0,
+                    20
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": ")",
+              "text": ")",
+              "start_point": [
+                0,
+                20
+              ],
+              "end_point": [
+                0,
+                21
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "import",
+      "text": "import qualified Data.Map as Map",
+      "start_point": [
+        1,
+        0
+      ],
+      "end_point": [
+        1,
+        32
+      ],
+      "children": [
+        {
+          "type": "import",
+          "text": "import",
+          "start_point": [
+            1,
+            0
+          ],
+          "end_point": [
+            1,
+            6
+          ],
+          "children": []
+        },
+        {
+          "type": "qualified",
+          "text": "qualified",
+          "start_point": [
+            1,
+            7
+          ],
+          "end_point": [
+            1,
+            16
+          ],
+          "children": []
+        },
+        {
+          "type": "qualified_module",
+          "text": "Data.Map",
+          "start_point": [
+            1,
+            17
+          ],
+          "end_point": [
+            1,
+            25
+          ],
+          "children": [
+            {
+              "type": "module",
+              "text": "Data",
+              "start_point": [
+                1,
+                17
+              ],
+              "end_point": [
+                1,
+                21
+              ],
+              "children": []
+            },
+            {
+              "type": "module",
+              "text": "Map",
+              "start_point": [
+                1,
+                22
+              ],
+              "end_point": [
+                1,
+                25
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "as",
+          "text": "as",
+          "start_point": [
+            1,
+            26
+          ],
+          "end_point": [
+            1,
+            28
+          ],
+          "children": []
+        },
+        {
+          "type": "module",
+          "text": "Map",
+          "start_point": [
+            1,
+            29
+          ],
+          "end_point": [
+            1,
+            32
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "import",
+      "text": "import Data.Char (toLower)",
+      "start_point": [
+        2,
+        0
+      ],
+      "end_point": [
+        2,
+        26
+      ],
+      "children": [
+        {
+          "type": "import",
+          "text": "import",
+          "start_point": [
+            2,
+            0
+          ],
+          "end_point": [
+            2,
+            6
+          ],
+          "children": []
+        },
+        {
+          "type": "qualified_module",
+          "text": "Data.Char",
+          "start_point": [
+            2,
+            7
+          ],
+          "end_point": [
+            2,
+            16
+          ],
+          "children": [
+            {
+              "type": "module",
+              "text": "Data",
+              "start_point": [
+                2,
+                7
+              ],
+              "end_point": [
+                2,
+                11
+              ],
+              "children": []
+            },
+            {
+              "type": "module",
+              "text": "Char",
+              "start_point": [
+                2,
+                12
+              ],
+              "end_point": [
+                2,
+                16
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "import_list",
+          "text": "(toLower)",
+          "start_point": [
+            2,
+            17
+          ],
+          "end_point": [
+            2,
+            26
+          ],
+          "children": [
+            {
+              "type": "(",
+              "text": "(",
+              "start_point": [
+                2,
+                17
+              ],
+              "end_point": [
+                2,
+                18
+              ],
+              "children": []
+            },
+            {
+              "type": "import_item",
+              "text": "toLower",
+              "start_point": [
+                2,
+                18
+              ],
+              "end_point": [
+                2,
+                25
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "toLower",
+                  "start_point": [
+                    2,
+                    18
+                  ],
+                  "end_point": [
+                    2,
+                    25
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": ")",
+              "text": ")",
+              "start_point": [
+                2,
+                25
+              ],
+              "end_point": [
+                2,
+                26
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "signature",
+      "text": "wordCount :: [String] -> Map String Int",
+      "start_point": [
+        4,
+        0
+      ],
+      "end_point": [
+        4,
+        39
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "wordCount",
+          "start_point": [
+            4,
+            0
+          ],
+          "end_point": [
+            4,
+            9
+          ],
+          "children": []
+        },
+        {
+          "type": "::",
+          "text": "::",
+          "start_point": [
+            4,
+            10
+          ],
+          "end_point": [
+            4,
+            12
+          ],
+          "children": []
+        },
+        {
+          "type": "fun",
+          "text": "[String] -> Map String Int",
+          "start_point": [
+            4,
+            13
+          ],
+          "end_point": [
+            4,
+            39
+          ],
+          "children": [
+            {
+              "type": "type_list",
+              "text": "[String]",
+              "start_point": [
+                4,
+                13
+              ],
+              "end_point": [
+                4,
+                21
+              ],
+              "children": [
+                {
+                  "type": "[",
+                  "text": "[",
+                  "start_point": [
+                    4,
+                    13
+                  ],
+                  "end_point": [
+                    4,
+                    14
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "type_name",
+                  "text": "String",
+                  "start_point": [
+                    4,
+                    14
+                  ],
+                  "end_point": [
+                    4,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "String",
+                      "start_point": [
+                        4,
+                        14
+                      ],
+                      "end_point": [
+                        4,
+                        20
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "]",
+                  "text": "]",
+                  "start_point": [
+                    4,
+                    20
+                  ],
+                  "end_point": [
+                    4,
+                    21
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "->",
+              "text": "->",
+              "start_point": [
+                4,
+                22
+              ],
+              "end_point": [
+                4,
+                24
+              ],
+              "children": []
+            },
+            {
+              "type": "type_apply",
+              "text": "Map String Int",
+              "start_point": [
+                4,
+                25
+              ],
+              "end_point": [
+                4,
+                39
+              ],
+              "children": [
+                {
+                  "type": "type_name",
+                  "text": "Map",
+                  "start_point": [
+                    4,
+                    25
+                  ],
+                  "end_point": [
+                    4,
+                    28
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "Map",
+                      "start_point": [
+                        4,
+                        25
+                      ],
+                      "end_point": [
+                        4,
+                        28
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "type_name",
+                  "text": "String",
+                  "start_point": [
+                    4,
+                    29
+                  ],
+                  "end_point": [
+                    4,
+                    35
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "String",
+                      "start_point": [
+                        4,
+                        29
+                      ],
+                      "end_point": [
+                        4,
+                        35
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "type_name",
+                  "text": "Int",
+                  "start_point": [
+                    4,
+                    36
+                  ],
+                  "end_point": [
+                    4,
+                    39
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "Int",
+                      "start_point": [
+                        4,
+                        36
+                      ],
+                      "end_point": [
+                        4,
+                        39
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "wordCount lines = Map.fromListWith (+) $ mapReduceStep lines\n  where\n    mapStep :: String -> [(String, Int)]\n    mapStep line = map (\\word -> (map toLower word, 1)) (words line)\n    \n    mapReduceStep :: [String] -> [(String, Int)]\n    mapReduceStep = concatMap mapStep\n    \n    reduceStep :: [(String, Int)] -> Map String Int\n    reduceStep = Map.fromListWith (+)",
+      "start_point": [
+        5,
+        0
+      ],
+      "end_point": [
+        14,
+        37
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "wordCount",
+          "start_point": [
+            5,
+            0
+          ],
+          "end_point": [
+            5,
+            9
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "lines",
+          "start_point": [
+            5,
+            10
+          ],
+          "end_point": [
+            5,
+            15
+          ],
+          "children": [
+            {
+              "type": "pat_name",
+              "text": "lines",
+              "start_point": [
+                5,
+                10
+              ],
+              "end_point": [
+                5,
+                15
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "lines",
+                  "start_point": [
+                    5,
+                    10
+                  ],
+                  "end_point": [
+                    5,
+                    15
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            5,
+            16
+          ],
+          "end_point": [
+            5,
+            17
+          ],
+          "children": []
+        },
+        {
+          "type": "exp_infix",
+          "text": "Map.fromListWith (+) $ mapReduceStep lines",
+          "start_point": [
+            5,
+            18
+          ],
+          "end_point": [
+            5,
+            60
+          ],
+          "children": [
+            {
+              "type": "exp_apply",
+              "text": "Map.fromListWith (+)",
+              "start_point": [
+                5,
+                18
+              ],
+              "end_point": [
+                5,
+                38
+              ],
+              "children": [
+                {
+                  "type": "exp_name",
+                  "text": "Map.fromListWith",
+                  "start_point": [
+                    5,
+                    18
+                  ],
+                  "end_point": [
+                    5,
+                    34
+                  ],
+                  "children": [
+                    {
+                      "type": "qualified_variable",
+                      "text": "Map.fromListWith",
+                      "start_point": [
+                        5,
+                        18
+                      ],
+                      "end_point": [
+                        5,
+                        34
+                      ],
+                      "children": [
+                        {
+                          "type": "module",
+                          "text": "Map",
+                          "start_point": [
+                            5,
+                            18
+                          ],
+                          "end_point": [
+                            5,
+                            21
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "variable",
+                          "text": "fromListWith",
+                          "start_point": [
+                            5,
+                            22
+                          ],
+                          "end_point": [
+                            5,
+                            34
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "exp_name",
+                  "text": "(+)",
+                  "start_point": [
+                    5,
+                    35
+                  ],
+                  "end_point": [
+                    5,
+                    38
+                  ],
+                  "children": [
+                    {
+                      "type": "(",
+                      "text": "(",
+                      "start_point": [
+                        5,
+                        35
+                      ],
+                      "end_point": [
+                        5,
+                        36
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "operator",
+                      "text": "+",
+                      "start_point": [
+                        5,
+                        36
+                      ],
+                      "end_point": [
+                        5,
+                        37
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": ")",
+                      "text": ")",
+                      "start_point": [
+                        5,
+                        37
+                      ],
+                      "end_point": [
+                        5,
+                        38
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "operator",
+              "text": "$",
+              "start_point": [
+                5,
+                39
+              ],
+              "end_point": [
+                5,
+                40
+              ],
+              "children": []
+            },
+            {
+              "type": "exp_apply",
+              "text": "mapReduceStep lines",
+              "start_point": [
+                5,
+                41
+              ],
+              "end_point": [
+                5,
+                60
+              ],
+              "children": [
+                {
+                  "type": "exp_name",
+                  "text": "mapReduceStep",
+                  "start_point": [
+                    5,
+                    41
+                  ],
+                  "end_point": [
+                    5,
+                    54
+                  ],
+                  "children": [
+                    {
+                      "type": "variable",
+                      "text": "mapReduceStep",
+                      "start_point": [
+                        5,
+                        41
+                      ],
+                      "end_point": [
+                        5,
+                        54
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "exp_name",
+                  "text": "lines",
+                  "start_point": [
+                    5,
+                    55
+                  ],
+                  "end_point": [
+                    5,
+                    60
+                  ],
+                  "children": [
+                    {
+                      "type": "variable",
+                      "text": "lines",
+                      "start_point": [
+                        5,
+                        55
+                      ],
+                      "end_point": [
+                        5,
+                        60
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "where",
+          "text": "where",
+          "start_point": [
+            6,
+            2
+          ],
+          "end_point": [
+            6,
+            7
+          ],
+          "children": []
+        },
+        {
+          "type": "decls",
+          "text": "mapStep :: String -> [(String, Int)]\n    mapStep line = map (\\word -> (map toLower word, 1)) (words line)\n    \n    mapReduceStep :: [String] -> [(String, Int)]\n    mapReduceStep = concatMap mapStep\n    \n    reduceStep :: [(String, Int)] -> Map String Int\n    reduceStep = Map.fromListWith (+)",
+          "start_point": [
+            7,
+            4
+          ],
+          "end_point": [
+            14,
+            37
+          ],
+          "children": [
+            {
+              "type": "signature",
+              "text": "mapStep :: String -> [(String, Int)]",
+              "start_point": [
+                7,
+                4
+              ],
+              "end_point": [
+                7,
+                40
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "mapStep",
+                  "start_point": [
+                    7,
+                    4
+                  ],
+                  "end_point": [
+                    7,
+                    11
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "::",
+                  "text": "::",
+                  "start_point": [
+                    7,
+                    12
+                  ],
+                  "end_point": [
+                    7,
+                    14
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "fun",
+                  "text": "String -> [(String, Int)]",
+                  "start_point": [
+                    7,
+                    15
+                  ],
+                  "end_point": [
+                    7,
+                    40
+                  ],
+                  "children": [
+                    {
+                      "type": "type_name",
+                      "text": "String",
+                      "start_point": [
+                        7,
+                        15
+                      ],
+                      "end_point": [
+                        7,
+                        21
+                      ],
+                      "children": [
+                        {
+                          "type": "type",
+                          "text": "String",
+                          "start_point": [
+                            7,
+                            15
+                          ],
+                          "end_point": [
+                            7,
+                            21
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "->",
+                      "text": "->",
+                      "start_point": [
+                        7,
+                        22
+                      ],
+                      "end_point": [
+                        7,
+                        24
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "type_list",
+                      "text": "[(String, Int)]",
+                      "start_point": [
+                        7,
+                        25
+                      ],
+                      "end_point": [
+                        7,
+                        40
+                      ],
+                      "children": [
+                        {
+                          "type": "[",
+                          "text": "[",
+                          "start_point": [
+                            7,
+                            25
+                          ],
+                          "end_point": [
+                            7,
+                            26
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "type_tuple",
+                          "text": "(String, Int)",
+                          "start_point": [
+                            7,
+                            26
+                          ],
+                          "end_point": [
+                            7,
+                            39
+                          ],
+                          "children": [
+                            {
+                              "type": "(",
+                              "text": "(",
+                              "start_point": [
+                                7,
+                                26
+                              ],
+                              "end_point": [
+                                7,
+                                27
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "type_name",
+                              "text": "String",
+                              "start_point": [
+                                7,
+                                27
+                              ],
+                              "end_point": [
+                                7,
+                                33
+                              ],
+                              "children": [
+                                {
+                                  "type": "type",
+                                  "text": "String",
+                                  "start_point": [
+                                    7,
+                                    27
+                                  ],
+                                  "end_point": [
+                                    7,
+                                    33
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "comma",
+                              "text": ",",
+                              "start_point": [
+                                7,
+                                33
+                              ],
+                              "end_point": [
+                                7,
+                                34
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "type_name",
+                              "text": "Int",
+                              "start_point": [
+                                7,
+                                35
+                              ],
+                              "end_point": [
+                                7,
+                                38
+                              ],
+                              "children": [
+                                {
+                                  "type": "type",
+                                  "text": "Int",
+                                  "start_point": [
+                                    7,
+                                    35
+                                  ],
+                                  "end_point": [
+                                    7,
+                                    38
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": ")",
+                              "text": ")",
+                              "start_point": [
+                                7,
+                                38
+                              ],
+                              "end_point": [
+                                7,
+                                39
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "]",
+                          "text": "]",
+                          "start_point": [
+                            7,
+                            39
+                          ],
+                          "end_point": [
+                            7,
+                            40
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "function",
+              "text": "mapStep line = map (\\word -> (map toLower word, 1)) (words line)",
+              "start_point": [
+                8,
+                4
+              ],
+              "end_point": [
+                8,
+                68
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "mapStep",
+                  "start_point": [
+                    8,
+                    4
+                  ],
+                  "end_point": [
+                    8,
+                    11
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "patterns",
+                  "text": "line",
+                  "start_point": [
+                    8,
+                    12
+                  ],
+                  "end_point": [
+                    8,
+                    16
+                  ],
+                  "children": [
+                    {
+                      "type": "pat_name",
+                      "text": "line",
+                      "start_point": [
+                        8,
+                        12
+                      ],
+                      "end_point": [
+                        8,
+                        16
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "line",
+                          "start_point": [
+                            8,
+                            12
+                          ],
+                          "end_point": [
+                            8,
+                            16
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "=",
+                  "text": "=",
+                  "start_point": [
+                    8,
+                    17
+                  ],
+                  "end_point": [
+                    8,
+                    18
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "exp_apply",
+                  "text": "map (\\word -> (map toLower word, 1)) (words line)",
+                  "start_point": [
+                    8,
+                    19
+                  ],
+                  "end_point": [
+                    8,
+                    68
+                  ],
+                  "children": [
+                    {
+                      "type": "exp_name",
+                      "text": "map",
+                      "start_point": [
+                        8,
+                        19
+                      ],
+                      "end_point": [
+                        8,
+                        22
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "map",
+                          "start_point": [
+                            8,
+                            19
+                          ],
+                          "end_point": [
+                            8,
+                            22
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_parens",
+                      "text": "(\\word -> (map toLower word, 1))",
+                      "start_point": [
+                        8,
+                        23
+                      ],
+                      "end_point": [
+                        8,
+                        55
+                      ],
+                      "children": [
+                        {
+                          "type": "(",
+                          "text": "(",
+                          "start_point": [
+                            8,
+                            23
+                          ],
+                          "end_point": [
+                            8,
+                            24
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "exp_lambda",
+                          "text": "\\word -> (map toLower word, 1)",
+                          "start_point": [
+                            8,
+                            24
+                          ],
+                          "end_point": [
+                            8,
+                            54
+                          ],
+                          "children": [
+                            {
+                              "type": "\\",
+                              "text": "\\",
+                              "start_point": [
+                                8,
+                                24
+                              ],
+                              "end_point": [
+                                8,
+                                25
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "pat_name",
+                              "text": "word",
+                              "start_point": [
+                                8,
+                                25
+                              ],
+                              "end_point": [
+                                8,
+                                29
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "word",
+                                  "start_point": [
+                                    8,
+                                    25
+                                  ],
+                                  "end_point": [
+                                    8,
+                                    29
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "->",
+                              "text": "->",
+                              "start_point": [
+                                8,
+                                30
+                              ],
+                              "end_point": [
+                                8,
+                                32
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "exp_tuple",
+                              "text": "(map toLower word, 1)",
+                              "start_point": [
+                                8,
+                                33
+                              ],
+                              "end_point": [
+                                8,
+                                54
+                              ],
+                              "children": [
+                                {
+                                  "type": "(",
+                                  "text": "(",
+                                  "start_point": [
+                                    8,
+                                    33
+                                  ],
+                                  "end_point": [
+                                    8,
+                                    34
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "exp_apply",
+                                  "text": "map toLower word",
+                                  "start_point": [
+                                    8,
+                                    34
+                                  ],
+                                  "end_point": [
+                                    8,
+                                    50
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "exp_name",
+                                      "text": "map",
+                                      "start_point": [
+                                        8,
+                                        34
+                                      ],
+                                      "end_point": [
+                                        8,
+                                        37
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "variable",
+                                          "text": "map",
+                                          "start_point": [
+                                            8,
+                                            34
+                                          ],
+                                          "end_point": [
+                                            8,
+                                            37
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "exp_name",
+                                      "text": "toLower",
+                                      "start_point": [
+                                        8,
+                                        38
+                                      ],
+                                      "end_point": [
+                                        8,
+                                        45
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "variable",
+                                          "text": "toLower",
+                                          "start_point": [
+                                            8,
+                                            38
+                                          ],
+                                          "end_point": [
+                                            8,
+                                            45
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "exp_name",
+                                      "text": "word",
+                                      "start_point": [
+                                        8,
+                                        46
+                                      ],
+                                      "end_point": [
+                                        8,
+                                        50
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "variable",
+                                          "text": "word",
+                                          "start_point": [
+                                            8,
+                                            46
+                                          ],
+                                          "end_point": [
+                                            8,
+                                            50
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "comma",
+                                  "text": ",",
+                                  "start_point": [
+                                    8,
+                                    50
+                                  ],
+                                  "end_point": [
+                                    8,
+                                    51
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "exp_literal",
+                                  "text": "1",
+                                  "start_point": [
+                                    8,
+                                    52
+                                  ],
+                                  "end_point": [
+                                    8,
+                                    53
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "integer",
+                                      "text": "1",
+                                      "start_point": [
+                                        8,
+                                        52
+                                      ],
+                                      "end_point": [
+                                        8,
+                                        53
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": ")",
+                                  "text": ")",
+                                  "start_point": [
+                                    8,
+                                    53
+                                  ],
+                                  "end_point": [
+                                    8,
+                                    54
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": ")",
+                          "text": ")",
+                          "start_point": [
+                            8,
+                            54
+                          ],
+                          "end_point": [
+                            8,
+                            55
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_parens",
+                      "text": "(words line)",
+                      "start_point": [
+                        8,
+                        56
+                      ],
+                      "end_point": [
+                        8,
+                        68
+                      ],
+                      "children": [
+                        {
+                          "type": "(",
+                          "text": "(",
+                          "start_point": [
+                            8,
+                            56
+                          ],
+                          "end_point": [
+                            8,
+                            57
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "exp_apply",
+                          "text": "words line",
+                          "start_point": [
+                            8,
+                            57
+                          ],
+                          "end_point": [
+                            8,
+                            67
+                          ],
+                          "children": [
+                            {
+                              "type": "exp_name",
+                              "text": "words",
+                              "start_point": [
+                                8,
+                                57
+                              ],
+                              "end_point": [
+                                8,
+                                62
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "words",
+                                  "start_point": [
+                                    8,
+                                    57
+                                  ],
+                                  "end_point": [
+                                    8,
+                                    62
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "exp_name",
+                              "text": "line",
+                              "start_point": [
+                                8,
+                                63
+                              ],
+                              "end_point": [
+                                8,
+                                67
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "line",
+                                  "start_point": [
+                                    8,
+                                    63
+                                  ],
+                                  "end_point": [
+                                    8,
+                                    67
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": ")",
+                          "text": ")",
+                          "start_point": [
+                            8,
+                            67
+                          ],
+                          "end_point": [
+                            8,
+                            68
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "signature",
+              "text": "mapReduceStep :: [String] -> [(String, Int)]",
+              "start_point": [
+                10,
+                4
+              ],
+              "end_point": [
+                10,
+                48
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "mapReduceStep",
+                  "start_point": [
+                    10,
+                    4
+                  ],
+                  "end_point": [
+                    10,
+                    17
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "::",
+                  "text": "::",
+                  "start_point": [
+                    10,
+                    18
+                  ],
+                  "end_point": [
+                    10,
+                    20
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "fun",
+                  "text": "[String] -> [(String, Int)]",
+                  "start_point": [
+                    10,
+                    21
+                  ],
+                  "end_point": [
+                    10,
+                    48
+                  ],
+                  "children": [
+                    {
+                      "type": "type_list",
+                      "text": "[String]",
+                      "start_point": [
+                        10,
+                        21
+                      ],
+                      "end_point": [
+                        10,
+                        29
+                      ],
+                      "children": [
+                        {
+                          "type": "[",
+                          "text": "[",
+                          "start_point": [
+                            10,
+                            21
+                          ],
+                          "end_point": [
+                            10,
+                            22
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "type_name",
+                          "text": "String",
+                          "start_point": [
+                            10,
+                            22
+                          ],
+                          "end_point": [
+                            10,
+                            28
+                          ],
+                          "children": [
+                            {
+                              "type": "type",
+                              "text": "String",
+                              "start_point": [
+                                10,
+                                22
+                              ],
+                              "end_point": [
+                                10,
+                                28
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "]",
+                          "text": "]",
+                          "start_point": [
+                            10,
+                            28
+                          ],
+                          "end_point": [
+                            10,
+                            29
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "->",
+                      "text": "->",
+                      "start_point": [
+                        10,
+                        30
+                      ],
+                      "end_point": [
+                        10,
+                        32
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "type_list",
+                      "text": "[(String, Int)]",
+                      "start_point": [
+                        10,
+                        33
+                      ],
+                      "end_point": [
+                        10,
+                        48
+                      ],
+                      "children": [
+                        {
+                          "type": "[",
+                          "text": "[",
+                          "start_point": [
+                            10,
+                            33
+                          ],
+                          "end_point": [
+                            10,
+                            34
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "type_tuple",
+                          "text": "(String, Int)",
+                          "start_point": [
+                            10,
+                            34
+                          ],
+                          "end_point": [
+                            10,
+                            47
+                          ],
+                          "children": [
+                            {
+                              "type": "(",
+                              "text": "(",
+                              "start_point": [
+                                10,
+                                34
+                              ],
+                              "end_point": [
+                                10,
+                                35
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "type_name",
+                              "text": "String",
+                              "start_point": [
+                                10,
+                                35
+                              ],
+                              "end_point": [
+                                10,
+                                41
+                              ],
+                              "children": [
+                                {
+                                  "type": "type",
+                                  "text": "String",
+                                  "start_point": [
+                                    10,
+                                    35
+                                  ],
+                                  "end_point": [
+                                    10,
+                                    41
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "comma",
+                              "text": ",",
+                              "start_point": [
+                                10,
+                                41
+                              ],
+                              "end_point": [
+                                10,
+                                42
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "type_name",
+                              "text": "Int",
+                              "start_point": [
+                                10,
+                                43
+                              ],
+                              "end_point": [
+                                10,
+                                46
+                              ],
+                              "children": [
+                                {
+                                  "type": "type",
+                                  "text": "Int",
+                                  "start_point": [
+                                    10,
+                                    43
+                                  ],
+                                  "end_point": [
+                                    10,
+                                    46
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": ")",
+                              "text": ")",
+                              "start_point": [
+                                10,
+                                46
+                              ],
+                              "end_point": [
+                                10,
+                                47
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "]",
+                          "text": "]",
+                          "start_point": [
+                            10,
+                            47
+                          ],
+                          "end_point": [
+                            10,
+                            48
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "function",
+              "text": "mapReduceStep = concatMap mapStep",
+              "start_point": [
+                11,
+                4
+              ],
+              "end_point": [
+                11,
+                37
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "mapReduceStep",
+                  "start_point": [
+                    11,
+                    4
+                  ],
+                  "end_point": [
+                    11,
+                    17
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "=",
+                  "text": "=",
+                  "start_point": [
+                    11,
+                    18
+                  ],
+                  "end_point": [
+                    11,
+                    19
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "exp_apply",
+                  "text": "concatMap mapStep",
+                  "start_point": [
+                    11,
+                    20
+                  ],
+                  "end_point": [
+                    11,
+                    37
+                  ],
+                  "children": [
+                    {
+                      "type": "exp_name",
+                      "text": "concatMap",
+                      "start_point": [
+                        11,
+                        20
+                      ],
+                      "end_point": [
+                        11,
+                        29
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "concatMap",
+                          "start_point": [
+                            11,
+                            20
+                          ],
+                          "end_point": [
+                            11,
+                            29
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_name",
+                      "text": "mapStep",
+                      "start_point": [
+                        11,
+                        30
+                      ],
+                      "end_point": [
+                        11,
+                        37
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "mapStep",
+                          "start_point": [
+                            11,
+                            30
+                          ],
+                          "end_point": [
+                            11,
+                            37
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "signature",
+              "text": "reduceStep :: [(String, Int)] -> Map String Int",
+              "start_point": [
+                13,
+                4
+              ],
+              "end_point": [
+                13,
+                51
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "reduceStep",
+                  "start_point": [
+                    13,
+                    4
+                  ],
+                  "end_point": [
+                    13,
+                    14
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "::",
+                  "text": "::",
+                  "start_point": [
+                    13,
+                    15
+                  ],
+                  "end_point": [
+                    13,
+                    17
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "fun",
+                  "text": "[(String, Int)] -> Map String Int",
+                  "start_point": [
+                    13,
+                    18
+                  ],
+                  "end_point": [
+                    13,
+                    51
+                  ],
+                  "children": [
+                    {
+                      "type": "type_list",
+                      "text": "[(String, Int)]",
+                      "start_point": [
+                        13,
+                        18
+                      ],
+                      "end_point": [
+                        13,
+                        33
+                      ],
+                      "children": [
+                        {
+                          "type": "[",
+                          "text": "[",
+                          "start_point": [
+                            13,
+                            18
+                          ],
+                          "end_point": [
+                            13,
+                            19
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "type_tuple",
+                          "text": "(String, Int)",
+                          "start_point": [
+                            13,
+                            19
+                          ],
+                          "end_point": [
+                            13,
+                            32
+                          ],
+                          "children": [
+                            {
+                              "type": "(",
+                              "text": "(",
+                              "start_point": [
+                                13,
+                                19
+                              ],
+                              "end_point": [
+                                13,
+                                20
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "type_name",
+                              "text": "String",
+                              "start_point": [
+                                13,
+                                20
+                              ],
+                              "end_point": [
+                                13,
+                                26
+                              ],
+                              "children": [
+                                {
+                                  "type": "type",
+                                  "text": "String",
+                                  "start_point": [
+                                    13,
+                                    20
+                                  ],
+                                  "end_point": [
+                                    13,
+                                    26
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "comma",
+                              "text": ",",
+                              "start_point": [
+                                13,
+                                26
+                              ],
+                              "end_point": [
+                                13,
+                                27
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "type_name",
+                              "text": "Int",
+                              "start_point": [
+                                13,
+                                28
+                              ],
+                              "end_point": [
+                                13,
+                                31
+                              ],
+                              "children": [
+                                {
+                                  "type": "type",
+                                  "text": "Int",
+                                  "start_point": [
+                                    13,
+                                    28
+                                  ],
+                                  "end_point": [
+                                    13,
+                                    31
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": ")",
+                              "text": ")",
+                              "start_point": [
+                                13,
+                                31
+                              ],
+                              "end_point": [
+                                13,
+                                32
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "]",
+                          "text": "]",
+                          "start_point": [
+                            13,
+                            32
+                          ],
+                          "end_point": [
+                            13,
+                            33
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "->",
+                      "text": "->",
+                      "start_point": [
+                        13,
+                        34
+                      ],
+                      "end_point": [
+                        13,
+                        36
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "type_apply",
+                      "text": "Map String Int",
+                      "start_point": [
+                        13,
+                        37
+                      ],
+                      "end_point": [
+                        13,
+                        51
+                      ],
+                      "children": [
+                        {
+                          "type": "type_name",
+                          "text": "Map",
+                          "start_point": [
+                            13,
+                            37
+                          ],
+                          "end_point": [
+                            13,
+                            40
+                          ],
+                          "children": [
+                            {
+                              "type": "type",
+                              "text": "Map",
+                              "start_point": [
+                                13,
+                                37
+                              ],
+                              "end_point": [
+                                13,
+                                40
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "type_name",
+                          "text": "String",
+                          "start_point": [
+                            13,
+                            41
+                          ],
+                          "end_point": [
+                            13,
+                            47
+                          ],
+                          "children": [
+                            {
+                              "type": "type",
+                              "text": "String",
+                              "start_point": [
+                                13,
+                                41
+                              ],
+                              "end_point": [
+                                13,
+                                47
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "type_name",
+                          "text": "Int",
+                          "start_point": [
+                            13,
+                            48
+                          ],
+                          "end_point": [
+                            13,
+                            51
+                          ],
+                          "children": [
+                            {
+                              "type": "type",
+                              "text": "Int",
+                              "start_point": [
+                                13,
+                                48
+                              ],
+                              "end_point": [
+                                13,
+                                51
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "function",
+              "text": "reduceStep = Map.fromListWith (+)",
+              "start_point": [
+                14,
+                4
+              ],
+              "end_point": [
+                14,
+                37
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "reduceStep",
+                  "start_point": [
+                    14,
+                    4
+                  ],
+                  "end_point": [
+                    14,
+                    14
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "=",
+                  "text": "=",
+                  "start_point": [
+                    14,
+                    15
+                  ],
+                  "end_point": [
+                    14,
+                    16
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "exp_apply",
+                  "text": "Map.fromListWith (+)",
+                  "start_point": [
+                    14,
+                    17
+                  ],
+                  "end_point": [
+                    14,
+                    37
+                  ],
+                  "children": [
+                    {
+                      "type": "exp_name",
+                      "text": "Map.fromListWith",
+                      "start_point": [
+                        14,
+                        17
+                      ],
+                      "end_point": [
+                        14,
+                        33
+                      ],
+                      "children": [
+                        {
+                          "type": "qualified_variable",
+                          "text": "Map.fromListWith",
+                          "start_point": [
+                            14,
+                            17
+                          ],
+                          "end_point": [
+                            14,
+                            33
+                          ],
+                          "children": [
+                            {
+                              "type": "module",
+                              "text": "Map",
+                              "start_point": [
+                                14,
+                                17
+                              ],
+                              "end_point": [
+                                14,
+                                20
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "variable",
+                              "text": "fromListWith",
+                              "start_point": [
+                                14,
+                                21
+                              ],
+                              "end_point": [
+                                14,
+                                33
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_name",
+                      "text": "(+)",
+                      "start_point": [
+                        14,
+                        34
+                      ],
+                      "end_point": [
+                        14,
+                        37
+                      ],
+                      "children": [
+                        {
+                          "type": "(",
+                          "text": "(",
+                          "start_point": [
+                            14,
+                            34
+                          ],
+                          "end_point": [
+                            14,
+                            35
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "operator",
+                          "text": "+",
+                          "start_point": [
+                            14,
+                            35
+                          ],
+                          "end_point": [
+                            14,
+                            36
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": ")",
+                          "text": ")",
+                          "start_point": [
+                            14,
+                            36
+                          ],
+                          "end_point": [
+                            14,
+                            37
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1735 @@
+{
+  "type": "source_file",
+  "text": "package main\n\nimport \"sort\"\n\nfunc TopKElements(lst []int, k int) []int {\n    if k <= 0 || k > len(lst) {\n        return nil\n    }\n    \n    sorted := make([]int, len(lst))\n    copy(sorted, lst)\n    \n    sort.Sort(sort.Reverse(sort.IntSlice(sorted)))\n    \n    return sorted[:k]\n}",
+  "start_point": [
+    0,
+    0
+  ],
+  "end_point": [
+    15,
+    1
+  ],
+  "children": [
+    {
+      "type": "package_clause",
+      "text": "package main",
+      "start_point": [
+        0,
+        0
+      ],
+      "end_point": [
+        0,
+        12
+      ],
+      "children": [
+        {
+          "type": "package",
+          "text": "package",
+          "start_point": [
+            0,
+            0
+          ],
+          "end_point": [
+            0,
+            7
+          ],
+          "children": []
+        },
+        {
+          "type": "package_identifier",
+          "text": "main",
+          "start_point": [
+            0,
+            8
+          ],
+          "end_point": [
+            0,
+            12
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "\n",
+      "text": "\n\n",
+      "start_point": [
+        0,
+        12
+      ],
+      "end_point": [
+        2,
+        0
+      ],
+      "children": []
+    },
+    {
+      "type": "import_declaration",
+      "text": "import \"sort\"",
+      "start_point": [
+        2,
+        0
+      ],
+      "end_point": [
+        2,
+        13
+      ],
+      "children": [
+        {
+          "type": "import",
+          "text": "import",
+          "start_point": [
+            2,
+            0
+          ],
+          "end_point": [
+            2,
+            6
+          ],
+          "children": []
+        },
+        {
+          "type": "import_spec",
+          "text": "\"sort\"",
+          "start_point": [
+            2,
+            7
+          ],
+          "end_point": [
+            2,
+            13
+          ],
+          "children": [
+            {
+              "type": "interpreted_string_literal",
+              "text": "\"sort\"",
+              "start_point": [
+                2,
+                7
+              ],
+              "end_point": [
+                2,
+                13
+              ],
+              "children": [
+                {
+                  "type": "\"",
+                  "text": "\"",
+                  "start_point": [
+                    2,
+                    7
+                  ],
+                  "end_point": [
+                    2,
+                    8
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "\"",
+                  "text": "\"",
+                  "start_point": [
+                    2,
+                    12
+                  ],
+                  "end_point": [
+                    2,
+                    13
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "\n",
+      "text": "\n\n",
+      "start_point": [
+        2,
+        13
+      ],
+      "end_point": [
+        4,
+        0
+      ],
+      "children": []
+    },
+    {
+      "type": "function_declaration",
+      "text": "func TopKElements(lst []int, k int) []int {\n    if k <= 0 || k > len(lst) {\n        return nil\n    }\n    \n    sorted := make([]int, len(lst))\n    copy(sorted, lst)\n    \n    sort.Sort(sort.Reverse(sort.IntSlice(sorted)))\n    \n    return sorted[:k]\n}",
+      "start_point": [
+        4,
+        0
+      ],
+      "end_point": [
+        15,
+        1
+      ],
+      "children": [
+        {
+          "type": "func",
+          "text": "func",
+          "start_point": [
+            4,
+            0
+          ],
+          "end_point": [
+            4,
+            4
+          ],
+          "children": []
+        },
+        {
+          "type": "identifier",
+          "text": "TopKElements",
+          "start_point": [
+            4,
+            5
+          ],
+          "end_point": [
+            4,
+            17
+          ],
+          "children": []
+        },
+        {
+          "type": "parameter_list",
+          "text": "(lst []int, k int)",
+          "start_point": [
+            4,
+            17
+          ],
+          "end_point": [
+            4,
+            35
+          ],
+          "children": [
+            {
+              "type": "(",
+              "text": "(",
+              "start_point": [
+                4,
+                17
+              ],
+              "end_point": [
+                4,
+                18
+              ],
+              "children": []
+            },
+            {
+              "type": "parameter_declaration",
+              "text": "lst []int",
+              "start_point": [
+                4,
+                18
+              ],
+              "end_point": [
+                4,
+                27
+              ],
+              "children": [
+                {
+                  "type": "identifier",
+                  "text": "lst",
+                  "start_point": [
+                    4,
+                    18
+                  ],
+                  "end_point": [
+                    4,
+                    21
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "slice_type",
+                  "text": "[]int",
+                  "start_point": [
+                    4,
+                    22
+                  ],
+                  "end_point": [
+                    4,
+                    27
+                  ],
+                  "children": [
+                    {
+                      "type": "[",
+                      "text": "[",
+                      "start_point": [
+                        4,
+                        22
+                      ],
+                      "end_point": [
+                        4,
+                        23
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "]",
+                      "text": "]",
+                      "start_point": [
+                        4,
+                        23
+                      ],
+                      "end_point": [
+                        4,
+                        24
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "type_identifier",
+                      "text": "int",
+                      "start_point": [
+                        4,
+                        24
+                      ],
+                      "end_point": [
+                        4,
+                        27
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": ",",
+              "text": ",",
+              "start_point": [
+                4,
+                27
+              ],
+              "end_point": [
+                4,
+                28
+              ],
+              "children": []
+            },
+            {
+              "type": "parameter_declaration",
+              "text": "k int",
+              "start_point": [
+                4,
+                29
+              ],
+              "end_point": [
+                4,
+                34
+              ],
+              "children": [
+                {
+                  "type": "identifier",
+                  "text": "k",
+                  "start_point": [
+                    4,
+                    29
+                  ],
+                  "end_point": [
+                    4,
+                    30
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "type_identifier",
+                  "text": "int",
+                  "start_point": [
+                    4,
+                    31
+                  ],
+                  "end_point": [
+                    4,
+                    34
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": ")",
+              "text": ")",
+              "start_point": [
+                4,
+                34
+              ],
+              "end_point": [
+                4,
+                35
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "slice_type",
+          "text": "[]int",
+          "start_point": [
+            4,
+            36
+          ],
+          "end_point": [
+            4,
+            41
+          ],
+          "children": [
+            {
+              "type": "[",
+              "text": "[",
+              "start_point": [
+                4,
+                36
+              ],
+              "end_point": [
+                4,
+                37
+              ],
+              "children": []
+            },
+            {
+              "type": "]",
+              "text": "]",
+              "start_point": [
+                4,
+                37
+              ],
+              "end_point": [
+                4,
+                38
+              ],
+              "children": []
+            },
+            {
+              "type": "type_identifier",
+              "text": "int",
+              "start_point": [
+                4,
+                38
+              ],
+              "end_point": [
+                4,
+                41
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "block",
+          "text": "{\n    if k <= 0 || k > len(lst) {\n        return nil\n    }\n    \n    sorted := make([]int, len(lst))\n    copy(sorted, lst)\n    \n    sort.Sort(sort.Reverse(sort.IntSlice(sorted)))\n    \n    return sorted[:k]\n}",
+          "start_point": [
+            4,
+            42
+          ],
+          "end_point": [
+            15,
+            1
+          ],
+          "children": [
+            {
+              "type": "{",
+              "text": "{",
+              "start_point": [
+                4,
+                42
+              ],
+              "end_point": [
+                4,
+                43
+              ],
+              "children": []
+            },
+            {
+              "type": "if_statement",
+              "text": "if k <= 0 || k > len(lst) {\n        return nil\n    }",
+              "start_point": [
+                5,
+                4
+              ],
+              "end_point": [
+                7,
+                5
+              ],
+              "children": [
+                {
+                  "type": "if",
+                  "text": "if",
+                  "start_point": [
+                    5,
+                    4
+                  ],
+                  "end_point": [
+                    5,
+                    6
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "binary_expression",
+                  "text": "k <= 0 || k > len(lst)",
+                  "start_point": [
+                    5,
+                    7
+                  ],
+                  "end_point": [
+                    5,
+                    29
+                  ],
+                  "children": [
+                    {
+                      "type": "binary_expression",
+                      "text": "k <= 0",
+                      "start_point": [
+                        5,
+                        7
+                      ],
+                      "end_point": [
+                        5,
+                        13
+                      ],
+                      "children": [
+                        {
+                          "type": "identifier",
+                          "text": "k",
+                          "start_point": [
+                            5,
+                            7
+                          ],
+                          "end_point": [
+                            5,
+                            8
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "<=",
+                          "text": "<=",
+                          "start_point": [
+                            5,
+                            9
+                          ],
+                          "end_point": [
+                            5,
+                            11
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "int_literal",
+                          "text": "0",
+                          "start_point": [
+                            5,
+                            12
+                          ],
+                          "end_point": [
+                            5,
+                            13
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "||",
+                      "text": "||",
+                      "start_point": [
+                        5,
+                        14
+                      ],
+                      "end_point": [
+                        5,
+                        16
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "binary_expression",
+                      "text": "k > len(lst)",
+                      "start_point": [
+                        5,
+                        17
+                      ],
+                      "end_point": [
+                        5,
+                        29
+                      ],
+                      "children": [
+                        {
+                          "type": "identifier",
+                          "text": "k",
+                          "start_point": [
+                            5,
+                            17
+                          ],
+                          "end_point": [
+                            5,
+                            18
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": ">",
+                          "text": ">",
+                          "start_point": [
+                            5,
+                            19
+                          ],
+                          "end_point": [
+                            5,
+                            20
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "call_expression",
+                          "text": "len(lst)",
+                          "start_point": [
+                            5,
+                            21
+                          ],
+                          "end_point": [
+                            5,
+                            29
+                          ],
+                          "children": [
+                            {
+                              "type": "identifier",
+                              "text": "len",
+                              "start_point": [
+                                5,
+                                21
+                              ],
+                              "end_point": [
+                                5,
+                                24
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "argument_list",
+                              "text": "(lst)",
+                              "start_point": [
+                                5,
+                                24
+                              ],
+                              "end_point": [
+                                5,
+                                29
+                              ],
+                              "children": [
+                                {
+                                  "type": "(",
+                                  "text": "(",
+                                  "start_point": [
+                                    5,
+                                    24
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    25
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "identifier",
+                                  "text": "lst",
+                                  "start_point": [
+                                    5,
+                                    25
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    28
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": ")",
+                                  "text": ")",
+                                  "start_point": [
+                                    5,
+                                    28
+                                  ],
+                                  "end_point": [
+                                    5,
+                                    29
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "block",
+                  "text": "{\n        return nil\n    }",
+                  "start_point": [
+                    5,
+                    30
+                  ],
+                  "end_point": [
+                    7,
+                    5
+                  ],
+                  "children": [
+                    {
+                      "type": "{",
+                      "text": "{",
+                      "start_point": [
+                        5,
+                        30
+                      ],
+                      "end_point": [
+                        5,
+                        31
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "return_statement",
+                      "text": "return nil",
+                      "start_point": [
+                        6,
+                        8
+                      ],
+                      "end_point": [
+                        6,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "return",
+                          "text": "return",
+                          "start_point": [
+                            6,
+                            8
+                          ],
+                          "end_point": [
+                            6,
+                            14
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "expression_list",
+                          "text": "nil",
+                          "start_point": [
+                            6,
+                            15
+                          ],
+                          "end_point": [
+                            6,
+                            18
+                          ],
+                          "children": [
+                            {
+                              "type": "nil",
+                              "text": "nil",
+                              "start_point": [
+                                6,
+                                15
+                              ],
+                              "end_point": [
+                                6,
+                                18
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "\n",
+                      "text": "\n",
+                      "start_point": [
+                        6,
+                        18
+                      ],
+                      "end_point": [
+                        7,
+                        0
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "}",
+                      "text": "}",
+                      "start_point": [
+                        7,
+                        4
+                      ],
+                      "end_point": [
+                        7,
+                        5
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "\n",
+              "text": "\n",
+              "start_point": [
+                7,
+                5
+              ],
+              "end_point": [
+                8,
+                0
+              ],
+              "children": []
+            },
+            {
+              "type": "short_var_declaration",
+              "text": "sorted := make([]int, len(lst))",
+              "start_point": [
+                9,
+                4
+              ],
+              "end_point": [
+                9,
+                35
+              ],
+              "children": [
+                {
+                  "type": "expression_list",
+                  "text": "sorted",
+                  "start_point": [
+                    9,
+                    4
+                  ],
+                  "end_point": [
+                    9,
+                    10
+                  ],
+                  "children": [
+                    {
+                      "type": "identifier",
+                      "text": "sorted",
+                      "start_point": [
+                        9,
+                        4
+                      ],
+                      "end_point": [
+                        9,
+                        10
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": ":=",
+                  "text": ":=",
+                  "start_point": [
+                    9,
+                    11
+                  ],
+                  "end_point": [
+                    9,
+                    13
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "expression_list",
+                  "text": "make([]int, len(lst))",
+                  "start_point": [
+                    9,
+                    14
+                  ],
+                  "end_point": [
+                    9,
+                    35
+                  ],
+                  "children": [
+                    {
+                      "type": "call_expression",
+                      "text": "make([]int, len(lst))",
+                      "start_point": [
+                        9,
+                        14
+                      ],
+                      "end_point": [
+                        9,
+                        35
+                      ],
+                      "children": [
+                        {
+                          "type": "identifier",
+                          "text": "make",
+                          "start_point": [
+                            9,
+                            14
+                          ],
+                          "end_point": [
+                            9,
+                            18
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "argument_list",
+                          "text": "([]int, len(lst))",
+                          "start_point": [
+                            9,
+                            18
+                          ],
+                          "end_point": [
+                            9,
+                            35
+                          ],
+                          "children": [
+                            {
+                              "type": "(",
+                              "text": "(",
+                              "start_point": [
+                                9,
+                                18
+                              ],
+                              "end_point": [
+                                9,
+                                19
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "slice_type",
+                              "text": "[]int",
+                              "start_point": [
+                                9,
+                                19
+                              ],
+                              "end_point": [
+                                9,
+                                24
+                              ],
+                              "children": [
+                                {
+                                  "type": "[",
+                                  "text": "[",
+                                  "start_point": [
+                                    9,
+                                    19
+                                  ],
+                                  "end_point": [
+                                    9,
+                                    20
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "]",
+                                  "text": "]",
+                                  "start_point": [
+                                    9,
+                                    20
+                                  ],
+                                  "end_point": [
+                                    9,
+                                    21
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "type_identifier",
+                                  "text": "int",
+                                  "start_point": [
+                                    9,
+                                    21
+                                  ],
+                                  "end_point": [
+                                    9,
+                                    24
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": ",",
+                              "text": ",",
+                              "start_point": [
+                                9,
+                                24
+                              ],
+                              "end_point": [
+                                9,
+                                25
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "call_expression",
+                              "text": "len(lst)",
+                              "start_point": [
+                                9,
+                                26
+                              ],
+                              "end_point": [
+                                9,
+                                34
+                              ],
+                              "children": [
+                                {
+                                  "type": "identifier",
+                                  "text": "len",
+                                  "start_point": [
+                                    9,
+                                    26
+                                  ],
+                                  "end_point": [
+                                    9,
+                                    29
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "argument_list",
+                                  "text": "(lst)",
+                                  "start_point": [
+                                    9,
+                                    29
+                                  ],
+                                  "end_point": [
+                                    9,
+                                    34
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "(",
+                                      "text": "(",
+                                      "start_point": [
+                                        9,
+                                        29
+                                      ],
+                                      "end_point": [
+                                        9,
+                                        30
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": "identifier",
+                                      "text": "lst",
+                                      "start_point": [
+                                        9,
+                                        30
+                                      ],
+                                      "end_point": [
+                                        9,
+                                        33
+                                      ],
+                                      "children": []
+                                    },
+                                    {
+                                      "type": ")",
+                                      "text": ")",
+                                      "start_point": [
+                                        9,
+                                        33
+                                      ],
+                                      "end_point": [
+                                        9,
+                                        34
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": ")",
+                              "text": ")",
+                              "start_point": [
+                                9,
+                                34
+                              ],
+                              "end_point": [
+                                9,
+                                35
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "\n",
+              "text": "\n",
+              "start_point": [
+                9,
+                35
+              ],
+              "end_point": [
+                10,
+                0
+              ],
+              "children": []
+            },
+            {
+              "type": "expression_statement",
+              "text": "copy(sorted, lst)",
+              "start_point": [
+                10,
+                4
+              ],
+              "end_point": [
+                10,
+                21
+              ],
+              "children": [
+                {
+                  "type": "call_expression",
+                  "text": "copy(sorted, lst)",
+                  "start_point": [
+                    10,
+                    4
+                  ],
+                  "end_point": [
+                    10,
+                    21
+                  ],
+                  "children": [
+                    {
+                      "type": "identifier",
+                      "text": "copy",
+                      "start_point": [
+                        10,
+                        4
+                      ],
+                      "end_point": [
+                        10,
+                        8
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "argument_list",
+                      "text": "(sorted, lst)",
+                      "start_point": [
+                        10,
+                        8
+                      ],
+                      "end_point": [
+                        10,
+                        21
+                      ],
+                      "children": [
+                        {
+                          "type": "(",
+                          "text": "(",
+                          "start_point": [
+                            10,
+                            8
+                          ],
+                          "end_point": [
+                            10,
+                            9
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "identifier",
+                          "text": "sorted",
+                          "start_point": [
+                            10,
+                            9
+                          ],
+                          "end_point": [
+                            10,
+                            15
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": ",",
+                          "text": ",",
+                          "start_point": [
+                            10,
+                            15
+                          ],
+                          "end_point": [
+                            10,
+                            16
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "identifier",
+                          "text": "lst",
+                          "start_point": [
+                            10,
+                            17
+                          ],
+                          "end_point": [
+                            10,
+                            20
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": ")",
+                          "text": ")",
+                          "start_point": [
+                            10,
+                            20
+                          ],
+                          "end_point": [
+                            10,
+                            21
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "\n",
+              "text": "\n",
+              "start_point": [
+                10,
+                21
+              ],
+              "end_point": [
+                11,
+                0
+              ],
+              "children": []
+            },
+            {
+              "type": "expression_statement",
+              "text": "sort.Sort(sort.Reverse(sort.IntSlice(sorted)))",
+              "start_point": [
+                12,
+                4
+              ],
+              "end_point": [
+                12,
+                50
+              ],
+              "children": [
+                {
+                  "type": "call_expression",
+                  "text": "sort.Sort(sort.Reverse(sort.IntSlice(sorted)))",
+                  "start_point": [
+                    12,
+                    4
+                  ],
+                  "end_point": [
+                    12,
+                    50
+                  ],
+                  "children": [
+                    {
+                      "type": "selector_expression",
+                      "text": "sort.Sort",
+                      "start_point": [
+                        12,
+                        4
+                      ],
+                      "end_point": [
+                        12,
+                        13
+                      ],
+                      "children": [
+                        {
+                          "type": "identifier",
+                          "text": "sort",
+                          "start_point": [
+                            12,
+                            4
+                          ],
+                          "end_point": [
+                            12,
+                            8
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": ".",
+                          "text": ".",
+                          "start_point": [
+                            12,
+                            8
+                          ],
+                          "end_point": [
+                            12,
+                            9
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "field_identifier",
+                          "text": "Sort",
+                          "start_point": [
+                            12,
+                            9
+                          ],
+                          "end_point": [
+                            12,
+                            13
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "argument_list",
+                      "text": "(sort.Reverse(sort.IntSlice(sorted)))",
+                      "start_point": [
+                        12,
+                        13
+                      ],
+                      "end_point": [
+                        12,
+                        50
+                      ],
+                      "children": [
+                        {
+                          "type": "(",
+                          "text": "(",
+                          "start_point": [
+                            12,
+                            13
+                          ],
+                          "end_point": [
+                            12,
+                            14
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "call_expression",
+                          "text": "sort.Reverse(sort.IntSlice(sorted))",
+                          "start_point": [
+                            12,
+                            14
+                          ],
+                          "end_point": [
+                            12,
+                            49
+                          ],
+                          "children": [
+                            {
+                              "type": "selector_expression",
+                              "text": "sort.Reverse",
+                              "start_point": [
+                                12,
+                                14
+                              ],
+                              "end_point": [
+                                12,
+                                26
+                              ],
+                              "children": [
+                                {
+                                  "type": "identifier",
+                                  "text": "sort",
+                                  "start_point": [
+                                    12,
+                                    14
+                                  ],
+                                  "end_point": [
+                                    12,
+                                    18
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": ".",
+                                  "text": ".",
+                                  "start_point": [
+                                    12,
+                                    18
+                                  ],
+                                  "end_point": [
+                                    12,
+                                    19
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "field_identifier",
+                                  "text": "Reverse",
+                                  "start_point": [
+                                    12,
+                                    19
+                                  ],
+                                  "end_point": [
+                                    12,
+                                    26
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "argument_list",
+                              "text": "(sort.IntSlice(sorted))",
+                              "start_point": [
+                                12,
+                                26
+                              ],
+                              "end_point": [
+                                12,
+                                49
+                              ],
+                              "children": [
+                                {
+                                  "type": "(",
+                                  "text": "(",
+                                  "start_point": [
+                                    12,
+                                    26
+                                  ],
+                                  "end_point": [
+                                    12,
+                                    27
+                                  ],
+                                  "children": []
+                                },
+                                {
+                                  "type": "call_expression",
+                                  "text": "sort.IntSlice(sorted)",
+                                  "start_point": [
+                                    12,
+                                    27
+                                  ],
+                                  "end_point": [
+                                    12,
+                                    48
+                                  ],
+                                  "children": [
+                                    {
+                                      "type": "selector_expression",
+                                      "text": "sort.IntSlice",
+                                      "start_point": [
+                                        12,
+                                        27
+                                      ],
+                                      "end_point": [
+                                        12,
+                                        40
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "identifier",
+                                          "text": "sort",
+                                          "start_point": [
+                                            12,
+                                            27
+                                          ],
+                                          "end_point": [
+                                            12,
+                                            31
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": ".",
+                                          "text": ".",
+                                          "start_point": [
+                                            12,
+                                            31
+                                          ],
+                                          "end_point": [
+                                            12,
+                                            32
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "field_identifier",
+                                          "text": "IntSlice",
+                                          "start_point": [
+                                            12,
+                                            32
+                                          ],
+                                          "end_point": [
+                                            12,
+                                            40
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "argument_list",
+                                      "text": "(sorted)",
+                                      "start_point": [
+                                        12,
+                                        40
+                                      ],
+                                      "end_point": [
+                                        12,
+                                        48
+                                      ],
+                                      "children": [
+                                        {
+                                          "type": "(",
+                                          "text": "(",
+                                          "start_point": [
+                                            12,
+                                            40
+                                          ],
+                                          "end_point": [
+                                            12,
+                                            41
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": "identifier",
+                                          "text": "sorted",
+                                          "start_point": [
+                                            12,
+                                            41
+                                          ],
+                                          "end_point": [
+                                            12,
+                                            47
+                                          ],
+                                          "children": []
+                                        },
+                                        {
+                                          "type": ")",
+                                          "text": ")",
+                                          "start_point": [
+                                            12,
+                                            47
+                                          ],
+                                          "end_point": [
+                                            12,
+                                            48
+                                          ],
+                                          "children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": ")",
+                                  "text": ")",
+                                  "start_point": [
+                                    12,
+                                    48
+                                  ],
+                                  "end_point": [
+                                    12,
+                                    49
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": ")",
+                          "text": ")",
+                          "start_point": [
+                            12,
+                            49
+                          ],
+                          "end_point": [
+                            12,
+                            50
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "\n",
+              "text": "\n",
+              "start_point": [
+                12,
+                50
+              ],
+              "end_point": [
+                13,
+                0
+              ],
+              "children": []
+            },
+            {
+              "type": "return_statement",
+              "text": "return sorted[:k]",
+              "start_point": [
+                14,
+                4
+              ],
+              "end_point": [
+                14,
+                21
+              ],
+              "children": [
+                {
+                  "type": "return",
+                  "text": "return",
+                  "start_point": [
+                    14,
+                    4
+                  ],
+                  "end_point": [
+                    14,
+                    10
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "expression_list",
+                  "text": "sorted[:k]",
+                  "start_point": [
+                    14,
+                    11
+                  ],
+                  "end_point": [
+                    14,
+                    21
+                  ],
+                  "children": [
+                    {
+                      "type": "slice_expression",
+                      "text": "sorted[:k]",
+                      "start_point": [
+                        14,
+                        11
+                      ],
+                      "end_point": [
+                        14,
+                        21
+                      ],
+                      "children": [
+                        {
+                          "type": "identifier",
+                          "text": "sorted",
+                          "start_point": [
+                            14,
+                            11
+                          ],
+                          "end_point": [
+                            14,
+                            17
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "[",
+                          "text": "[",
+                          "start_point": [
+                            14,
+                            17
+                          ],
+                          "end_point": [
+                            14,
+                            18
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": ":",
+                          "text": ":",
+                          "start_point": [
+                            14,
+                            18
+                          ],
+                          "end_point": [
+                            14,
+                            19
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "identifier",
+                          "text": "k",
+                          "start_point": [
+                            14,
+                            19
+                          ],
+                          "end_point": [
+                            14,
+                            20
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "]",
+                          "text": "]",
+                          "start_point": [
+                            14,
+                            20
+                          ],
+                          "end_point": [
+                            14,
+                            21
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "\n",
+              "text": "\n",
+              "start_point": [
+                14,
+                21
+              ],
+              "end_point": [
+                15,
+                0
+              ],
+              "children": []
+            },
+            {
+              "type": "}",
+              "text": "}",
+              "start_point": [
+                15,
+                0
+              ],
+              "end_point": [
+                15,
+                1
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

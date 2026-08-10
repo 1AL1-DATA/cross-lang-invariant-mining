@@ -1,0 +1,4078 @@
+{
+  "type": "haskell",
+  "text": "module AVLTree where\n\ndata AVLTree a = Empty \n               | Node a (AVLTree a) (AVLTree a) \n               deriving (Show, Eq)\n\nheight :: AVLTree a -> Int\nheight Empty = 0\nheight (Node _ l r) = 1 + max (height l) (height r)\n\nbalanceFactor :: AVLTree a -> Int\nbalanceFactor Empty = 0\nbalanceFactor (Node _ l r) = height l - height r\n\nrotateRight :: AVLTree a -> AVLTree a\nrotateRight (Node x (Node y a b) c) = Node y a (Node x b c)\nrotateRight t = t\n\nrotateLeft :: AVLTree a -> AVLTree a\nrotateLeft (Node x a (Node y b c)) = Node y (Node x a b) c\nrotateLeft t = t\n\nrebalance :: AVLTree a -> AVLTree a",
+  "start_point": [
+    0,
+    0
+  ],
+  "end_point": [
+    22,
+    35
+  ],
+  "children": [
+    {
+      "type": "module",
+      "text": "module",
+      "start_point": [
+        0,
+        0
+      ],
+      "end_point": [
+        0,
+        6
+      ],
+      "children": []
+    },
+    {
+      "type": "module",
+      "text": "AVLTree",
+      "start_point": [
+        0,
+        7
+      ],
+      "end_point": [
+        0,
+        14
+      ],
+      "children": []
+    },
+    {
+      "type": "where",
+      "text": "where",
+      "start_point": [
+        0,
+        15
+      ],
+      "end_point": [
+        0,
+        20
+      ],
+      "children": []
+    },
+    {
+      "type": "adt",
+      "text": "data AVLTree a = Empty \n               | Node a (AVLTree a) (AVLTree a) \n               deriving (Show, Eq)",
+      "start_point": [
+        2,
+        0
+      ],
+      "end_point": [
+        4,
+        34
+      ],
+      "children": [
+        {
+          "type": "data",
+          "text": "data",
+          "start_point": [
+            2,
+            0
+          ],
+          "end_point": [
+            2,
+            4
+          ],
+          "children": []
+        },
+        {
+          "type": "type",
+          "text": "AVLTree",
+          "start_point": [
+            2,
+            5
+          ],
+          "end_point": [
+            2,
+            12
+          ],
+          "children": []
+        },
+        {
+          "type": "type_variable",
+          "text": "a",
+          "start_point": [
+            2,
+            13
+          ],
+          "end_point": [
+            2,
+            14
+          ],
+          "children": []
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            2,
+            15
+          ],
+          "end_point": [
+            2,
+            16
+          ],
+          "children": []
+        },
+        {
+          "type": "constructors",
+          "text": "Empty \n               | Node a (AVLTree a) (AVLTree a)",
+          "start_point": [
+            2,
+            17
+          ],
+          "end_point": [
+            3,
+            47
+          ],
+          "children": [
+            {
+              "type": "data_constructor",
+              "text": "Empty",
+              "start_point": [
+                2,
+                17
+              ],
+              "end_point": [
+                2,
+                22
+              ],
+              "children": [
+                {
+                  "type": "constructor",
+                  "text": "Empty",
+                  "start_point": [
+                    2,
+                    17
+                  ],
+                  "end_point": [
+                    2,
+                    22
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "|",
+              "text": "|",
+              "start_point": [
+                3,
+                15
+              ],
+              "end_point": [
+                3,
+                16
+              ],
+              "children": []
+            },
+            {
+              "type": "data_constructor",
+              "text": "Node a (AVLTree a) (AVLTree a)",
+              "start_point": [
+                3,
+                17
+              ],
+              "end_point": [
+                3,
+                47
+              ],
+              "children": [
+                {
+                  "type": "constructor",
+                  "text": "Node",
+                  "start_point": [
+                    3,
+                    17
+                  ],
+                  "end_point": [
+                    3,
+                    21
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "type_name",
+                  "text": "a",
+                  "start_point": [
+                    3,
+                    22
+                  ],
+                  "end_point": [
+                    3,
+                    23
+                  ],
+                  "children": [
+                    {
+                      "type": "type_variable",
+                      "text": "a",
+                      "start_point": [
+                        3,
+                        22
+                      ],
+                      "end_point": [
+                        3,
+                        23
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "type_parens",
+                  "text": "(AVLTree a)",
+                  "start_point": [
+                    3,
+                    24
+                  ],
+                  "end_point": [
+                    3,
+                    35
+                  ],
+                  "children": [
+                    {
+                      "type": "(",
+                      "text": "(",
+                      "start_point": [
+                        3,
+                        24
+                      ],
+                      "end_point": [
+                        3,
+                        25
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "type_apply",
+                      "text": "AVLTree a",
+                      "start_point": [
+                        3,
+                        25
+                      ],
+                      "end_point": [
+                        3,
+                        34
+                      ],
+                      "children": [
+                        {
+                          "type": "type_name",
+                          "text": "AVLTree",
+                          "start_point": [
+                            3,
+                            25
+                          ],
+                          "end_point": [
+                            3,
+                            32
+                          ],
+                          "children": [
+                            {
+                              "type": "type",
+                              "text": "AVLTree",
+                              "start_point": [
+                                3,
+                                25
+                              ],
+                              "end_point": [
+                                3,
+                                32
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "type_name",
+                          "text": "a",
+                          "start_point": [
+                            3,
+                            33
+                          ],
+                          "end_point": [
+                            3,
+                            34
+                          ],
+                          "children": [
+                            {
+                              "type": "type_variable",
+                              "text": "a",
+                              "start_point": [
+                                3,
+                                33
+                              ],
+                              "end_point": [
+                                3,
+                                34
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": ")",
+                      "text": ")",
+                      "start_point": [
+                        3,
+                        34
+                      ],
+                      "end_point": [
+                        3,
+                        35
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "type_parens",
+                  "text": "(AVLTree a)",
+                  "start_point": [
+                    3,
+                    36
+                  ],
+                  "end_point": [
+                    3,
+                    47
+                  ],
+                  "children": [
+                    {
+                      "type": "(",
+                      "text": "(",
+                      "start_point": [
+                        3,
+                        36
+                      ],
+                      "end_point": [
+                        3,
+                        37
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "type_apply",
+                      "text": "AVLTree a",
+                      "start_point": [
+                        3,
+                        37
+                      ],
+                      "end_point": [
+                        3,
+                        46
+                      ],
+                      "children": [
+                        {
+                          "type": "type_name",
+                          "text": "AVLTree",
+                          "start_point": [
+                            3,
+                            37
+                          ],
+                          "end_point": [
+                            3,
+                            44
+                          ],
+                          "children": [
+                            {
+                              "type": "type",
+                              "text": "AVLTree",
+                              "start_point": [
+                                3,
+                                37
+                              ],
+                              "end_point": [
+                                3,
+                                44
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "type_name",
+                          "text": "a",
+                          "start_point": [
+                            3,
+                            45
+                          ],
+                          "end_point": [
+                            3,
+                            46
+                          ],
+                          "children": [
+                            {
+                              "type": "type_variable",
+                              "text": "a",
+                              "start_point": [
+                                3,
+                                45
+                              ],
+                              "end_point": [
+                                3,
+                                46
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": ")",
+                      "text": ")",
+                      "start_point": [
+                        3,
+                        46
+                      ],
+                      "end_point": [
+                        3,
+                        47
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "deriving",
+          "text": "deriving (Show, Eq)",
+          "start_point": [
+            4,
+            15
+          ],
+          "end_point": [
+            4,
+            34
+          ],
+          "children": [
+            {
+              "type": "deriving",
+              "text": "deriving",
+              "start_point": [
+                4,
+                15
+              ],
+              "end_point": [
+                4,
+                23
+              ],
+              "children": []
+            },
+            {
+              "type": "(",
+              "text": "(",
+              "start_point": [
+                4,
+                24
+              ],
+              "end_point": [
+                4,
+                25
+              ],
+              "children": []
+            },
+            {
+              "type": "constraint",
+              "text": "Show",
+              "start_point": [
+                4,
+                25
+              ],
+              "end_point": [
+                4,
+                29
+              ],
+              "children": [
+                {
+                  "type": "class_name",
+                  "text": "Show",
+                  "start_point": [
+                    4,
+                    25
+                  ],
+                  "end_point": [
+                    4,
+                    29
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "Show",
+                      "start_point": [
+                        4,
+                        25
+                      ],
+                      "end_point": [
+                        4,
+                        29
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "comma",
+              "text": ",",
+              "start_point": [
+                4,
+                29
+              ],
+              "end_point": [
+                4,
+                30
+              ],
+              "children": []
+            },
+            {
+              "type": "constraint",
+              "text": "Eq",
+              "start_point": [
+                4,
+                31
+              ],
+              "end_point": [
+                4,
+                33
+              ],
+              "children": [
+                {
+                  "type": "class_name",
+                  "text": "Eq",
+                  "start_point": [
+                    4,
+                    31
+                  ],
+                  "end_point": [
+                    4,
+                    33
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "Eq",
+                      "start_point": [
+                        4,
+                        31
+                      ],
+                      "end_point": [
+                        4,
+                        33
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": ")",
+              "text": ")",
+              "start_point": [
+                4,
+                33
+              ],
+              "end_point": [
+                4,
+                34
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "signature",
+      "text": "height :: AVLTree a -> Int",
+      "start_point": [
+        6,
+        0
+      ],
+      "end_point": [
+        6,
+        26
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "height",
+          "start_point": [
+            6,
+            0
+          ],
+          "end_point": [
+            6,
+            6
+          ],
+          "children": []
+        },
+        {
+          "type": "::",
+          "text": "::",
+          "start_point": [
+            6,
+            7
+          ],
+          "end_point": [
+            6,
+            9
+          ],
+          "children": []
+        },
+        {
+          "type": "fun",
+          "text": "AVLTree a -> Int",
+          "start_point": [
+            6,
+            10
+          ],
+          "end_point": [
+            6,
+            26
+          ],
+          "children": [
+            {
+              "type": "type_apply",
+              "text": "AVLTree a",
+              "start_point": [
+                6,
+                10
+              ],
+              "end_point": [
+                6,
+                19
+              ],
+              "children": [
+                {
+                  "type": "type_name",
+                  "text": "AVLTree",
+                  "start_point": [
+                    6,
+                    10
+                  ],
+                  "end_point": [
+                    6,
+                    17
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "AVLTree",
+                      "start_point": [
+                        6,
+                        10
+                      ],
+                      "end_point": [
+                        6,
+                        17
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "type_name",
+                  "text": "a",
+                  "start_point": [
+                    6,
+                    18
+                  ],
+                  "end_point": [
+                    6,
+                    19
+                  ],
+                  "children": [
+                    {
+                      "type": "type_variable",
+                      "text": "a",
+                      "start_point": [
+                        6,
+                        18
+                      ],
+                      "end_point": [
+                        6,
+                        19
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "->",
+              "text": "->",
+              "start_point": [
+                6,
+                20
+              ],
+              "end_point": [
+                6,
+                22
+              ],
+              "children": []
+            },
+            {
+              "type": "type_name",
+              "text": "Int",
+              "start_point": [
+                6,
+                23
+              ],
+              "end_point": [
+                6,
+                26
+              ],
+              "children": [
+                {
+                  "type": "type",
+                  "text": "Int",
+                  "start_point": [
+                    6,
+                    23
+                  ],
+                  "end_point": [
+                    6,
+                    26
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "height Empty = 0",
+      "start_point": [
+        7,
+        0
+      ],
+      "end_point": [
+        7,
+        16
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "height",
+          "start_point": [
+            7,
+            0
+          ],
+          "end_point": [
+            7,
+            6
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "Empty",
+          "start_point": [
+            7,
+            7
+          ],
+          "end_point": [
+            7,
+            12
+          ],
+          "children": [
+            {
+              "type": "pat_name",
+              "text": "Empty",
+              "start_point": [
+                7,
+                7
+              ],
+              "end_point": [
+                7,
+                12
+              ],
+              "children": [
+                {
+                  "type": "constructor",
+                  "text": "Empty",
+                  "start_point": [
+                    7,
+                    7
+                  ],
+                  "end_point": [
+                    7,
+                    12
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            7,
+            13
+          ],
+          "end_point": [
+            7,
+            14
+          ],
+          "children": []
+        },
+        {
+          "type": "exp_literal",
+          "text": "0",
+          "start_point": [
+            7,
+            15
+          ],
+          "end_point": [
+            7,
+            16
+          ],
+          "children": [
+            {
+              "type": "integer",
+              "text": "0",
+              "start_point": [
+                7,
+                15
+              ],
+              "end_point": [
+                7,
+                16
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "height (Node _ l r) = 1 + max (height l) (height r)",
+      "start_point": [
+        8,
+        0
+      ],
+      "end_point": [
+        8,
+        51
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "height",
+          "start_point": [
+            8,
+            0
+          ],
+          "end_point": [
+            8,
+            6
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "(Node _ l r)",
+          "start_point": [
+            8,
+            7
+          ],
+          "end_point": [
+            8,
+            19
+          ],
+          "children": [
+            {
+              "type": "pat_parens",
+              "text": "(Node _ l r)",
+              "start_point": [
+                8,
+                7
+              ],
+              "end_point": [
+                8,
+                19
+              ],
+              "children": [
+                {
+                  "type": "(",
+                  "text": "(",
+                  "start_point": [
+                    8,
+                    7
+                  ],
+                  "end_point": [
+                    8,
+                    8
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "pat_apply",
+                  "text": "Node _ l r",
+                  "start_point": [
+                    8,
+                    8
+                  ],
+                  "end_point": [
+                    8,
+                    18
+                  ],
+                  "children": [
+                    {
+                      "type": "pat_name",
+                      "text": "Node",
+                      "start_point": [
+                        8,
+                        8
+                      ],
+                      "end_point": [
+                        8,
+                        12
+                      ],
+                      "children": [
+                        {
+                          "type": "constructor",
+                          "text": "Node",
+                          "start_point": [
+                            8,
+                            8
+                          ],
+                          "end_point": [
+                            8,
+                            12
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "pat_wildcard",
+                      "text": "_",
+                      "start_point": [
+                        8,
+                        13
+                      ],
+                      "end_point": [
+                        8,
+                        14
+                      ],
+                      "children": [
+                        {
+                          "type": "_",
+                          "text": "_",
+                          "start_point": [
+                            8,
+                            13
+                          ],
+                          "end_point": [
+                            8,
+                            14
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "pat_name",
+                      "text": "l",
+                      "start_point": [
+                        8,
+                        15
+                      ],
+                      "end_point": [
+                        8,
+                        16
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "l",
+                          "start_point": [
+                            8,
+                            15
+                          ],
+                          "end_point": [
+                            8,
+                            16
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "pat_name",
+                      "text": "r",
+                      "start_point": [
+                        8,
+                        17
+                      ],
+                      "end_point": [
+                        8,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "r",
+                          "start_point": [
+                            8,
+                            17
+                          ],
+                          "end_point": [
+                            8,
+                            18
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": ")",
+                  "text": ")",
+                  "start_point": [
+                    8,
+                    18
+                  ],
+                  "end_point": [
+                    8,
+                    19
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            8,
+            20
+          ],
+          "end_point": [
+            8,
+            21
+          ],
+          "children": []
+        },
+        {
+          "type": "exp_infix",
+          "text": "1 + max (height l) (height r)",
+          "start_point": [
+            8,
+            22
+          ],
+          "end_point": [
+            8,
+            51
+          ],
+          "children": [
+            {
+              "type": "exp_literal",
+              "text": "1",
+              "start_point": [
+                8,
+                22
+              ],
+              "end_point": [
+                8,
+                23
+              ],
+              "children": [
+                {
+                  "type": "integer",
+                  "text": "1",
+                  "start_point": [
+                    8,
+                    22
+                  ],
+                  "end_point": [
+                    8,
+                    23
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "operator",
+              "text": "+",
+              "start_point": [
+                8,
+                24
+              ],
+              "end_point": [
+                8,
+                25
+              ],
+              "children": []
+            },
+            {
+              "type": "exp_apply",
+              "text": "max (height l) (height r)",
+              "start_point": [
+                8,
+                26
+              ],
+              "end_point": [
+                8,
+                51
+              ],
+              "children": [
+                {
+                  "type": "exp_name",
+                  "text": "max",
+                  "start_point": [
+                    8,
+                    26
+                  ],
+                  "end_point": [
+                    8,
+                    29
+                  ],
+                  "children": [
+                    {
+                      "type": "variable",
+                      "text": "max",
+                      "start_point": [
+                        8,
+                        26
+                      ],
+                      "end_point": [
+                        8,
+                        29
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "exp_parens",
+                  "text": "(height l)",
+                  "start_point": [
+                    8,
+                    30
+                  ],
+                  "end_point": [
+                    8,
+                    40
+                  ],
+                  "children": [
+                    {
+                      "type": "(",
+                      "text": "(",
+                      "start_point": [
+                        8,
+                        30
+                      ],
+                      "end_point": [
+                        8,
+                        31
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "exp_apply",
+                      "text": "height l",
+                      "start_point": [
+                        8,
+                        31
+                      ],
+                      "end_point": [
+                        8,
+                        39
+                      ],
+                      "children": [
+                        {
+                          "type": "exp_name",
+                          "text": "height",
+                          "start_point": [
+                            8,
+                            31
+                          ],
+                          "end_point": [
+                            8,
+                            37
+                          ],
+                          "children": [
+                            {
+                              "type": "variable",
+                              "text": "height",
+                              "start_point": [
+                                8,
+                                31
+                              ],
+                              "end_point": [
+                                8,
+                                37
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "exp_name",
+                          "text": "l",
+                          "start_point": [
+                            8,
+                            38
+                          ],
+                          "end_point": [
+                            8,
+                            39
+                          ],
+                          "children": [
+                            {
+                              "type": "variable",
+                              "text": "l",
+                              "start_point": [
+                                8,
+                                38
+                              ],
+                              "end_point": [
+                                8,
+                                39
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": ")",
+                      "text": ")",
+                      "start_point": [
+                        8,
+                        39
+                      ],
+                      "end_point": [
+                        8,
+                        40
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "exp_parens",
+                  "text": "(height r)",
+                  "start_point": [
+                    8,
+                    41
+                  ],
+                  "end_point": [
+                    8,
+                    51
+                  ],
+                  "children": [
+                    {
+                      "type": "(",
+                      "text": "(",
+                      "start_point": [
+                        8,
+                        41
+                      ],
+                      "end_point": [
+                        8,
+                        42
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "exp_apply",
+                      "text": "height r",
+                      "start_point": [
+                        8,
+                        42
+                      ],
+                      "end_point": [
+                        8,
+                        50
+                      ],
+                      "children": [
+                        {
+                          "type": "exp_name",
+                          "text": "height",
+                          "start_point": [
+                            8,
+                            42
+                          ],
+                          "end_point": [
+                            8,
+                            48
+                          ],
+                          "children": [
+                            {
+                              "type": "variable",
+                              "text": "height",
+                              "start_point": [
+                                8,
+                                42
+                              ],
+                              "end_point": [
+                                8,
+                                48
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "exp_name",
+                          "text": "r",
+                          "start_point": [
+                            8,
+                            49
+                          ],
+                          "end_point": [
+                            8,
+                            50
+                          ],
+                          "children": [
+                            {
+                              "type": "variable",
+                              "text": "r",
+                              "start_point": [
+                                8,
+                                49
+                              ],
+                              "end_point": [
+                                8,
+                                50
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": ")",
+                      "text": ")",
+                      "start_point": [
+                        8,
+                        50
+                      ],
+                      "end_point": [
+                        8,
+                        51
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "signature",
+      "text": "balanceFactor :: AVLTree a -> Int",
+      "start_point": [
+        10,
+        0
+      ],
+      "end_point": [
+        10,
+        33
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "balanceFactor",
+          "start_point": [
+            10,
+            0
+          ],
+          "end_point": [
+            10,
+            13
+          ],
+          "children": []
+        },
+        {
+          "type": "::",
+          "text": "::",
+          "start_point": [
+            10,
+            14
+          ],
+          "end_point": [
+            10,
+            16
+          ],
+          "children": []
+        },
+        {
+          "type": "fun",
+          "text": "AVLTree a -> Int",
+          "start_point": [
+            10,
+            17
+          ],
+          "end_point": [
+            10,
+            33
+          ],
+          "children": [
+            {
+              "type": "type_apply",
+              "text": "AVLTree a",
+              "start_point": [
+                10,
+                17
+              ],
+              "end_point": [
+                10,
+                26
+              ],
+              "children": [
+                {
+                  "type": "type_name",
+                  "text": "AVLTree",
+                  "start_point": [
+                    10,
+                    17
+                  ],
+                  "end_point": [
+                    10,
+                    24
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "AVLTree",
+                      "start_point": [
+                        10,
+                        17
+                      ],
+                      "end_point": [
+                        10,
+                        24
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "type_name",
+                  "text": "a",
+                  "start_point": [
+                    10,
+                    25
+                  ],
+                  "end_point": [
+                    10,
+                    26
+                  ],
+                  "children": [
+                    {
+                      "type": "type_variable",
+                      "text": "a",
+                      "start_point": [
+                        10,
+                        25
+                      ],
+                      "end_point": [
+                        10,
+                        26
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "->",
+              "text": "->",
+              "start_point": [
+                10,
+                27
+              ],
+              "end_point": [
+                10,
+                29
+              ],
+              "children": []
+            },
+            {
+              "type": "type_name",
+              "text": "Int",
+              "start_point": [
+                10,
+                30
+              ],
+              "end_point": [
+                10,
+                33
+              ],
+              "children": [
+                {
+                  "type": "type",
+                  "text": "Int",
+                  "start_point": [
+                    10,
+                    30
+                  ],
+                  "end_point": [
+                    10,
+                    33
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "balanceFactor Empty = 0",
+      "start_point": [
+        11,
+        0
+      ],
+      "end_point": [
+        11,
+        23
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "balanceFactor",
+          "start_point": [
+            11,
+            0
+          ],
+          "end_point": [
+            11,
+            13
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "Empty",
+          "start_point": [
+            11,
+            14
+          ],
+          "end_point": [
+            11,
+            19
+          ],
+          "children": [
+            {
+              "type": "pat_name",
+              "text": "Empty",
+              "start_point": [
+                11,
+                14
+              ],
+              "end_point": [
+                11,
+                19
+              ],
+              "children": [
+                {
+                  "type": "constructor",
+                  "text": "Empty",
+                  "start_point": [
+                    11,
+                    14
+                  ],
+                  "end_point": [
+                    11,
+                    19
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            11,
+            20
+          ],
+          "end_point": [
+            11,
+            21
+          ],
+          "children": []
+        },
+        {
+          "type": "exp_literal",
+          "text": "0",
+          "start_point": [
+            11,
+            22
+          ],
+          "end_point": [
+            11,
+            23
+          ],
+          "children": [
+            {
+              "type": "integer",
+              "text": "0",
+              "start_point": [
+                11,
+                22
+              ],
+              "end_point": [
+                11,
+                23
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "balanceFactor (Node _ l r) = height l - height r",
+      "start_point": [
+        12,
+        0
+      ],
+      "end_point": [
+        12,
+        48
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "balanceFactor",
+          "start_point": [
+            12,
+            0
+          ],
+          "end_point": [
+            12,
+            13
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "(Node _ l r)",
+          "start_point": [
+            12,
+            14
+          ],
+          "end_point": [
+            12,
+            26
+          ],
+          "children": [
+            {
+              "type": "pat_parens",
+              "text": "(Node _ l r)",
+              "start_point": [
+                12,
+                14
+              ],
+              "end_point": [
+                12,
+                26
+              ],
+              "children": [
+                {
+                  "type": "(",
+                  "text": "(",
+                  "start_point": [
+                    12,
+                    14
+                  ],
+                  "end_point": [
+                    12,
+                    15
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "pat_apply",
+                  "text": "Node _ l r",
+                  "start_point": [
+                    12,
+                    15
+                  ],
+                  "end_point": [
+                    12,
+                    25
+                  ],
+                  "children": [
+                    {
+                      "type": "pat_name",
+                      "text": "Node",
+                      "start_point": [
+                        12,
+                        15
+                      ],
+                      "end_point": [
+                        12,
+                        19
+                      ],
+                      "children": [
+                        {
+                          "type": "constructor",
+                          "text": "Node",
+                          "start_point": [
+                            12,
+                            15
+                          ],
+                          "end_point": [
+                            12,
+                            19
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "pat_wildcard",
+                      "text": "_",
+                      "start_point": [
+                        12,
+                        20
+                      ],
+                      "end_point": [
+                        12,
+                        21
+                      ],
+                      "children": [
+                        {
+                          "type": "_",
+                          "text": "_",
+                          "start_point": [
+                            12,
+                            20
+                          ],
+                          "end_point": [
+                            12,
+                            21
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "pat_name",
+                      "text": "l",
+                      "start_point": [
+                        12,
+                        22
+                      ],
+                      "end_point": [
+                        12,
+                        23
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "l",
+                          "start_point": [
+                            12,
+                            22
+                          ],
+                          "end_point": [
+                            12,
+                            23
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "pat_name",
+                      "text": "r",
+                      "start_point": [
+                        12,
+                        24
+                      ],
+                      "end_point": [
+                        12,
+                        25
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "r",
+                          "start_point": [
+                            12,
+                            24
+                          ],
+                          "end_point": [
+                            12,
+                            25
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": ")",
+                  "text": ")",
+                  "start_point": [
+                    12,
+                    25
+                  ],
+                  "end_point": [
+                    12,
+                    26
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            12,
+            27
+          ],
+          "end_point": [
+            12,
+            28
+          ],
+          "children": []
+        },
+        {
+          "type": "exp_infix",
+          "text": "height l - height r",
+          "start_point": [
+            12,
+            29
+          ],
+          "end_point": [
+            12,
+            48
+          ],
+          "children": [
+            {
+              "type": "exp_apply",
+              "text": "height l",
+              "start_point": [
+                12,
+                29
+              ],
+              "end_point": [
+                12,
+                37
+              ],
+              "children": [
+                {
+                  "type": "exp_name",
+                  "text": "height",
+                  "start_point": [
+                    12,
+                    29
+                  ],
+                  "end_point": [
+                    12,
+                    35
+                  ],
+                  "children": [
+                    {
+                      "type": "variable",
+                      "text": "height",
+                      "start_point": [
+                        12,
+                        29
+                      ],
+                      "end_point": [
+                        12,
+                        35
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "exp_name",
+                  "text": "l",
+                  "start_point": [
+                    12,
+                    36
+                  ],
+                  "end_point": [
+                    12,
+                    37
+                  ],
+                  "children": [
+                    {
+                      "type": "variable",
+                      "text": "l",
+                      "start_point": [
+                        12,
+                        36
+                      ],
+                      "end_point": [
+                        12,
+                        37
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "operator",
+              "text": "-",
+              "start_point": [
+                12,
+                38
+              ],
+              "end_point": [
+                12,
+                39
+              ],
+              "children": []
+            },
+            {
+              "type": "exp_apply",
+              "text": "height r",
+              "start_point": [
+                12,
+                40
+              ],
+              "end_point": [
+                12,
+                48
+              ],
+              "children": [
+                {
+                  "type": "exp_name",
+                  "text": "height",
+                  "start_point": [
+                    12,
+                    40
+                  ],
+                  "end_point": [
+                    12,
+                    46
+                  ],
+                  "children": [
+                    {
+                      "type": "variable",
+                      "text": "height",
+                      "start_point": [
+                        12,
+                        40
+                      ],
+                      "end_point": [
+                        12,
+                        46
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "exp_name",
+                  "text": "r",
+                  "start_point": [
+                    12,
+                    47
+                  ],
+                  "end_point": [
+                    12,
+                    48
+                  ],
+                  "children": [
+                    {
+                      "type": "variable",
+                      "text": "r",
+                      "start_point": [
+                        12,
+                        47
+                      ],
+                      "end_point": [
+                        12,
+                        48
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "signature",
+      "text": "rotateRight :: AVLTree a -> AVLTree a",
+      "start_point": [
+        14,
+        0
+      ],
+      "end_point": [
+        14,
+        37
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "rotateRight",
+          "start_point": [
+            14,
+            0
+          ],
+          "end_point": [
+            14,
+            11
+          ],
+          "children": []
+        },
+        {
+          "type": "::",
+          "text": "::",
+          "start_point": [
+            14,
+            12
+          ],
+          "end_point": [
+            14,
+            14
+          ],
+          "children": []
+        },
+        {
+          "type": "fun",
+          "text": "AVLTree a -> AVLTree a",
+          "start_point": [
+            14,
+            15
+          ],
+          "end_point": [
+            14,
+            37
+          ],
+          "children": [
+            {
+              "type": "type_apply",
+              "text": "AVLTree a",
+              "start_point": [
+                14,
+                15
+              ],
+              "end_point": [
+                14,
+                24
+              ],
+              "children": [
+                {
+                  "type": "type_name",
+                  "text": "AVLTree",
+                  "start_point": [
+                    14,
+                    15
+                  ],
+                  "end_point": [
+                    14,
+                    22
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "AVLTree",
+                      "start_point": [
+                        14,
+                        15
+                      ],
+                      "end_point": [
+                        14,
+                        22
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "type_name",
+                  "text": "a",
+                  "start_point": [
+                    14,
+                    23
+                  ],
+                  "end_point": [
+                    14,
+                    24
+                  ],
+                  "children": [
+                    {
+                      "type": "type_variable",
+                      "text": "a",
+                      "start_point": [
+                        14,
+                        23
+                      ],
+                      "end_point": [
+                        14,
+                        24
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "->",
+              "text": "->",
+              "start_point": [
+                14,
+                25
+              ],
+              "end_point": [
+                14,
+                27
+              ],
+              "children": []
+            },
+            {
+              "type": "type_apply",
+              "text": "AVLTree a",
+              "start_point": [
+                14,
+                28
+              ],
+              "end_point": [
+                14,
+                37
+              ],
+              "children": [
+                {
+                  "type": "type_name",
+                  "text": "AVLTree",
+                  "start_point": [
+                    14,
+                    28
+                  ],
+                  "end_point": [
+                    14,
+                    35
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "AVLTree",
+                      "start_point": [
+                        14,
+                        28
+                      ],
+                      "end_point": [
+                        14,
+                        35
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "type_name",
+                  "text": "a",
+                  "start_point": [
+                    14,
+                    36
+                  ],
+                  "end_point": [
+                    14,
+                    37
+                  ],
+                  "children": [
+                    {
+                      "type": "type_variable",
+                      "text": "a",
+                      "start_point": [
+                        14,
+                        36
+                      ],
+                      "end_point": [
+                        14,
+                        37
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "rotateRight (Node x (Node y a b) c) = Node y a (Node x b c)",
+      "start_point": [
+        15,
+        0
+      ],
+      "end_point": [
+        15,
+        59
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "rotateRight",
+          "start_point": [
+            15,
+            0
+          ],
+          "end_point": [
+            15,
+            11
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "(Node x (Node y a b) c)",
+          "start_point": [
+            15,
+            12
+          ],
+          "end_point": [
+            15,
+            35
+          ],
+          "children": [
+            {
+              "type": "pat_parens",
+              "text": "(Node x (Node y a b) c)",
+              "start_point": [
+                15,
+                12
+              ],
+              "end_point": [
+                15,
+                35
+              ],
+              "children": [
+                {
+                  "type": "(",
+                  "text": "(",
+                  "start_point": [
+                    15,
+                    12
+                  ],
+                  "end_point": [
+                    15,
+                    13
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "pat_apply",
+                  "text": "Node x (Node y a b) c",
+                  "start_point": [
+                    15,
+                    13
+                  ],
+                  "end_point": [
+                    15,
+                    34
+                  ],
+                  "children": [
+                    {
+                      "type": "pat_name",
+                      "text": "Node",
+                      "start_point": [
+                        15,
+                        13
+                      ],
+                      "end_point": [
+                        15,
+                        17
+                      ],
+                      "children": [
+                        {
+                          "type": "constructor",
+                          "text": "Node",
+                          "start_point": [
+                            15,
+                            13
+                          ],
+                          "end_point": [
+                            15,
+                            17
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "pat_name",
+                      "text": "x",
+                      "start_point": [
+                        15,
+                        18
+                      ],
+                      "end_point": [
+                        15,
+                        19
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "x",
+                          "start_point": [
+                            15,
+                            18
+                          ],
+                          "end_point": [
+                            15,
+                            19
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "pat_parens",
+                      "text": "(Node y a b)",
+                      "start_point": [
+                        15,
+                        20
+                      ],
+                      "end_point": [
+                        15,
+                        32
+                      ],
+                      "children": [
+                        {
+                          "type": "(",
+                          "text": "(",
+                          "start_point": [
+                            15,
+                            20
+                          ],
+                          "end_point": [
+                            15,
+                            21
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "pat_apply",
+                          "text": "Node y a b",
+                          "start_point": [
+                            15,
+                            21
+                          ],
+                          "end_point": [
+                            15,
+                            31
+                          ],
+                          "children": [
+                            {
+                              "type": "pat_name",
+                              "text": "Node",
+                              "start_point": [
+                                15,
+                                21
+                              ],
+                              "end_point": [
+                                15,
+                                25
+                              ],
+                              "children": [
+                                {
+                                  "type": "constructor",
+                                  "text": "Node",
+                                  "start_point": [
+                                    15,
+                                    21
+                                  ],
+                                  "end_point": [
+                                    15,
+                                    25
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "pat_name",
+                              "text": "y",
+                              "start_point": [
+                                15,
+                                26
+                              ],
+                              "end_point": [
+                                15,
+                                27
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "y",
+                                  "start_point": [
+                                    15,
+                                    26
+                                  ],
+                                  "end_point": [
+                                    15,
+                                    27
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "pat_name",
+                              "text": "a",
+                              "start_point": [
+                                15,
+                                28
+                              ],
+                              "end_point": [
+                                15,
+                                29
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "a",
+                                  "start_point": [
+                                    15,
+                                    28
+                                  ],
+                                  "end_point": [
+                                    15,
+                                    29
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "pat_name",
+                              "text": "b",
+                              "start_point": [
+                                15,
+                                30
+                              ],
+                              "end_point": [
+                                15,
+                                31
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "b",
+                                  "start_point": [
+                                    15,
+                                    30
+                                  ],
+                                  "end_point": [
+                                    15,
+                                    31
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": ")",
+                          "text": ")",
+                          "start_point": [
+                            15,
+                            31
+                          ],
+                          "end_point": [
+                            15,
+                            32
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "pat_name",
+                      "text": "c",
+                      "start_point": [
+                        15,
+                        33
+                      ],
+                      "end_point": [
+                        15,
+                        34
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "c",
+                          "start_point": [
+                            15,
+                            33
+                          ],
+                          "end_point": [
+                            15,
+                            34
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": ")",
+                  "text": ")",
+                  "start_point": [
+                    15,
+                    34
+                  ],
+                  "end_point": [
+                    15,
+                    35
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            15,
+            36
+          ],
+          "end_point": [
+            15,
+            37
+          ],
+          "children": []
+        },
+        {
+          "type": "exp_apply",
+          "text": "Node y a (Node x b c)",
+          "start_point": [
+            15,
+            38
+          ],
+          "end_point": [
+            15,
+            59
+          ],
+          "children": [
+            {
+              "type": "exp_name",
+              "text": "Node",
+              "start_point": [
+                15,
+                38
+              ],
+              "end_point": [
+                15,
+                42
+              ],
+              "children": [
+                {
+                  "type": "constructor",
+                  "text": "Node",
+                  "start_point": [
+                    15,
+                    38
+                  ],
+                  "end_point": [
+                    15,
+                    42
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "exp_name",
+              "text": "y",
+              "start_point": [
+                15,
+                43
+              ],
+              "end_point": [
+                15,
+                44
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "y",
+                  "start_point": [
+                    15,
+                    43
+                  ],
+                  "end_point": [
+                    15,
+                    44
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "exp_name",
+              "text": "a",
+              "start_point": [
+                15,
+                45
+              ],
+              "end_point": [
+                15,
+                46
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "a",
+                  "start_point": [
+                    15,
+                    45
+                  ],
+                  "end_point": [
+                    15,
+                    46
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "exp_parens",
+              "text": "(Node x b c)",
+              "start_point": [
+                15,
+                47
+              ],
+              "end_point": [
+                15,
+                59
+              ],
+              "children": [
+                {
+                  "type": "(",
+                  "text": "(",
+                  "start_point": [
+                    15,
+                    47
+                  ],
+                  "end_point": [
+                    15,
+                    48
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "exp_apply",
+                  "text": "Node x b c",
+                  "start_point": [
+                    15,
+                    48
+                  ],
+                  "end_point": [
+                    15,
+                    58
+                  ],
+                  "children": [
+                    {
+                      "type": "exp_name",
+                      "text": "Node",
+                      "start_point": [
+                        15,
+                        48
+                      ],
+                      "end_point": [
+                        15,
+                        52
+                      ],
+                      "children": [
+                        {
+                          "type": "constructor",
+                          "text": "Node",
+                          "start_point": [
+                            15,
+                            48
+                          ],
+                          "end_point": [
+                            15,
+                            52
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_name",
+                      "text": "x",
+                      "start_point": [
+                        15,
+                        53
+                      ],
+                      "end_point": [
+                        15,
+                        54
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "x",
+                          "start_point": [
+                            15,
+                            53
+                          ],
+                          "end_point": [
+                            15,
+                            54
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_name",
+                      "text": "b",
+                      "start_point": [
+                        15,
+                        55
+                      ],
+                      "end_point": [
+                        15,
+                        56
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "b",
+                          "start_point": [
+                            15,
+                            55
+                          ],
+                          "end_point": [
+                            15,
+                            56
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_name",
+                      "text": "c",
+                      "start_point": [
+                        15,
+                        57
+                      ],
+                      "end_point": [
+                        15,
+                        58
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "c",
+                          "start_point": [
+                            15,
+                            57
+                          ],
+                          "end_point": [
+                            15,
+                            58
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": ")",
+                  "text": ")",
+                  "start_point": [
+                    15,
+                    58
+                  ],
+                  "end_point": [
+                    15,
+                    59
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "rotateRight t = t",
+      "start_point": [
+        16,
+        0
+      ],
+      "end_point": [
+        16,
+        17
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "rotateRight",
+          "start_point": [
+            16,
+            0
+          ],
+          "end_point": [
+            16,
+            11
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "t",
+          "start_point": [
+            16,
+            12
+          ],
+          "end_point": [
+            16,
+            13
+          ],
+          "children": [
+            {
+              "type": "pat_name",
+              "text": "t",
+              "start_point": [
+                16,
+                12
+              ],
+              "end_point": [
+                16,
+                13
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "t",
+                  "start_point": [
+                    16,
+                    12
+                  ],
+                  "end_point": [
+                    16,
+                    13
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            16,
+            14
+          ],
+          "end_point": [
+            16,
+            15
+          ],
+          "children": []
+        },
+        {
+          "type": "exp_name",
+          "text": "t",
+          "start_point": [
+            16,
+            16
+          ],
+          "end_point": [
+            16,
+            17
+          ],
+          "children": [
+            {
+              "type": "variable",
+              "text": "t",
+              "start_point": [
+                16,
+                16
+              ],
+              "end_point": [
+                16,
+                17
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "signature",
+      "text": "rotateLeft :: AVLTree a -> AVLTree a",
+      "start_point": [
+        18,
+        0
+      ],
+      "end_point": [
+        18,
+        36
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "rotateLeft",
+          "start_point": [
+            18,
+            0
+          ],
+          "end_point": [
+            18,
+            10
+          ],
+          "children": []
+        },
+        {
+          "type": "::",
+          "text": "::",
+          "start_point": [
+            18,
+            11
+          ],
+          "end_point": [
+            18,
+            13
+          ],
+          "children": []
+        },
+        {
+          "type": "fun",
+          "text": "AVLTree a -> AVLTree a",
+          "start_point": [
+            18,
+            14
+          ],
+          "end_point": [
+            18,
+            36
+          ],
+          "children": [
+            {
+              "type": "type_apply",
+              "text": "AVLTree a",
+              "start_point": [
+                18,
+                14
+              ],
+              "end_point": [
+                18,
+                23
+              ],
+              "children": [
+                {
+                  "type": "type_name",
+                  "text": "AVLTree",
+                  "start_point": [
+                    18,
+                    14
+                  ],
+                  "end_point": [
+                    18,
+                    21
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "AVLTree",
+                      "start_point": [
+                        18,
+                        14
+                      ],
+                      "end_point": [
+                        18,
+                        21
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "type_name",
+                  "text": "a",
+                  "start_point": [
+                    18,
+                    22
+                  ],
+                  "end_point": [
+                    18,
+                    23
+                  ],
+                  "children": [
+                    {
+                      "type": "type_variable",
+                      "text": "a",
+                      "start_point": [
+                        18,
+                        22
+                      ],
+                      "end_point": [
+                        18,
+                        23
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "->",
+              "text": "->",
+              "start_point": [
+                18,
+                24
+              ],
+              "end_point": [
+                18,
+                26
+              ],
+              "children": []
+            },
+            {
+              "type": "type_apply",
+              "text": "AVLTree a",
+              "start_point": [
+                18,
+                27
+              ],
+              "end_point": [
+                18,
+                36
+              ],
+              "children": [
+                {
+                  "type": "type_name",
+                  "text": "AVLTree",
+                  "start_point": [
+                    18,
+                    27
+                  ],
+                  "end_point": [
+                    18,
+                    34
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "AVLTree",
+                      "start_point": [
+                        18,
+                        27
+                      ],
+                      "end_point": [
+                        18,
+                        34
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "type_name",
+                  "text": "a",
+                  "start_point": [
+                    18,
+                    35
+                  ],
+                  "end_point": [
+                    18,
+                    36
+                  ],
+                  "children": [
+                    {
+                      "type": "type_variable",
+                      "text": "a",
+                      "start_point": [
+                        18,
+                        35
+                      ],
+                      "end_point": [
+                        18,
+                        36
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "rotateLeft (Node x a (Node y b c)) = Node y (Node x a b) c",
+      "start_point": [
+        19,
+        0
+      ],
+      "end_point": [
+        19,
+        58
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "rotateLeft",
+          "start_point": [
+            19,
+            0
+          ],
+          "end_point": [
+            19,
+            10
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "(Node x a (Node y b c))",
+          "start_point": [
+            19,
+            11
+          ],
+          "end_point": [
+            19,
+            34
+          ],
+          "children": [
+            {
+              "type": "pat_parens",
+              "text": "(Node x a (Node y b c))",
+              "start_point": [
+                19,
+                11
+              ],
+              "end_point": [
+                19,
+                34
+              ],
+              "children": [
+                {
+                  "type": "(",
+                  "text": "(",
+                  "start_point": [
+                    19,
+                    11
+                  ],
+                  "end_point": [
+                    19,
+                    12
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "pat_apply",
+                  "text": "Node x a (Node y b c)",
+                  "start_point": [
+                    19,
+                    12
+                  ],
+                  "end_point": [
+                    19,
+                    33
+                  ],
+                  "children": [
+                    {
+                      "type": "pat_name",
+                      "text": "Node",
+                      "start_point": [
+                        19,
+                        12
+                      ],
+                      "end_point": [
+                        19,
+                        16
+                      ],
+                      "children": [
+                        {
+                          "type": "constructor",
+                          "text": "Node",
+                          "start_point": [
+                            19,
+                            12
+                          ],
+                          "end_point": [
+                            19,
+                            16
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "pat_name",
+                      "text": "x",
+                      "start_point": [
+                        19,
+                        17
+                      ],
+                      "end_point": [
+                        19,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "x",
+                          "start_point": [
+                            19,
+                            17
+                          ],
+                          "end_point": [
+                            19,
+                            18
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "pat_name",
+                      "text": "a",
+                      "start_point": [
+                        19,
+                        19
+                      ],
+                      "end_point": [
+                        19,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "a",
+                          "start_point": [
+                            19,
+                            19
+                          ],
+                          "end_point": [
+                            19,
+                            20
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "pat_parens",
+                      "text": "(Node y b c)",
+                      "start_point": [
+                        19,
+                        21
+                      ],
+                      "end_point": [
+                        19,
+                        33
+                      ],
+                      "children": [
+                        {
+                          "type": "(",
+                          "text": "(",
+                          "start_point": [
+                            19,
+                            21
+                          ],
+                          "end_point": [
+                            19,
+                            22
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "pat_apply",
+                          "text": "Node y b c",
+                          "start_point": [
+                            19,
+                            22
+                          ],
+                          "end_point": [
+                            19,
+                            32
+                          ],
+                          "children": [
+                            {
+                              "type": "pat_name",
+                              "text": "Node",
+                              "start_point": [
+                                19,
+                                22
+                              ],
+                              "end_point": [
+                                19,
+                                26
+                              ],
+                              "children": [
+                                {
+                                  "type": "constructor",
+                                  "text": "Node",
+                                  "start_point": [
+                                    19,
+                                    22
+                                  ],
+                                  "end_point": [
+                                    19,
+                                    26
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "pat_name",
+                              "text": "y",
+                              "start_point": [
+                                19,
+                                27
+                              ],
+                              "end_point": [
+                                19,
+                                28
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "y",
+                                  "start_point": [
+                                    19,
+                                    27
+                                  ],
+                                  "end_point": [
+                                    19,
+                                    28
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "pat_name",
+                              "text": "b",
+                              "start_point": [
+                                19,
+                                29
+                              ],
+                              "end_point": [
+                                19,
+                                30
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "b",
+                                  "start_point": [
+                                    19,
+                                    29
+                                  ],
+                                  "end_point": [
+                                    19,
+                                    30
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "type": "pat_name",
+                              "text": "c",
+                              "start_point": [
+                                19,
+                                31
+                              ],
+                              "end_point": [
+                                19,
+                                32
+                              ],
+                              "children": [
+                                {
+                                  "type": "variable",
+                                  "text": "c",
+                                  "start_point": [
+                                    19,
+                                    31
+                                  ],
+                                  "end_point": [
+                                    19,
+                                    32
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": ")",
+                          "text": ")",
+                          "start_point": [
+                            19,
+                            32
+                          ],
+                          "end_point": [
+                            19,
+                            33
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": ")",
+                  "text": ")",
+                  "start_point": [
+                    19,
+                    33
+                  ],
+                  "end_point": [
+                    19,
+                    34
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            19,
+            35
+          ],
+          "end_point": [
+            19,
+            36
+          ],
+          "children": []
+        },
+        {
+          "type": "exp_apply",
+          "text": "Node y (Node x a b) c",
+          "start_point": [
+            19,
+            37
+          ],
+          "end_point": [
+            19,
+            58
+          ],
+          "children": [
+            {
+              "type": "exp_name",
+              "text": "Node",
+              "start_point": [
+                19,
+                37
+              ],
+              "end_point": [
+                19,
+                41
+              ],
+              "children": [
+                {
+                  "type": "constructor",
+                  "text": "Node",
+                  "start_point": [
+                    19,
+                    37
+                  ],
+                  "end_point": [
+                    19,
+                    41
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "exp_name",
+              "text": "y",
+              "start_point": [
+                19,
+                42
+              ],
+              "end_point": [
+                19,
+                43
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "y",
+                  "start_point": [
+                    19,
+                    42
+                  ],
+                  "end_point": [
+                    19,
+                    43
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "exp_parens",
+              "text": "(Node x a b)",
+              "start_point": [
+                19,
+                44
+              ],
+              "end_point": [
+                19,
+                56
+              ],
+              "children": [
+                {
+                  "type": "(",
+                  "text": "(",
+                  "start_point": [
+                    19,
+                    44
+                  ],
+                  "end_point": [
+                    19,
+                    45
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "exp_apply",
+                  "text": "Node x a b",
+                  "start_point": [
+                    19,
+                    45
+                  ],
+                  "end_point": [
+                    19,
+                    55
+                  ],
+                  "children": [
+                    {
+                      "type": "exp_name",
+                      "text": "Node",
+                      "start_point": [
+                        19,
+                        45
+                      ],
+                      "end_point": [
+                        19,
+                        49
+                      ],
+                      "children": [
+                        {
+                          "type": "constructor",
+                          "text": "Node",
+                          "start_point": [
+                            19,
+                            45
+                          ],
+                          "end_point": [
+                            19,
+                            49
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_name",
+                      "text": "x",
+                      "start_point": [
+                        19,
+                        50
+                      ],
+                      "end_point": [
+                        19,
+                        51
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "x",
+                          "start_point": [
+                            19,
+                            50
+                          ],
+                          "end_point": [
+                            19,
+                            51
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_name",
+                      "text": "a",
+                      "start_point": [
+                        19,
+                        52
+                      ],
+                      "end_point": [
+                        19,
+                        53
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "a",
+                          "start_point": [
+                            19,
+                            52
+                          ],
+                          "end_point": [
+                            19,
+                            53
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "exp_name",
+                      "text": "b",
+                      "start_point": [
+                        19,
+                        54
+                      ],
+                      "end_point": [
+                        19,
+                        55
+                      ],
+                      "children": [
+                        {
+                          "type": "variable",
+                          "text": "b",
+                          "start_point": [
+                            19,
+                            54
+                          ],
+                          "end_point": [
+                            19,
+                            55
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": ")",
+                  "text": ")",
+                  "start_point": [
+                    19,
+                    55
+                  ],
+                  "end_point": [
+                    19,
+                    56
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "exp_name",
+              "text": "c",
+              "start_point": [
+                19,
+                57
+              ],
+              "end_point": [
+                19,
+                58
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "c",
+                  "start_point": [
+                    19,
+                    57
+                  ],
+                  "end_point": [
+                    19,
+                    58
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "text": "rotateLeft t = t",
+      "start_point": [
+        20,
+        0
+      ],
+      "end_point": [
+        20,
+        16
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "rotateLeft",
+          "start_point": [
+            20,
+            0
+          ],
+          "end_point": [
+            20,
+            10
+          ],
+          "children": []
+        },
+        {
+          "type": "patterns",
+          "text": "t",
+          "start_point": [
+            20,
+            11
+          ],
+          "end_point": [
+            20,
+            12
+          ],
+          "children": [
+            {
+              "type": "pat_name",
+              "text": "t",
+              "start_point": [
+                20,
+                11
+              ],
+              "end_point": [
+                20,
+                12
+              ],
+              "children": [
+                {
+                  "type": "variable",
+                  "text": "t",
+                  "start_point": [
+                    20,
+                    11
+                  ],
+                  "end_point": [
+                    20,
+                    12
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "=",
+          "text": "=",
+          "start_point": [
+            20,
+            13
+          ],
+          "end_point": [
+            20,
+            14
+          ],
+          "children": []
+        },
+        {
+          "type": "exp_name",
+          "text": "t",
+          "start_point": [
+            20,
+            15
+          ],
+          "end_point": [
+            20,
+            16
+          ],
+          "children": [
+            {
+              "type": "variable",
+              "text": "t",
+              "start_point": [
+                20,
+                15
+              ],
+              "end_point": [
+                20,
+                16
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "signature",
+      "text": "rebalance :: AVLTree a -> AVLTree a",
+      "start_point": [
+        22,
+        0
+      ],
+      "end_point": [
+        22,
+        35
+      ],
+      "children": [
+        {
+          "type": "variable",
+          "text": "rebalance",
+          "start_point": [
+            22,
+            0
+          ],
+          "end_point": [
+            22,
+            9
+          ],
+          "children": []
+        },
+        {
+          "type": "::",
+          "text": "::",
+          "start_point": [
+            22,
+            10
+          ],
+          "end_point": [
+            22,
+            12
+          ],
+          "children": []
+        },
+        {
+          "type": "fun",
+          "text": "AVLTree a -> AVLTree a",
+          "start_point": [
+            22,
+            13
+          ],
+          "end_point": [
+            22,
+            35
+          ],
+          "children": [
+            {
+              "type": "type_apply",
+              "text": "AVLTree a",
+              "start_point": [
+                22,
+                13
+              ],
+              "end_point": [
+                22,
+                22
+              ],
+              "children": [
+                {
+                  "type": "type_name",
+                  "text": "AVLTree",
+                  "start_point": [
+                    22,
+                    13
+                  ],
+                  "end_point": [
+                    22,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "AVLTree",
+                      "start_point": [
+                        22,
+                        13
+                      ],
+                      "end_point": [
+                        22,
+                        20
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "type_name",
+                  "text": "a",
+                  "start_point": [
+                    22,
+                    21
+                  ],
+                  "end_point": [
+                    22,
+                    22
+                  ],
+                  "children": [
+                    {
+                      "type": "type_variable",
+                      "text": "a",
+                      "start_point": [
+                        22,
+                        21
+                      ],
+                      "end_point": [
+                        22,
+                        22
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "->",
+              "text": "->",
+              "start_point": [
+                22,
+                23
+              ],
+              "end_point": [
+                22,
+                25
+              ],
+              "children": []
+            },
+            {
+              "type": "type_apply",
+              "text": "AVLTree a",
+              "start_point": [
+                22,
+                26
+              ],
+              "end_point": [
+                22,
+                35
+              ],
+              "children": [
+                {
+                  "type": "type_name",
+                  "text": "AVLTree",
+                  "start_point": [
+                    22,
+                    26
+                  ],
+                  "end_point": [
+                    22,
+                    33
+                  ],
+                  "children": [
+                    {
+                      "type": "type",
+                      "text": "AVLTree",
+                      "start_point": [
+                        22,
+                        26
+                      ],
+                      "end_point": [
+                        22,
+                        33
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "type_name",
+                  "text": "a",
+                  "start_point": [
+                    22,
+                    34
+                  ],
+                  "end_point": [
+                    22,
+                    35
+                  ],
+                  "children": [
+                    {
+                      "type": "type_variable",
+                      "text": "a",
+                      "start_point": [
+                        22,
+                        34
+                      ],
+                      "end_point": [
+                        22,
+                        35
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
