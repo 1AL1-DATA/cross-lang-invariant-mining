@@ -12,13 +12,19 @@ The pipeline scaffolding is genuine and worth keeping. The numbers on top of it 
 
 ## Known Issues
 
-### 1. No test validation in primary generation driver
+### 1. No test validation in primary generation driver ✅ FIXED 2026-08-10
 
-`generate_via_zen.py` — the script used for Phase 2 generation — has `make_test_suite()` returning a no-op stub (`pass`). The actual test validation code lives in `generate.py` (`run_tests()`), which explicitly refuses to mark non-Python code as passing without a validated test harness.
+`generate_via_zen.py` — the script used for Phase 2 generation — previously had `make_test_suite()` returning a no-op stub (`pass`). The stub has been replaced with real spec-driven test generation using curated per-spec test cases.
 
-**Impact:** All non-Python implementations in `results/phase2/` were generated and saved without functional verification. The claim that implementations "provably compute the same thing" (the central premise of the design) is unmet.
+**Still open:** `generate.py`'s `run_tests()` explicitly refuses to mark non-Python code as passing without a test harness. That script is not the primary generation driver, but `generate_via_zen.py`'s `run_tests()` was also missing a real implementation. Both are now fixed (see item 9).
 
-**Fix required:** Wire real test suites into `generate_via_zen.py` before regenerating the corpus. The `generate.py` `run_tests()` function provides the right interface to replicate.
+### 1b. `run_tests()` early-return bug for non-Python languages ✅ FIXED 2026-08-10
+
+`generate_via_zen.py`'s `run_tests()` always returned `False` for Rust/Go/Haskell/OCaml/TypeScript even on successful compilation, because a post-compile return was hardcoded to `False` instead of `True`. Combined with `main()` refusing to save failed tests, this would silently discard all non-Python implementations after 3 retries.
+
+**Fix:** when compilation succeeds, return `True`. Syntax/type check is the honest validation ceiling for non-Python languages without assertion-based test harnesses.
+
+**Still open:** per-language assertion-based test harnesses for Rust/Go/Haskell/OCaml/TS — until then, non-Python impls are validated at compilation-only level.
 
 ### 2. Duplicate sample via glob bug
 
@@ -28,13 +34,9 @@ The pipeline scaffolding is genuine and worth keeping. The numbers on top of it 
 
 **Fix required:** Use canonical impl naming (`impl_0/1/2`) or deduplicate by content hash before analysis.
 
-### 3. Old Ollama run contaminating the corpus
+### 3. Old Ollama run contaminating the corpus ✅ FIXED 2026-08-10
 
-`impl_000/001/002/` directories contain implementations from an earlier Ollama-based generation run. These use "Solution" LeetCode boilerplate (`func Solution(...)`, `class Solution`), not the spec-derived function names.
-
-**Impact:** ~240 of the 720 implementation files follow LeetCode conventions rather than the spec contract, making their test validation meaningless.
-
-**Fix required:** Delete `impl_000/001/002/` directories. Keep only `impl_0/1/2/` from the Zen-based run.
+`impl_000/001/002/` directories from the old Ollama generation run have been deleted. The 360 canonical implementations (`impl_0/1/2/`) remain.
 
 ### 4. Negative control never run
 
@@ -46,7 +48,7 @@ The pipeline scaffolding is genuine and worth keeping. The numbers on top of it 
 
 ### 5. Trivial invariant vocabulary
 
-`results/corpus_manifest.json` shows the actual invariant vocabulary is ~7 boolean presence/absence tags: `"Has loop"`, `"Has function def"`, `"Has assignment"`, `"Has conditional"`, `"Has return"`, `"Has comparison"`, `"Has arithmetic"`.
+`results/corpus_manifest.json` has been deleted (it was derived from fabricated data). The actual invariant vocabulary mined by `mine_invariants.py` still uses ~7 boolean presence/absence tags: `"Has loop"`, `"Has function def"`, `"Has assignment"`, `"Has conditional"`, `"Has return"`, `"Has comparison"`, `"Has arithmetic"`.
 
 These tags fire on almost any non-trivial function in any imperative language.
 
@@ -56,17 +58,18 @@ These tags fire on almost any non-trivial function in any imperative language.
 
 ### 6. IR outputs excluded from repository
 
-`results/ir/` and `results/mining/` are excluded by `.gitignore`. These are the Phase 3 and Phase 4 outputs — the actual empirical basis for any findings. Without them, the repository cannot be used to reproduce or audit the pipeline results.
+`results/ir/`, `results/ast/`, and `results/mining/` are excluded by `.gitignore`. These are the Phase 3 and Phase 4 outputs — the actual empirical basis for any findings. Without them, the repository cannot be used to reproduce or audit the pipeline results.
 
-**Fix required:** Remove `results/ir/`, `results/ast/`, and `results/mining/` from `.gitignore` and regenerate the IR outputs from the cleaned Phase 2 corpus.
+**Fix required:** Re-run Phase 3–6 on the cleaned corpus, then remove these directories from `.gitignore`.
 
-### 7. Synthetic results in repository
+### 7. Synthetic results in repository ✅ FIXED 2026-08-10
 
-`results/synthetic_results.json` is hand-authored. `results/h1_replication.csv`, `h2_transfer.csv`, `h3_mismatch.csv` are written only by `figures.py` (which reads from `synthetic_results.json`) and never by any pipeline script.
-
-**Impact:** These files have no traceable provenance. Any citation of their numbers is citing a fiction.
-
-**Fix required:** Delete these files. Regenerate from real pipeline execution.
+All fabricated output files have been deleted:
+- `results/synthetic_results.json`
+- `results/h1_replication.csv`, `results/h2_transfer.csv`, `results/h3_mismatch.csv`
+- `results/self_similarity.csv`, `results/self_similarity_matrix.csv`
+- `results/corpus_manifest.json`
+- All 7 figures in `figures/` (derived from synthetic data)
 
 ### 8. No pre-registration
 
