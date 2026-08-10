@@ -1,0 +1,32 @@
+# Generation config — controls which LLM provider is used.
+#
+# Credentials are loaded from environment variables (not hardcoded).
+# Copy this file to generation.yaml and fill in your credentials.
+#
+# Required env vars per provider:
+#   openai:     OPENAI_API_KEY
+#   anthropic:  ANTHROPIC_API_KEY
+#   openrouter: OPENROUTER_API_KEY
+#   opencode:   OPENCODE_API_KEY  (or ~/.local/share/opencode/auth.json)
+#   ollama:     none required (runs locally)
+
+provider: openai
+
+model: gpt-4o-mini
+
+# Temperature: 0.2 = deterministic (good for code), 0.8 = creative (good for variety)
+temperature: 0.2
+
+# Max output tokens (adjust per language; larger languages need more)
+max_tokens: 4096
+
+# Generation diversity: loop impl_idx through prompt variants to get variety
+prompt_variant_rotation: true
+
+credentials:
+  # Provider-specific. Use env var references so keys never touch disk.
+  # Example: api_key: ${OPENAI_API_KEY}
+  api_key: ${OPENAI_API_KEY}
+  # For local providers / custom endpoints:
+  # base_url: https://your-gateway.internal/v1
+  # base_url: http://localhost:11434

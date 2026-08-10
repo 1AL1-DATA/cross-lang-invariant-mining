@@ -11,50 +11,30 @@ from pathlib import Path
 from typing import Tuple, List
 
 # ── Config ───────────────────────────────────────────────────────────────────
-ZEN_BASE_URL = "https://opencode.ai/zen/go/v1"
-ZEN_KEY_PATH = os.path.expanduser("~/.local/share/opencode/auth.json")
 PROGRESS_PATH = "/tmp/opencode_progress.json"
 OUT_ROOT = Path(__file__).resolve().parent.parent / "results" / "phase2"
 
-# ── Load key ─────────────────────────────────────────────────────────────────
-def load_key():
-    with open(ZEN_KEY_PATH) as f:
-        d = json.load(f)
-    return d["opencode-go"]["key"]
+# ── Lazy config loader ───────────────────────────────────────────────────────
+_CONFIG = None
 
-# ── Generation ────────────────────────────────────────────────────────────────
-PROMPT_VARIANTS = {
-    "python": [
-        "Write a Python implementation of the following function.",
-        "Implement the following in Python.",
-        "Provide a Python function that satisfies the specification.",
-    ],
-    "rust": [
-        "Write a Rust implementation of the following function.",
-        "Implement the following in Rust.",
-        "Provide a Rust function that satisfies the specification.",
-    ],
-    "haskell": [
-        "Write a Haskell implementation of the following function.",
-        "Implement the following in Haskell.",
-        "Provide a Haskell function that satisfies the specification.",
-    ],
-    "ocaml": [
-        "Write an OCaml implementation of the following function.",
-        "Implement the following in OCaml.",
-        "Provide an OCaml function that satisfies the specification.",
-    ],
-    "go": [
-        "Write a Go implementation of the following function.",
-        "Implement the following in Go.",
-        "Provide a Go function that satisfies the specification.",
-    ],
-    "typescript": [
-        "Write a TypeScript implementation of the following function.",
-        "Implement the following in TypeScript.",
-        "Provide a TypeScript function that satisfies the specification.",
-    ],
-}
+def _get_config() -> dict:
+    global _CONFIG
+    if _CONFIG is None:
+        from providers import load_config
+        cfg_path = Path(__file__).resolve().parent.parent / "config" / "generation.yaml"
+        _CONFIG = load_config(cfg_path)
+    return _CONFIG
+
+# ── Prompt loader ────────────────────────────────────────────────────────────
+def _load_prompt_variants(language: str) -> list[str]:
+    """Load prompt file for the given language.
+    Returns [system_prompt, variant1, variant2, variant3].
+    """
+    prompt_path = Path(__file__).resolve().parent.parent / "prompts" / f"{language}.md"
+    raw = prompt_path.read_text()
+    # Split by --- separator, strip empty lines
+    parts = [p.strip() for p in raw.split("---") if p.strip()]
+    return parts  # [system_prompt, variant1, variant2, variant3]
 
 _EXT = {
     "python": ".py", "rust": ".rs", "haskell": ".hs",
@@ -560,68 +540,35 @@ def run_tests(source: str, language: str, spec_id: str, fn_name: str) -> Tuple[b
 
 
 # ──────────────────────────────────────────────────────────────────────────────
-# generate — call the Zen API, strip fences, return code
+# generate — call the provider, strip fences, return code
 # ──────────────────────────────────────────────────────────────────────────────
 
-def generate(spec_id: str, language: str, impl_idx: int) -> Tuple[str, str]:
+def generate(spec_id: str, language: str, impl_idx: int, provider, config: dict) -> Tuple[str, str]:
     """
-    Call the Zen API and return (code, fn_name).
+    Call the LLM provider and return (code, fn_name).
     The fn_name is extracted from the generated source.
     """
-    import urllib.request, urllib.error
-
-    key = load_key()
     spec_md = spec_md_from_id(spec_id)
     test_suite = make_test_suite(spec_id, language)
-    prompt_variant = impl_idx % len(PROMPT_VARIANTS[language])
-    prompt_text = PROMPT_VARIANTS[language][prompt_variant]
-    temperature = [0.2, 0.5, 0.8][impl_idx % 3]
 
-    system = (
-        f"You are an expert {language} programmer. "
-        f"Write clean, idiomatic {language} code. "
-        f"Only output the code — no explanations, no markdown fences. "
-        f"The code must pass the provided test suite. "
-        f"IMPORTANT: Output raw code only, no markdown fences, no comments, no explanatory text."
+    variants = _load_prompt_variants(language)
+    system = variants[0]  # first part is system prompt
+    prompt_variants = variants[1:]  # rest are user variants
+
+    prompt_variant = prompt_variants[impl_idx % len(prompt_variants)]
+    temperature = config.get("temperature", 0.2)
+
+    messages = [
+        {"role": "system", "content": system},
+        {"role": "user",   "content": f"{prompt_variant}\n\n## Specification\n{spec_md}\n\n## Test Suite\n```python\n{test_suite}\n```\n\nWrite only the implementation code, no tests. Output raw code only."},
+    ]
+
+    code = provider.generate(
+        messages,
+        model=config.get("model", "gpt-4o-mini"),
+        temperature=temperature,
+        max_tokens=config.get("max_tokens", 4096),
     )
-
-    user = f"""{prompt_text}
-
-## Specification
-{spec_md}
-
-## Test Suite
-```python
-{test_suite}
-```
-
-Write only the implementation code, no tests. Output raw code only."""
-
-    # Use requests (avoids Cloudflare 403 that urllib hits from this server)
-    import requests
-
-    resp = requests.post(
-        f"{ZEN_BASE_URL}/chat/completions",
-        headers={
-            "Authorization": f"Bearer {key}",
-            "Content-Type": "application/json",
-        },
-        json={
-            "model": "minimax-m2.5",
-            "messages": [
-                {"role": "system", "content": system},
-                {"role": "user", "content": user},
-            ],
-            "max_tokens": 4096,
-            "temperature": temperature,
-        },
-        timeout=120,
-    )
-    resp.raise_for_status()
-    data = resp.json()
-    code = data["choices"][0]["message"]["content"]
-    if code is None:
-        raise RuntimeError(f"Model returned no content (content=None). Response: {str(data)[:200]}")
 
     # Strip markdown fences robustly — handles multiple ```, blank lines, stray fences
     code = code.strip()
@@ -679,12 +626,17 @@ def main(spec_id: str, language: str, impl_idx: int):
     ext = _EXT.get(language, ".txt")
     out_file = batch_dir / f"implementation{ext}"
 
+    # Load provider and config lazily
+    from providers import load_provider
+    cfg = _get_config()
+    provider = load_provider(cfg["provider"], cfg["credentials"])
+
     max_retries = 3
     last_error = ""
 
     for attempt in range(max_retries):
         try:
-            code, fn_name = generate(spec_id, language, impl_idx)
+            code, fn_name = generate(spec_id, language, impl_idx, provider, cfg)
         except Exception as exc:
             save_progress(spec_id, language, impl_idx, success=False, error=str(exc))
             print(f"ERROR generating {spec_id}/{language}/impl_{impl_idx} (attempt {attempt+1}): {exc}", file=sys.stderr)
