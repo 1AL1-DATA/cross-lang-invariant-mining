@@ -1,0 +1,12 @@
+function groupByKey(pairs: [string, number][]): Record<string, number[]> {
+    const result: Record<string, number[]> = {};
+    
+    for (const [key, value] of pairs) {
+        if (!result[key]) {
+            result[key] = [];
+        }
+        result[key].push(value);
+    }
+    
+    return result;
+}
